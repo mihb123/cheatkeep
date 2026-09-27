@@ -1,0 +1,2556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function(){
+      try {
+        var sp = new URLSearchParams(location.search);
+        var t = sp.get('theme') || localStorage.getItem('theme');
+        if (t === 'light') document.documentElement.classList.add('light');
+        var v = sp.get('view') || localStorage.getItem('keep_view_mode');
+        if (v === 'list') document.documentElement.classList.add('list-view');
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cheatsheets</title>
+  <meta name="description" content="" />
+  <meta name="theme-color" content="#202124" />
+
+  <style>
+    /* ------------------------------------------------------------ CSS Variables */
+    :root {
+      --bg: #18191c;
+      --surface: #202124;
+      --surface2: #2d2e30;
+      --border: #3c4043;
+      --accent: #8ab4f8;
+      --accent2: #80deea;
+      --accent3: #fcad70;
+      --accent4: #81c995;
+      --danger: #f28b82;
+      --text: #e8eaed;
+      --muted: #9aa0a6;
+      --kbd-bg: #2d2e30;
+      --kbd-border: #4a4d52;
+      --tag-bg: #2d2e30;
+      --code-bg: #17181b;
+      --toggle-bg: #2d2e30;
+      --mono: 'Cascadia Code', 'Fira Code', 'Roboto Mono', 'Consolas', monospace;
+      --sans: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    html.light {
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --surface2: #f1f3f4;
+      --border: #e0e0e0;
+      --accent: #1a73e8;
+      --accent2: #007b83;
+      --accent3: #e65100;
+      --accent4: #137333;
+      --danger: #d93025;
+      --text: #202124;
+      --muted: #5f6368;
+      --kbd-bg: #f1f3f4;
+      --kbd-border: #dadce0;
+      --tag-bg: #f1f3f4;
+      --code-bg: #f8f9fa;
+      --toggle-bg: #f1f3f4;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 14px;
+      line-height: 1.5;
+      padding: 0 0 3rem 0;
+      transition: background 0.2s ease, color 0.2s ease;
+      min-height: 100vh;
+    }
+
+    /* Scrollbars */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(128, 128, 128, 0.25); border-radius: 999px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(128, 128, 128, 0.45); }
+    * { scrollbar-width: thin; scrollbar-color: rgba(128, 128, 128, 0.25) transparent; }
+
+    .container {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* ------------------------------------------------------------ Top App Bar */
+    .keep-appbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.65rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--text);
+      flex-shrink: 0;
+    }
+    .brand-icon {
+      font-size: 1.5rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .brand-title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .brand-title span {
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    /* Keep Search Bar */
+    .search-container {
+      flex: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background: var(--surface2);
+      border: 1px solid transparent;
+      border-radius: 8px;
+      padding: 0.5rem 0.9rem;
+      gap: 0.75rem;
+      transition: background 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .search-bar:focus-within {
+      background: var(--surface);
+      border-color: var(--border);
+      box-shadow: 0 1px 3px 0 rgba(0,0,0,0.3), 0 4px 8px 3px rgba(0,0,0,0.15);
+    }
+    html.light .search-bar {
+      background: #f1f3f4;
+    }
+    html.light .search-bar:hover {
+      background: #e8eaed;
+    }
+    html.light .search-bar:focus-within {
+      background: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 1px 1px 0 rgba(65,69,73,0.3), 0 1px 3px 1px rgba(65,69,73,0.15);
+    }
+    .search-icon {
+      color: var(--muted);
+      font-size: 0.95rem;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+    }
+    .search-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-size: 0.95rem;
+      color: var(--text);
+      font-family: inherit;
+    }
+    .search-input::placeholder {
+      color: var(--muted);
+    }
+    .search-hint {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      padding: 0.1rem 0.45rem;
+      border-radius: 4px;
+      background: var(--kbd-bg);
+      border: 1px solid var(--kbd-border);
+      color: var(--muted);
+      user-select: none;
+    }
+    .search-clear {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 0.85rem;
+      cursor: pointer;
+      padding: 0.2rem 0.4rem;
+      border-radius: 50%;
+      display: none;
+    }
+    .search-clear.visible { display: block; }
+    .search-clear:hover { color: var(--text); }
+
+    /* Top Actions */
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-shrink: 0;
+    }
+    .icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-size: 1.15rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s, color 0.15s, transform 0.15s;
+    }
+    .icon-btn:hover {
+      background: rgba(128, 128, 128, 0.15);
+      color: var(--text);
+      transform: scale(1.05);
+    }
+
+    /* ------------------------------------------------------------ Subnav / Switcher */
+    .subnav-wrap {
+      padding: 1.25rem 0 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .switcher {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .switcher a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      padding: 0.35rem 1rem;
+      background: var(--surface);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.15s ease;
+    }
+    .switcher a:hover {
+      color: var(--text);
+      border-color: var(--muted);
+      background: var(--surface2);
+      transform: translateY(-1px);
+    }
+    .switcher a.active {
+      color: #8ab4f8;
+      background: rgba(138, 180, 248, 0.12);
+      border-color: rgba(138, 180, 248, 0.4);
+      box-shadow: none;
+      font-weight: 600;
+    }
+    html.light .switcher a.active {
+      color: #1a73e8;
+      background: #e8f0fe;
+      border-color: #aecbfa;
+      box-shadow: none;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin: 0.75rem 0 1.5rem;
+    }
+    .header-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.25rem;
+    }
+    .site-logo { height: 42px; width: auto; display: block; }
+    header h1 {
+      font-size: 1.85rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    header p {
+      color: var(--muted);
+      margin-top: 0.25rem;
+      font-size: 0.9rem;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.15rem 0.65rem;
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-top: 0.5rem;
+    }
+
+    /* Legend */
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem 1rem;
+      margin: 0.25rem 0 1.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .legend span[data-tip] { cursor: pointer; }
+    .legend b {
+      display: inline-block;
+      min-width: 1.3rem;
+      text-align: center;
+      border-radius: 4px;
+      padding: 0 0.3rem;
+      margin-right: 0.3rem;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+    }
+
+    /* Search Results Count */
+    .search-count {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      min-height: 1.2rem;
+    }
+    .search-count.no-results { color: var(--danger); font-weight: 500; }
+    mark {
+      background: rgba(253, 214, 99, 0.4);
+      color: inherit;
+      border-radius: 2px;
+      padding: 0 2px;
+    }
+    html.light mark {
+      background: #ffe082;
+      color: #202124;
+    }
+
+    /* ------------------------------------------------------------ Keep Note Colors */
+    /* Light Mode */
+    html.light .card[data-color="default"],
+    html.light .card:not([data-color]) {
+      --card-bg: #ffffff;
+      --card-border: #e0e0e0;
+      --card-title: #202124;
+      --card-text: #202124;
+      --card-muted: #5f6368;
+      --card-code-bg: #f8f9fa;
+      --card-code-border: #dadce0;
+      --card-badge-bg: #f1f3f4;
+      --card-accent: #1a73e8;
+      --card-shadow: 0 1px 2px 0 rgba(60,64,67,0.15);
+      --card-hover-shadow: 0 4px 12px rgba(60,64,67,0.25);
+    }
+    html.light .card[data-color="yellow"] {
+      --card-bg: #fff8e1;
+      --card-border: #ffe082;
+      --card-title: #3e2723;
+      --card-text: #202124;
+      --card-muted: #5d4037;
+      --card-code-bg: rgba(0, 0, 0, 0.04);
+      --card-code-border: rgba(0, 0, 0, 0.08);
+      --card-badge-bg: rgba(0, 0, 0, 0.07);
+      --card-accent: #e65100;
+      --card-shadow: 0 1px 2px 0 rgba(60,64,67,0.15);
+      --card-hover-shadow: 0 4px 12px rgba(245,127,23,0.25);
+    }
+    html.light .card[data-color="teal"] {
+      --card-bg: #e0f2f1;
+      --card-border: #80cbc4;
+      --card-title: #004d40;
+      --card-text: #202124;
+      --card-muted: #004d40;
+      --card-code-bg: rgba(0, 0, 0, 0.04);
+      --card-code-border: rgba(0, 0, 0, 0.08);
+      --card-badge-bg: rgba(0, 0, 0, 0.07);
+      --card-accent: #00796b;
+      --card-shadow: 0 1px 2px 0 rgba(60,64,67,0.15);
+      --card-hover-shadow: 0 4px 12px rgba(0,121,107,0.25);
+    }
+    html.light .card[data-color="pink"] {
+      --card-bg: #fce4ec;
+      --card-border: #f48fb1;
+      --card-title: #880e4f;
+      --card-text: #202124;
+      --card-muted: #880e4f;
+      --card-code-bg: rgba(0, 0, 0, 0.04);
+      --card-code-border: rgba(0, 0, 0, 0.08);
+      --card-badge-bg: rgba(0, 0, 0, 0.07);
+      --card-accent: #c2185b;
+      --card-shadow: 0 1px 2px 0 rgba(60,64,67,0.15);
+      --card-hover-shadow: 0 4px 12px rgba(194,24,91,0.25);
+    }
+    html.light .card[data-color="orange"] {
+      --card-bg: #fbe9e7;
+      --card-border: #ffab91;
+      --card-title: #bf360c;
+      --card-text: #202124;
+      --card-muted: #d84315;
+      --card-code-bg: rgba(0, 0, 0, 0.04);
+      --card-code-border: rgba(0, 0, 0, 0.08);
+      --card-badge-bg: rgba(0, 0, 0, 0.07);
+      --card-accent: #e64a19;
+      --card-shadow: 0 1px 2px 0 rgba(60,64,67,0.15);
+      --card-hover-shadow: 0 4px 12px rgba(230,74,25,0.25);
+    }
+    html.light .card[data-color="blue"] {
+      --card-bg: #e3f2fd;
+      --card-border: #90caf9;
+      --card-title: #0d47a1;
+      --card-text: #202124;
+      --card-muted: #1565c0;
+      --card-code-bg: rgba(0, 0, 0, 0.04);
+      --card-code-border: rgba(0, 0, 0, 0.08);
+      --card-badge-bg: rgba(0, 0, 0, 0.07);
+      --card-accent: #1976d2;
+      --card-shadow: 0 1px 2px 0 rgba(60,64,67,0.15);
+      --card-hover-shadow: 0 4px 12px rgba(25,118,210,0.25);
+    }
+    html.light .card[data-color="green"] {
+      --card-bg: #e8f5e9;
+      --card-border: #a5d6a7;
+      --card-title: #1b5e20;
+      --card-text: #202124;
+      --card-muted: #2e7d32;
+      --card-code-bg: rgba(0, 0, 0, 0.04);
+      --card-code-border: rgba(0, 0, 0, 0.08);
+      --card-badge-bg: rgba(0, 0, 0, 0.07);
+      --card-accent: #388e3c;
+      --card-shadow: 0 1px 2px 0 rgba(60,64,67,0.15);
+      --card-hover-shadow: 0 4px 12px rgba(56,142,60,0.25);
+    }
+    html.light .card[data-color="purple"] {
+      --card-bg: #f3e5f5;
+      --card-border: #ce93d8;
+      --card-title: #4a148c;
+      --card-text: #202124;
+      --card-muted: #6a1b9a;
+      --card-code-bg: rgba(0, 0, 0, 0.04);
+      --card-code-border: rgba(0, 0, 0, 0.08);
+      --card-badge-bg: rgba(0, 0, 0, 0.07);
+      --card-accent: #7b1fa2;
+      --card-shadow: 0 1px 2px 0 rgba(60,64,67,0.15);
+      --card-hover-shadow: 0 4px 12px rgba(123,31,162,0.25);
+    }
+    html.light .card[data-color="red"] {
+      --card-bg: #ffebee;
+      --card-border: #ef9a9a;
+      --card-title: #b71c1c;
+      --card-text: #202124;
+      --card-muted: #c62828;
+      --card-code-bg: rgba(0, 0, 0, 0.04);
+      --card-code-border: rgba(0, 0, 0, 0.08);
+      --card-badge-bg: rgba(0, 0, 0, 0.07);
+      --card-accent: #d32f2f;
+      --card-shadow: 0 1px 2px 0 rgba(60,64,67,0.15);
+      --card-hover-shadow: 0 4px 12px rgba(211,47,47,0.25);
+    }
+
+    /* Dark Mode - Soft subtle tints */
+    :root:not(.light) .card,
+    :root:not(.light) .card[data-color="default"],
+    :root:not(.light) .card:not([data-color]) {
+      --card-bg: #202124;
+      --card-border: #3c4043;
+      --card-title: #e8eaed;
+      --card-text: #e8eaed;
+      --card-muted: #9aa0a6;
+      --card-code-bg: #17181b;
+      --card-code-border: #303134;
+      --card-badge-bg: rgba(255, 255, 255, 0.08);
+      --card-accent: #8ab4f8;
+      --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+      --card-hover-shadow: 0 4px 14px rgba(0, 0, 0, 0.65);
+    }
+    :root:not(.light) .card[data-color="yellow"] {
+      --card-bg: #272418;
+      --card-border: #4d4322;
+      --card-title: #fff9c4;
+      --card-text: #e8eaed;
+      --card-muted: #d4c59a;
+      --card-code-bg: rgba(0, 0, 0, 0.35);
+      --card-code-border: rgba(255, 255, 255, 0.08);
+      --card-badge-bg: rgba(255, 255, 255, 0.1);
+      --card-accent: #fdd663;
+      --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+      --card-hover-shadow: 0 4px 14px rgba(0, 0, 0, 0.65);
+    }
+    :root:not(.light) .card[data-color="teal"] {
+      --card-bg: #182524;
+      --card-border: #234743;
+      --card-title: #e0f2f1;
+      --card-text: #e8eaed;
+      --card-muted: #94c7c2;
+      --card-code-bg: rgba(0, 0, 0, 0.35);
+      --card-code-border: rgba(255, 255, 255, 0.08);
+      --card-badge-bg: rgba(255, 255, 255, 0.1);
+      --card-accent: #80deea;
+      --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+      --card-hover-shadow: 0 4px 14px rgba(0, 0, 0, 0.65);
+    }
+    :root:not(.light) .card[data-color="pink"] {
+      --card-bg: #281c20;
+      --card-border: #4d2931;
+      --card-title: #fce4ec;
+      --card-text: #e8eaed;
+      --card-muted: #d99fa9;
+      --card-code-bg: rgba(0, 0, 0, 0.35);
+      --card-code-border: rgba(255, 255, 255, 0.08);
+      --card-badge-bg: rgba(255, 255, 255, 0.1);
+      --card-accent: #f28b82;
+      --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+      --card-hover-shadow: 0 4px 14px rgba(0, 0, 0, 0.65);
+    }
+    :root:not(.light) .card[data-color="orange"] {
+      --card-bg: #282017;
+      --card-border: #4f3922;
+      --card-title: #fbe9e7;
+      --card-text: #e8eaed;
+      --card-muted: #d8b898;
+      --card-code-bg: rgba(0, 0, 0, 0.35);
+      --card-code-border: rgba(255, 255, 255, 0.08);
+      --card-badge-bg: rgba(255, 255, 255, 0.1);
+      --card-accent: #fcad70;
+      --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+      --card-hover-shadow: 0 4px 14px rgba(0, 0, 0, 0.65);
+    }
+    :root:not(.light) .card[data-color="blue"] {
+      --card-bg: #18222e;
+      --card-border: #233d59;
+      --card-title: #e3f2fd;
+      --card-text: #e8eaed;
+      --card-muted: #9cbddb;
+      --card-code-bg: rgba(0, 0, 0, 0.35);
+      --card-code-border: rgba(255, 255, 255, 0.08);
+      --card-badge-bg: rgba(255, 255, 255, 0.1);
+      --card-accent: #8ab4f8;
+      --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+      --card-hover-shadow: 0 4px 14px rgba(0, 0, 0, 0.65);
+    }
+    :root:not(.light) .card[data-color="green"] {
+      --card-bg: #19241b;
+      --card-border: #25472a;
+      --card-title: #e8f5e9;
+      --card-text: #e8eaed;
+      --card-muted: #9dc4a2;
+      --card-code-bg: rgba(0, 0, 0, 0.35);
+      --card-code-border: rgba(255, 255, 255, 0.08);
+      --card-badge-bg: rgba(255, 255, 255, 0.1);
+      --card-accent: #81c995;
+      --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+      --card-hover-shadow: 0 4px 14px rgba(0, 0, 0, 0.65);
+    }
+    :root:not(.light) .card[data-color="purple"] {
+      --card-bg: #221a2a;
+      --card-border: #3d274f;
+      --card-title: #f3e5f5;
+      --card-text: #e8eaed;
+      --card-muted: #c09ec9;
+      --card-code-bg: rgba(0, 0, 0, 0.35);
+      --card-code-border: rgba(255, 255, 255, 0.08);
+      --card-badge-bg: rgba(255, 255, 255, 0.1);
+      --card-accent: #d7aefb;
+      --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+      --card-hover-shadow: 0 4px 14px rgba(0, 0, 0, 0.65);
+    }
+    :root:not(.light) .card[data-color="red"] {
+      --card-bg: #291818;
+      --card-border: #4d2323;
+      --card-title: #ffebee;
+      --card-text: #e8eaed;
+      --card-muted: #d99a9a;
+      --card-code-bg: rgba(0, 0, 0, 0.35);
+      --card-code-border: rgba(255, 255, 255, 0.08);
+      --card-badge-bg: rgba(255, 255, 255, 0.1);
+      --card-accent: #f28b82;
+      --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+      --card-hover-shadow: 0 4px 14px rgba(0, 0, 0, 0.65);
+    }
+
+    /* ------------------------------------------------------------ Masonry Layout (Google Keep) */
+    .masonry-grid {
+      columns: 3 340px;
+      column-gap: 1.25rem;
+      margin-bottom: 1.5rem;
+      width: 100%;
+    }
+    @media (min-width: 1440px) {
+      .masonry-grid { columns: 4 340px; }
+    }
+    @media (max-width: 1100px) {
+      .masonry-grid { columns: 2 320px; }
+    }
+    @media (max-width: 680px) {
+      .masonry-grid { columns: 1; }
+    }
+
+    .grid-wide {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(520px, 100%), 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+      width: 100%;
+    }
+
+    /* Single-Column List View Mode */
+    html.list-view .masonry-grid,
+    html.list-view .grid-wide {
+      columns: 1 !important;
+      display: block !important;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Keep Section Labels */
+    .keep-section-header {
+      margin: 1.5rem 0 0.75rem;
+      padding-left: 0.25rem;
+    }
+    .keep-section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* ------------------------------------------------------------ Cards */
+    .card {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 1.25rem;
+      vertical-align: top;
+      background: var(--card-bg, var(--surface));
+      border: 1px solid var(--card-border, var(--border));
+      border-radius: 12px;
+      box-shadow: var(--card-shadow, 0 1px 2px 0 rgba(60,64,67,0.15));
+      transition: box-shadow 0.2s cubic-bezier(0.4,0,0.2,1), transform 0.2s cubic-bezier(0.4,0,0.2,1), border-color 0.2s ease;
+      color: var(--card-text, var(--text));
+      position: relative;
+    }
+    .card:hover {
+      box-shadow: var(--card-hover-shadow, 0 4px 14px rgba(60,64,67,0.25));
+      transform: translateY(-2px);
+    }
+    .card.hidden, .section.hidden, .hidden-row { display: none !important; }
+
+    /* Card Header */
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 0.95rem 1rem 0.35rem;
+      background: transparent;
+      border-bottom: none;
+      position: relative;
+    }
+    .card-header[data-tip] { cursor: pointer; }
+    .card-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      min-width: 0;
+      flex: 1;
+    }
+    .card-header .icon {
+      font-size: 1.15rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .card-header h2 {
+      font-size: 0.96rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--card-title);
+      line-height: 1.35;
+      text-transform: none;
+      word-break: break-word;
+    }
+    .card-header h2 span {
+      color: var(--card-accent);
+      font-weight: 700;
+    }
+    .card-header h2 small {
+      font-weight: 400;
+      font-size: 0.8em;
+      opacity: 0.75;
+      display: block;
+      margin-top: 0.15rem;
+    }
+
+    /* Keep Note Action Toolbar */
+    .card-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      flex-shrink: 0;
+    }
+    .card:hover .card-actions,
+    .card:focus-within .card-actions,
+    .card[data-pinned="true"] .pin-btn,
+    .card-actions.popover-open {
+      opacity: 1;
+    }
+    @media (hover: none) {
+      .card-actions { opacity: 1; }
+    }
+
+    .card-action-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: var(--card-muted);
+      transition: background 0.15s, color 0.15s, transform 0.15s;
+    }
+    .card-action-btn:hover {
+      background: rgba(128, 128, 128, 0.18);
+      color: var(--card-title);
+      transform: scale(1.1);
+    }
+    .pin-btn.active {
+      opacity: 1 !important;
+      color: var(--card-accent);
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+    }
+
+    /* Color picker popover */
+    .color-picker-wrap {
+      position: relative;
+    }
+    .color-palette-popover {
+      position: absolute;
+      top: 100%;
+      right: -8px;
+      margin-top: 4px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 6px 8px;
+      display: none;
+      gap: 6px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+      z-index: 60;
+      white-space: nowrap;
+    }
+    .color-palette-popover.open {
+      display: flex;
+    }
+    .color-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 0.15s, border-color 0.15s;
+      padding: 0;
+    }
+    .color-dot:hover {
+      transform: scale(1.25);
+    }
+    .color-dot.selected {
+      border-color: var(--text);
+      transform: scale(1.15);
+    }
+    .color-dot-default { background: #e0e0e0; }
+    .color-dot-yellow  { background: #fff475; }
+    .color-dot-teal    { background: #a7ffeb; }
+    .color-dot-pink    { background: #fdcfe8; }
+    .color-dot-orange  { background: #fedfc8; }
+    .color-dot-blue    { background: #cbf0f8; }
+    .color-dot-green   { background: #ccff90; }
+    .color-dot-purple  { background: #d7aefb; }
+
+    /* Card Body */
+    .card-body {
+      padding: 0.35rem 1rem 1rem;
+    }
+    .card-body.cols-2 {
+      columns: 2;
+      column-gap: 1.25rem;
+    }
+    .card-body.cols-2 > .section { break-inside: avoid; }
+    @media (max-width: 800px) { .card-body.cols-2 { columns: 1; } }
+    .section + .section { margin-top: 0.85rem; }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--card-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    /* ------------------------------------------------------------ Tables */
+    table { width: 100%; border-collapse: collapse; }
+    th {
+      text-align: left;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--card-muted);
+      padding: 0 0 0.4rem 0;
+      border-bottom: 1px solid var(--card-border, var(--border));
+    }
+    td {
+      padding: 0.35rem 0;
+      border-bottom: 1px solid var(--card-border, var(--border));
+      vertical-align: top;
+      color: var(--card-text);
+    }
+    tr:last-child td { border-bottom: none; }
+    td:first-child { width: 55%; padding-right: 0.5rem; overflow-wrap: anywhere; }
+    tr[data-tip] { cursor: pointer; }
+    tr[data-tip]:hover td { background: rgba(128, 128, 128, 0.08); }
+
+    /* Rows */
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid var(--card-border, var(--border));
+    }
+    .row:last-child { border-bottom: none; }
+    .row .label { color: var(--card-text); font-size: 0.84rem; }
+    .row .right { text-align: right; }
+
+    /* Tags / Chips (Google Keep Pill style) */
+    .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .tag {
+      display: inline-block;
+      background: var(--card-badge-bg);
+      border: 1px solid var(--card-border, var(--border));
+      border-radius: 9999px;
+      padding: 0.15rem 0.6rem;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: var(--card-text);
+    }
+
+    /* Mode Pills */
+    .mode {
+      display: inline-block;
+      border-radius: 4px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: #2a1f5e; color: #a89ef7; border: 1px solid #4a3f9e;
+    }
+    .mode-host            { background: #1f3a2a; color: #6af7a0; border-color: #3a7a5a; }
+    .mode-session         { background: #3a2a1f; color: #f7a06a; border-color: #7a5a3a; }
+    .mode-session-preload { background: #2e2218; color: #f7c08a; border-color: #7a6a3a; }
+    .mode-dir             { background: #1f3a4a; color: #5bc4f5; border-color: #3a7a9a; }
+    .mode-ws              { background: #3a1f3a; color: #f76af7; border-color: #7a3a7a; }
+    .mode-prefix          { background: #2a1f3a; color: #c89ef7; border-color: #6a4a9e; }
+    .mode-fulltext        { background: #1f2a3a; color: #6ac4f7; border-color: #3a6a9e; }
+    .mode-fuzzy           { background: #2a3a1f; color: #a0f76a; border-color: #5a9e3a; }
+
+    /* Kbd & Keys */
+    kbd {
+      display: inline-block;
+      background: var(--card-code-bg);
+      border: 1px solid var(--card-code-border);
+      border-radius: 4px;
+      padding: 0.1rem 0.45rem;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      line-height: 1.5;
+      color: var(--card-accent);
+      white-space: nowrap;
+    }
+    kbd.key { white-space: normal; color: var(--card-accent); }
+    .sep { color: var(--card-muted); margin: 0 0.15rem; }
+    .ph { color: var(--accent3); font-style: italic; }
+    .note { color: var(--card-muted); font-size: 0.75rem; margin-left: 0.3rem; }
+    .danger-badge { color: var(--danger); margin-left: 0.35rem; font-size: 0.8rem; cursor: help; }
+
+    code {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--card-accent);
+    }
+
+    /* ------------------------------------------------------------ Code Blocks */
+    pre {
+      background: var(--card-code-bg);
+      border: 1px solid var(--card-code-border);
+      border-radius: 8px;
+      padding: 0.75rem 0.95rem;
+      font-family: var(--mono);
+      font-size: 0.81rem;
+      line-height: 1.65;
+      white-space: pre-wrap;
+      word-break: break-word;
+      overflow-x: auto;
+      color: var(--card-text);
+      scrollbar-width: thin;
+      scrollbar-color: var(--card-border, var(--border)) transparent;
+    }
+
+    /* Syntax Highlighting */
+    html.light pre .kw { color: #6f42c1; font-weight: 600; }
+    html.light pre .key { color: #005cc5; }
+    html.light pre .val { color: #d73a49; }
+    html.light pre .str { color: #22863a; }
+    html.light pre .comment { color: #6a737d; font-style: italic; }
+
+    :root:not(.light) pre .kw { color: #c58af9; font-weight: 600; }
+    :root:not(.light) pre .key { color: #78d9ec; }
+    :root:not(.light) pre .val { color: #fcad70; }
+    :root:not(.light) pre .str { color: #81c995; }
+    :root:not(.light) pre .comment { color: #9aa0a6; font-style: italic; }
+
+    /* Copy on click */
+    kbd.copyable {
+      cursor: pointer;
+      white-space: normal;
+      color: var(--card-accent);
+      transition: color 0.15s, border-color 0.15s;
+    }
+    kbd.copyable:hover { border-color: var(--card-accent); }
+    kbd.copyable:hover::after { content: ' ⎘'; font-size: 0.85em; opacity: 0.7; font-family: sans-serif; }
+    kbd.copyable.copied { border-color: var(--accent4) !important; color: var(--accent4) !important; }
+    kbd.copyable.copied::after { content: ' ✓' !important; color: var(--accent4); opacity: 1; }
+
+    .copyable-line {
+      display: block;
+      cursor: pointer;
+      border-radius: 3px;
+      padding: 0 4px;
+      margin: 0 -4px;
+      transition: background 0.15s;
+    }
+    .copyable-line:hover { background: rgba(128, 128, 128, 0.12); }
+    .copyable-line:hover::after { content: ' ⎘'; color: var(--card-accent); font-size: 0.85em; font-family: sans-serif; }
+    .copyable-line.copied { background: rgba(129, 201, 149, 0.2); }
+    .copyable-line.copied::after { content: ' ✓'; color: var(--accent4); font-family: sans-serif; }
+    .code-line { display: block; }
+    .code-line.hidden-line { display: none; }
+
+    .pre-wrap { position: relative; }
+    .pre-copy-btn {
+      position: absolute;
+      top: 0.45rem;
+      right: 0.5rem;
+      background: var(--card-bg, var(--surface));
+      border: 1px solid var(--card-border, var(--border));
+      border-radius: 4px;
+      color: var(--card-muted);
+      font-size: 0.7rem;
+      padding: 0.15rem 0.5rem;
+      cursor: pointer;
+      transition: opacity 0.15s, color 0.15s, border-color 0.15s;
+      font-family: var(--sans);
+      z-index: 1;
+      opacity: 0;
+    }
+    .pre-wrap:hover .pre-copy-btn, .pre-copy-btn:focus-visible, .pre-copy-btn.copied { opacity: 1; }
+    @media (hover: none) { .pre-copy-btn { opacity: 1; } }
+    .pre-copy-btn:hover { color: var(--card-accent); border-color: var(--card-accent); }
+    .pre-copy-btn.copied { color: var(--accent4) !important; border-color: var(--accent4) !important; }
+
+    /* Toast */
+    .copy-toast {
+      position: fixed;
+      background: #202124;
+      color: #ffffff;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      pointer-events: none;
+      z-index: 9999;
+      transition: opacity 0.3s ease;
+      font-family: var(--sans);
+      white-space: nowrap;
+      transform: translate(12px, -130%);
+    }
+    html.light .copy-toast {
+      background: #202124;
+      color: #ffffff;
+    }
+
+    .desc { color: var(--card-text); font-size: 0.82rem; }
+    .text-block { color: var(--card-text); font-size: 0.82rem; }
+
+    /* ------------------------------------------------------------ Tooltip Popover */
+    .tooltip {
+      position: fixed;
+      z-index: 200;
+      width: min(360px, calc(100vw - 32px));
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 16px 44px rgba(0,0,0,.45);
+      padding: 0.85rem 1rem;
+      display: none;
+    }
+    .tooltip.open { display: block; }
+    .tooltip-close {
+      position: absolute;
+      top: 0.4rem;
+      right: 0.5rem;
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+    .tooltip-cmd { font-family: var(--mono); color: var(--accent2); font-weight: 600; padding-right: 1.5rem; }
+    .tooltip-danger { color: var(--danger); font-size: 0.78rem; margin-bottom: 0.3rem; }
+    .tooltip-desc { color: var(--text); font-size: 0.84rem; margin-top: 0.3rem; }
+    .tooltip-ex { margin-top: 0.6rem; display: flex; align-items: center; gap: 0.5rem; }
+    .tooltip-ex span { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+    .tooltip-ex code { flex: 1; background: var(--code-bg); border: 1px solid var(--border); border-radius: 4px; padding: 0.15rem 0.45rem; overflow-wrap: anywhere; }
+    .tooltip-ex button { background: none; border: 1px solid var(--border); border-radius: 4px; color: var(--muted); font-size: 0.7rem; padding: 0.15rem 0.5rem; cursor: pointer; }
+    .tooltip-ex button:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ------------------------------------------------------------ Index Page */
+    .sheet-list {
+      columns: 3 320px;
+      column-gap: 1.25rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 800px) { .sheet-list { columns: 1; } }
+    .sheet-link {
+      display: inline-block;
+      width: 100%;
+      break-inside: avoid;
+      text-decoration: none;
+      color: inherit;
+      background: var(--card-bg, var(--surface));
+      border: 1px solid var(--card-border, var(--border));
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-bottom: 1.25rem;
+      box-shadow: var(--card-shadow, 0 1px 2px 0 rgba(60,64,67,0.15));
+      transition: all .2s cubic-bezier(0.4,0,0.2,1);
+    }
+    .sheet-link:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--card-hover-shadow, 0 4px 14px rgba(60,64,67,0.25));
+    }
+    .sheet-link h2 { font-size: 1.15rem; color: var(--card-title, var(--accent)); margin-bottom: 0.3rem; }
+    .sheet-link p { color: var(--card-muted, var(--muted)); font-size: 0.85rem; margin-bottom: 0.6rem; }
+    .sheet-link small {
+      display: inline-block;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.15rem 0.6rem;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-family: var(--mono);
+    }
+
+    .status { text-align: center; color: var(--muted); padding: 3rem 0; font-size: 1.05rem; }
+    .status.error { color: var(--danger); }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* ------------------------------------------------------------ Chat Widget & Trigger */
+    .chat-top-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--text);
+      font-size: 0.84rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .chat-top-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      box-shadow: 0 2px 8px rgba(138, 180, 248, 0.35);
+    }
+    .chat-top-btn .chat-top-icon {
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    /* Floating Chat Button (FAB) */
+    .chat-fab {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 180;
+      height: 48px;
+      padding: 0 1.15rem;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: linear-gradient(135deg, var(--accent) 0%, #3b82f6 100%);
+      color: #ffffff;
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s, opacity 0.2s;
+    }
+    .chat-fab:hover {
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+    }
+    .chat-fab:active {
+      transform: translateY(0) scale(0.98);
+    }
+    .chat-fab.hidden {
+      display: none !important;
+    }
+
+    /* Chat Widget Window (Full Page Height Drawer) */
+    .chat-widget {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 250;
+      width: min(500px, 100vw);
+      height: 100vh;
+      height: 100dvh;
+      background: var(--surface);
+      border-left: 1px solid var(--border);
+      box-shadow: -8px 0 36px rgba(0, 0, 0, 0.45);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, visibility 0.28s;
+    }
+    .chat-widget.closed {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(100%);
+      pointer-events: none;
+    }
+
+    /* Chat Header */
+    .chat-header {
+      padding: 0.85rem 1rem 0.75rem;
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      flex-shrink: 0;
+    }
+    .chat-header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .chat-header-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .chat-header-badge {
+      font-size: 0.68rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+      background: rgba(138, 180, 248, 0.15);
+      color: var(--accent);
+      border: 1px solid rgba(138, 180, 248, 0.3);
+      font-weight: 500;
+    }
+    .chat-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .chat-btn-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s, color 0.15s;
+    }
+    .chat-btn-icon:hover {
+      background: rgba(128, 128, 128, 0.2);
+      color: var(--text);
+    }
+
+    .chat-scope-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.76rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+    .chat-filter-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      flex: 1;
+      min-width: 140px;
+    }
+    .chat-filter-item span {
+      white-space: nowrap;
+      font-weight: 500;
+    }
+    .chat-scope-select, .chat-limit-select {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 6px;
+      padding: 0.25rem 0.45rem;
+      font-size: 0.78rem;
+      font-family: inherit;
+      outline: none;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+    .chat-scope-select:focus, .chat-limit-select:focus {
+      border-color: var(--accent);
+    }
+
+    /* Chat Messages */
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    /* Welcome state */
+    .chat-welcome {
+      text-align: center;
+      padding: 0.8rem 0.3rem;
+      color: var(--muted);
+    }
+    .chat-welcome-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.4rem;
+    }
+    .chat-welcome h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+    .chat-welcome p {
+      font-size: 0.82rem;
+      line-height: 1.45;
+      margin-bottom: 1rem;
+    }
+    .chat-suggestions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      text-align: left;
+    }
+    .chat-chip {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.82rem;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.15s ease;
+      text-align: left;
+      font-family: inherit;
+    }
+    .chat-chip:hover {
+      background: var(--bg);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateX(2px);
+    }
+
+    /* Message Bubbles */
+    .chat-bubble {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      animation: chatFadeIn 0.2s ease-out;
+    }
+    @keyframes chatFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .chat-bubble.user {
+      align-self: flex-end;
+      max-width: 85%;
+    }
+    .chat-bubble.user .chat-content {
+      background: var(--accent);
+      color: #ffffff;
+      padding: 0.55rem 0.85rem;
+      border-radius: 14px 14px 2px 14px;
+      font-size: 0.88rem;
+      line-height: 1.4;
+      word-break: break-word;
+    }
+    .chat-bubble.assistant {
+      align-self: flex-start;
+      width: 100%;
+    }
+    .chat-bubble.assistant .chat-content {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 14px 14px 14px 2px;
+      padding: 0.75rem 0.85rem;
+      font-size: 0.86rem;
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    /* Chat Results */
+    .chat-results-count {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .chat-empty-hint {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+      line-height: 1.4;
+    }
+    .chat-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.65rem 0.75rem;
+      margin-top: 0.55rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: border-color 0.15s;
+    }
+    .chat-card:hover {
+      border-color: rgba(138, 180, 248, 0.4);
+    }
+    .chat-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+    }
+    .chat-card-ctx {
+      color: var(--muted);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .chat-card-score {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      padding: 0.1rem 0.35rem;
+      border-radius: 4px;
+      background: rgba(129, 201, 149, 0.15);
+      color: var(--accent4);
+      white-space: nowrap;
+    }
+    .chat-cmd-box {
+      position: relative;
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.45rem 3rem 0.45rem 0.6rem;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--accent);
+      overflow-x: auto;
+      word-break: break-all;
+      white-space: pre-wrap;
+    }
+    .chat-copy-code-btn {
+      position: absolute;
+      top: 0.35rem;
+      right: 0.35rem;
+      font-size: 0.7rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: var(--sans);
+    }
+    .chat-copy-code-btn:hover {
+      color: var(--text);
+      border-color: var(--accent);
+    }
+    .chat-copy-code-btn.copied {
+      background: var(--accent4);
+      color: #ffffff;
+      border-color: transparent;
+    }
+    .chat-card-desc {
+      font-size: 0.82rem;
+      color: var(--text);
+    }
+    .chat-card-desc-vi {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .chat-card-danger {
+      font-size: 0.76rem;
+      color: var(--danger);
+      background: rgba(242, 139, 130, 0.12);
+      border: 1px solid rgba(242, 139, 130, 0.25);
+      border-radius: 4px;
+      padding: 0.25rem 0.45rem;
+    }
+    .chat-card-ex {
+      font-size: 0.76rem;
+      color: var(--muted);
+      font-family: var(--mono);
+    }
+
+    /* Typing indicator */
+    .chat-typing {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .chat-dots {
+      display: inline-flex;
+      gap: 3px;
+    }
+    .chat-dots span {
+      width: 5px;
+      height: 5px;
+      background: var(--muted);
+      border-radius: 50%;
+      animation: chatDotBounce 1.2s infinite ease-in-out;
+    }
+    .chat-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .chat-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes chatDotBounce {
+      0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+      40% { transform: translateY(-4px); opacity: 1; }
+    }
+
+    /* Chat Footer */
+    .chat-footer {
+      padding: 0.65rem 0.85rem;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .chat-form {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .chat-input {
+      flex: 1;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.5rem 0.9rem;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.86rem;
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .chat-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(138, 180, 248, 0.2);
+    }
+    .chat-send-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+    .chat-send-btn:hover {
+      opacity: 0.9;
+      transform: scale(1.05);
+    }
+    .chat-send-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .chat-footer-hint {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 0.35rem;
+    }
+
+    @media (max-width: 600px) {
+      .chat-widget {
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        border-left: none;
+      }
+      .chat-fab {
+        bottom: 1rem;
+        right: 1rem;
+        height: 44px;
+        padding: 0 0.9rem;
+      }
+      .chat-top-btn span.chat-btn-text {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top App Bar -->
+  <header class="keep-appbar">
+    <a href="/" class="brand-wrap" aria-label="Cheatsheets Home">
+      <span class="brand-icon">💡</span>
+      <span class="brand-title">Cheat<span>Keep</span></span>
+    </a>
+
+    <div class="search-container" id="searchBox" hidden>
+      <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search" class="search-input" placeholder="Search commands, keys, syntax… ( / )" autocomplete="off" spellcheck="false" aria-label="Search cheatsheet commands" />
+        <span class="search-hint" id="searchHint">/</span>
+        <button class="search-clear" id="searchClear" aria-label="Clear search">✕</button>
+      </div>
+    </div>
+
+    <div class="topbar-actions">
+      <button class="chat-top-btn" id="chatTopBtn" title="Hỏi đáp Cheatsheet (Vector Search)" aria-label="Mở khung chat">
+        <span class="chat-top-icon">💬</span>
+        <span class="chat-btn-text">Hỏi đáp AI</span>
+      </button>
+      <button class="icon-btn" id="viewToggle" title="Toggle Grid / List View" aria-label="Toggle Grid / List View">⊞</button>
+      <button class="icon-btn" id="themeToggle" title="Toggle Light / Dark theme" aria-label="Toggle light/dark mode">☀️</button>
+    </div>
+  </header>
+
+  <div class="container" id="mainContainer">
+    <div class="subnav-wrap">
+      <nav class="switcher" id="switcher" aria-label="Cheatsheets navigation"></nav>
+    </div>
+
+    <header id="header">
+      <div class="header-title"><h1>Cheatsheets</h1></div>
+    </header>
+
+    <div class="search-count" id="searchCount"></div>
+
+    <main id="main"><p class="status">Loading notes…</p></main>
+
+    <footer id="footer"></footer>
+  </div>
+
+  <!-- Floating Chat Button (FAB) -->
+  <button class="chat-fab" id="chatFab" title="Hỏi đáp Cheatsheet bằng ngôn ngữ tự nhiên" aria-label="Mở khung chat">
+    <span>💬</span>
+    <span>Hỏi đáp AI</span>
+  </button>
+
+  <!-- Vector Search Chat Widget -->
+  <div class="chat-widget closed" id="chatWidget" role="dialog" aria-modal="false" aria-label="Trợ lý Cheatsheet">
+    <div class="chat-header">
+      <div class="chat-header-top">
+        <div class="chat-header-title">
+          <span>💬</span>
+          <span>Hỏi đáp Cheatsheet</span>
+          <span class="chat-header-badge">Vector AI</span>
+        </div>
+        <div class="chat-header-actions">
+          <button class="chat-btn-icon" id="chatClearBtn" title="Xoá đoạn chat" aria-label="Xoá chat">🗑️</button>
+          <button class="chat-btn-icon" id="chatCloseBtn" title="Đóng chat (Esc)" aria-label="Đóng chat">✕</button>
+        </div>
+      </div>
+      <div class="chat-scope-bar">
+        <div class="chat-filter-item">
+          <span>Sheet:</span>
+          <select class="chat-scope-select" id="chatScope" aria-label="Phạm vi tra cứu">
+            <option value="">🌐 Tất cả cheatsheets</option>
+          </select>
+        </div>
+        <div class="chat-filter-item">
+          <span>Kết quả:</span>
+          <select class="chat-limit-select" id="chatLimit" aria-label="Số lượng kết quả trả về">
+            <option value="3">3 kết quả</option>
+            <option value="5" selected>5 kết quả</option>
+            <option value="8">8 kết quả</option>
+            <option value="10">10 kết quả</option>
+            <option value="15">15 kết quả</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-welcome" id="chatWelcome">
+        <div class="chat-welcome-icon">💡</div>
+        <h3>Tra cứu câu lệnh thông minh</h3>
+        <p>Hỏi bất kỳ câu lệnh nào bằng tiếng Việt hoặc tiếng Anh. Hệ thống sử dụng <strong>pgvector</strong> để tìm kiếm theo ngữ nghĩa.</p>
+        <div class="chat-suggestions">
+          <button type="button" class="chat-chip" data-prompt="Tạo bảng có khoá ngoại trong MySQL">🐬 Tạo bảng có khoá ngoại trong MySQL</button>
+          <button type="button" class="chat-chip" data-prompt="Chia đôi màn hình theo chiều dọc trong Neovim">⚡ Chia đôi màn hình theo chiều dọc</button>
+          <button type="button" class="chat-chip" data-prompt="Tìm kiếm lịch sử lệnh theo thư mục hiện tại">🐚 Tìm lịch sử lệnh theo thư mục (Atuin)</button>
+          <button type="button" class="chat-chip" data-prompt="Đổi mật khẩu tài khoản người dùng">🐬 Đổi mật khẩu user MySQL</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-footer">
+      <form class="chat-form" id="chatForm">
+        <input type="text" class="chat-input" id="chatInput" placeholder="Hỏi câu lệnh (vd: xoá bảng tạm, backup db...)" autocomplete="off" spellcheck="false" aria-label="Nhập câu hỏi tra cứu câu lệnh" />
+        <button type="submit" class="chat-send-btn" id="chatSendBtn" title="Gửi câu hỏi" aria-label="Gửi">➤</button>
+      </form>
+      <div class="chat-footer-hint">Nhấn Enter để gửi · Esc để đóng chat</div>
+    </div>
+  </div>
+
+  <!-- Command Details Tooltip -->
+  <div class="tooltip" id="tooltip" role="dialog" aria-modal="false">
+    <button class="tooltip-close" id="tooltipClose" aria-label="Close">✕</button>
+    <div class="tooltip-danger" id="tipDanger"></div>
+    <div class="tooltip-cmd" id="tipCmd"></div>
+    <div class="tooltip-desc" id="tipDesc"></div>
+    <div class="tooltip-ex" id="tipEx"><span>Example</span><code id="tipCode"></code><button id="tipCopy">Copy</button></div>
+  </div>
+
+  <script>
+  (function () {
+    var API = '/api/cheatsheets';
+    var $ = function (id) { return document.getElementById(id); };
+
+    var KEEP_PALETTE = ['yellow', 'teal', 'pink', 'orange', 'blue', 'green', 'purple'];
+
+    // ------------------------------------------------------------ helpers
+    function esc(s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+    function rich(s) {
+      return esc(s).replace(/`([^`]+)`/g, '<code>$1</code>');
+    }
+    function ph(s) {
+      return esc(s).replace(/&lt;([^&]+?)&gt;/g, '<span class="ph">&lt;$1&gt;</span>');
+    }
+    function attr(name, v) { return v ? ' ' + name + '="' + esc(v) + '"' : ''; }
+
+    // ------------------------------------------------------------ key cell
+    function renderKey(it) {
+      var html;
+      switch (it.key_style) {
+        case 'cmd':  html = '<kbd class="copyable">' + ph(it.key) + '</kbd>'; break;
+        case 'key':  html = '<kbd class="key">' + ph(it.key) + '</kbd>'; break;
+        case 'code': html = '<code>' + ph(it.key) + '</code>'; break;
+        case 'mode': html = '<span class="mode mode-' + esc(it.variant || 'default') + '">' + esc(it.key) + '</span>'; break;
+        case 'keys':
+          html = it.key.split(/\s+/).map(function (t) {
+            return t === '/' ? '<span class="sep">/</span>' : '<kbd>' + esc(t) + '</kbd>';
+          }).join(' ');
+          break;
+        default: html = esc(it.key);
+      }
+      if (it.note) html += '<span class="note">' + esc(it.note) + '</span>';
+      if (it.danger) html += '<span class="danger-badge" title="' + esc(it.danger) + '">⚠</span>';
+      return html;
+    }
+
+    // ------------------------------------------------------------ code highlight
+    function commentStart(line, lang) {
+      var t = line.trimStart();
+      if (lang === 'sql') return t.startsWith('--') ? 0 : line.indexOf(' -- ') >= 0 ? line.indexOf(' -- ') + 1 : -1;
+      if (t.startsWith('#')) return 0;
+      var m = line.match(/\s(#\s.*)$/);
+      return m ? line.length - m[1].length : -1;
+    }
+    function hlCode(code, lang) {
+      var h = esc(code);
+      if (lang === 'toml') {
+        h = h.replace(/^(\s*)([\w.-]+)(\s*=)/, '$1<span class="key">$2</span>$3')
+             .replace(/(&quot;[^&]*?&quot;)/g, '<span class="str">$1</span>')
+             .replace(/=\s*(true|false|\d+)\b/g, '= <span class="val">$1</span>');
+      } else if (lang === 'sql') {
+        h = h.replace(/\b(SELECT|FROM|WHERE|JOIN|LEFT|ON|GROUP BY|ORDER BY|HAVING|LIMIT|DISTINCT|INSERT INTO|VALUES|UPDATE|SET|DELETE|TRUNCATE|CREATE|ALTER|DROP|TABLE|DATABASE|INDEX|PRIMARY KEY|FOREIGN KEY|REFERENCES|USE|SHOW|GRANT|REVOKE|USER|AND|OR|NOT|NULL|IS|IN|LIKE|IF|EXISTS|KILL|DESC|DESCRIBE|FLUSH|PRIVILEGES|TEMPORARY|MODIFY|CHANGE|ADD|FIRST|AFTER|DEFAULT)\b/g, '<span class="kw">$1</span>');
+      }
+      return h;
+    }
+    function renderCode(sec) {
+      var lang = sec.lang || '';
+      var lines = (sec.content || '').split('\n').map(function (line) {
+        var c = commentStart(line, lang);
+        var body = c >= 0 ? line.slice(0, c) : line;
+        var com = c >= 0 ? line.slice(c) : '';
+        var inner = hlCode(body, lang) + (com ? '<span class="comment">' + esc(com) + '</span>' : '');
+        var copy = sec.copy_lines && body.trim() && c !== 0;
+        return '<span class="code-line' + (copy ? ' copyable-line' : '') + '"' +
+               (copy ? ' data-copy="' + esc(body.trim().replace(/^\$\s+/, '')) + '"' : '') + '>' +
+               (inner || ' ') + '</span>';
+      }).join('');
+      return '<div class="pre-wrap"><button class="pre-copy-btn">Copy</button><pre>' + lines + '</pre></div>';
+    }
+
+    // ------------------------------------------------------------ sections
+    function renderSection(sec) {
+      var out = '<div class="section" data-kind="' + sec.kind + '">';
+      if (sec.label) out += '<div class="section-label">' + esc(sec.label) + '</div>';
+      var items = sec.items || [];
+      if (sec.kind === 'table') {
+        out += '<table>';
+        if (sec.columns) out += '<thead><tr>' + sec.columns.map(function (c) { return '<th>' + esc(c) + '</th>'; }).join('') + '</tr></thead>';
+        out += '<tbody>' + items.map(function (it, i) {
+          return '<tr class="item" data-i="' + i + '"' + attr('data-tip', it.tip) + '>' +
+                 '<td>' + renderKey(it) + '</td><td class="desc">' + rich(it.description) + '</td></tr>';
+        }).join('') + '</tbody></table>';
+      } else if (sec.kind === 'rows') {
+        out += items.map(function (it) {
+          return '<div class="row item"><span class="label">' + esc(it.key) + '</span><span class="right">' + rich(it.description) + '</span></div>';
+        }).join('');
+      } else if (sec.kind === 'tags') {
+        out += '<div class="tags">' + items.map(function (it) {
+          return '<span class="tag item">' + esc(it.key) + '</span>';
+        }).join('') + '</div>';
+      } else if (sec.kind === 'code') {
+        out += renderCode(sec);
+      } else if (sec.kind === 'text') {
+        out += '<p class="text-block item">' + rich(sec.content) + '</p>';
+      }
+      return out + '</div>';
+    }
+
+    function renderTitle(card) {
+      var t = esc(card.title);
+      if (card.title_accent && card.title.indexOf(card.title_accent) === 0) {
+        t = '<span>' + esc(card.title_accent) + '</span>' + esc(card.title.slice(card.title_accent.length));
+      }
+      if (card.title_note) t += ' <small>' + esc(card.title_note) + '</small>';
+      return t;
+    }
+
+    // ------------------------------------------------------------ Note Customization (Colors & Pinned)
+    function getCardColor(card, ci) {
+      var slug = sheet ? sheet.slug : '';
+      var saved = localStorage.getItem('keep_color_' + slug + '_' + card.title);
+      if (saved) return saved;
+      return 'default';
+    }
+
+    function isCardPinned(card) {
+      var slug = sheet ? sheet.slug : '';
+      return localStorage.getItem('keep_pinned_' + slug + '_' + card.title) === '1';
+    }
+
+    function toggleCardPin(card) {
+      var slug = sheet ? sheet.slug : '';
+      var cur = isCardPinned(card);
+      if (cur) {
+        localStorage.removeItem('keep_pinned_' + slug + '_' + card.title);
+      } else {
+        localStorage.setItem('keep_pinned_' + slug + '_' + card.title, '1');
+      }
+    }
+
+    function setCardColor(card, color) {
+      var slug = sheet ? sheet.slug : '';
+      if (color === 'default') {
+        localStorage.setItem('keep_color_' + slug + '_' + card.title, 'default');
+      } else {
+        localStorage.setItem('keep_color_' + slug + '_' + card.title, color);
+      }
+    }
+
+    // ------------------------------------------------------------ render card
+    function renderCard(card, ci) {
+      var color = getCardColor(card, ci);
+      var pinned = isCardPinned(card);
+      var colorOptions = ['default', 'yellow', 'teal', 'pink', 'orange', 'blue', 'green', 'purple'];
+
+      return '<div class="card" data-ci="' + ci + '"' + attr('data-color', color) + (pinned ? ' data-pinned="true"' : '') + '>' +
+        '<div class="card-header"' + attr('data-tip', card.tip) + '>' +
+          '<div class="card-title-wrap">' +
+            (card.icon ? '<span class="icon">' + esc(card.icon) + '</span>' : '') +
+            '<h2>' + renderTitle(card) + '</h2>' +
+          '</div>' +
+          '<div class="card-actions">' +
+            '<button class="card-action-btn pin-btn' + (pinned ? ' active' : '') + '" title="' + (pinned ? 'Unpin note' : 'Pin note') + '" aria-label="Pin note">📌</button>' +
+            '<div class="color-picker-wrap">' +
+              '<button class="card-action-btn color-btn" title="Change note color" aria-label="Change note color">🎨</button>' +
+              '<div class="color-palette-popover">' +
+                colorOptions.map(function (col) {
+                  return '<button class="color-dot color-dot-' + col + (col === color ? ' selected' : '') + '" data-set-color="' + col + '" title="' + col + '"></button>';
+                }).join('') +
+              '</div>' +
+            '</div>' +
+            '<button class="card-action-btn copy-card-btn" title="Copy card code" aria-label="Copy card code">📋</button>' +
+          '</div>' +
+        '</div>' +
+        '<div class="card-body' + (card.body_cols > 1 ? ' cols-' + card.body_cols : '') + '">' +
+          card.sections.map(renderSection).join('') +
+        '</div></div>';
+    }
+
+    // ------------------------------------------------------------ render cards (Masonry + Pinned)
+    function renderCards(cards) {
+      var pinnedItems = [];
+      var otherItems = [];
+
+      cards.forEach(function (card, ci) {
+        if (isCardPinned(card)) {
+          pinnedItems.push({ card: card, ci: ci });
+        } else {
+          otherItems.push({ card: card, ci: ci });
+        }
+      });
+
+      function buildGroup(items) {
+        var html = '', group = null, buf = '';
+        items.forEach(function (item) {
+          var card = item.card, ci = item.ci;
+          if (card.layout !== group) {
+            if (group) html += '<div class="' + (group === 'wide' ? 'grid-wide' : 'masonry-grid') + '">' + buf + '</div>';
+            group = card.layout; buf = '';
+          }
+          buf += renderCard(card, ci);
+        });
+        if (group) html += '<div class="' + (group === 'wide' ? 'grid-wide' : 'masonry-grid') + '">' + buf + '</div>';
+        return html;
+      }
+
+      if (pinnedItems.length > 0) {
+        return '<div class="keep-section-header"><span class="keep-section-label">📌 PINNED</span></div>' +
+               buildGroup(pinnedItems) +
+               (otherItems.length > 0 ? '<div class="keep-section-header"><span class="keep-section-label">OTHERS</span></div>' + buildGroup(otherItems) : '');
+      } else {
+        return buildGroup(cards.map(function(c, i) { return { card: c, ci: i }; }));
+      }
+    }
+
+    // ------------------------------------------------------------ page render
+    var sheet = null;
+
+    function renderSheet(data) {
+      sheet = data;
+      document.title = data.title;
+      document.querySelector('meta[name=description]').setAttribute('content', data.description || '');
+      $('header').innerHTML =
+        '<div class="header-title">' +
+          (data.logo ? '<img src="' + esc(data.logo) + '" alt="" class="site-logo" onerror="this.remove()" />' : '') +
+          '<h1>' + esc(data.title) + '</h1></div>' +
+        (data.subtitle ? '<p>' + esc(data.subtitle) + '</p>' : '') +
+        (data.badge ? '<span class="badge">' + esc(data.badge) + '</span>' : '');
+
+      var legend = (data.meta && data.meta.legend) || [];
+      $('main').innerHTML =
+        (legend.length ? '<div class="legend">' + legend.map(function (l) {
+          return '<span' + attr('data-tip', l.tip) + ' data-cmd="' + esc(l.label) + '">' +
+                 (l.badge ? '<b>' + esc(l.badge) + '</b>' : '') + esc(l.label) + '</span>';
+        }).join('') + '</div>' : '') +
+        renderCards(data.cards);
+
+      var links = (data.links || []).map(function (l) {
+        return '<a href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(l.label) + '</a>';
+      });
+      if (data.source_url) links.push('<a href="' + esc(data.source_url) + '" target="_blank" rel="noopener">source</a>');
+      $('footer').innerHTML = '<p>' + links.join(' · ') + '</p>';
+
+      $('searchBox').hidden = false;
+      indexSearch();
+      runSearch();
+    }
+
+    function renderIndex(list) {
+      document.title = 'Cheatsheets';
+      $('header').innerHTML = '<div class="header-title"><h1>Cheatsheets</h1></div><p>' + list.length + ' cheatsheets available</p>';
+      $('searchBox').hidden = true;
+      $('main').innerHTML = '<div class="masonry-grid">' + list.map(function (s) {
+        return '<a class="card sheet-link" data-color="default" href="/' + encodeURIComponent(s.slug) + '">' +
+               '<div class="card-header"><div class="card-title-wrap"><h2>' + esc(s.title) + '</h2></div></div>' +
+               '<div class="card-body"><p class="desc">' + esc(s.subtitle || '') + '</p>' +
+               '<div style="margin-top:0.75rem;"><span class="tag">' + s.cards + ' cards · ' + s.entries + ' entries</span></div>' +
+               '</div></a>';
+      }).join('') + '</div>';
+      $('footer').innerHTML = '';
+    }
+
+    function renderSwitcher(list, slug) {
+      $('switcher').innerHTML = '<a href="/"' + (slug ? '' : ' class="active"') + '>📝 All</a>' + list.map(function (s) {
+        var icon = s.slug === 'mysql' ? '🐬' : s.slug === 'neovim' ? '⚡' : s.slug === 'atuin' ? '🐚' : '📄';
+        return '<a href="/' + encodeURIComponent(s.slug) + '"' + (s.slug === slug ? ' class="active"' : '') + '>' +
+               icon + ' ' + esc(s.title.replace(/\s*cheat ?sheet\s*$/i, '')) + '</a>';
+      }).join('');
+    }
+
+    function fail(msg) {
+      $('main').innerHTML = '<p class="status error">' + esc(msg) + '</p>';
+    }
+
+    function fetchJSON(url) {
+      return fetch(url).then(function (r) {
+        if (!r.ok) throw new Error(r.status === 404 ? 'Cheatsheet not found' : 'API error ' + r.status);
+        return r.json();
+      });
+    }
+
+    var slug = decodeURIComponent(location.pathname.replace(/^\/+|\/+$/g, '')) ||
+               new URLSearchParams(location.search).get('s') || '';
+
+    fetchJSON(API).then(function (list) {
+      renderSwitcher(list, slug);
+      initChatScope(list, slug);
+      if (!slug) return renderIndex(list);
+      return fetchJSON(API + '/' + encodeURIComponent(slug)).then(renderSheet);
+    }).catch(function (e) { fail(e.message); });
+
+    // ------------------------------------------------------------ search
+    var entries = [];
+
+    function indexSearch() {
+      entries = [];
+      document.querySelectorAll('#main .card').forEach(function (card) {
+        card.querySelectorAll('.section').forEach(function (sec) {
+          var els = sec.dataset.kind === 'code' ? sec.querySelectorAll('.code-line') : sec.querySelectorAll('.item');
+          els.forEach(function (el) {
+            var tip = el.dataset.tip || '';
+            entries.push({ el: el, card: card, section: sec, html: el.innerHTML,
+                           text: (el.textContent + ' ' + tip).toLowerCase() });
+          });
+        });
+      });
+    }
+
+    function escapeRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+    function highlight(html, q) {
+      var re = new RegExp('(' + escapeRe(q) + ')', 'gi');
+      return html.replace(/(<[^>]+>)|([^<]+)/g, function (m, tag, text) {
+        return tag ? tag : text.replace(re, '<mark>$1</mark>');
+      });
+    }
+
+    function runSearch() {
+      var input = $('search');
+      if (!input) return;
+      var raw = input.value.trim();
+      var q = raw.toLowerCase();
+      $('searchClear').classList.toggle('visible', input.value.length > 0);
+      $('searchHint').style.display = input.value.length > 0 ? 'none' : 'inline-block';
+
+      var hits = 0, secHit = new Map(), cardHit = new Map();
+      entries.forEach(function (e) {
+        var ok = !q || e.text.indexOf(q) >= 0;
+        e.el.innerHTML = ok && q ? highlight(e.html, raw) : e.html;
+        e.el.classList.toggle(e.el.classList.contains('code-line') ? 'hidden-line' : 'hidden-row', !ok);
+        if (ok) {
+          if (q && e.el.textContent.trim()) hits++;
+          secHit.set(e.section, true); cardHit.set(e.card, true);
+        }
+      });
+      document.querySelectorAll('#main .section').forEach(function (s) {
+        s.classList.toggle('hidden', !!q && !secHit.get(s));
+      });
+      document.querySelectorAll('#main .card').forEach(function (c) {
+        c.classList.toggle('hidden', !!q && !cardHit.get(c));
+      });
+
+      var countEl = $('searchCount');
+      if (!q) { countEl.textContent = ''; countEl.className = 'search-count'; }
+      else if (!hits) { countEl.textContent = 'No matching notes found'; countEl.className = 'search-count no-results'; }
+      else { countEl.textContent = hits + ' match' + (hits !== 1 ? 'es' : '') + ' found'; countEl.className = 'search-count'; }
+
+      try { history.replaceState(null, '', q ? '?q=' + encodeURIComponent(raw) : location.pathname); } catch (e) {}
+    }
+
+    var debounce;
+    $('search').value = new URLSearchParams(location.search).get('q') || '';
+    $('search').addEventListener('input', function () { clearTimeout(debounce); debounce = setTimeout(runSearch, 100); });
+    $('searchClear').addEventListener('click', function () { $('search').value = ''; runSearch(); $('search').focus(); });
+    document.addEventListener('keydown', function (e) {
+      var typing = /^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName);
+      if (e.key === '/' && !typing && !$('searchBox').hidden && chatWidget && chatWidget.classList.contains('closed')) {
+        e.preventDefault();
+        $('search').focus();
+      }
+      if (e.key === 'Escape') {
+        closeTip();
+        closeAllColorPopovers();
+        if (chatWidget && !chatWidget.classList.contains('closed')) {
+          closeChat();
+          return;
+        }
+        if (document.activeElement === $('search')) { $('search').value = ''; runSearch(); $('search').blur(); }
+      }
+    });
+
+    // ------------------------------------------------------------ copy
+    function showToast(x, y, msg) {
+      var t = document.createElement('div');
+      t.className = 'copy-toast';
+      t.textContent = msg || 'Copied to clipboard!';
+      t.style.left = Math.min(x, window.innerWidth - 180) + 'px';
+      t.style.top = y + 'px';
+      document.body.appendChild(t);
+      setTimeout(function () { t.style.opacity = '0'; }, 900);
+      setTimeout(function () { t.remove(); }, 1200);
+    }
+    function copy(text, el, e, cls) {
+      navigator.clipboard.writeText(text).then(function () {
+        el.classList.add(cls || 'copied');
+        showToast(e.clientX, e.clientY);
+        setTimeout(function () { el.classList.remove(cls || 'copied'); }, 1500);
+      });
+    }
+
+    // ------------------------------------------------------------ tooltip
+    var tipEl = $('tooltip');
+    function openTip(anchor, cmd, desc, example, danger) {
+      $('tipCmd').textContent = cmd || '';
+      $('tipDesc').textContent = desc || '';
+      $('tipDanger').textContent = danger ? '⚠ ' + danger : '';
+      $('tipDanger').style.display = danger ? '' : 'none';
+      $('tipEx').style.display = example ? '' : 'none';
+      $('tipCode').textContent = example || '';
+      tipEl.classList.add('open');
+      var r = anchor.getBoundingClientRect(), w = tipEl.offsetWidth, h = tipEl.offsetHeight;
+      var left = Math.min(Math.max(16, r.left), window.innerWidth - w - 16);
+      var top = r.bottom + 6 + h > window.innerHeight ? Math.max(16, r.top - h - 6) : r.bottom + 6;
+      tipEl.style.left = left + 'px'; tipEl.style.top = top + 'px';
+    }
+    function closeTip() { tipEl.classList.remove('open'); }
+    $('tooltipClose').addEventListener('click', closeTip);
+    $('tipCopy').addEventListener('click', function (e) { copy($('tipCode').textContent, e.target, e); });
+    window.addEventListener('scroll', closeTip, { passive: true });
+
+    function closeAllColorPopovers() {
+      document.querySelectorAll('.color-palette-popover.open').forEach(function(p) {
+        p.classList.remove('open');
+      });
+      document.querySelectorAll('.card-actions.popover-open').forEach(function(a) {
+        a.classList.remove('popover-open');
+      });
+    }
+
+    // ------------------------------------------------------------ delegated clicks
+    document.addEventListener('click', function (e) {
+      var t = e.target;
+
+      // Color picker toggle
+      var colorBtn = t.closest('.color-btn');
+      if (colorBtn) {
+        e.stopPropagation();
+        var pop = colorBtn.nextElementSibling;
+        var wasOpen = pop.classList.contains('open');
+        closeAllColorPopovers();
+        if (!wasOpen) {
+          pop.classList.add('open');
+          colorBtn.closest('.card-actions').classList.add('popover-open');
+        }
+        return;
+      }
+
+      // Color dot select
+      var dot = t.closest('.color-dot');
+      if (dot && sheet) {
+        e.stopPropagation();
+        var cardEl = dot.closest('.card');
+        var card = sheet.cards[cardEl.dataset.ci];
+        var newColor = dot.dataset.setColor;
+        setCardColor(card, newColor);
+        cardEl.setAttribute('data-color', newColor);
+        dot.closest('.color-palette-popover').querySelectorAll('.color-dot').forEach(function(d) {
+          d.classList.toggle('selected', d === dot);
+        });
+        closeAllColorPopovers();
+        showToast(e.clientX, e.clientY, 'Note color updated!');
+        return;
+      }
+
+      // Pin button
+      var pinBtn = t.closest('.pin-btn');
+      if (pinBtn && sheet) {
+        e.stopPropagation();
+        var cardEl = pinBtn.closest('.card');
+        var card = sheet.cards[cardEl.dataset.ci];
+        toggleCardPin(card);
+        // Re-render notes to reflect PINNED / OTHERS
+        $('main').innerHTML = renderCards(sheet.cards);
+        indexSearch();
+        runSearch();
+        showToast(e.clientX, e.clientY, isCardPinned(card) ? 'Note pinned to top!' : 'Note unpinned');
+        return;
+      }
+
+      // Copy whole card
+      var copyCardBtn = t.closest('.copy-card-btn');
+      if (copyCardBtn) {
+        e.stopPropagation();
+        var cardEl = copyCardBtn.closest('.card');
+        var textToCopy = '';
+        cardEl.querySelectorAll('.card-body pre, .card-body table').forEach(function(b) {
+          textToCopy += b.textContent.trim() + '\n\n';
+        });
+        if (!textToCopy) textToCopy = cardEl.querySelector('.card-body').textContent.trim();
+        return copy(textToCopy.trim(), copyCardBtn, e);
+      }
+
+      // Close color popovers on outside click
+      if (!t.closest('.color-picker-wrap')) {
+        closeAllColorPopovers();
+      }
+
+      // Copy kbd
+      var kbd = t.closest('kbd.copyable');
+      if (kbd) return copy(kbd.textContent.trim(), kbd, e);
+
+      // Copy code line
+      var line = t.closest('.copyable-line');
+      if (line) return copy(line.dataset.copy, line, e);
+
+      // Copy pre block
+      var btn = t.closest('.pre-copy-btn');
+      if (btn) {
+        var text = btn.closest('.pre-wrap').querySelector('pre').textContent.trim();
+        return navigator.clipboard.writeText(text).then(function () {
+          btn.textContent = '✓ Copied!'; btn.classList.add('copied'); showToast(e.clientX, e.clientY);
+          setTimeout(function () { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1500);
+        });
+      }
+
+      // Tooltips
+      if (tipEl.contains(t)) return;
+      var tr = t.closest('tr[data-tip]');
+      if (tr && sheet) {
+        var card = sheet.cards[tr.closest('.card').dataset.ci];
+        var secIdx = Array.prototype.indexOf.call(tr.closest('.card-body').children, tr.closest('.section'));
+        var it = card.sections[secIdx].items[tr.dataset.i];
+        return openTip(tr, it.key, it.tip, it.example, it.danger);
+      }
+      var head = t.closest('.card-header[data-tip]');
+      if (head) return openTip(head, head.textContent.trim(), head.dataset.tip);
+      var leg = t.closest('.legend span[data-tip]');
+      if (leg) return openTip(leg, leg.dataset.cmd, leg.dataset.tip);
+      closeTip();
+    });
+
+    // ------------------------------------------------------------ View Mode (Grid / List)
+    var viewBtn = $('viewToggle'), root = document.documentElement;
+    function updateViewBtn() {
+      var isList = root.classList.contains('list-view');
+      viewBtn.textContent = isList ? '⊞' : '☰';
+      viewBtn.title = isList ? 'Switch to Masonry Grid View' : 'Switch to Single Column List View';
+    }
+    updateViewBtn();
+    viewBtn.addEventListener('click', function () {
+      root.classList.toggle('list-view');
+      try { localStorage.setItem('keep_view_mode', root.classList.contains('list-view') ? 'list' : 'grid'); } catch (e) {}
+      updateViewBtn();
+    });
+
+    // ------------------------------------------------------------ Theme Toggle
+    var themeBtn = $('themeToggle');
+    function updateThemeBtn() { themeBtn.textContent = root.classList.contains('light') ? '🌙' : '☀️'; }
+    updateThemeBtn();
+    themeBtn.addEventListener('click', function () {
+      root.classList.toggle('light');
+      try { localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark'); } catch (e) {}
+      updateThemeBtn();
+    });
+
+    // ------------------------------------------------------------ Vector Search Chat Assistant
+    var chatWidget = $('chatWidget');
+    var chatFab = $('chatFab');
+    var chatTopBtn = $('chatTopBtn');
+    var chatCloseBtn = $('chatCloseBtn');
+    var chatClearBtn = $('chatClearBtn');
+    var chatMessages = $('chatMessages');
+    var chatForm = $('chatForm');
+    var chatInput = $('chatInput');
+    var chatSendBtn = $('chatSendBtn');
+    var chatScope = $('chatScope');
+    var chatLimit = $('chatLimit');
+    var chatSheetList = [];
+
+    // Lịch sử câu hỏi người dùng (kiểu Terminal)
+    var chatInputHistory = [];
+    var historyIndex = -1;
+    var draftInput = '';
+
+    try {
+      var savedHist = sessionStorage.getItem('cheatkeep_chat_input_history');
+      if (savedHist) chatInputHistory = JSON.parse(savedHist);
+    } catch (e) {}
+
+    function pushChatHistory(query) {
+      if (!query) return;
+      if (!chatInputHistory.length || chatInputHistory[chatInputHistory.length - 1] !== query) {
+        chatInputHistory.push(query);
+        if (chatInputHistory.length > 50) chatInputHistory.shift();
+        try {
+          sessionStorage.setItem('cheatkeep_chat_input_history', JSON.stringify(chatInputHistory));
+        } catch (e) {}
+      }
+      historyIndex = -1;
+      draftInput = '';
+    }
+
+    if (chatLimit) {
+      try {
+        var savedLimit = localStorage.getItem('cheatkeep_chat_limit');
+        if (savedLimit) chatLimit.value = savedLimit;
+      } catch (e) {}
+      chatLimit.addEventListener('change', function () {
+        try { localStorage.setItem('cheatkeep_chat_limit', chatLimit.value); } catch (e) {}
+      });
+    }
+
+    if (chatInput) {
+      chatInput.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowUp') {
+          if (!chatInputHistory.length) return;
+          if (historyIndex === -1) {
+            draftInput = chatInput.value;
+            historyIndex = chatInputHistory.length - 1;
+          } else if (historyIndex > 0) {
+            historyIndex--;
+          }
+          chatInput.value = chatInputHistory[historyIndex];
+          e.preventDefault();
+          setTimeout(function () {
+            chatInput.setSelectionRange(chatInput.value.length, chatInput.value.length);
+          }, 0);
+        } else if (e.key === 'ArrowDown') {
+          if (historyIndex === -1) return;
+          if (historyIndex < chatInputHistory.length - 1) {
+            historyIndex++;
+            chatInput.value = chatInputHistory[historyIndex];
+          } else {
+            historyIndex = -1;
+            chatInput.value = draftInput;
+          }
+          e.preventDefault();
+          setTimeout(function () {
+            chatInput.setSelectionRange(chatInput.value.length, chatInput.value.length);
+          }, 0);
+        }
+      });
+    }
+
+    function initChatScope(list, currentSlug) {
+      chatSheetList = list || [];
+      if (!chatScope) return;
+      var curVal = chatScope.value;
+      var html = '<option value="">🌐 Tất cả cheatsheets</option>';
+      chatSheetList.forEach(function (s) {
+        var icon = s.slug === 'mysql' ? '🐬' : s.slug === 'neovim' ? '⚡' : s.slug === 'atuin' ? '🐚' : '📄';
+        html += '<option value="' + esc(s.slug) + '">' + icon + ' ' + esc(s.title.replace(/\s*cheat ?sheet\s*$/i, '')) + '</option>';
+      });
+      chatScope.innerHTML = html;
+      if (currentSlug) {
+        chatScope.value = currentSlug;
+      } else if (curVal) {
+        chatScope.value = curVal;
+      }
+    }
+
+    function openChat() {
+      if (!chatWidget) return;
+      chatWidget.classList.remove('closed');
+      if (chatFab) chatFab.classList.add('hidden');
+      setTimeout(function () {
+        if (chatInput) chatInput.focus();
+      }, 100);
+    }
+
+    function closeChat() {
+      if (!chatWidget) return;
+      chatWidget.classList.add('closed');
+      if (chatFab) chatFab.classList.remove('hidden');
+    }
+
+    function toggleChat() {
+      if (!chatWidget) return;
+      if (chatWidget.classList.contains('closed')) openChat();
+      else closeChat();
+    }
+
+    if (chatTopBtn) chatTopBtn.addEventListener('click', toggleChat);
+    if (chatFab) chatFab.addEventListener('click', openChat);
+    if (chatCloseBtn) chatCloseBtn.addEventListener('click', closeChat);
+
+    if (chatClearBtn) {
+      chatClearBtn.addEventListener('click', function () {
+        if (!chatMessages) return;
+        chatMessages.innerHTML = '<div class="chat-welcome" id="chatWelcome">' +
+          '<div class="chat-welcome-icon">💡</div>' +
+          '<h3>Tra cứu câu lệnh thông minh</h3>' +
+          '<p>Hỏi bất kỳ câu lệnh nào bằng tiếng Việt hoặc tiếng Anh. Hệ thống sử dụng <strong>pgvector</strong> để tìm kiếm theo ngữ nghĩa.</p>' +
+          '<div class="chat-suggestions">' +
+            '<button type="button" class="chat-chip" data-prompt="Tạo bảng có khoá ngoại trong MySQL">🐬 Tạo bảng có khoá ngoại trong MySQL</button>' +
+            '<button type="button" class="chat-chip" data-prompt="Chia đôi màn hình theo chiều dọc trong Neovim">⚡ Chia đôi màn hình theo chiều dọc</button>' +
+            '<button type="button" class="chat-chip" data-prompt="Tìm kiếm lịch sử lệnh theo thư mục hiện tại">🐚 Tìm lịch sử lệnh theo thư mục (Atuin)</button>' +
+            '<button type="button" class="chat-chip" data-prompt="Đổi mật khẩu tài khoản người dùng">🐬 Đổi mật khẩu user MySQL</button>' +
+          '</div>' +
+        '</div>';
+        try { sessionStorage.removeItem('cheatkeep_chat_history'); } catch (e) {}
+      });
+    }
+
+    function renderChatResults(results, query) {
+      if (!results || !results.length) {
+        return '<p class="chat-results-count">Không tìm thấy câu lệnh phù hợp với "<strong>' + esc(query) + '</strong>".</p>' +
+               '<p class="chat-empty-hint">💡 Thử diễn đạt lại câu hỏi (ví dụ "tạo bảng", "backup db", "tìm lệnh") hoặc chọn phạm vi <em>🌐 Tất cả cheatsheets</em>.</p>';
+      }
+      var html = '<div class="chat-results-count">Tìm thấy <strong>' + results.length + '</strong> kết quả phù hợp nhất:</div>';
+      html += results.map(function (r) {
+        var icon = r.sheet === 'mysql' ? '🐬' : r.sheet === 'neovim' ? '⚡' : r.sheet === 'atuin' ? '🐚' : '📄';
+        var pathParts = [icon + ' ' + (r.sheet || ''), r.card, r.section].filter(Boolean);
+        var ctxStr = pathParts.join(' › ');
+        var cmd = (r.command || r.description || '').trim();
+        var descVi = r.description_vi || '';
+        var descEn = r.description || '';
+
+        var cardHtml = '<div class="chat-card">';
+        cardHtml += '<div class="chat-card-meta">';
+        cardHtml += '<span class="chat-card-ctx" title="' + esc(ctxStr) + '"><strong>' + esc(pathParts[0]) + '</strong>' + (pathParts.length > 1 ? ' › ' + esc(pathParts.slice(1).join(' › ')) : '') + '</span>';
+        cardHtml += '</div>';
+
+        if (cmd) {
+          cardHtml += '<div class="chat-cmd-box">';
+          cardHtml += '<button class="chat-copy-code-btn" type="button" data-copy="' + esc(cmd) + '">Copy</button>';
+          cardHtml += '<code>' + esc(cmd) + '</code>';
+          cardHtml += '</div>';
+        }
+
+        if (descVi) {
+          cardHtml += '<div class="chat-card-desc-vi">↳ ' + rich(descVi) + '</div>';
+        } else if (descEn && descEn !== cmd) {
+          cardHtml += '<div class="chat-card-desc">' + rich(descEn) + '</div>';
+        }
+
+        if (r.danger) {
+          cardHtml += '<div class="chat-card-danger">⚠ <strong>Lưu ý:</strong> ' + esc(r.danger) + '</div>';
+        }
+        if (r.example && r.example !== cmd) {
+          cardHtml += '<div class="chat-card-ex">Vd: <code>' + esc(r.example) + '</code></div>';
+        }
+
+        cardHtml += '</div>';
+        return cardHtml;
+      }).join('');
+      return html;
+    }
+
+    function saveChatState() {
+      if (!chatMessages) return;
+      try {
+        var welcome = $('chatWelcome');
+        if (welcome && welcome.style.display !== 'none') {
+          sessionStorage.removeItem('cheatkeep_chat_history');
+        } else {
+          sessionStorage.setItem('cheatkeep_chat_history', chatMessages.innerHTML);
+        }
+      } catch (e) {}
+    }
+
+    function restoreChatState() {
+      if (!chatMessages) return;
+      try {
+        var saved = sessionStorage.getItem('cheatkeep_chat_history');
+        if (saved) {
+          chatMessages.innerHTML = saved;
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+      } catch (e) {}
+    }
+    restoreChatState();
+
+    function sendChatQuery(q) {
+      q = (q || '').trim();
+      if (!q || !chatMessages) return;
+
+      pushChatHistory(q);
+
+      var welcome = $('chatWelcome');
+      if (welcome) welcome.style.display = 'none';
+
+      // Bubble người dùng
+      var userBubble = document.createElement('div');
+      userBubble.className = 'chat-bubble user';
+      userBubble.innerHTML = '<div class="chat-content">' + esc(q) + '</div>';
+      chatMessages.appendChild(userBubble);
+
+      // Bubble trợ lý đang tìm kiếm
+      var botBubble = document.createElement('div');
+      botBubble.className = 'chat-bubble assistant';
+      botBubble.innerHTML = '<div class="chat-content"><div class="chat-typing"><span>Đang tra cứu vector db</span><div class="chat-dots"><span></span><span></span><span></span></div></div></div>';
+      chatMessages.appendChild(botBubble);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      var scope = chatScope ? chatScope.value : '';
+      var limit = chatLimit ? parseInt(chatLimit.value, 10) || 5 : 5;
+      var url = '/api/search?q=' + encodeURIComponent(q) + (scope ? '&sheet=' + encodeURIComponent(scope) : '') + '&limit=' + limit;
+
+      if (chatInput) chatInput.value = '';
+      if (chatSendBtn) chatSendBtn.disabled = true;
+
+      fetchJSON(url).then(function (res) {
+        var contentEl = botBubble.querySelector('.chat-content');
+        if (contentEl) contentEl.innerHTML = renderChatResults(res.results, q);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        saveChatState();
+      }).catch(function (err) {
+        var contentEl = botBubble.querySelector('.chat-content');
+        if (contentEl) contentEl.innerHTML = '<p class="chat-card-danger">⚠ Không thể kết nối hoặc xảy ra lỗi: ' + esc(err.message) + '</p>';
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        saveChatState();
+      }).finally(function () {
+        if (chatSendBtn) chatSendBtn.disabled = false;
+        if (chatInput) chatInput.focus();
+      });
+    }
+
+    if (chatForm) {
+      chatForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        sendChatQuery(chatInput ? chatInput.value : '');
+      });
+    }
+
+    if (chatMessages) {
+      chatMessages.addEventListener('click', function (e) {
+        var copyBtn = e.target.closest('.chat-copy-code-btn');
+        if (copyBtn) {
+          var text = copyBtn.getAttribute('data-copy');
+          if (text) {
+            navigator.clipboard.writeText(text).then(function () {
+              copyBtn.textContent = '✓ Đã copy';
+              copyBtn.classList.add('copied');
+              showToast(e.clientX || (window.innerWidth - 100), e.clientY || (window.innerHeight - 100), 'Đã copy câu lệnh!');
+              setTimeout(function () {
+                copyBtn.textContent = 'Copy';
+                copyBtn.classList.remove('copied');
+              }, 1500);
+            });
+          }
+          return;
+        }
+
+        var chip = e.target.closest('.chat-chip');
+        if (chip) {
+          var prompt = chip.getAttribute('data-prompt');
+          if (prompt) {
+            sendChatQuery(prompt);
+          }
+        }
+      });
+    }
+
+    // Phím tắt Alt+C để mở/đóng chat
+    document.addEventListener('keydown', function (e) {
+      if (e.altKey && e.key.toLowerCase() === 'c') {
+        e.preventDefault();
+        toggleChat();
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

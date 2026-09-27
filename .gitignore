@@ -1,0 +1,50 @@
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Build & distribution
+dist/
+build/
+*.egg-info/
+tmp/
+
+# Logs & process files
+*.log
+nohup.out
+
+# IDEs & editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# AI / local assistant settings
+.claude/
+
+# Operating system
+.DS_Store
+Thumbs.db
+data/
+!data/neovim.json
+!data/mysql.json
+!data/atuin.json
+chs
+uv.lock
+

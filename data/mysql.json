@@ -1,0 +1,2756 @@
+{
+  "slug": "mysql",
+  "description": "The one-page guide to MySQL: usage, examples, links, snippets, and more.",
+  "source_url": "https://devhints.io/mysql",
+  "title": "MySQL Cheatsheet",
+  "subtitle": "The one-page guide to MySQL: usage, examples, links, snippets, and more.",
+  "badge": null,
+  "logo": null,
+  "links": [],
+  "meta": {},
+  "layout": [
+    {
+      "title": "Browsing",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        }
+      ]
+    },
+    {
+      "title": "Select",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        }
+      ]
+    },
+    {
+      "title": "Select - Join",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        }
+      ]
+    },
+    {
+      "title": "Conditions",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        }
+      ]
+    },
+    {
+      "title": "Create / Open / Delete Database",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        }
+      ]
+    },
+    {
+      "title": "Backup Database to SQL File",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "code",
+          "lang": "bash",
+          "copy_lines": true
+        }
+      ]
+    },
+    {
+      "title": "Restore from backup SQL File",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "code",
+          "lang": "bash",
+          "copy_lines": true
+        }
+      ]
+    },
+    {
+      "title": "Repair Tables After Unclean Shutdown",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "code",
+          "lang": "bash",
+          "copy_lines": true
+        }
+      ]
+    },
+    {
+      "title": "Insert",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        }
+      ]
+    },
+    {
+      "title": "Delete",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        }
+      ]
+    },
+    {
+      "title": "Update",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        }
+      ]
+    },
+    {
+      "title": "Create / Delete / Modify Table",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "label": "Create",
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        },
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        },
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        },
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        },
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        },
+        {
+          "label": "Drop",
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        },
+        {
+          "label": "Alter",
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        },
+        {
+          "label": "Change field order",
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        }
+      ]
+    },
+    {
+      "title": "Keys",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        }
+      ]
+    },
+    {
+      "title": "Users and Privileges",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        },
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        },
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        },
+        {
+          "kind": "text",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "title": "Main Data Types",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        },
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        },
+        {
+          "kind": "text",
+          "copy_lines": false
+        },
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        },
+        {
+          "kind": "text",
+          "copy_lines": false
+        },
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        },
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        },
+        {
+          "kind": "text",
+          "copy_lines": false
+        },
+        {
+          "kind": "code",
+          "lang": "sql",
+          "copy_lines": true
+        }
+      ]
+    },
+    {
+      "title": "Reset Root Password",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "code",
+          "lang": "bash",
+          "copy_lines": true
+        },
+        {
+          "kind": "code",
+          "lang": "bash",
+          "copy_lines": true
+        },
+        {
+          "kind": "code",
+          "lang": "bash",
+          "copy_lines": true
+        },
+        {
+          "kind": "code",
+          "lang": "bash",
+          "copy_lines": true
+        },
+        {
+          "kind": "text",
+          "copy_lines": false
+        }
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 1,
+      "section_pos": 1,
+      "card": "Browsing",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SHOW DATABASES;",
+      "description": null,
+      "display": {
+        "raw": "SHOW DATABASES;"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Browsing\nSHOW DATABASES;",
+      "content_hash": "9241bc5e832c751d1e6fd7367ff59821d5ba219f90f9af68ea728edde6df4441",
+      "description_vi": "Liệt kê (xem) tất cả database hiện có trên server",
+      "embed_text_vi": "MySQL › Browsing\nSHOW DATABASES;\nLiệt kê (xem) tất cả database hiện có trên server\nxem danh sách database\nliệt kê tất cả cơ sở dữ liệu\nhiển thị các database hiện có",
+      "content_hash_vi": "1c99f2bfc4b8ad7b8b37f96064cba4d47a9c4ea07f021972b67e09887775dd27"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 1,
+      "section_pos": 1,
+      "card": "Browsing",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SHOW TABLES;",
+      "description": null,
+      "display": {
+        "raw": "SHOW TABLES;"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Browsing\nSHOW TABLES;",
+      "content_hash": "2210c5d2c730b4398864a735e978c9bf4c2667a7ffa493dd50c8afee094dd436",
+      "description_vi": "Liệt kê các table trong database đang chọn",
+      "embed_text_vi": "MySQL › Browsing\nSHOW TABLES;\nLiệt kê các table trong database đang chọn\nxem danh sách bảng trong database\nliệt kê các table\nhiển thị toàn bộ bảng hiện tại",
+      "content_hash_vi": "929582a853fcea9e372787515873adb529950317cc4f7af8901bb0596672970c"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 1,
+      "section_pos": 1,
+      "card": "Browsing",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SHOW FIELDS FROM table / DESCRIBE table;",
+      "description": null,
+      "display": {
+        "raw": "SHOW FIELDS FROM table / DESCRIBE table;"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Browsing\nSHOW FIELDS FROM table / DESCRIBE table;",
+      "content_hash": "526afb94d131645061b94576a0d590cd07db3fbfce541abb17632cd0908c7953",
+      "description_vi": "Xem cấu trúc và các cột (field) của table",
+      "embed_text_vi": "MySQL › Browsing\nSHOW FIELDS FROM table / DESCRIBE table;\nXem cấu trúc và các cột (field) của table\nxem cấu trúc các cột table\nkiểm tra schema của bảng\nmô tả chi tiết field trong table",
+      "content_hash_vi": "ef9bca1c748c50fac37a3df2e4d6937f4c6df9b46e424de55bcac166a317d149"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 1,
+      "section_pos": 1,
+      "card": "Browsing",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SHOW CREATE TABLE table;",
+      "description": null,
+      "display": {
+        "raw": "SHOW CREATE TABLE table;"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Browsing\nSHOW CREATE TABLE table;",
+      "content_hash": "edf74369feb49a52c06b070c8f5871f36348c62d4ff27408df2f6faf7d22ac32",
+      "description_vi": "Xem câu lệnh DDL dùng để tạo table",
+      "embed_text_vi": "MySQL › Browsing\nSHOW CREATE TABLE table;\nXem câu lệnh DDL dùng để tạo table\nxem cú pháp DDL tạo bảng\nhiển thị mã create table của bảng\ntrích xuất định nghĩa tạo table",
+      "content_hash_vi": "0bed81bc7c3b85e80e5bb76b46b97e1f4d73ba2d68d5f69f2d317a1916d164fa"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 1,
+      "section_pos": 1,
+      "card": "Browsing",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SHOW PROCESSLIST;",
+      "description": null,
+      "display": {
+        "raw": "SHOW PROCESSLIST;"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Browsing\nSHOW PROCESSLIST;",
+      "content_hash": "260a30e813e14e7cee0b92ef1babde8c1e06096abdd78f33d3b0011eed04789a",
+      "description_vi": "Xem danh sách các tiến trình và query đang chạy",
+      "embed_text_vi": "MySQL › Browsing\nSHOW PROCESSLIST;\nXem danh sách các tiến trình và query đang chạy\nxem danh sách tiến trình đang chạy\nliệt kê các query đang thực thi\nkiểm tra connection và process đang xử lý",
+      "content_hash_vi": "6f2adcb907debc8f42eb3dcdb7bb27422a5e7814623cc68fd40260c525a6c7db"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 1,
+      "section_pos": 1,
+      "card": "Browsing",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "KILL process_number;",
+      "description": null,
+      "display": {
+        "raw": "KILL process_number;"
+      },
+      "position": 6,
+      "embed_text": "MySQL › Browsing\nKILL process_number;",
+      "content_hash": "c42a3c4d9475301ac0df1c5d3ce8d27dfcba3572a53c4b00ab2f448923d9947c",
+      "description_vi": "Huỷ (dừng) một tiến trình đang chạy theo ID",
+      "embed_text_vi": "MySQL › Browsing\nKILL process_number;\nHuỷ (dừng) một tiến trình đang chạy theo ID\nhuỷ tiến trình theo id\ndừng query đang chạy bị treo\nngắt process_number đang thực thi",
+      "content_hash_vi": "edc802417f8ac7e0342212f0df5438fefe1a3bba539594a1c200b4671d96a2e5"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 1,
+      "card": "Select",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SELECT * FROM table;",
+      "description": null,
+      "display": {
+        "raw": "SELECT * FROM table;"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Select\nSELECT * FROM table;",
+      "content_hash": "fc74a8fcde61e2827612b9f1c42d14ea416d3bd8d7c8daec8996e57bd2a623d8",
+      "description_vi": "Lấy toàn bộ dữ liệu và các cột từ table",
+      "embed_text_vi": "MySQL › Select\nSELECT * FROM table;\nLấy toàn bộ dữ liệu và các cột từ table\nlấy toàn bộ dữ liệu từ bảng\ntruy vấn tất cả bản ghi trong table\nxem tất cả cột và dòng của bảng",
+      "content_hash_vi": "96cc993a9f18215bdb97568904b2fc6ee93263445044fbca5c1858abe0d70aaa"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 1,
+      "card": "Select",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SELECT * FROM table1, table2;",
+      "description": null,
+      "display": {
+        "raw": "SELECT * FROM table1, table2;"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Select\nSELECT * FROM table1, table2;",
+      "content_hash": "8f39cd303e0bbce407b45135ec8ebffc77948284660ed15845e8d1cbe8a25673",
+      "description_vi": "Lấy toàn bộ dữ liệu tích Descartes từ hai table",
+      "embed_text_vi": "MySQL › Select\nSELECT * FROM table1, table2;\nLấy toàn bộ dữ liệu tích Descartes từ hai table\ntruy vấn dữ liệu từ hai bảng cùng lúc\nlấy tất cả dữ liệu tích Descartes hai table\nkết hợp dữ liệu nhiều bảng không dùng join",
+      "content_hash_vi": "4210f48c91d45bd657b656cb334cdd826985e13735d1b971eeef72f39034bf31"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 1,
+      "card": "Select",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SELECT field1, field2 FROM table1, table2;",
+      "description": null,
+      "display": {
+        "raw": "SELECT field1, field2 FROM table1, table2;"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Select\nSELECT field1, field2 FROM table1, table2;",
+      "content_hash": "a9da862498ea77c2357d3cad2992d7bc322613ac1fcbb2dcb426ea55065f0bc3",
+      "description_vi": "Chọn các cột cụ thể từ hai table",
+      "embed_text_vi": "MySQL › Select\nSELECT field1, field2 FROM table1, table2;\nChọn các cột cụ thể từ hai table\nlấy các cột cụ thể từ hai bảng\nchọn trường field1 field2 từ nhiều table\ntruy vấn cột chỉ định giữa hai bảng",
+      "content_hash_vi": "956d7fff44f80683bf781c60322397c3457e4122403ce89e876ac12bba4e4a89"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 1,
+      "card": "Select",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SELECT ... FROM ... WHERE condition",
+      "description": null,
+      "display": {
+        "raw": "SELECT ... FROM ... WHERE condition"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Select\nSELECT ... FROM ... WHERE condition",
+      "content_hash": "3bf264039801606b06d84339eca810a5390311216a38d8c19b4f4dd589b5f99f",
+      "description_vi": "Truy vấn dữ liệu có lọc theo điều kiện WHERE",
+      "embed_text_vi": "MySQL › Select\nSELECT ... FROM ... WHERE condition\nTruy vấn dữ liệu có lọc theo điều kiện WHERE\nlọc dữ liệu theo điều kiện where\ntruy vấn bản ghi thoả mãn tiêu chí\ntìm kiếm dòng theo condition trong bảng",
+      "content_hash_vi": "055563f5f9dbed2d22fa181d8ff76dddd792e877d50921d01f65dcc07cca4abe"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 1,
+      "card": "Select",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SELECT ... FROM ... WHERE condition GROUP BY field;",
+      "description": null,
+      "display": {
+        "raw": "SELECT ... FROM ... WHERE condition GROUP BY field;"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Select\nSELECT ... FROM ... WHERE condition GROUP BY field;",
+      "content_hash": "e98c4441222b3d3fcc40a99acea201e620bf9e3a23eacd726f8408bc3d5545f8",
+      "description_vi": "Nhóm dữ liệu theo cột field kết hợp điều kiện WHERE",
+      "embed_text_vi": "MySQL › Select\nSELECT ... FROM ... WHERE condition GROUP BY field;\nNhóm dữ liệu theo cột field kết hợp điều kiện WHERE\nnhóm dữ liệu theo cột có điều kiện lọc\ngroup by gom nhóm bản ghi theo trường\ntổng hợp dữ liệu theo field thoả mãn where",
+      "content_hash_vi": "a6f98a54630e771e92a6cb4e40e4d002b492947226b09eb611a2147e61a0764c"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 1,
+      "card": "Select",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SELECT ... FROM ... WHERE condition GROUP BY field HAVING condition2;",
+      "description": null,
+      "display": {
+        "raw": "SELECT ... FROM ... WHERE condition GROUP BY field HAVING condition2;"
+      },
+      "position": 6,
+      "embed_text": "MySQL › Select\nSELECT ... FROM ... WHERE condition GROUP BY field HAVING condition2;",
+      "content_hash": "54fbdbf45835d0a63d0ee453e2c2829d0cb689738065d85b39a04d17816e063b",
+      "description_vi": "Lọc kết quả sau khi nhóm bằng mệnh đề HAVING",
+      "embed_text_vi": "MySQL › Select\nSELECT ... FROM ... WHERE condition GROUP BY field HAVING condition2;\nLọc kết quả sau khi nhóm bằng mệnh đề HAVING\nlọc kết quả sau khi group by bằng having\nđiều kiện lọc trên nhóm dữ liệu đã gom\ndùng having lọc nhóm sau khi tổng hợp",
+      "content_hash_vi": "e03823c4ad73072db7bbf6a9a994dd9f11c01d60f3e5245adbda43eea4a54d32"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 1,
+      "card": "Select",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SELECT ... FROM ... WHERE condition ORDER BY field1, field2;",
+      "description": null,
+      "display": {
+        "raw": "SELECT ... FROM ... WHERE condition ORDER BY field1, field2;"
+      },
+      "position": 7,
+      "embed_text": "MySQL › Select\nSELECT ... FROM ... WHERE condition ORDER BY field1, field2;",
+      "content_hash": "1025da32362213dac89cab4d559881f70bab1f091b584c6c90f74c99cdfd85f7",
+      "description_vi": "Sắp xếp kết quả tăng dần theo field1, field2",
+      "embed_text_vi": "MySQL › Select\nSELECT ... FROM ... WHERE condition ORDER BY field1, field2;\nSắp xếp kết quả tăng dần theo field1, field2\nsắp xếp kết quả tăng dần theo nhiều cột\norder by sắp thứ tự bản ghi theo trường\nxếp thứ tự dữ liệu theo field1 và field2",
+      "content_hash_vi": "d9963aadf7f4531dc8a0edcf075756bd826909c0fd4bfc39d30b9290bb0f5092"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 1,
+      "card": "Select",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SELECT ... FROM ... WHERE condition ORDER BY field1, field2 DESC;",
+      "description": null,
+      "display": {
+        "raw": "SELECT ... FROM ... WHERE condition ORDER BY field1, field2 DESC;"
+      },
+      "position": 8,
+      "embed_text": "MySQL › Select\nSELECT ... FROM ... WHERE condition ORDER BY field1, field2 DESC;",
+      "content_hash": "89b91040266186f3e2433e9d5ab22e82f143badbbd4bd33f8519faa9c29a5492",
+      "description_vi": "Sắp xếp kết quả giảm dần theo field1, field2",
+      "embed_text_vi": "MySQL › Select\nSELECT ... FROM ... WHERE condition ORDER BY field1, field2 DESC;\nSắp xếp kết quả giảm dần theo field1, field2\nsắp xếp kết quả giảm dần theo nhiều cột\nxếp dữ liệu giảm dần desc theo trường\norder by sắp thứ tự từ lớn đến bé",
+      "content_hash_vi": "592a4373723b9f04500e18cda8698989b4f91d1eac860908577700dd895a672c"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 1,
+      "card": "Select",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SELECT ... FROM ... WHERE condition LIMIT 10;",
+      "description": null,
+      "display": {
+        "raw": "SELECT ... FROM ... WHERE condition LIMIT 10;"
+      },
+      "position": 9,
+      "embed_text": "MySQL › Select\nSELECT ... FROM ... WHERE condition LIMIT 10;",
+      "content_hash": "278016cb58fb303ac2b720219f8cdf7ae4f5d137318a9761c68ab80278a58f6e",
+      "description_vi": "Giới hạn số lượng bản ghi trả về tối đa 10 dòng",
+      "embed_text_vi": "MySQL › Select\nSELECT ... FROM ... WHERE condition LIMIT 10;\nGiới hạn số lượng bản ghi trả về tối đa 10 dòng\ngiới hạn số dòng trả về 10 bản ghi\nlấy 10 kết quả đầu tiên từ bảng\nlimit số lượng dòng trong truy vấn",
+      "content_hash_vi": "2f2073eec488c21ffe3413c4683b45f736224f6d615eddb04c8b309d31ba508d"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 1,
+      "card": "Select",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SELECT DISTINCT field1 FROM ...",
+      "description": null,
+      "display": {
+        "raw": "SELECT DISTINCT field1 FROM ..."
+      },
+      "position": 10,
+      "embed_text": "MySQL › Select\nSELECT DISTINCT field1 FROM ...",
+      "content_hash": "0f606f6a61f688ba703e8c61e52e501f2b5ebb76297faf95112466ec532d9849",
+      "description_vi": "Lấy các giá trị duy nhất (không trùng lặp) của field1",
+      "embed_text_vi": "MySQL › Select\nSELECT DISTINCT field1 FROM ...\nLấy các giá trị duy nhất (không trùng lặp) của field1\nlọc giá trị duy nhất không trùng của cột\nchọn trường field1 loại bỏ bản ghi trùng\ndistinct lấy dữ liệu độc nhất một cột",
+      "content_hash_vi": "c32783ffc2cfdbbd37dd7edf5d7e5a1ba6a0f4b21670542c0b09264a675fab86"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 1,
+      "card": "Select",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SELECT DISTINCT field1, field2 FROM ...",
+      "description": null,
+      "display": {
+        "raw": "SELECT DISTINCT field1, field2 FROM ..."
+      },
+      "position": 11,
+      "embed_text": "MySQL › Select\nSELECT DISTINCT field1, field2 FROM ...",
+      "content_hash": "5790ca752eef152cb74c286688867ea4657046f59420287edeefe7170706dc1e",
+      "description_vi": "Lấy các cặp giá trị duy nhất của field1 và field2",
+      "embed_text_vi": "MySQL › Select\nSELECT DISTINCT field1, field2 FROM ...\nLấy các cặp giá trị duy nhất của field1 và field2\nlấy các cặp giá trị không trùng của hai cột\ndistinct loại bỏ trùng lặp trên nhiều trường\ntruy vấn tổ hợp giá trị duy nhất field1 field2",
+      "content_hash_vi": "f0aa9f6f46b16fc142b4aafd09ef4f05d904092fcaa8b9f88aee111d768dbdff"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 3,
+      "section_pos": 1,
+      "card": "Select - Join",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SELECT ... FROM t1 JOIN t2 ON t1.id1 = t2.id2 WHERE condition;",
+      "description": null,
+      "display": {
+        "raw": "SELECT ... FROM t1 JOIN t2 ON t1.id1 = t2.id2 WHERE condition;"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Select - Join\nSELECT ... FROM t1 JOIN t2 ON t1.id1 = t2.id2 WHERE condition;",
+      "content_hash": "e60dd7a0c018b977e3d94ee5b192a9d55e2572aaefef4c47a7d67e87e54b385a",
+      "description_vi": "Nối trong (INNER JOIN) hai bảng theo điều kiện khoá",
+      "embed_text_vi": "MySQL › Select - Join\nSELECT ... FROM t1 JOIN t2 ON t1.id1 = t2.id2 WHERE condition;\nNối trong (INNER JOIN) hai bảng theo điều kiện khoá\nnối hai bảng bằng inner join theo khoá\nkết hợp dữ liệu hai table theo điều kiện on\ntruy vấn join giữa bảng t1 và t2",
+      "content_hash_vi": "cdeffcdcabe961b0e5f673f16d776e6586545db2ae1f3bc202e6606d461f5463"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 3,
+      "section_pos": 1,
+      "card": "Select - Join",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SELECT ... FROM t1 LEFT JOIN t2 ON t1.id1 = t2.id2 WHERE condition;",
+      "description": null,
+      "display": {
+        "raw": "SELECT ... FROM t1 LEFT JOIN t2 ON t1.id1 = t2.id2 WHERE condition;"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Select - Join\nSELECT ... FROM t1 LEFT JOIN t2 ON t1.id1 = t2.id2 WHERE condition;",
+      "content_hash": "21ed721893a6c7be16e781b313d745a7578282fbaf86f82d887e44e3cc1ed6c1",
+      "description_vi": "Nối ngoài bên trái (LEFT JOIN) giữ toàn bộ dòng t1",
+      "embed_text_vi": "MySQL › Select - Join\nSELECT ... FROM t1 LEFT JOIN t2 ON t1.id1 = t2.id2 WHERE condition;\nNối ngoài bên trái (LEFT JOIN) giữ toàn bộ dòng t1\nnối bảng left join giữ nguyên dữ liệu bảng trái\nkết hợp hai bảng lấy tất cả bản ghi t1\ntruy vấn left outer join giữa hai table",
+      "content_hash_vi": "d3893230d4c6f588a2f712cea26776128d661f6a9ee1b53b3d516bf0f1b84154"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 3,
+      "section_pos": 1,
+      "card": "Select - Join",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SELECT ... FROM t1 JOIN (t2 JOIN t3 ON ...) ON ...",
+      "description": null,
+      "display": {
+        "raw": "SELECT ... FROM t1 JOIN (t2 JOIN t3 ON ...) ON ..."
+      },
+      "position": 3,
+      "embed_text": "MySQL › Select - Join\nSELECT ... FROM t1 JOIN (t2 JOIN t3 ON ...) ON ...",
+      "content_hash": "9b328b7f46fe86e53f2c811df41456819ef165e8a9bc17fc81604d1f3bc9fe5d",
+      "description_vi": "Nối nhiều bảng lồng nhau theo các điều kiện khoá",
+      "embed_text_vi": "MySQL › Select - Join\nSELECT ... FROM t1 JOIN (t2 JOIN t3 ON ...) ON ...\nNối nhiều bảng lồng nhau theo các điều kiện khoá\nnối nhiều bảng lồng nhau\nkết hợp ba table bằng join lồng\ntruy vấn join lồng giữa t1 t2 t3",
+      "content_hash_vi": "043d32086fc387fe4142154d4c44b2f33a4417253d7606bc3ae9425ff10ae901"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 1,
+      "card": "Conditions",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "field1 = value1",
+      "description": null,
+      "display": {
+        "raw": "field1 = value1"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Conditions\nfield1 = value1",
+      "content_hash": "c346b15eb83d96f00e6939a63aa444608d48289fd99ae24fb54b90cec0f52d89",
+      "description_vi": "So sánh bằng giữa cột và giá trị",
+      "embed_text_vi": "MySQL › Conditions\nfield1 = value1\nSo sánh bằng giữa cột và giá trị\nso sánh giá trị cột bằng nhau\nđiều kiện bằng trường với giá trị\nlọc bản ghi có field bằng value",
+      "content_hash_vi": "c01ffdd3465d25278cd23d402ca70997ccf69eeb9d941bb1615f4424ef602515"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 1,
+      "card": "Conditions",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "field1 <> value1",
+      "description": null,
+      "display": {
+        "raw": "field1 <> value1"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Conditions\nfield1 <> value1",
+      "content_hash": "ef8ccc3d6ffa2e45e207f8f5177b63c9ad00059bb6a59fb4c698f68c95d40746",
+      "description_vi": "So sánh khác nhau giữa cột và giá trị",
+      "embed_text_vi": "MySQL › Conditions\nfield1 <> value1\nSo sánh khác nhau giữa cột và giá trị\nso sánh giá trị cột khác nhau\nđiều kiện không bằng trường với giá trị\nlọc bản ghi có field khác value",
+      "content_hash_vi": "90c21a774cf6382dd6dd18f30e888c49c88121eb45a4565fe716b1221c1fbbc6"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 1,
+      "card": "Conditions",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "field1 LIKE 'value _ %'",
+      "description": null,
+      "display": {
+        "raw": "field1 LIKE 'value _ %'"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Conditions\nfield1 LIKE 'value _ %'",
+      "content_hash": "3d55967f1c0f8dd699d72243208f62cfc8ae0f896505e5b03621383cd17b8e81",
+      "description_vi": "Khớp mẫu chuỗi với ký tự đại diện bằng LIKE",
+      "embed_text_vi": "MySQL › Conditions\nfield1 LIKE 'value _ %'\nKhớp mẫu chuỗi với ký tự đại diện bằng LIKE\ntìm kiếm chuỗi theo mẫu ký tự đại diện\nkhớp chuỗi gần đúng bằng like\nđiều kiện so khớp wildcard cho cột",
+      "content_hash_vi": "98f13235bf0803222a77a9c7c544e71cc50cf85c85cc331206e97ab4fd69daf3"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 1,
+      "card": "Conditions",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "field1 IS NULL",
+      "description": null,
+      "display": {
+        "raw": "field1 IS NULL"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Conditions\nfield1 IS NULL",
+      "content_hash": "068e026ed4dff1202d7e4bf368bd94b86444e26112769f160cfaa9158bc2063d",
+      "description_vi": "Kiểm tra cột có giá trị rỗng (NULL)",
+      "embed_text_vi": "MySQL › Conditions\nfield1 IS NULL\nKiểm tra cột có giá trị rỗng (NULL)\nkiểm tra cột có giá trị null rỗng\nlọc bản ghi chứa trường null\ntìm các dòng có field1 rỗng",
+      "content_hash_vi": "3d38bffec2de43f04685b9d9eec2d32cb629a38a208a0e7a578fe10b19982c63"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 1,
+      "card": "Conditions",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "field1 IS NOT NULL",
+      "description": null,
+      "display": {
+        "raw": "field1 IS NOT NULL"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Conditions\nfield1 IS NOT NULL",
+      "content_hash": "2420eb4b6dfdf08a840f9d5d2243252f13ae1984255c97e7188c67d08a9579a7",
+      "description_vi": "Kiểm tra cột có giá trị khác rỗng (NOT NULL)",
+      "embed_text_vi": "MySQL › Conditions\nfield1 IS NOT NULL\nKiểm tra cột có giá trị khác rỗng (NOT NULL)\nkiểm tra cột khác giá trị null\nlọc bản ghi trường không bị rỗng\ntìm các dòng có field1 không null",
+      "content_hash_vi": "addf40433fef434f3b4be8742e425e575dbe70a3f20b925fd87f955eec940198"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 1,
+      "card": "Conditions",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "field1 IS IN (value1, value2)",
+      "description": null,
+      "display": {
+        "raw": "field1 IS IN (value1, value2)"
+      },
+      "position": 6,
+      "embed_text": "MySQL › Conditions\nfield1 IS IN (value1, value2)",
+      "content_hash": "fad36bf1bad74398606d8d7de288c506f32157111d2c424023713b373fbbe396",
+      "description_vi": "Kiểm tra giá trị cột thuộc danh sách chỉ định",
+      "embed_text_vi": "MySQL › Conditions\nfield1 IS IN (value1, value2)\nKiểm tra giá trị cột thuộc danh sách chỉ định\nkiểm tra giá trị cột nằm trong danh sách\nlọc trường thuộc tập hợp các giá trị\nđiều kiện in tìm giá trị trong bộ chỉ định",
+      "content_hash_vi": "a606b8eeae82b9dcfec0794ae470227f4a3957d3ddb3ec1f1c9951baa5e880e9"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 1,
+      "card": "Conditions",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "field1 IS NOT IN (value1, value2)",
+      "description": null,
+      "display": {
+        "raw": "field1 IS NOT IN (value1, value2)"
+      },
+      "position": 7,
+      "embed_text": "MySQL › Conditions\nfield1 IS NOT IN (value1, value2)",
+      "content_hash": "faa569b403d02eea0b377e47d04063b252dcf6f22e497f328203c9fc30f2d4ea",
+      "description_vi": "Kiểm tra giá trị cột không thuộc danh sách chỉ định",
+      "embed_text_vi": "MySQL › Conditions\nfield1 IS NOT IN (value1, value2)\nKiểm tra giá trị cột không thuộc danh sách chỉ định\nkiểm tra giá trị cột không nằm trong danh sách\nlọc trường không thuộc tập hợp giá trị\nđiều kiện not in loại trừ các giá trị liệt kê",
+      "content_hash_vi": "f6e041647fb2a4cd66eec7084288c1ca36664913cb0501ca0a60c16f6d5d11a6"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 1,
+      "card": "Conditions",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "condition1 AND condition2",
+      "description": null,
+      "display": {
+        "raw": "condition1 AND condition2"
+      },
+      "position": 8,
+      "embed_text": "MySQL › Conditions\ncondition1 AND condition2",
+      "content_hash": "4bbd2e9c16deb55e0d312560488d437076c1bd8b547da03434687092ba9b3db9",
+      "description_vi": "Kết hợp đồng thời thoả mãn cả hai điều kiện",
+      "embed_text_vi": "MySQL › Conditions\ncondition1 AND condition2\nKết hợp đồng thời thoả mãn cả hai điều kiện\nkết hợp thoả mãn đồng thời hai điều kiện\ntoán tử logic and giữa các tiêu chí lọc\nghép hai condition bắt buộc cùng đúng",
+      "content_hash_vi": "abaf591cb6fa156fc88655785bc926a943dec785fdcb5155cb7b341a0a28f95a"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 1,
+      "card": "Conditions",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "condition1 OR condition2",
+      "description": null,
+      "display": {
+        "raw": "condition1 OR condition2"
+      },
+      "position": 9,
+      "embed_text": "MySQL › Conditions\ncondition1 OR condition2",
+      "content_hash": "40b747ec74047aae325b08ffcc401240683373d240330a859b79b211e1a6dd2c",
+      "description_vi": "Kết hợp thoả mãn ít nhất một trong hai điều kiện",
+      "embed_text_vi": "MySQL › Conditions\ncondition1 OR condition2\nKết hợp thoả mãn ít nhất một trong hai điều kiện\nkết hợp thoả mãn một trong hai điều kiện\ntoán tử logic or giữa các tiêu chí lọc\nghép hai condition chỉ cần một cái đúng",
+      "content_hash_vi": "9308e777f172eea58ff0944bbee00c81c77627711737bfbb4d9f54361cd17fe4"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 5,
+      "section_pos": 1,
+      "card": "Create / Open / Delete Database",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "CREATE DATABASE DatabaseName;",
+      "description": null,
+      "display": {
+        "raw": "CREATE DATABASE DatabaseName;"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Create / Open / Delete Database\nCREATE DATABASE DatabaseName;",
+      "content_hash": "a96d5b533ecc18345dffb57a225e734b676144d2735f195f612b37a1a63e42cc",
+      "description_vi": "Tạo một database mới với tên DatabaseName",
+      "embed_text_vi": "MySQL › Create / Open / Delete Database\nCREATE DATABASE DatabaseName;\nTạo một database mới với tên DatabaseName\ntạo mới một database\nkhởi tạo cơ sở dữ liệu mới\nthêm cơ sở dữ liệu DatabaseName",
+      "content_hash_vi": "9bce7bc287589df28fa0e3521c9d6725a38cd32683de5832c6dbdddae36a7fa7"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 5,
+      "section_pos": 1,
+      "card": "Create / Open / Delete Database",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "CREATE DATABASE DatabaseName CHARACTER SET utf8;",
+      "description": null,
+      "display": {
+        "raw": "CREATE DATABASE DatabaseName CHARACTER SET utf8;"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Create / Open / Delete Database\nCREATE DATABASE DatabaseName CHARACTER SET utf8;",
+      "content_hash": "534b736de734b101954602a1332bec2093538038bfb2bbe4846aa23e51ad5e49",
+      "description_vi": "Tạo database mới có định dạng bảng mã utf8",
+      "embed_text_vi": "MySQL › Create / Open / Delete Database\nCREATE DATABASE DatabaseName CHARACTER SET utf8;\nTạo database mới có định dạng bảng mã utf8\ntạo database hỗ trợ bảng mã utf8\nkhởi tạo cơ sở dữ liệu kèm character set utf8\nthêm database mới định dạng tiếng việt utf8",
+      "content_hash_vi": "871bf626eef1ca29c19f38358d2427492b2a91b4fac5b238008de4bd610de5be"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 5,
+      "section_pos": 1,
+      "card": "Create / Open / Delete Database",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "USE DatabaseName;",
+      "description": null,
+      "display": {
+        "raw": "USE DatabaseName;"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Create / Open / Delete Database\nUSE DatabaseName;",
+      "content_hash": "5f564d836eab202cc04c4551ea33fef10893d49d12fd1ce207b9791fee54a30c",
+      "description_vi": "Chọn (mở) database để thao tác làm việc",
+      "embed_text_vi": "MySQL › Create / Open / Delete Database\nUSE DatabaseName;\nChọn (mở) database để thao tác làm việc\nchọn database để thao tác làm việc\nchuyển sang cơ sở dữ liệu DatabaseName\nmở database đang cần dùng",
+      "content_hash_vi": "66f9012c47bc11a7ee93d7d793d3929f4c28bdfcafcc8f013a7b7d78d5f7880b"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 5,
+      "section_pos": 1,
+      "card": "Create / Open / Delete Database",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "DROP DATABASE DatabaseName;",
+      "description": null,
+      "display": {
+        "raw": "DROP DATABASE DatabaseName;"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Create / Open / Delete Database\nDROP DATABASE DatabaseName;",
+      "content_hash": "545f090c02095756a26ebb99ee000e5b2fe42961d50fa2798c8682e170439263",
+      "description_vi": "Xoá hoàn toàn một database khỏi hệ thống",
+      "embed_text_vi": "MySQL › Create / Open / Delete Database\nDROP DATABASE DatabaseName;\nXoá hoàn toàn một database khỏi hệ thống\nxoá vĩnh viễn một database\ngỡ bỏ cơ sở dữ liệu DatabaseName\nhuỷ bỏ toàn bộ database khỏi server",
+      "content_hash_vi": "09f4a8f21d65e4064e3426f6052be03ed750d2546ab7f5885cc415415997c1b4"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 5,
+      "section_pos": 1,
+      "card": "Create / Open / Delete Database",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "ALTER DATABASE DatabaseName CHARACTER SET utf8;",
+      "description": null,
+      "display": {
+        "raw": "ALTER DATABASE DatabaseName CHARACTER SET utf8;"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Create / Open / Delete Database\nALTER DATABASE DatabaseName CHARACTER SET utf8;",
+      "content_hash": "6797ac0b0bcb4c05455ed28da9c0c12d8242541593916015d2115596a49b6b31",
+      "description_vi": "Thay đổi bảng mã của database sang utf8",
+      "embed_text_vi": "MySQL › Create / Open / Delete Database\nALTER DATABASE DatabaseName CHARACTER SET utf8;\nThay đổi bảng mã của database sang utf8\nđổi bảng mã database sang utf8\nthay đổi character set của cơ sở dữ liệu\nchuyển encoding database thành utf8",
+      "content_hash_vi": "b6a6418a09ac9553a2377411a840fe13ac5f402da52da7145c0475ac02dc9ae2"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 6,
+      "section_pos": 1,
+      "card": "Backup Database to SQL File",
+      "section": null,
+      "lang": "bash",
+      "kind": "command",
+      "command": "mysqldump -u Username -p dbNameYouWant > databasename_backup.sql",
+      "description": null,
+      "display": {
+        "raw": "mysqldump -u Username -p dbNameYouWant > databasename_backup.sql"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Backup Database to SQL File\nmysqldump -u Username -p dbNameYouWant > databasename_backup.sql",
+      "content_hash": "bacc0c0f4691df92d549485e958f633e26996993adb8dc3a699a59f169c23c19",
+      "description_vi": "Sao lưu (backup) database ra file SQL",
+      "embed_text_vi": "MySQL › Backup Database to SQL File\nmysqldump -u Username -p dbNameYouWant > databasename_backup.sql\nSao lưu (backup) database ra file SQL\nsao lưu database ra file sql\nbackup cơ sở dữ liệu thành tập tin sql\nxuất dữ liệu database ra databasename_backup.sql",
+      "content_hash_vi": "b8b34b0f81031ee87cb2566bfc04fd885d32efd74f9d678b8efafd1ba079fd64"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 7,
+      "section_pos": 1,
+      "card": "Restore from backup SQL File",
+      "section": null,
+      "lang": "bash",
+      "kind": "command",
+      "command": "mysql -u Username -p dbNameYouWant < databasename_backup.sql;",
+      "description": null,
+      "display": {
+        "raw": "mysql -u Username -p dbNameYouWant < databasename_backup.sql;"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Restore from backup SQL File\nmysql -u Username -p dbNameYouWant < databasename_backup.sql;",
+      "content_hash": "ea0e337afff521f2f69aae2aba81d35c8ad9f2056a8ac06aeb37527c35b114f7",
+      "description_vi": "Phục hồi (restore) database từ file sao lưu SQL",
+      "embed_text_vi": "MySQL › Restore from backup SQL File\nmysql -u Username -p dbNameYouWant < databasename_backup.sql;\nPhục hồi (restore) database từ file sao lưu SQL\nphục hồi database từ file sao lưu sql\nrestore cơ sở dữ liệu từ file sql\nnhập dữ liệu vào database từ tập tin backup",
+      "content_hash_vi": "724ba387faad8507929e8ba2923c5c425fe88be56fe39fd5c31074a650d08b8e"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 8,
+      "section_pos": 1,
+      "card": "Repair Tables After Unclean Shutdown",
+      "section": null,
+      "lang": "bash",
+      "kind": "command",
+      "command": "mysqlcheck --all-databases;",
+      "description": null,
+      "display": {
+        "raw": "mysqlcheck --all-databases;"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Repair Tables After Unclean Shutdown\nmysqlcheck --all-databases;",
+      "content_hash": "851dc846e093a38a80cf7dceae7f60e6b91ef74e358075294092d76a7df3e1d7",
+      "description_vi": "Kiểm tra và sửa chữa table toàn bộ database sau sự cố",
+      "embed_text_vi": "MySQL › Repair Tables After Unclean Shutdown\nmysqlcheck --all-databases;\nKiểm tra và sửa chữa table toàn bộ database sau sự cố\nkiểm tra sửa chữa table tất cả database\nsửa lỗi bảng sau sự cố tắt đột ngột\nquét và phục hồi toàn bộ cơ sở dữ liệu",
+      "content_hash_vi": "36d346cd49021e57965e5d164f63933ff4ca06f299a08535af0b0b5634b7585b"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 8,
+      "section_pos": 1,
+      "card": "Repair Tables After Unclean Shutdown",
+      "section": null,
+      "lang": "bash",
+      "kind": "command",
+      "command": "mysqlcheck --all-databases --fast;",
+      "description": null,
+      "display": {
+        "raw": "mysqlcheck --all-databases --fast;"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Repair Tables After Unclean Shutdown\nmysqlcheck --all-databases --fast;",
+      "content_hash": "73e5f0a291b965346b7aea45c84bdbb09df77ade4f60596493af3436a8680862",
+      "description_vi": "Kiểm tra nhanh và sửa table chỉ quét bảng chưa đóng đúng",
+      "embed_text_vi": "MySQL › Repair Tables After Unclean Shutdown\nmysqlcheck --all-databases --fast;\nKiểm tra nhanh và sửa table chỉ quét bảng chưa đóng đúng\nkiểm tra sửa lỗi bảng nhanh sau sự cố\nquét nhanh table chưa đóng đúng toàn bộ database\nsửa lỗi cơ sở dữ liệu chế độ fast",
+      "content_hash_vi": "0ca2bd400bc60f2e466f01bbdd6def75905403554b5c7bf271761274ed35e7bf"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 9,
+      "section_pos": 1,
+      "card": "Insert",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "INSERT INTO table1 (field1, field2) VALUES (value1, value2);",
+      "description": null,
+      "display": {
+        "raw": "INSERT INTO table1 (field1, field2) VALUES (value1, value2);"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Insert\nINSERT INTO table1 (field1, field2) VALUES (value1, value2);",
+      "content_hash": "a453c8209b3853955ba24a11e7be0076aa4e2a44cb7a59972cfb3f6f1317d80c",
+      "description_vi": "Thêm (chèn) dòng dữ liệu mới vào table",
+      "embed_text_vi": "MySQL › Insert\nINSERT INTO table1 (field1, field2) VALUES (value1, value2);\nThêm (chèn) dòng dữ liệu mới vào table\nthêm bản ghi mới vào bảng\nchèn dòng dữ liệu vào table\ntạo mới hàng dữ liệu với các trường chỉ định",
+      "content_hash_vi": "e1080e636d03742fdca7a5be2a32f3c7c607839d598ec762326f6f948a25a728"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 10,
+      "section_pos": 1,
+      "card": "Delete",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "DELETE FROM table1 / TRUNCATE table1",
+      "description": null,
+      "display": {
+        "raw": "DELETE FROM table1 / TRUNCATE table1"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Delete\nDELETE FROM table1 / TRUNCATE table1",
+      "content_hash": "95f76e3e00d2612a78795db8fc57593bd8ad90265a5c3a680a1e0bada28bb687",
+      "description_vi": "Xoá toàn bộ dữ liệu trong bảng table1",
+      "embed_text_vi": "MySQL › Delete\nDELETE FROM table1 / TRUNCATE table1\nXoá toàn bộ dữ liệu trong bảng table1\nxoá hết dữ liệu trong bảng\ntruncate làm trống bảng table1\ndọn sạch toàn bộ bản ghi table1",
+      "content_hash_vi": "762b113e8c68355ccb987f84fee0438dff21e0cb5fc81a93e5895750a22e564c"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 10,
+      "section_pos": 1,
+      "card": "Delete",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "DELETE FROM table1 WHERE condition",
+      "description": null,
+      "display": {
+        "raw": "DELETE FROM table1 WHERE condition"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Delete\nDELETE FROM table1 WHERE condition",
+      "content_hash": "5f7ce11faf57cc35f75ac54f9785447264a04946440d96fbfbe9d1edfeac99a7",
+      "description_vi": "Xoá các bản ghi thoả mãn điều kiện trong bảng table1",
+      "embed_text_vi": "MySQL › Delete\nDELETE FROM table1 WHERE condition\nXoá các bản ghi thoả mãn điều kiện trong bảng table1\nxoá bản ghi có điều kiện where\ngỡ bỏ dòng dữ liệu thoả điều kiện table1\nxoá dữ liệu table1 theo condition",
+      "content_hash_vi": "bbc39b748ab9d0648c9636b9ac76575e94de034d3db418bc0ecd50216e542a98"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 10,
+      "section_pos": 1,
+      "card": "Delete",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "DELETE FROM table1, table2 WHERE table1.id1 =\n  table2.id2 AND condition",
+      "description": null,
+      "display": {
+        "raw": "DELETE FROM table1, table2 WHERE table1.id1 =\n  table2.id2 AND condition"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Delete\nDELETE FROM table1, table2 WHERE table1.id1 =\n  table2.id2 AND condition",
+      "content_hash": "37ef3244a1f8271040d132ef9bfaccca25f598905f1738ea6c7878e2cec73324",
+      "description_vi": "Xoá dữ liệu từ nhiều bảng theo điều kiện kết nối (join)",
+      "embed_text_vi": "MySQL › Delete\nDELETE FROM table1, table2 WHERE table1.id1 =\n  table2.id2 AND condition\nXoá dữ liệu từ nhiều bảng theo điều kiện kết nối (join)\nxoá dữ liệu nhiều bảng liên kết\ndelete dữ liệu từ 2 bảng join\nxoá bản ghi trên cả table1 và table2",
+      "content_hash_vi": "35b36eb15cbf4c6add861c8b9701483f541267f706cda91663d087d91e275a20"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 11,
+      "section_pos": 1,
+      "card": "Update",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "UPDATE table1 SET field1=new_value1 WHERE condition;",
+      "description": null,
+      "display": {
+        "raw": "UPDATE table1 SET field1=new_value1 WHERE condition;"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Update\nUPDATE table1 SET field1=new_value1 WHERE condition;",
+      "content_hash": "b8c0eb21a5068fffcd3c833f54b8834b52d5bffb40cb0f9163d8f6f152e58b94",
+      "description_vi": "Cập nhật giá trị trường field1 trong bảng theo điều kiện",
+      "embed_text_vi": "MySQL › Update\nUPDATE table1 SET field1=new_value1 WHERE condition;\nCập nhật giá trị trường field1 trong bảng theo điều kiện\ncập nhật giá trị cột có điều kiện\nsửa dữ liệu field1 trong table1\nupdate giá trị cột thoả mãn where",
+      "content_hash_vi": "1714626119d23a8213ab9f344351d9bee7895c391c5d00b16e72f3f3271ac74c"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 11,
+      "section_pos": 1,
+      "card": "Update",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "UPDATE table1, table2 SET field1=new_value1, field2=new_value2, ... WHERE\n  table1.id1 = table2.id2 AND condition;",
+      "description": null,
+      "display": {
+        "raw": "UPDATE table1, table2 SET field1=new_value1, field2=new_value2, ... WHERE\n  table1.id1 = table2.id2 AND condition;"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Update\nUPDATE table1, table2 SET field1=new_value1, field2=new_value2, ... WHERE\n  table1.id1 = table2.id2 AND condition;",
+      "content_hash": "a07562a646aedffe5ee7afd1abf0037da31f5891afaf90f7a611418b69a3f26c",
+      "description_vi": "Cập nhật dữ liệu trên nhiều bảng đồng thời có kết nối",
+      "embed_text_vi": "MySQL › Update\nUPDATE table1, table2 SET field1=new_value1, field2=new_value2, ... WHERE\n  table1.id1 = table2.id2 AND condition;\nCập nhật dữ liệu trên nhiều bảng đồng thời có kết nối\ncập nhật dữ liệu nhiều bảng cùng lúc\nupdate nhiều bảng theo điều kiện join\nsửa giá trị cột trên 2 bảng liên kết",
+      "content_hash_vi": "4daba9dbc26d2ee4d67ed525a9fe2e1e5507b4087938f3c64b7d0fecdf578a36"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 1,
+      "card": "Create / Delete / Modify Table",
+      "section": "Create",
+      "lang": "sql",
+      "kind": "command",
+      "command": "CREATE TABLE table (field1 type1, field2 type2);",
+      "description": null,
+      "display": {
+        "raw": "CREATE TABLE table (field1 type1, field2 type2);"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Create\nCREATE TABLE table (field1 type1, field2 type2);",
+      "content_hash": "f84e57dfae04688b62773a1a87195bbd396905356b22873dbe505ffb30685151",
+      "description_vi": "Tạo bảng mới với các trường cơ bản",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Create\nCREATE TABLE table (field1 type1, field2 type2);\nTạo bảng mới với các trường cơ bản\ntạo bảng mới cơ bản\ncreate table đơn giản với các cột\nkhởi tạo bảng với danh sách trường",
+      "content_hash_vi": "8887a2823fad9436c74a5931b2868ae997b3a18a1d5df474c39a43be0e5a8cb5"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 1,
+      "card": "Create / Delete / Modify Table",
+      "section": "Create",
+      "lang": "sql",
+      "kind": "command",
+      "command": "CREATE TABLE table (field1 type1, field2 type2, INDEX (field));",
+      "description": null,
+      "display": {
+        "raw": "CREATE TABLE table (field1 type1, field2 type2, INDEX (field));"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Create\nCREATE TABLE table (field1 type1, field2 type2, INDEX (field));",
+      "content_hash": "278cfdd75e813622838ba58e4b958c8f7d7e80327ee7cda584b052d51a5edc21",
+      "description_vi": "Tạo bảng mới có đánh chỉ mục (index) cho cột",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Create\nCREATE TABLE table (field1 type1, field2 type2, INDEX (field));\nTạo bảng mới có đánh chỉ mục (index) cho cột\ntạo bảng có đánh index\ncreate table kèm chỉ mục cột\nkhởi tạo bảng có khai báo index",
+      "content_hash_vi": "f41f6e8bd6e1886082eb30ea58dfd3bf8a539301c40280eddbc2bba2507d4bba"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 1,
+      "card": "Create / Delete / Modify Table",
+      "section": "Create",
+      "lang": "sql",
+      "kind": "command",
+      "command": "CREATE TABLE table (field1 type1, field2 type2, PRIMARY KEY (field1));",
+      "description": null,
+      "display": {
+        "raw": "CREATE TABLE table (field1 type1, field2 type2, PRIMARY KEY (field1));"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Create\nCREATE TABLE table (field1 type1, field2 type2, PRIMARY KEY (field1));",
+      "content_hash": "b1d375cd7d488e0241a7816735808be96b65e0bab5e8e7a173877d5cbbe8af61",
+      "description_vi": "Tạo bảng mới với khoá chính (primary key) là một cột",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Create\nCREATE TABLE table (field1 type1, field2 type2, PRIMARY KEY (field1));\nTạo bảng mới với khoá chính (primary key) là một cột\ntạo bảng có primary key 1 cột\ncreate table với khoá chính đơn\nkhởi tạo bảng xác định primary key field1",
+      "content_hash_vi": "b81ad96265d4297d499d1b5fe7e0631f71a12a65713726db80e1aee4730bc6d9"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 1,
+      "card": "Create / Delete / Modify Table",
+      "section": "Create",
+      "lang": "sql",
+      "kind": "command",
+      "command": "CREATE TABLE table (field1 type1, field2 type2, PRIMARY KEY (field1,field2));",
+      "description": null,
+      "display": {
+        "raw": "CREATE TABLE table (field1 type1, field2 type2, PRIMARY KEY (field1,field2));"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Create\nCREATE TABLE table (field1 type1, field2 type2, PRIMARY KEY (field1,field2));",
+      "content_hash": "28799407cd59810852f14c8858ff40a7bafd88bea64f0ed4b72d61f8ccf06680",
+      "description_vi": "Tạo bảng mới với khoá chính tổ hợp từ nhiều cột",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Create\nCREATE TABLE table (field1 type1, field2 type2, PRIMARY KEY (field1,field2));\nTạo bảng mới với khoá chính tổ hợp từ nhiều cột\ntạo bảng có primary key phức hợp\ncreate table khoá chính gồm 2 cột\nkhởi tạo bảng với composite primary key",
+      "content_hash_vi": "2a11450779796ce1708987958875bcec15269ee0c89a25778462b9c9d4cfdadc"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 2,
+      "card": "Create / Delete / Modify Table",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "CREATE TABLE table1 (fk_field1 type1, field2 type2, ...,\n  FOREIGN KEY (fk_field1) REFERENCES table2 (t2_fieldA))\n    [ON UPDATE|ON DELETE] [CASCADE|SET NULL]",
+      "description": null,
+      "display": {
+        "raw": "CREATE TABLE table1 (fk_field1 type1, field2 type2, ...,\n  FOREIGN KEY (fk_field1) REFERENCES table2 (t2_fieldA))\n    [ON UPDATE|ON DELETE] [CASCADE|SET NULL]"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Create / Delete / Modify Table\nCREATE TABLE table1 (fk_field1 type1, field2 type2, ...,\n  FOREIGN KEY (fk_field1) REFERENCES table2 (t2_fieldA))\n    [ON UPDATE|ON DELETE] [CASCADE|SET NULL]",
+      "content_hash": "39b53ec3cd01e15fc4a903f83823c7a6ccef98a761a568d9231d0c808d17d004",
+      "description_vi": "Tạo bảng có khoá ngoại (foreign key) kèm tuỳ chọn cascade hoặc set null",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table\nCREATE TABLE table1 (fk_field1 type1, field2 type2, ...,\n  FOREIGN KEY (fk_field1) REFERENCES table2 (t2_fieldA))\n    [ON UPDATE|ON DELETE] [CASCADE|SET NULL]\nTạo bảng có khoá ngoại (foreign key) kèm tuỳ chọn cascade hoặc set null\ntạo bảng có foreign key on delete cascade\ncreate table với khoá ngoại on update set null\nkhởi tạo bảng liên kết khoá ngoại có cascade",
+      "content_hash_vi": "bd4fb7fb50c523d97e1b528bb448e9016a193e425e0ce90d8bb45ab50101f8ce"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 3,
+      "card": "Create / Delete / Modify Table",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "CREATE TABLE table1 (fk_field1 type1, fk_field2 type2, ...,\n FOREIGN KEY (fk_field1, fk_field2) REFERENCES table2 (t2_fieldA, t2_fieldB))",
+      "description": null,
+      "display": {
+        "raw": "CREATE TABLE table1 (fk_field1 type1, fk_field2 type2, ...,\n FOREIGN KEY (fk_field1, fk_field2) REFERENCES table2 (t2_fieldA, t2_fieldB))"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Create / Delete / Modify Table\nCREATE TABLE table1 (fk_field1 type1, fk_field2 type2, ...,\n FOREIGN KEY (fk_field1, fk_field2) REFERENCES table2 (t2_fieldA, t2_fieldB))",
+      "content_hash": "97daa0bfa84d793fdf1929b62b3f78202541da5d76ffad6176adf89f63649849",
+      "description_vi": "Tạo bảng có khoá ngoại tổ hợp nhiều cột tham chiếu bảng khác",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table\nCREATE TABLE table1 (fk_field1 type1, fk_field2 type2, ...,\n FOREIGN KEY (fk_field1, fk_field2) REFERENCES table2 (t2_fieldA, t2_fieldB))\nTạo bảng có khoá ngoại tổ hợp nhiều cột tham chiếu bảng khác\ntạo bảng có foreign key nhiều cột\ncreate table khoá ngoại phức hợp composite\nkhởi tạo bảng tham chiếu foreign key 2 trường",
+      "content_hash_vi": "0a9cc53ad457da71fc9d96a1c94052f1905d3dd85778ec58357fd7cc47200d17"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 4,
+      "card": "Create / Delete / Modify Table",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "CREATE TABLE table IF NOT EXISTS;",
+      "description": null,
+      "display": {
+        "raw": "CREATE TABLE table IF NOT EXISTS;"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Create / Delete / Modify Table\nCREATE TABLE table IF NOT EXISTS;",
+      "content_hash": "ff76cb2fe0c8d9b8c7242a7bc6ee751bb54e6e544057a53a71678a5885cc83ee",
+      "description_vi": "Tạo bảng chỉ khi bảng đó chưa tồn tại",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table\nCREATE TABLE table IF NOT EXISTS;\nTạo bảng chỉ khi bảng đó chưa tồn tại\ntạo bảng nếu chưa tồn tại if not exists\ncreate table kiểm tra tồn tại tránh lỗi\nkhởi tạo bảng if not exists",
+      "content_hash_vi": "5ad952af93a2719d8326feae8ac1c7f244b6aa08e6788bfbcea9d6837788802a"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 5,
+      "card": "Create / Delete / Modify Table",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "CREATE TEMPORARY TABLE table;",
+      "description": null,
+      "display": {
+        "raw": "CREATE TEMPORARY TABLE table;"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Create / Delete / Modify Table\nCREATE TEMPORARY TABLE table;",
+      "content_hash": "16bb5fe6449e688121ca86fdfe6572242a8302fa4bc01c40b5ff26d361649c54",
+      "description_vi": "Tạo bảng tạm thời tự xoá sau khi kết thúc phiên",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table\nCREATE TEMPORARY TABLE table;\nTạo bảng tạm thời tự xoá sau khi kết thúc phiên\ntạo bảng tạm temporary table\ncreate temporary table phiên làm việc\nkhởi tạo bảng tạm thời tự huỷ",
+      "content_hash_vi": "d22c919303883b37f2419dec300ef30c8804b35aa21e87204d32c3f279ada42f"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 6,
+      "card": "Create / Delete / Modify Table",
+      "section": "Drop",
+      "lang": "sql",
+      "kind": "command",
+      "command": "DROP TABLE table;",
+      "description": null,
+      "display": {
+        "raw": "DROP TABLE table;"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Drop\nDROP TABLE table;",
+      "content_hash": "197cf15b0ae898ae813c896b4e7038079ade894ebad8f56d08b0a146697d1c65",
+      "description_vi": "Xoá hoàn toàn một bảng khỏi database",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Drop\nDROP TABLE table;\nXoá hoàn toàn một bảng khỏi database\nxoá bỏ hoàn toàn bảng dữ liệu\ndrop table một bảng\nhuỷ bỏ bảng table",
+      "content_hash_vi": "161284e9cd3709f6657d57ccd75da3e87bb06fc14165b62fd09e20a4c24a58f2"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 6,
+      "card": "Create / Delete / Modify Table",
+      "section": "Drop",
+      "lang": "sql",
+      "kind": "command",
+      "command": "DROP TABLE IF EXISTS table;",
+      "description": null,
+      "display": {
+        "raw": "DROP TABLE IF EXISTS table;"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Drop\nDROP TABLE IF EXISTS table;",
+      "content_hash": "f988a92ee928c9fa0fe8de228eb05109bbbf7850e785ef11afe78952814157ca",
+      "description_vi": "Xoá bảng chỉ khi bảng đó tồn tại",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Drop\nDROP TABLE IF EXISTS table;\nXoá bảng chỉ khi bảng đó tồn tại\nxoá bảng nếu tồn tại if exists\ndrop table tránh lỗi khi bảng không có\nhuỷ bảng có kiểm tra if exists",
+      "content_hash_vi": "0058f0fc56c910d3801b1eba5b2f01a1bed2146ba492b2578e995c494d650333"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 6,
+      "card": "Create / Delete / Modify Table",
+      "section": "Drop",
+      "lang": "sql",
+      "kind": "command",
+      "command": "DROP TABLE table1, table2, ...",
+      "description": null,
+      "display": {
+        "raw": "DROP TABLE table1, table2, ..."
+      },
+      "position": 3,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Drop\nDROP TABLE table1, table2, ...",
+      "content_hash": "4869c4ddaf1aeefc5f65a45475bc1ebb5abb9ecb316f3908f69e4afa4db12dff",
+      "description_vi": "Xoá nhiều bảng cùng một lúc",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Drop\nDROP TABLE table1, table2, ...\nXoá nhiều bảng cùng một lúc\nxoá nhiều bảng cùng lúc\ndrop table danh sách nhiều bảng\nhuỷ hàng loạt bảng table1 table2",
+      "content_hash_vi": "40650df1a24185feac4de39f7c699fde5edf2639b8cab9919758f5678539ba40"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 7,
+      "card": "Create / Delete / Modify Table",
+      "section": "Alter",
+      "lang": "sql",
+      "kind": "command",
+      "command": "ALTER TABLE table MODIFY field1 type1",
+      "description": null,
+      "display": {
+        "raw": "ALTER TABLE table MODIFY field1 type1"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table MODIFY field1 type1",
+      "content_hash": "a31c34384400aebd67036347630cf74849477e70a186b2a13e19ed6c2660419c",
+      "description_vi": "Thay đổi kiểu dữ liệu của một cột hiện có",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table MODIFY field1 type1\nThay đổi kiểu dữ liệu của một cột hiện có\nsửa kiểu dữ liệu cột trong bảng\nmodify kiểu của trường field1\nđổi data type của cột table",
+      "content_hash_vi": "099ddd79b106ccd1718e0723fe04966e350e8390266ad068f1ddfc645228257a"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 7,
+      "card": "Create / Delete / Modify Table",
+      "section": "Alter",
+      "lang": "sql",
+      "kind": "command",
+      "command": "ALTER TABLE table MODIFY field1 type1 NOT NULL ...",
+      "description": null,
+      "display": {
+        "raw": "ALTER TABLE table MODIFY field1 type1 NOT NULL ..."
+      },
+      "position": 2,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table MODIFY field1 type1 NOT NULL ...",
+      "content_hash": "ad9d1b474bea09091cf18dbc2c9ebab993bb7648358ed121a0f892531ea72dec",
+      "description_vi": "Sửa kiểu dữ liệu cột và gán thêm ràng buộc NOT NULL",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table MODIFY field1 type1 NOT NULL ...\nSửa kiểu dữ liệu cột và gán thêm ràng buộc NOT NULL\nsửa cột thành not null trong bảng\nmodify field1 đặt ràng buộc not null\nthay đổi kiểu dữ liệu cột bắt buộc nhập",
+      "content_hash_vi": "5dba07f2dc790bc92486aea0f9b17435c7da8c597f41bcc26460a12d0df8dbb8"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 7,
+      "card": "Create / Delete / Modify Table",
+      "section": "Alter",
+      "lang": "sql",
+      "kind": "command",
+      "command": "ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1",
+      "description": null,
+      "display": {
+        "raw": "ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table CHANGE old_name_field1 new_name_field1 type1",
+      "content_hash": "393bd807bee1cd91f057d1db078ef5ef8c993b6dac657312b1cb8529f8720922",
+      "description_vi": "Đổi tên cột và cập nhật kiểu dữ liệu của cột",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table CHANGE old_name_field1 new_name_field1 type1\nĐổi tên cột và cập nhật kiểu dữ liệu của cột\nđổi tên cột trong bảng\nchange tên và kiểu dữ liệu field1\nthay tên trường old_name thành new_name",
+      "content_hash_vi": "9a68db19cdb105dc5e26e7c53aa44c865d294cba3e21f63de9d9f06806dabe4b"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 7,
+      "card": "Create / Delete / Modify Table",
+      "section": "Alter",
+      "lang": "sql",
+      "kind": "command",
+      "command": "ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 NOT NULL ...",
+      "description": null,
+      "display": {
+        "raw": "ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 NOT NULL ..."
+      },
+      "position": 4,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 NOT NULL ...",
+      "content_hash": "e4b2a3585ea06784bc23f934b30cc0381582d4aa179c47afa780e2def0014e97",
+      "description_vi": "Đổi tên cột kèm thiết lập kiểu dữ liệu và NOT NULL",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 NOT NULL ...\nĐổi tên cột kèm thiết lập kiểu dữ liệu và NOT NULL\nđổi tên cột kèm đặt not null\nchange tên trường và gán ràng buộc not null\nthay tên cột mới bắt buộc nhập dữ liệu",
+      "content_hash_vi": "3a84309bf9627267764d4c3651993271632a4d762bd6591b861eb8dfd8152e08"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 7,
+      "card": "Create / Delete / Modify Table",
+      "section": "Alter",
+      "lang": "sql",
+      "kind": "command",
+      "command": "ALTER TABLE table ALTER field1 SET DEFAULT ...",
+      "description": null,
+      "display": {
+        "raw": "ALTER TABLE table ALTER field1 SET DEFAULT ..."
+      },
+      "position": 5,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table ALTER field1 SET DEFAULT ...",
+      "content_hash": "4510b58f112587bec60000f3f2ef627f8410583e1f07e084d3ae1ebf357d1120",
+      "description_vi": "Đặt giá trị mặc định (default) cho một cột",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table ALTER field1 SET DEFAULT ...\nĐặt giá trị mặc định (default) cho một cột\nđặt giá trị mặc định cho cột\ngán default value cho field1\nset default giá trị mặc định trường bảng",
+      "content_hash_vi": "c464e37f9fc2ccce815e9728984360bc632952a2d1a382375fb0f7b821946dc6"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 7,
+      "card": "Create / Delete / Modify Table",
+      "section": "Alter",
+      "lang": "sql",
+      "kind": "command",
+      "command": "ALTER TABLE table ALTER field1 DROP DEFAULT",
+      "description": null,
+      "display": {
+        "raw": "ALTER TABLE table ALTER field1 DROP DEFAULT"
+      },
+      "position": 6,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table ALTER field1 DROP DEFAULT",
+      "content_hash": "8cdb6356592958798efdef0938536ca5ccda51f568c1f2e6b79fe2e84e05bcdf",
+      "description_vi": "Xoá bỏ giá trị mặc định (default) của một cột",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table ALTER field1 DROP DEFAULT\nXoá bỏ giá trị mặc định (default) của một cột\nxoá giá trị mặc định của cột\ndrop default khỏi trường field1\ngỡ bỏ default value cột bảng",
+      "content_hash_vi": "77d95e65d1a22509e2ed56b48e94fff93dfdc22e19c185858709c7f357bdee6b"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 7,
+      "card": "Create / Delete / Modify Table",
+      "section": "Alter",
+      "lang": "sql",
+      "kind": "command",
+      "command": "ALTER TABLE table ADD new_name_field1 type1",
+      "description": null,
+      "display": {
+        "raw": "ALTER TABLE table ADD new_name_field1 type1"
+      },
+      "position": 7,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table ADD new_name_field1 type1",
+      "content_hash": "a90cf664a1978e43aef4f0337529f6beae50ab391b602b5ec6003cdac2e79353",
+      "description_vi": "Thêm một cột mới vào cuối bảng",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table ADD new_name_field1 type1\nThêm một cột mới vào cuối bảng\nthêm cột mới vào bảng\nadd column vào table\nbổ sung trường mới new_name_field1",
+      "content_hash_vi": "2224417c2783c112b759153b6dcc5858199486bbf61a4988e741aef154f3bd0d"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 7,
+      "card": "Create / Delete / Modify Table",
+      "section": "Alter",
+      "lang": "sql",
+      "kind": "command",
+      "command": "ALTER TABLE table ADD new_name_field1 type1 FIRST",
+      "description": null,
+      "display": {
+        "raw": "ALTER TABLE table ADD new_name_field1 type1 FIRST"
+      },
+      "position": 8,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table ADD new_name_field1 type1 FIRST",
+      "content_hash": "0ffb07185f0e5f7a15921e4241c61c67617955b243dc992ce178f6df70c5c89d",
+      "description_vi": "Thêm một cột mới vào vị trí đầu tiên của bảng",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table ADD new_name_field1 type1 FIRST\nThêm một cột mới vào vị trí đầu tiên của bảng\nthêm cột vào vị trí đầu bảng\nadd column lên đầu tiên với FIRST\nbổ sung trường mới ở đầu table",
+      "content_hash_vi": "9f2a8c21628cbf28797adf3f8281a6c6b3117ff15dbbb00ad75b7bc5065aaf36"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 7,
+      "card": "Create / Delete / Modify Table",
+      "section": "Alter",
+      "lang": "sql",
+      "kind": "command",
+      "command": "ALTER TABLE table ADD new_name_field1 type1 AFTER another_field",
+      "description": null,
+      "display": {
+        "raw": "ALTER TABLE table ADD new_name_field1 type1 AFTER another_field"
+      },
+      "position": 9,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table ADD new_name_field1 type1 AFTER another_field",
+      "content_hash": "6ab0ec434c70aaf2c6a65d5fb0b04e50339d833c277d638bb0581fdfd36e5028",
+      "description_vi": "Thêm một cột mới vào sau một cột chỉ định",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table ADD new_name_field1 type1 AFTER another_field\nThêm một cột mới vào sau một cột chỉ định\nthêm cột mới vào sau cột khác\nadd column đứng sau another_field\nbổ sung trường nằm sau cột chỉ định",
+      "content_hash_vi": "8c3f074b45b630a246c7891f62e6308e17039a92476951aefa0ae5f9f7e86f84"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 7,
+      "card": "Create / Delete / Modify Table",
+      "section": "Alter",
+      "lang": "sql",
+      "kind": "command",
+      "command": "ALTER TABLE table DROP field1",
+      "description": null,
+      "display": {
+        "raw": "ALTER TABLE table DROP field1"
+      },
+      "position": 10,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table DROP field1",
+      "content_hash": "2b54d5508bd98ac98f06958d81287b9a9d7325f7673fd7f2e0a3f11e6df38d2e",
+      "description_vi": "Xoá một cột khỏi bảng",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table DROP field1\nXoá một cột khỏi bảng\nxoá một cột khỏi bảng\ndrop column field1 trong table\ngỡ bỏ trường dữ liệu khỏi bảng",
+      "content_hash_vi": "d1c74f6c4396fa52a43abdac827cad6c27d719f6c6967b404e6615410bfb1379"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 7,
+      "card": "Create / Delete / Modify Table",
+      "section": "Alter",
+      "lang": "sql",
+      "kind": "command",
+      "command": "ALTER TABLE table ADD INDEX (field);",
+      "description": null,
+      "display": {
+        "raw": "ALTER TABLE table ADD INDEX (field);"
+      },
+      "position": 11,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table ADD INDEX (field);",
+      "content_hash": "d721f8672cc0abfe5305b274f3d50b92917a05ce3ed648e4c39840f03c8e8bd1",
+      "description_vi": "Tạo thêm chỉ mục (index) cho cột trong bảng đã có",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Alter\nALTER TABLE table ADD INDEX (field);\nTạo thêm chỉ mục (index) cho cột trong bảng đã có\nthêm index cho cột trong bảng\ntạo chỉ mục tìm kiếm với alter table add index\nđánh index bổ sung cho field",
+      "content_hash_vi": "37f3f62d11de0da5d2323ef31410a00527775df46a4474069f55c9506fbd987a"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 8,
+      "card": "Create / Delete / Modify Table",
+      "section": "Change field order",
+      "lang": "sql",
+      "kind": "command",
+      "command": "ALTER TABLE table MODIFY field1 type1 FIRST",
+      "description": null,
+      "display": {
+        "raw": "ALTER TABLE table MODIFY field1 type1 FIRST"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Change field order\nALTER TABLE table MODIFY field1 type1 FIRST",
+      "content_hash": "fdf82e60713653f60b3e83b71052401c47be65e7d3c303017d457549f853e9fb",
+      "description_vi": "Chuyển cột hiện có lên vị trí đầu tiên của bảng",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Change field order\nALTER TABLE table MODIFY field1 type1 FIRST\nChuyển cột hiện có lên vị trí đầu tiên của bảng\nchuyển vị trí cột lên đầu bảng\nmodify đưa field1 lên vị trí đầu tiên\nthay đổi thứ tự cột lên first",
+      "content_hash_vi": "e2016b2d40f16269617094430c04d4ad7d69651cd17948b3ea4ce02ffae8cf8b"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 8,
+      "card": "Create / Delete / Modify Table",
+      "section": "Change field order",
+      "lang": "sql",
+      "kind": "command",
+      "command": "ALTER TABLE table MODIFY field1 type1 AFTER another_field",
+      "description": null,
+      "display": {
+        "raw": "ALTER TABLE table MODIFY field1 type1 AFTER another_field"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Change field order\nALTER TABLE table MODIFY field1 type1 AFTER another_field",
+      "content_hash": "ccfee5d66b653742a8141f098d743aa1ba029a50508750aa92b4a5c396fe8d73",
+      "description_vi": "Chuyển cột hiện có ra sau một cột khác trong bảng",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Change field order\nALTER TABLE table MODIFY field1 type1 AFTER another_field\nChuyển cột hiện có ra sau một cột khác trong bảng\nchuyển vị trí cột ra sau cột khác\nmodify đổi thứ tự field1 đứng sau another_field\nsắp xếp cột đứng sau một trường cụ thể",
+      "content_hash_vi": "64ea636e643af4a454d880eca90809998dc4368d9bb0ecfed0ac72bfcc744d50"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 8,
+      "card": "Create / Delete / Modify Table",
+      "section": "Change field order",
+      "lang": "sql",
+      "kind": "command",
+      "command": "ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 FIRST",
+      "description": null,
+      "display": {
+        "raw": "ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 FIRST"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Change field order\nALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 FIRST",
+      "content_hash": "6f47f1c32bd48bf7466b256a9e43887dc012c38714ba28d0d1c1bffc8e766f18",
+      "description_vi": "Đổi tên cột và đồng thời chuyển lên vị trí đầu bảng",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Change field order\nALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 FIRST\nĐổi tên cột và đồng thời chuyển lên vị trí đầu bảng\nđổi tên cột và chuyển lên đầu bảng\nchange tên cột đưa lên vị trí đầu tiên\nsửa tên trường kèm dịch chuyển lên first",
+      "content_hash_vi": "479ce46c9ac9630da18adee097d4e6029874867b64b13a55438957a4b40fd6aa"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 8,
+      "card": "Create / Delete / Modify Table",
+      "section": "Change field order",
+      "lang": "sql",
+      "kind": "command",
+      "command": "ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 AFTER\n  another_field",
+      "description": null,
+      "display": {
+        "raw": "ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 AFTER\n  another_field"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Change field order\nALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 AFTER\n  another_field",
+      "content_hash": "b6eb7d0b4e65056cc974319df42836ca046f9335465e84eb9c70231f6c13f8bd",
+      "description_vi": "Đổi tên cột và đồng thời chuyển ra sau cột chỉ định",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Change field order\nALTER TABLE table CHANGE old_name_field1 new_name_field1 type1 AFTER\n  another_field\nĐổi tên cột và đồng thời chuyển ra sau cột chỉ định\nđổi tên cột và dời ra sau cột khác\nchange tên cột đặt sau another_field\nsửa tên trường kèm chuyển vị trí đứng sau cột khác",
+      "content_hash_vi": "ad7102e7ca3d3f831ed5dee81556951260672f63225f67aa327a9b08ea3806ef"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 13,
+      "section_pos": 1,
+      "card": "Keys",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "CREATE TABLE table (..., PRIMARY KEY (field1, field2))",
+      "description": null,
+      "display": {
+        "raw": "CREATE TABLE table (..., PRIMARY KEY (field1, field2))"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Keys\nCREATE TABLE table (..., PRIMARY KEY (field1, field2))",
+      "content_hash": "48c50b878eca9f7f6bc7a6c93bae32bd5f592f290790037f2ae68eaff8b1d88f",
+      "description_vi": "Khai báo khoá chính (primary key) kết hợp từ hai cột khi tạo bảng",
+      "embed_text_vi": "MySQL › Keys\nCREATE TABLE table (..., PRIMARY KEY (field1, field2))\nKhai báo khoá chính (primary key) kết hợp từ hai cột khi tạo bảng\nkhai báo khoá chính hai cột\ntạo primary key gồm 2 trường\nđịnh nghĩa composite primary key trong create table",
+      "content_hash_vi": "87cb27e7cd63435f6486df87a7c37149185523970c24f080a5fb17e7ff0b99a0"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 13,
+      "section_pos": 1,
+      "card": "Keys",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "CREATE TABLE table (..., FOREIGN KEY (field1, field2) REFERENCES table2",
+      "description": null,
+      "display": {
+        "raw": "CREATE TABLE table (..., FOREIGN KEY (field1, field2) REFERENCES table2"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Keys\nCREATE TABLE table (..., FOREIGN KEY (field1, field2) REFERENCES table2",
+      "content_hash": "267c7fd6a587a66273907a91e540c57bed352f87360fa3521d7957f1d4574582",
+      "description_vi": "Khai báo khoá ngoại (foreign key) tổ hợp tham chiếu đến table2",
+      "embed_text_vi": "MySQL › Keys\nCREATE TABLE table (..., FOREIGN KEY (field1, field2) REFERENCES table2\nKhai báo khoá ngoại (foreign key) tổ hợp tham chiếu đến table2\nkhai báo foreign key tham chiếu table2\ntạo khoá ngoại nhiều cột liên kết bảng khác\nđịnh nghĩa foreign key references table2",
+      "content_hash_vi": "50d9cced62f539e1639a8cbedbef6d8b0fea68879c3b0f6644a1746a8862a0a6"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 13,
+      "section_pos": 1,
+      "card": "Keys",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "(t2_field1, t2_field2))",
+      "description": null,
+      "display": {
+        "raw": "(t2_field1, t2_field2))"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Keys\n(t2_field1, t2_field2))",
+      "content_hash": "75bc61e898124723cc9fd4dd011f2fd6979ec04b94186ed9ef97cb9c9daaf54d",
+      "description_vi": "Chỉ định các cột được tham chiếu trong bảng khoá ngoại",
+      "embed_text_vi": "MySQL › Keys\n(t2_field1, t2_field2))\nChỉ định các cột được tham chiếu trong bảng khoá ngoại\nchỉ định cột tham chiếu khoá ngoại\ncột liên kết trong foreign key\ndanh sách trường tham chiếu table2",
+      "content_hash_vi": "846f796e90a00400d02b8ef5c509f824fb8a1b7153371e6d2b5e56818d4e6500"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 14,
+      "section_pos": 1,
+      "card": "Users and Privileges",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "CREATE USER 'user'@'localhost';",
+      "description": null,
+      "display": {
+        "raw": "CREATE USER 'user'@'localhost';"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Users and Privileges\nCREATE USER 'user'@'localhost';",
+      "content_hash": "f8ee8106e5122f91a6929fb58537573ee7ca47702cc6faf988d16d1afe167ad6",
+      "description_vi": "Tạo tài khoản người dùng mới kết nối từ localhost",
+      "embed_text_vi": "MySQL › Users and Privileges\nCREATE USER 'user'@'localhost';\nTạo tài khoản người dùng mới kết nối từ localhost\ntạo user mới trên localhost\nkhởi tạo tài khoản người dùng localhost\nthêm người dùng mới user localhost",
+      "content_hash_vi": "35a77b6639ac305857740a4cc341907ad68d2961a7887f90b4fdccdb89bb53c6"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 14,
+      "section_pos": 1,
+      "card": "Users and Privileges",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "GRANT ALL PRIVILEGES ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';",
+      "description": null,
+      "display": {
+        "raw": "GRANT ALL PRIVILEGES ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Users and Privileges\nGRANT ALL PRIVILEGES ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';",
+      "content_hash": "497facfabbf2070843e834ee1c47c352323a92d5f72de3a2692dbae6b89d7a7c",
+      "description_vi": "Cấp toàn bộ quyền trên database cho user và đặt mật khẩu",
+      "embed_text_vi": "MySQL › Users and Privileges\nGRANT ALL PRIVILEGES ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';\nCấp toàn bộ quyền trên database cho user và đặt mật khẩu\ncấp tất cả quyền cho user trên database\ngrant all privileges kèm mật khẩu password\ngán toàn quyền trên base cho người dùng localhost",
+      "content_hash_vi": "e21c9cf28e8f27c4c85a691a405f2b81a1b80b0267622d57d65dc47417fce9da"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 14,
+      "section_pos": 1,
+      "card": "Users and Privileges",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "GRANT SELECT, INSERT, DELETE ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';",
+      "description": null,
+      "display": {
+        "raw": "GRANT SELECT, INSERT, DELETE ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Users and Privileges\nGRANT SELECT, INSERT, DELETE ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';",
+      "content_hash": "dbda3a61ab790336081911093a3356722c48aa221b324e9e6f78bab4e0439a33",
+      "description_vi": "Cấp các quyền chọn lọc SELECT, INSERT, DELETE cho user kèm mật khẩu",
+      "embed_text_vi": "MySQL › Users and Privileges\nGRANT SELECT, INSERT, DELETE ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';\nCấp các quyền chọn lọc SELECT, INSERT, DELETE cho user kèm mật khẩu\ncấp quyền select insert delete cho user\ngrant quyền đọc ghi dữ liệu trên database\nphân quyền truy vấn và thêm xoá cho người dùng",
+      "content_hash_vi": "05b42494399b0bf076ecfdb334d898297790197e616cd15d78ec7327a7abe1a1"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 14,
+      "section_pos": 1,
+      "card": "Users and Privileges",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "REVOKE ALL PRIVILEGES ON base.* FROM 'user'@'host';",
+      "description": "one permission only",
+      "display": {
+        "raw": "REVOKE ALL PRIVILEGES ON base.* FROM 'user'@'host'; -- one permission only"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Users and Privileges\nREVOKE ALL PRIVILEGES ON base.* FROM 'user'@'host';\none permission only",
+      "content_hash": "5369dd602b1ad9684fbb7291b917014e4d7887bd9ac74267b932c06dfcd88dd5",
+      "description_vi": "Thu hồi toàn bộ quyền trên một database của user",
+      "embed_text_vi": "MySQL › Users and Privileges\nREVOKE ALL PRIVILEGES ON base.* FROM 'user'@'host';\nThu hồi toàn bộ quyền trên một database của user\nthu hồi tất cả quyền trên một database\nrevoke all privileges trên base của user\nhuỷ toàn quyền database từ người dùng",
+      "content_hash_vi": "42984fb65ac7b58b674b43e51f5bfd3f700a4685d4b48ea7f97c7559420d09d8"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 14,
+      "section_pos": 1,
+      "card": "Users and Privileges",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'user'@'host';",
+      "description": "all permissions",
+      "display": {
+        "raw": "REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'user'@'host'; -- all permissions"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Users and Privileges\nREVOKE ALL PRIVILEGES, GRANT OPTION FROM 'user'@'host';\nall permissions",
+      "content_hash": "e576e9f927e569b2fd08d00698704c93d7791735349c5bfce8026d271a32f293",
+      "description_vi": "Thu hồi tất cả quyền và quyền uỷ quyền (GRANT OPTION) của user",
+      "embed_text_vi": "MySQL › Users and Privileges\nREVOKE ALL PRIVILEGES, GRANT OPTION FROM 'user'@'host';\nThu hồi tất cả quyền và quyền uỷ quyền (GRANT OPTION) của user\nthu hồi toàn bộ quyền và grant option\nrevoke tất cả đặc quyền của người dùng\ntước bỏ toàn quyền kèm grant option từ user",
+      "content_hash_vi": "bd9daa67c74f42b0c250d8d9411c20c1998baf5ff169e67db85a891a9bdc3fc8"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 14,
+      "section_pos": 1,
+      "card": "Users and Privileges",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "FLUSH PRIVILEGES;",
+      "description": null,
+      "display": {
+        "raw": "FLUSH PRIVILEGES;"
+      },
+      "position": 6,
+      "embed_text": "MySQL › Users and Privileges\nFLUSH PRIVILEGES;",
+      "content_hash": "e3ed1249a91b7fc37a2ecc73b475d3d924958f1826b783028c61ca83b0d8e8f6",
+      "description_vi": "Tải lại các bảng phân quyền để áp dụng thay đổi ngay",
+      "embed_text_vi": "MySQL › Users and Privileges\nFLUSH PRIVILEGES;\nTải lại các bảng phân quyền để áp dụng thay đổi ngay\ntải lại bảng phân quyền flush privileges\nreload quyền người dùng không cần khởi động lại\nlàm mới quyền phân quyền privileges",
+      "content_hash_vi": "1408a8de1f07465408a2840af89989c1865f9df9cd51b760dbbed0a1749abd90"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 14,
+      "section_pos": 2,
+      "card": "Users and Privileges",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SET PASSWORD = PASSWORD('new_pass');",
+      "description": null,
+      "display": {
+        "raw": "SET PASSWORD = PASSWORD('new_pass');"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Users and Privileges\nSET PASSWORD = PASSWORD('new_pass');",
+      "content_hash": "6a1acca441e16ce66895a12e78d682b2b3a5d571cbcf301e0aa3f7ec9392759e",
+      "description_vi": "Đổi mật khẩu cho người dùng (user) hiện tại đang đăng nhập.",
+      "embed_text_vi": "MySQL › Users and Privileges\nSET PASSWORD = PASSWORD('new_pass');\nĐổi mật khẩu cho người dùng (user) hiện tại đang đăng nhập.\nđổi mật khẩu user hiện tại\nthay password tài khoản đang đăng nhập\ncập nhật mật khẩu đang dùng",
+      "content_hash_vi": "df0d435f35aa68eff00fb710f20f5d1a151d6bc1af8d7840c5a51d127abba0eb"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 14,
+      "section_pos": 2,
+      "card": "Users and Privileges",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SET PASSWORD FOR 'user'@'host' = PASSWORD('new_pass');",
+      "description": null,
+      "display": {
+        "raw": "SET PASSWORD FOR 'user'@'host' = PASSWORD('new_pass');"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Users and Privileges\nSET PASSWORD FOR 'user'@'host' = PASSWORD('new_pass');",
+      "content_hash": "c6480e96304e5be4c2b567e363fe0f6e4418becd16c76005113ccb8b37525c19",
+      "description_vi": "Đổi mật khẩu cho một user cụ thể tại host chỉ định.",
+      "embed_text_vi": "MySQL › Users and Privileges\nSET PASSWORD FOR 'user'@'host' = PASSWORD('new_pass');\nĐổi mật khẩu cho một user cụ thể tại host chỉ định.\nđổi mật khẩu user chỉ định\nthay password tài khoản người dùng khác\ncập nhật mật khẩu user và host",
+      "content_hash_vi": "f63de132776e700297a6fa75bafab502c822a3815a76f0a768d9b189e21089f3"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 14,
+      "section_pos": 2,
+      "card": "Users and Privileges",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SET PASSWORD = OLD_PASSWORD('new_pass');",
+      "description": null,
+      "display": {
+        "raw": "SET PASSWORD = OLD_PASSWORD('new_pass');"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Users and Privileges\nSET PASSWORD = OLD_PASSWORD('new_pass');",
+      "content_hash": "f3f79868c726daef3286c9d757ce85d11abcbaa76d7f744ffb6313581b61bcf6",
+      "description_vi": "Đổi mật khẩu user hiện tại bằng thuật toán băm cũ (OLD_PASSWORD).",
+      "embed_text_vi": "MySQL › Users and Privileges\nSET PASSWORD = OLD_PASSWORD('new_pass');\nĐổi mật khẩu user hiện tại bằng thuật toán băm cũ (OLD_PASSWORD).\nđổi mật khẩu bằng hàm old password\nthay password chuẩn băm cũ\nset password dùng thuật toán cũ",
+      "content_hash_vi": "3c87507b015ad17e8deb79bf1e42741c421fc4b4bb5898b9eb0b2e6b67a1a47a"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 14,
+      "section_pos": 3,
+      "card": "Users and Privileges",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "DROP USER 'user'@'host';",
+      "description": null,
+      "display": {
+        "raw": "DROP USER 'user'@'host';"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Users and Privileges\nDROP USER 'user'@'host';",
+      "content_hash": "3e5e35035915d92e467cf0bae4680c892ae01f579062c59a78c9f631cfac41c1",
+      "description_vi": "Xoá tài khoản người dùng (user) tại host chỉ định.",
+      "embed_text_vi": "MySQL › Users and Privileges\nDROP USER 'user'@'host';\nXoá tài khoản người dùng (user) tại host chỉ định.\nxoá tài khoản user\ngỡ bỏ user chỉ định\nhủy người dùng và host",
+      "content_hash_vi": "5540119c007035f1cd1bdf938365e88f924b650a3f498e86f8ca6f3c5ba518dd"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 14,
+      "section_pos": 4,
+      "card": "Users and Privileges",
+      "section": null,
+      "lang": null,
+      "kind": "note",
+      "command": null,
+      "description": "Host ‘%’ indicates any host.",
+      "display": {},
+      "position": 1,
+      "embed_text": "MySQL › Users and Privileges\nHost ‘%’ indicates any host.",
+      "content_hash": "ee01cd628a66d1eba96c1744a4f2ba8be775d3d8d509b7c16fd4ad9e227f31b3",
+      "description_vi": "Ký tự '%' biểu thị cho phép kết nối từ bất kỳ host nào.",
+      "embed_text_vi": "MySQL › Users and Privileges\nKý tự '%' biểu thị cho phép kết nối từ bất kỳ host nào.\ný nghĩa ký tự phần trăm trong host\ncho phép user kết nối mọi host\nký hiệu đại diện all host người dùng",
+      "content_hash_vi": "99dcdebcda1cba05cf5397da1c7b8fa9b5c7cef36e67de77d8008efa338e2623"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 1,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "TINYINT (1o: -128 to +127)",
+      "description": null,
+      "display": {
+        "raw": "TINYINT (1o: -128 to +127)"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Main Data Types\nTINYINT (1o: -128 to +127)",
+      "content_hash": "f2bf74207cce5ac7c2b32f17e242161f0eddc85302d4b515768454a68d7021b0",
+      "description_vi": "Kiểu số nguyên rất nhỏ TINYINT chiếm 1 byte (-128 đến 127).",
+      "embed_text_vi": "MySQL › Main Data Types\nTINYINT (1o: -128 to +127)\nKiểu số nguyên rất nhỏ TINYINT chiếm 1 byte (-128 đến 127).\nkiểu số nguyên tinyint 1 byte\nphạm vi giá trị tinyint\nkích thước bộ nhớ tinyint",
+      "content_hash_vi": "320a21958207706c44ff49267dabc6f3217b8ca96ed01bd4aef412cb5a22fcb6"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 1,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "SMALLINT (2o: +-65 000)",
+      "description": null,
+      "display": {
+        "raw": "SMALLINT (2o: +-65 000)"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Main Data Types\nSMALLINT (2o: +-65 000)",
+      "content_hash": "0b67635026ac946482f08814730b57c759ec03f6e2ffa1ee0fe5f9402135038b",
+      "description_vi": "Kiểu số nguyên nhỏ SMALLINT chiếm 2 byte (khoảng +-65.000).",
+      "embed_text_vi": "MySQL › Main Data Types\nSMALLINT (2o: +-65 000)\nKiểu số nguyên nhỏ SMALLINT chiếm 2 byte (khoảng +-65.000).\nkiểu số nguyên smallint 2 byte\nphạm vi lưu trữ smallint\nkích thước dung lượng smallint",
+      "content_hash_vi": "ea450bb48d1c9c31e3010c0dfc4b49e54b9589afe528437fe1be98430ef3b619"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 1,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "MEDIUMINT (3o: +-16 000 000)",
+      "description": null,
+      "display": {
+        "raw": "MEDIUMINT (3o: +-16 000 000)"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Main Data Types\nMEDIUMINT (3o: +-16 000 000)",
+      "content_hash": "a99e0001315b67c18e1aef5dc8fd3e1de5de3d36e3c035dd3bea2b9983cdd9c4",
+      "description_vi": "Kiểu số nguyên vừa MEDIUMINT chiếm 3 byte (khoảng +-16 triệu).",
+      "embed_text_vi": "MySQL › Main Data Types\nMEDIUMINT (3o: +-16 000 000)\nKiểu số nguyên vừa MEDIUMINT chiếm 3 byte (khoảng +-16 triệu).\nkiểu số nguyên mediumint 3 byte\nphạm vi giá trị mediumint\nđộ lớn lưu trữ mediumint",
+      "content_hash_vi": "f976d75fef432c83938e9801e1939b36e7a1c2f9d0e4865a19248cd1c8f1ea12"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 1,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "INT (4o: +- 2 000 000 000)",
+      "description": null,
+      "display": {
+        "raw": "INT (4o: +- 2 000 000 000)"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Main Data Types\nINT (4o: +- 2 000 000 000)",
+      "content_hash": "52576a1b7ab1a1819ab793174f38e123e43aaa250c68ab25345e6f190801f109",
+      "description_vi": "Kiểu số nguyên chuẩn INT chiếm 4 byte (khoảng +-2 tỷ).",
+      "embed_text_vi": "MySQL › Main Data Types\nINT (4o: +- 2 000 000 000)\nKiểu số nguyên chuẩn INT chiếm 4 byte (khoảng +-2 tỷ).\nkiểu số nguyên int 4 byte\nphạm vi lưu trữ số nguyên int\ngiới hạn giá trị kiểu int",
+      "content_hash_vi": "6e3f3b7bc50abbad2aa544f2993c81e0de7a30a22fdd3cadbc590cfc464d5139"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 1,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "BIGINT (8o: +-9.10^18)",
+      "description": null,
+      "display": {
+        "raw": "BIGINT (8o: +-9.10^18)"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Main Data Types\nBIGINT (8o: +-9.10^18)",
+      "content_hash": "443a2e2e69bbf4b55a87c183cc217be284771b4560ee41f59eee5f70b9648c04",
+      "description_vi": "Kiểu số nguyên lớn BIGINT chiếm 8 byte (khoảng +-9x10^18).",
+      "embed_text_vi": "MySQL › Main Data Types\nBIGINT (8o: +-9.10^18)\nKiểu số nguyên lớn BIGINT chiếm 8 byte (khoảng +-9x10^18).\nkiểu số nguyên lớn bigint 8 byte\nphạm vi giá trị bigint\ngiới hạn lưu trữ kiểu bigint",
+      "content_hash_vi": "a0ae9f21341ee084c34b2a8961d8c02a971afd9def794fb2a124439663754abc"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 2,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "Precise interval: -(2^(8*N-1)) -> (2^8*N)-1",
+      "description": null,
+      "display": {
+        "raw": "Precise interval: -(2^(8*N-1)) -> (2^8*N)-1"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Main Data Types\nPrecise interval: -(2^(8*N-1)) -> (2^8*N)-1",
+      "content_hash": "d86f359f4e148ad0b360ea392469d75b9976165097cee4ab8724eaf6b32148c1",
+      "description_vi": "Công thức tính chính xác khoảng giá trị số nguyên theo N byte.",
+      "embed_text_vi": "MySQL › Main Data Types\nPrecise interval: -(2^(8*N-1)) -> (2^8*N)-1\nCông thức tính chính xác khoảng giá trị số nguyên theo N byte.\ncông thức tính khoảng giá trị số nguyên\ntính phạm vi lưu trữ theo số byte n\ngiới hạn min max kiểu số nguyên",
+      "content_hash_vi": "46e586a693b09e0b72ae2207e73a9fed335577e1eb100fe78656551d3933bab3"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 3,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": null,
+      "kind": "note",
+      "command": null,
+      "description": "⚠ INT(2) = “2 digits displayed” – NOT “number with 2 digits max”",
+      "display": {},
+      "position": 1,
+      "embed_text": "MySQL › Main Data Types\n⚠ INT(2) = “2 digits displayed” – NOT “number with 2 digits max”",
+      "content_hash": "e982e99dc54de6503859ee53b0ffdf8f690d9e93906409c2da35f91c088303c4",
+      "description_vi": "Lưu ý INT(2) chỉ là độ rộng hiển thị, không giới hạn giá trị 2 chữ số.",
+      "embed_text_vi": "MySQL › Main Data Types\nLưu ý INT(2) chỉ là độ rộng hiển thị, không giới hạn giá trị 2 chữ số.\ný nghĩa tham số trong int\nđộ rộng hiển thị int khác giới hạn giá trị\nphân biệt int2 hiển thị và lưu trữ",
+      "content_hash_vi": "afeb0a982256eef403692ff7811f63996d72929da3dd04e3a61e844238752cb1"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 4,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "FLOAT(M,D)",
+      "description": null,
+      "display": {
+        "raw": "FLOAT(M,D)"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Main Data Types\nFLOAT(M,D)",
+      "content_hash": "2b304bed20fbc9db0ab066b7cc786ced8960c78ac51b94225d75e755c71db37d",
+      "description_vi": "Kiểu số thực FLOAT với tổng M chữ số và D số thập phân.",
+      "embed_text_vi": "MySQL › Main Data Types\nFLOAT(M,D)\nKiểu số thực FLOAT với tổng M chữ số và D số thập phân.\nkiểu số thực dấu phẩy động float m d\nkhai báo float m d chữ số thập phân\nđịnh dạng số thực float m d",
+      "content_hash_vi": "291ffcac57ff7887e04537e1eeefea664211ee3f2ccf15dff4eb6fcc654b0aec"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 4,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "DOUBLE(M,D)",
+      "description": null,
+      "display": {
+        "raw": "DOUBLE(M,D)"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Main Data Types\nDOUBLE(M,D)",
+      "content_hash": "429c086b08098ed992e261d7838d33656f4c47be93a3c2aa99ed4e14bb20ebc2",
+      "description_vi": "Kiểu số thực kép DOUBLE với M chữ số và D số thập phân.",
+      "embed_text_vi": "MySQL › Main Data Types\nDOUBLE(M,D)\nKiểu số thực kép DOUBLE với M chữ số và D số thập phân.\nkiểu số thực độ chính xác kép double m d\nkhai báo double m d chữ số thập phân\nđịnh dạng số thực double m d",
+      "content_hash_vi": "ad466341718f9fb820f37e360d7f6fb55a4a72ca3949adcbc6004e86d666d717"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 4,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "FLOAT(D=0->53)",
+      "description": null,
+      "display": {
+        "raw": "FLOAT(D=0->53)"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Main Data Types\nFLOAT(D=0->53)",
+      "content_hash": "ff2f5b1f55b9262137aa343d1ba1580ff3f6b87766a3e4137d3731dd728df7d1",
+      "description_vi": "Kiểu FLOAT với tham số độ chính xác từ 0 đến 53 bit.",
+      "embed_text_vi": "MySQL › Main Data Types\nFLOAT(D=0->53)\nKiểu FLOAT với tham số độ chính xác từ 0 đến 53 bit.\nkiểu float chỉ định độ chính xác bit\nkhai báo float tham số từ 0 đến 53\nthiết lập độ chính xác float d",
+      "content_hash_vi": "43d53e35aa6c6b09baed007b2c87d6f9c5a941ec299c471e53cb511f09a81040"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 5,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": null,
+      "kind": "note",
+      "command": null,
+      "description": "⚠ 8,3 -> 12345,678 – NOT 12345678,123!",
+      "display": {},
+      "position": 1,
+      "embed_text": "MySQL › Main Data Types\n⚠ 8,3 -> 12345,678 – NOT 12345678,123!",
+      "content_hash": "716992c3c5d84a59cffa28ca3febd7f00a9252d6b3c682f99eefe7d5528774b4",
+      "description_vi": "Lưu ý định dạng (M,D): M là tổng số chữ số bao gồm D số thập phân.",
+      "embed_text_vi": "MySQL › Main Data Types\nLưu ý định dạng (M,D): M là tổng số chữ số bao gồm D số thập phân.\nquy tắc định dạng m d chữ số\ngiải thích ký hiệu m d trong kiểu số thực\nphân biệt tổng chữ số và phần thập phân",
+      "content_hash_vi": "3d6bf0452ccbf0be6f5cea1cd01f35c3408f3de531b78832c1119fff5b5986db"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 6,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "TIME (HH:MM)",
+      "description": null,
+      "display": {
+        "raw": "TIME (HH:MM)"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Main Data Types\nTIME (HH:MM)",
+      "content_hash": "b532d62d1130cdbf51880527f542501195361f29a0cfd93a3fb1f8a5c9f743ab",
+      "description_vi": "Kiểu dữ liệu thời gian TIME theo định dạng giờ phút (HH:MM).",
+      "embed_text_vi": "MySQL › Main Data Types\nTIME (HH:MM)\nKiểu dữ liệu thời gian TIME theo định dạng giờ phút (HH:MM).\nkiểu dữ liệu thời gian time\nlưu giờ phút bằng kiểu time\nđịnh dạng giờ phút hh mm",
+      "content_hash_vi": "3b8a0c5cc8c653e14ab6a96162cc37b0a3d73cfa6dc4d0487b28a9a34e7ebacd"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 6,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "YEAR (AAAA)",
+      "description": null,
+      "display": {
+        "raw": "YEAR (AAAA)"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Main Data Types\nYEAR (AAAA)",
+      "content_hash": "52095fabbc18a0b8826c971a3265c7e5754c6d32b76b411caffe5f0d09caed25",
+      "description_vi": "Kiểu dữ liệu năm YEAR theo định dạng 4 chữ số.",
+      "embed_text_vi": "MySQL › Main Data Types\nYEAR (AAAA)\nKiểu dữ liệu năm YEAR theo định dạng 4 chữ số.\nkiểu dữ liệu năm year\nlưu năm 4 chữ số\nđịnh dạng kiểu year",
+      "content_hash_vi": "70e15fee2016c1e715a4c38dcc7d0ee9d3e4fa3a247005a8753597f84285fbb8"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 6,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "DATE (AAAA-MM-JJ)",
+      "description": null,
+      "display": {
+        "raw": "DATE (AAAA-MM-JJ)"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Main Data Types\nDATE (AAAA-MM-JJ)",
+      "content_hash": "05fdc565088841bd7aedfb64fca086e3e325d8185b2c76e86a5f652c7ded4bab",
+      "description_vi": "Kiểu dữ liệu ngày DATE theo định dạng năm-tháng-ngày.",
+      "embed_text_vi": "MySQL › Main Data Types\nDATE (AAAA-MM-JJ)\nKiểu dữ liệu ngày DATE theo định dạng năm-tháng-ngày.\nkiểu dữ liệu ngày date\nlưu ngày tháng năm định dạng date\nđịnh dạng ngày date yyyy mm dd",
+      "content_hash_vi": "d9b26953804430efdcb0373b2132f41bdcdf5ae2fb4a8a559249427a25350e16"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 6,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "DATETIME (AAAA-MM-JJ HH:MM; années 1000->9999)",
+      "description": null,
+      "display": {
+        "raw": "DATETIME (AAAA-MM-JJ HH:MM; années 1000->9999)"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Main Data Types\nDATETIME (AAAA-MM-JJ HH:MM; années 1000->9999)",
+      "content_hash": "d05b6f74b553ebcdd622bdd41d25b08cac52bde79c0b2787d4ed2ab828d22006",
+      "description_vi": "Kiểu ngày giờ DATETIME với phạm vi năm từ 1000 đến 9999.",
+      "embed_text_vi": "MySQL › Main Data Types\nDATETIME (AAAA-MM-JJ HH:MM; années 1000->9999)\nKiểu ngày giờ DATETIME với phạm vi năm từ 1000 đến 9999.\nkiểu dữ liệu ngày giờ datetime\nlưu ngày và giờ từ năm 1000 đến 9999\nđịnh dạng datetime năm tháng ngày giờ",
+      "content_hash_vi": "856e172c153d9381dc6b49e0e57f827d0b7c67a5443fe21839c174957bc39bad"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 6,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "TIMESTAMP (like DATETIME, but 1970->2038, compatible with Unix)",
+      "description": null,
+      "display": {
+        "raw": "TIMESTAMP (like DATETIME, but 1970->2038, compatible with Unix)"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Main Data Types\nTIMESTAMP (like DATETIME, but 1970->2038, compatible with Unix)",
+      "content_hash": "1f7d31031ae3b2f759616ed2f65f13da3baeac28f39dd7c86dcc4e76dd7a1063",
+      "description_vi": "Kiểu mốc thời gian TIMESTAMP tương thích Unix, từ năm 1970 đến 2038.",
+      "embed_text_vi": "MySQL › Main Data Types\nTIMESTAMP (like DATETIME, but 1970->2038, compatible with Unix)\nKiểu mốc thời gian TIMESTAMP tương thích Unix, từ năm 1970 đến 2038.\nkiểu dữ liệu timestamp unix\nlưu mốc thời gian từ 1970 đến 2038\nphân biệt timestamp và datetime",
+      "content_hash_vi": "648ba4f9dd78c3866e74168df132a291dc5a7d8292225d2a93589daf75f7fb6b"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 7,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "VARCHAR (single-line; explicit size)",
+      "description": null,
+      "display": {
+        "raw": "VARCHAR (single-line; explicit size)"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Main Data Types\nVARCHAR (single-line; explicit size)",
+      "content_hash": "1837ae9c18615c64554f04e8dc82f44e778e2ad1a382e23fcd11606dbac7b7a0",
+      "description_vi": "Kiểu chuỗi ký tự độ dài biến đổi VARCHAR với kích thước chỉ định.",
+      "embed_text_vi": "MySQL › Main Data Types\nVARCHAR (single-line; explicit size)\nKiểu chuỗi ký tự độ dài biến đổi VARCHAR với kích thước chỉ định.\nkiểu chuỗi biến đổi varchar\nlưu chuỗi một dòng có giới hạn độ dài\nđịnh dạng chuỗi ký tự varchar",
+      "content_hash_vi": "6fd7dc7fb5f31e3421ddad356854e174cd395bd89403738b8f683ab737d6f873"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 7,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "TEXT (multi-lines; max size=65535)",
+      "description": null,
+      "display": {
+        "raw": "TEXT (multi-lines; max size=65535)"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Main Data Types\nTEXT (multi-lines; max size=65535)",
+      "content_hash": "962aa428b3e2e7c913f84c10d98494ec0f0d42f0bbd1d9e711cc99a46a6d20d2",
+      "description_vi": "Kiểu văn bản nhiều dòng TEXT với dung lượng tối đa 65.535 ký tự.",
+      "embed_text_vi": "MySQL › Main Data Types\nTEXT (multi-lines; max size=65535)\nKiểu văn bản nhiều dòng TEXT với dung lượng tối đa 65.535 ký tự.\nkiểu văn bản nhiều dòng text\nlưu đoạn văn bản dài tối đa 65535\nđịnh dạng text dữ liệu lớn",
+      "content_hash_vi": "bd0731a037be982225503271e78e539ca039b3fea95829afb667d402c1653eaa"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 7,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "BLOB (binary; max size=65535)",
+      "description": null,
+      "display": {
+        "raw": "BLOB (binary; max size=65535)"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Main Data Types\nBLOB (binary; max size=65535)",
+      "content_hash": "769beafc755ad235a402f8321723003542f4d11e33533d5ac7889b07aa734ff1",
+      "description_vi": "Kiểu dữ liệu nhị phân BLOB với dung lượng tối đa 65.535 byte.",
+      "embed_text_vi": "MySQL › Main Data Types\nBLOB (binary; max size=65535)\nKiểu dữ liệu nhị phân BLOB với dung lượng tối đa 65.535 byte.\nkiểu nhị phân blob\nlưu file nhị phân tối đa 65535 byte\ndữ liệu binary lớn blob",
+      "content_hash_vi": "e81178ccbc9214bec04ec96cca57fe688f532052d1431f5a1e445159f42d62ce"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 8,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": null,
+      "kind": "note",
+      "command": null,
+      "description": "Variants for TEXT&BLOB: `TINY` (max=255), `MEDIUM` (max=~16000), and `LONG` (max=4Go). Ex: `VARCHAR(32)`, `TINYTEXT`, `LONGBLOB`, `MEDIUMTEXT`",
+      "display": {},
+      "position": 1,
+      "embed_text": "MySQL › Main Data Types\nVariants for TEXT&BLOB: `TINY` (max=255), `MEDIUM` (max=~16000), and `LONG` (max=4Go). Ex: `VARCHAR(32)`, `TINYTEXT`, `LONGBLOB`, `MEDIUMTEXT`",
+      "content_hash": "a07118b52aced830edd365e9f0e5b7ec946e92a484237121810150b944ed1515",
+      "description_vi": "Các biến thể của TEXT và BLOB gồm TINY, MEDIUM và LONG theo dung lượng.",
+      "embed_text_vi": "MySQL › Main Data Types\nCác biến thể của TEXT và BLOB gồm TINY, MEDIUM và LONG theo dung lượng.\ncác biến thể của text và blob\nphân biệt tinytext mediumtext longtext\ndung lượng tinyblob mediumblob longblob",
+      "content_hash_vi": "cc537215c8e10e2eaf95e6aafb6274639031929ec53294d09ce94e36a01cfd7c"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 9,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": "sql",
+      "kind": "command",
+      "command": "ENUM ('value1', 'value2', ...)",
+      "description": "(default NULL, or '' if NOT NULL)",
+      "display": {
+        "raw": "ENUM ('value1', 'value2', ...) -- (default NULL, or '' if NOT NULL)"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Main Data Types\nENUM ('value1', 'value2', ...)\n(default NULL, or '' if NOT NULL)",
+      "content_hash": "2f87902ce19095d1684bdcbdbf479c05aca295d879c094a9ad3b9ffb31f827f0",
+      "description_vi": "Kiểu liệt kê ENUM chỉ nhận một trong các giá trị định sẵn.",
+      "embed_text_vi": "MySQL › Main Data Types\nENUM ('value1', 'value2', ...)\nKiểu liệt kê ENUM chỉ nhận một trong các giá trị định sẵn.\nkiểu liệt kê danh sách enum\nđịnh nghĩa cột enum các giá trị cố định\nchọn một trong các giá trị định sẵn enum",
+      "content_hash_vi": "a3d0aebe259d5536deb06f82fc5f4f9bb0dcbbda422c1c60f83fa63bd9108dfe"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 16,
+      "section_pos": 1,
+      "card": "Reset Root Password",
+      "section": null,
+      "lang": "bash",
+      "kind": "command",
+      "command": "/etc/init.d/mysql stop",
+      "description": null,
+      "display": {
+        "raw": "$ /etc/init.d/mysql stop",
+        "prompt": "$"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Reset Root Password\n/etc/init.d/mysql stop",
+      "content_hash": "8bb142557478b6d7de6df2a7f9da9568aefa80c73ba4fe9b61432aead5dfac19",
+      "description_vi": "Dừng dịch vụ database qua script init.d để chuẩn bị đặt lại mật khẩu.",
+      "embed_text_vi": "MySQL › Reset Root Password\n/etc/init.d/mysql stop\nDừng dịch vụ database qua script init.d để chuẩn bị đặt lại mật khẩu.\ndừng dịch vụ database qua init d\ntắt service database bằng init d stop\nstop database trước khi reset mật khẩu root",
+      "content_hash_vi": "29b5577263b8ba9412a0d1c7ec4acf1792dfdb31d3ad4ce84d6ef787ca3e2c60"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 16,
+      "section_pos": 2,
+      "card": "Reset Root Password",
+      "section": null,
+      "lang": "bash",
+      "kind": "command",
+      "command": "mysqld_safe --skip-grant-tables",
+      "description": null,
+      "display": {
+        "raw": "$ mysqld_safe --skip-grant-tables",
+        "prompt": "$"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Reset Root Password\nmysqld_safe --skip-grant-tables",
+      "content_hash": "dcf813964e32a1812691431adb6c65afdc08e6feb995173bb7b2628313d1b222",
+      "description_vi": "Khởi động database ở chế độ an toàn bỏ qua kiểm tra quyền (grant tables).",
+      "embed_text_vi": "MySQL › Reset Root Password\nmysqld_safe --skip-grant-tables\nKhởi động database ở chế độ an toàn bỏ qua kiểm tra quyền (grant tables).\nkhởi động database bỏ qua bảng phân quyền\nchạy chế độ an toàn safe mode không cần mật khẩu\nbật chế độ an toàn skip grant tables",
+      "content_hash_vi": "b6f45a0143963e271b13886e7b69e815268b6676747c4f2422acec790960b205"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 16,
+      "section_pos": 3,
+      "card": "Reset Root Password",
+      "section": null,
+      "lang": "bash",
+      "kind": "command",
+      "command": "mysql",
+      "description": "on another terminal",
+      "display": {
+        "raw": "$ mysql # on another terminal",
+        "prompt": "$"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Reset Root Password\nmysql\non another terminal",
+      "content_hash": "2688f2eb1d4b9e13877b7fa660b55c4b6f42aa098fdc1c31d0b00e95f2c3d47f",
+      "description_vi": "Mở client database trên terminal khác mà không cần mật khẩu.",
+      "embed_text_vi": "MySQL › Reset Root Password\nmysql\nMở client database trên terminal khác mà không cần mật khẩu.\nkết nối database client không cần mật khẩu\nmở client trên terminal khác khi skip grant\ntruy cập console database lúc reset root",
+      "content_hash_vi": "3513945f47b83e600b9d7ef88d8b0f53ca9de799c97dd319e48a338c7e2f33e6"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 16,
+      "section_pos": 3,
+      "card": "Reset Root Password",
+      "section": null,
+      "lang": "bash",
+      "kind": "command",
+      "command": "UPDATE mysql.user SET password=PASSWORD('new_pass') WHERE user='root';",
+      "description": null,
+      "display": {
+        "raw": "mysql> UPDATE mysql.user SET password=PASSWORD('new_pass') WHERE user='root';",
+        "prompt": "mysql>"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Reset Root Password\nUPDATE mysql.user SET password=PASSWORD('new_pass') WHERE user='root';",
+      "content_hash": "3b336c95fb490aeee56c892d567e992e7d1588455bc39e781576260c10ee4e62",
+      "description_vi": "Đặt lại mật khẩu mới cho user root trong bảng user hệ thống.",
+      "embed_text_vi": "MySQL › Reset Root Password\nUPDATE mysql.user SET password=PASSWORD('new_pass') WHERE user='root';\nĐặt lại mật khẩu mới cho user root trong bảng user hệ thống.\nđặt lại mật khẩu root trong bảng user\ncập nhật password tài khoản root\nsửa password root trực tiếp bằng update",
+      "content_hash_vi": "e1887c24ea81f937a0066a26bc892418da8d14113df6f2897d050485cf319720"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 16,
+      "section_pos": 4,
+      "card": "Reset Root Password",
+      "section": null,
+      "lang": "bash",
+      "kind": "command",
+      "command": "/etc/init.d/mysql start",
+      "description": "Switch back to the mysqld_safe terminal and kill the process using Control + \\",
+      "display": {
+        "raw": "## Switch back to the mysqld_safe terminal and kill the process using Control + \\\n$ /etc/init.d/mysql start",
+        "prompt": "$"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Reset Root Password\n/etc/init.d/mysql start\nSwitch back to the mysqld_safe terminal and kill the process using Control + \\",
+      "content_hash": "78e3cbdd566b219bc8cee82f48ed1d54f2eecc3dd3b5cc595be319c4da4b029e",
+      "description_vi": "Khởi động lại dịch vụ database bình thường sau khi đổi xong mật khẩu.",
+      "embed_text_vi": "MySQL › Reset Root Password\n/etc/init.d/mysql start\nKhởi động lại dịch vụ database bình thường sau khi đổi xong mật khẩu.\nkhởi động lại dịch vụ database sau khi reset root\nbật lại service database bằng init d start\nchạy lại database chế độ bình thường",
+      "content_hash_vi": "1ed8db5ba1d3ce52e84bca18f1ed5e8ccd36da58e2205440b7e04ac8be15227c"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 16,
+      "section_pos": 5,
+      "card": "Reset Root Password",
+      "section": null,
+      "lang": null,
+      "kind": "note",
+      "command": null,
+      "description": "Your commands may vary depending on your OS.",
+      "display": {},
+      "position": 1,
+      "embed_text": "MySQL › Reset Root Password\nYour commands may vary depending on your OS.",
+      "content_hash": "d3b537a9a6a1e2fec74d5b5e2e6b3502fea2ab021bccdc22033f9f6c35d8df16",
+      "description_vi": "Lưu ý các lệnh có thể khác nhau tùy thuộc vào hệ điều hành.",
+      "embed_text_vi": "MySQL › Reset Root Password\nLưu ý các lệnh có thể khác nhau tùy thuộc vào hệ điều hành.\nlưu ý cú pháp khác biệt theo hệ điều hành\nkhác biệt thao tác theo từng os\nsự phụ thuộc vào từng hệ điều hành",
+      "content_hash_vi": "70d603c3250d0752c35696911128118c71185c5ffe42167ccbbf08268a10b167"
+    }
+  ],
+  "aliases": [
+    "mysql"
+  ]
+}

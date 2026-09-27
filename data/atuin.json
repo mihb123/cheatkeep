@@ -1,0 +1,2033 @@
+{
+  "slug": "atuin",
+  "description": "Complete Atuin cheatsheet: CLI commands, keyboard shortcuts, filter modes, search modes, sync setup, and config.toml reference for the magical shell history tool.",
+  "source_url": "https://atuin.linuz.com/",
+  "title": "Atuin Cheatsheet",
+  "subtitle": "Magical shell history — SQLite, encrypted sync & fuzzy search",
+  "badge": "v18+",
+  "logo": "atuin-logo-transp.png",
+  "links": [
+    {
+      "label": "docs.atuin.sh",
+      "url": "https://docs.atuin.sh"
+    },
+    {
+      "label": "github.com/atuinsh/atuin",
+      "url": "https://github.com/atuinsh/atuin"
+    }
+  ],
+  "meta": {},
+  "layout": [
+    {
+      "icon": "⚡",
+      "title": "Install & Setup",
+      "title_accent": "Install",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "label": "Quick install",
+          "kind": "code",
+          "lang": "bash",
+          "copy_lines": false
+        },
+        {
+          "label": "Shell init (add to rc file)",
+          "kind": "code",
+          "lang": "bash",
+          "copy_lines": true
+        },
+        {
+          "label": "First-time setup",
+          "kind": "table",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "icon": "⌨️",
+      "title": "Keyboard Shortcuts",
+      "title_accent": "Keyboard",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "label": "Navigation",
+          "kind": "table",
+          "copy_lines": false
+        },
+        {
+          "label": "Actions",
+          "kind": "table",
+          "copy_lines": false
+        },
+        {
+          "label": "Mode switching",
+          "kind": "table",
+          "copy_lines": false
+        },
+        {
+          "label": "Vim mode",
+          "kind": "table",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "icon": "🔍",
+      "title": "Filter Modes",
+      "title_accent": "Filter",
+      "title_note": "(Ctrl+R)",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "table",
+          "columns": [
+            "Mode",
+            "Searches"
+          ],
+          "copy_lines": false
+        },
+        {
+          "label": "Search Modes (Ctrl+S)",
+          "kind": "table",
+          "columns": [
+            "Mode",
+            "Behavior"
+          ],
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "icon": "📜",
+      "title": "History Commands",
+      "title_accent": "History",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "label": "Browse & search",
+          "kind": "table",
+          "copy_lines": false
+        },
+        {
+          "label": "Search filters",
+          "kind": "table",
+          "copy_lines": false
+        },
+        {
+          "label": "Delete & prune",
+          "kind": "table",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "icon": "☁️",
+      "title": "Sync & Account",
+      "title_accent": "Sync",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "label": "Sync",
+          "kind": "table",
+          "copy_lines": false
+        },
+        {
+          "label": "Account",
+          "kind": "table",
+          "copy_lines": false
+        },
+        {
+          "label": "Key management",
+          "kind": "table",
+          "copy_lines": false
+        },
+        {
+          "label": "Import",
+          "kind": "table",
+          "copy_lines": false
+        },
+        {
+          "label": "Other",
+          "kind": "table",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "icon": "💡",
+      "title": "Useful Examples",
+      "title_accent": "Useful",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "label": "Practical queries",
+          "kind": "code",
+          "lang": "bash",
+          "copy_lines": true
+        },
+        {
+          "label": "Supported time formats",
+          "kind": "rows",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "icon": "⚙️",
+      "title": "Config Reference",
+      "title_accent": "Config",
+      "title_note": "~/.config/atuin/config.toml",
+      "layout": "wide",
+      "body_cols": 2,
+      "sections": [
+        {
+          "label": "Sync",
+          "kind": "table",
+          "copy_lines": false
+        },
+        {
+          "label": "UI & Keymaps",
+          "kind": "table",
+          "copy_lines": false
+        },
+        {
+          "label": "Filtering",
+          "kind": "table",
+          "copy_lines": false
+        },
+        {
+          "label": "Stored metadata per command",
+          "kind": "tags",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "icon": "📄",
+      "title": "Example config.toml",
+      "title_accent": "Example",
+      "layout": "wide",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "code",
+          "lang": "toml",
+          "copy_lines": false
+        }
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 1,
+      "section_pos": 1,
+      "card": "Install & Setup",
+      "section": "Quick install",
+      "lang": "bash",
+      "kind": "snippet",
+      "command": "curl --proto '=https' --tlsv1.2 -LsSf \\\n  https://setup.atuin.sh | sh",
+      "description": null,
+      "display": {
+        "raw": "curl --proto '=https' --tlsv1.2 -LsSf \\\n  https://setup.atuin.sh | sh"
+      },
+      "position": 1,
+      "embed_text": "Atuin › Install & Setup › Quick install\ncurl --proto '=https' --tlsv1.2 -LsSf \\\n  https://setup.atuin.sh | sh",
+      "content_hash": "5909d99751d14d2615a537578f7c3ac2017f99ebe4c7ccd7268b3185d6b844a0",
+      "description_vi": "Cài đặt nhanh bằng shell script",
+      "embed_text_vi": "Atuin › Install & Setup › Quick install\ncurl --proto '=https' --tlsv1.2 -LsSf \\\n  https://setup.atuin.sh | sh\nCài đặt nhanh bằng shell script\ncài đặt nhanh bằng script curl\ntải và cài đặt tự động qua script\nsetup nhanh bằng shell script",
+      "content_hash_vi": "331e08fdba521831d4685b60f7449c75187a9c24b0dac5b4338fc7d7bf65d69d"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 1,
+      "section_pos": 2,
+      "card": "Install & Setup",
+      "section": "Shell init (add to rc file)",
+      "lang": "bash",
+      "kind": "command",
+      "command": "eval \"$(atuin init bash)\"",
+      "description": "bash",
+      "display": {
+        "raw": "# bash\neval \"$(atuin init bash)\""
+      },
+      "position": 1,
+      "embed_text": "Atuin › Install & Setup › Shell init (add to rc file)\neval \"$(atuin init bash)\"\nbash",
+      "content_hash": "d25f013d90ae78476f6b843b3275aafddd3d247fca924436e1875fd0342286ea",
+      "description_vi": "Khởi tạo cấu hình tích hợp cho shell bash",
+      "embed_text_vi": "Atuin › Install & Setup › Shell init (add to rc file)\neval \"$(atuin init bash)\"\nKhởi tạo cấu hình tích hợp cho shell bash\ntích hợp vào shell bash\nkhởi tạo cấu hình bash rc\nsetup init cho bash",
+      "content_hash_vi": "fb68ade4abd5010ed9d27a333c89551701e8c8cbb40a4ffa58800738650dad69"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 1,
+      "section_pos": 2,
+      "card": "Install & Setup",
+      "section": "Shell init (add to rc file)",
+      "lang": "bash",
+      "kind": "command",
+      "command": "eval \"$(atuin init zsh)\"",
+      "description": "zsh",
+      "display": {
+        "raw": "\n# zsh\neval \"$(atuin init zsh)\""
+      },
+      "position": 2,
+      "embed_text": "Atuin › Install & Setup › Shell init (add to rc file)\neval \"$(atuin init zsh)\"\nzsh",
+      "content_hash": "4eb0c1d53bc63cf481bd4e73986fb8b18f342858d2dee6285416ed01b66369db",
+      "description_vi": "Khởi tạo cấu hình tích hợp cho shell zsh",
+      "embed_text_vi": "Atuin › Install & Setup › Shell init (add to rc file)\neval \"$(atuin init zsh)\"\nKhởi tạo cấu hình tích hợp cho shell zsh\ntích hợp vào shell zsh\nkhởi tạo cấu hình zsh rc\nsetup init cho zsh",
+      "content_hash_vi": "fc15ddf8a46fe597ea82845601ad4acd27411b6b5100b69cd35531ad2761abc8"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 1,
+      "section_pos": 2,
+      "card": "Install & Setup",
+      "section": "Shell init (add to rc file)",
+      "lang": "bash",
+      "kind": "command",
+      "command": "atuin init fish | source",
+      "description": "fish",
+      "display": {
+        "raw": "\n# fish\natuin init fish | source"
+      },
+      "position": 3,
+      "embed_text": "Atuin › Install & Setup › Shell init (add to rc file)\natuin init fish | source\nfish",
+      "content_hash": "d44dfe08222060428301bafca7f6f0b417bbf2208c5341bf7919051f5d0019a7",
+      "description_vi": "Khởi tạo cấu hình tích hợp cho shell fish",
+      "embed_text_vi": "Atuin › Install & Setup › Shell init (add to rc file)\natuin init fish | source\nKhởi tạo cấu hình tích hợp cho shell fish\ntích hợp vào shell fish\nkhởi tạo cấu hình config fish\nsetup init cho fish",
+      "content_hash_vi": "72604789fd81ea5d6bebc96ed4d5df2594360499cac9c760763ba119862d00f2"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 1,
+      "section_pos": 3,
+      "card": "Install & Setup",
+      "section": "First-time setup",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin register -u <user> -e <email>",
+      "description": "Create sync account",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 1,
+      "embed_text": "Atuin › Install & Setup › First-time setup\natuin register -u <user> -e <email>\nCreate sync account",
+      "content_hash": "07e9dd866394e538bf892ace709624bbe548247d4455a363b257ceef18dbc2d2",
+      "description_vi": "Đăng ký tài khoản đồng bộ mới với <user> và <email>",
+      "embed_text_vi": "Atuin › Install & Setup › First-time setup\natuin register -u <user> -e <email>\nĐăng ký tài khoản đồng bộ mới với <user> và <email>\nđăng ký tài khoản đồng bộ\ntạo user sync history mới\nregister account đồng bộ dữ liệu",
+      "content_hash_vi": "ccb90806767707ebba5b58a02c876505d82dc7a49d5e59d7d1c1c685a24b35ab"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 1,
+      "section_pos": 3,
+      "card": "Install & Setup",
+      "section": "First-time setup",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin import auto",
+      "description": "Import existing history",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 2,
+      "embed_text": "Atuin › Install & Setup › First-time setup\natuin import auto\nImport existing history",
+      "content_hash": "671305bae7c39bfd278a18f7ff1774d92aa72409e6172a3cd3da4ba2332d976f",
+      "description_vi": "Tự động nhập (import) lịch sử lệnh hiện có từ shell",
+      "embed_text_vi": "Atuin › Install & Setup › First-time setup\natuin import auto\nTự động nhập (import) lịch sử lệnh hiện có từ shell\nnhập lịch sử lệnh cũ tự động\nimport history từ shell hiện tại\nnạp lịch sử terminal có sẵn",
+      "content_hash_vi": "e00e693f8efd0171715c15ab8c03933a735144623f3bc2370edcfbda22d07934"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 1,
+      "section_pos": 3,
+      "card": "Install & Setup",
+      "section": "First-time setup",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin sync",
+      "description": "Initial sync",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 3,
+      "embed_text": "Atuin › Install & Setup › First-time setup\natuin sync\nInitial sync",
+      "content_hash": "5c435d605f7d130d788e5ce1f95b563b9c13d68249f23f4c15181fc8882264ba",
+      "description_vi": "Đồng bộ (sync) lịch sử lệnh lần đầu với server",
+      "embed_text_vi": "Atuin › Install & Setup › First-time setup\natuin sync\nĐồng bộ (sync) lịch sử lệnh lần đầu với server\nđồng bộ lịch sử lệnh lần đầu\nsync history với server\nchạy đồng bộ dữ liệu ban đầu",
+      "content_hash_vi": "dacc4c61d2aff61fc82da5962a87b668e5448f89501b9e1b3fb9eafadafa6a9b"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 1,
+      "card": "Keyboard Shortcuts",
+      "section": "Navigation",
+      "lang": null,
+      "kind": "shortcut",
+      "command": "↑ ↓ / K J",
+      "description": "Move through results",
+      "display": {
+        "key_style": "keys"
+      },
+      "position": 1,
+      "embed_text": "Atuin › Keyboard Shortcuts › Navigation\n↑ ↓ / K J\nMove through results",
+      "content_hash": "8c977ea3cf2662ab7d400581253d3c9126bb5e8329d2304303dd3d0e12b900e6",
+      "description_vi": "Di chuyển lên xuống qua các kết quả tìm kiếm",
+      "embed_text_vi": "Atuin › Keyboard Shortcuts › Navigation\n↑ ↓ / K J\nDi chuyển lên xuống qua các kết quả tìm kiếm\ndi chuyển lên xuống trong kết quả\ncuộn danh sách lịch sử tìm được\nduyệt qua lại các kết quả",
+      "content_hash_vi": "d593bc107e3d0c3f7847ce86156c7417cc8ac843bb77a5ffb990214f8dd929f8"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 1,
+      "card": "Keyboard Shortcuts",
+      "section": "Navigation",
+      "lang": null,
+      "kind": "shortcut",
+      "command": "← →",
+      "description": "Move cursor in query",
+      "display": {
+        "key_style": "keys"
+      },
+      "position": 2,
+      "embed_text": "Atuin › Keyboard Shortcuts › Navigation\n← →\nMove cursor in query",
+      "content_hash": "1c80ccf959557b07bcebef7e98938722dbd5c6044e0a141728080d121c243aa5",
+      "description_vi": "Di chuyển con trỏ trong ô nhập truy vấn tìm kiếm",
+      "embed_text_vi": "Atuin › Keyboard Shortcuts › Navigation\n← →\nDi chuyển con trỏ trong ô nhập truy vấn tìm kiếm\ndi chuyển con trỏ trong ô tìm kiếm\nsang trái phải sửa chuỗi truy vấn\ntrượt con trỏ soạn thảo query",
+      "content_hash_vi": "8b8a4de85907da85c910344ac232c43c83e25f4bcd1e33042b2354c95b75e81b"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 1,
+      "card": "Keyboard Shortcuts",
+      "section": "Navigation",
+      "lang": null,
+      "kind": "shortcut",
+      "command": "Alt+0–9",
+      "description": "Jump to result #N",
+      "display": {
+        "key_style": "keys"
+      },
+      "position": 3,
+      "embed_text": "Atuin › Keyboard Shortcuts › Navigation\nAlt+0–9\nJump to result #N",
+      "content_hash": "7d4647e9e782a198b38c00a3ba1e332f94619da82d6d7fa4c2e431b3b45dee68",
+      "description_vi": "Nhảy nhanh đến kết quả tìm kiếm theo số thứ tự N",
+      "embed_text_vi": "Atuin › Keyboard Shortcuts › Navigation\nAlt+0–9\nNhảy nhanh đến kết quả tìm kiếm theo số thứ tự N\nnhảy nhanh đến kết quả theo số\nchọn kết quả theo số thứ tự\nchuyển tới dòng kết quả N",
+      "content_hash_vi": "3a5b4a6ca933d6ad16a41bcc2f860db4146eb6f2027d6cb8078aefc2c8c711ba"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 2,
+      "card": "Keyboard Shortcuts",
+      "section": "Actions",
+      "lang": null,
+      "kind": "shortcut",
+      "command": "Enter",
+      "description": "Execute selected command",
+      "display": {
+        "key_style": "keys"
+      },
+      "position": 1,
+      "embed_text": "Atuin › Keyboard Shortcuts › Actions\nEnter\nExecute selected command",
+      "content_hash": "78c6ffe0ebb0685e02618e3e26c77082ffbcb2dc8a5bc9f9f5b4ac0ed73a7363",
+      "description_vi": "Thực thi lệnh đang được chọn ngay lập tức",
+      "embed_text_vi": "Atuin › Keyboard Shortcuts › Actions\nEnter\nThực thi lệnh đang được chọn ngay lập tức\nthực thi dòng đang chọn\nchạy ngay kết quả đã chọn\nenter để chạy dòng lịch sử",
+      "content_hash_vi": "b128f3245a028ff6babca24efc152a7e196ee648102289d01c39713bbb95f237"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 2,
+      "card": "Keyboard Shortcuts",
+      "section": "Actions",
+      "lang": null,
+      "kind": "shortcut",
+      "command": "Tab",
+      "description": "Return to shell for editing",
+      "display": {
+        "key_style": "keys"
+      },
+      "position": 2,
+      "embed_text": "Atuin › Keyboard Shortcuts › Actions\nTab\nReturn to shell for editing",
+      "content_hash": "2c3de2d3eaba102c48dc862d7623a13bf384f7c3ee7ad2ba7dd6cc44543ad60a",
+      "description_vi": "Đưa lệnh đã chọn ra shell để chỉnh sửa tiếp",
+      "embed_text_vi": "Atuin › Keyboard Shortcuts › Actions\nTab\nĐưa lệnh đã chọn ra shell để chỉnh sửa tiếp\nchèn kết quả ra shell để sửa\nđưa dòng đã chọn ra dòng nhắc chỉnh sửa\npaste kết quả ra terminal để edit",
+      "content_hash_vi": "097564b8a4c4d0de09bd07b2b78c9aed32c15c756d0b18a4a31e3e93feb53cd1"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 2,
+      "card": "Keyboard Shortcuts",
+      "section": "Actions",
+      "lang": null,
+      "kind": "shortcut",
+      "command": "Ctrl+O",
+      "description": "Open command inspector",
+      "display": {
+        "key_style": "keys"
+      },
+      "position": 3,
+      "embed_text": "Atuin › Keyboard Shortcuts › Actions\nCtrl+O\nOpen command inspector",
+      "content_hash": "0bec966a16457f079d8a7a4903ce0bf797b31775be31ff8eb9008f57a091079b",
+      "description_vi": "Mở bảng xem chi tiết thông tin (inspector) của lệnh",
+      "embed_text_vi": "Atuin › Keyboard Shortcuts › Actions\nCtrl+O\nMở bảng xem chi tiết thông tin (inspector) của lệnh\nxem chi tiết thông tin của kết quả\nmở thanh thanh tra inspector\nhiển thị metadata của dòng đã chọn",
+      "content_hash_vi": "af7b65730f2a3b986e8f236d85b98b0e083c9371306602be45e2bc79d965d320"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 2,
+      "card": "Keyboard Shortcuts",
+      "section": "Actions",
+      "lang": null,
+      "kind": "shortcut",
+      "command": "Ctrl+X",
+      "description": "Delete selected entry",
+      "display": {
+        "key_style": "keys"
+      },
+      "position": 4,
+      "embed_text": "Atuin › Keyboard Shortcuts › Actions\nCtrl+X\nDelete selected entry",
+      "content_hash": "f7f0cf28e16e53131d0863881517d814a26d5279cec64dd472785ee53d2c6406",
+      "description_vi": "Xoá mục lịch sử đang được chọn",
+      "embed_text_vi": "Atuin › Keyboard Shortcuts › Actions\nCtrl+X\nXoá mục lịch sử đang được chọn\nxoá mục lịch sử đang chọn\ngỡ bỏ dòng kết quả được chọn\ndelete bản ghi khỏi history",
+      "content_hash_vi": "25cf00bf895d427343062cc322934c9f1edc32aac5cae1d5b4bf863039942cd7"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 2,
+      "card": "Keyboard Shortcuts",
+      "section": "Actions",
+      "lang": null,
+      "kind": "shortcut",
+      "command": "Ctrl+C / Ctrl+D",
+      "description": "Cancel search",
+      "display": {
+        "key_style": "keys"
+      },
+      "position": 5,
+      "embed_text": "Atuin › Keyboard Shortcuts › Actions\nCtrl+C / Ctrl+D\nCancel search",
+      "content_hash": "11bbedfd44dba90b337e43bd42ba6487a5b6f28fc82b8d1b9303b56d2e809635",
+      "description_vi": "Huỷ tìm kiếm và đóng giao diện",
+      "embed_text_vi": "Atuin › Keyboard Shortcuts › Actions\nCtrl+C / Ctrl+D\nHuỷ tìm kiếm và đóng giao diện\nhuỷ tìm kiếm lịch sử\nthoát màn hình tra cứu\nđóng giao diện search",
+      "content_hash_vi": "4801931192c9f54f8eecf215d6da538157767faecebcd9e8c96854b2f30a2038"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 3,
+      "card": "Keyboard Shortcuts",
+      "section": "Mode switching",
+      "lang": null,
+      "kind": "shortcut",
+      "command": "Ctrl+R",
+      "description": "Cycle filter mode",
+      "display": {
+        "key_style": "keys"
+      },
+      "position": 1,
+      "embed_text": "Atuin › Keyboard Shortcuts › Mode switching\nCtrl+R\nCycle filter mode",
+      "content_hash": "58eb06cfaac42262ea26e431ec0f032b2c65f9b8ce8f845ccbe246272d37ef26",
+      "description_vi": "Chuyển đổi vòng lặp qua các chế độ lọc (filter mode)",
+      "embed_text_vi": "Atuin › Keyboard Shortcuts › Mode switching\nCtrl+R\nChuyển đổi vòng lặp qua các chế độ lọc (filter mode)\nchuyển đổi chế độ lọc tìm kiếm\nthay đổi filter mode lịch sử\ncycle qua các phạm vi lọc",
+      "content_hash_vi": "403690193078e43c649bb79b9cf9034bee655b0d4ce2b33b09929bc23db1e73a"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 3,
+      "card": "Keyboard Shortcuts",
+      "section": "Mode switching",
+      "lang": null,
+      "kind": "shortcut",
+      "command": "Ctrl+S",
+      "description": "Cycle search mode",
+      "display": {
+        "key_style": "keys"
+      },
+      "position": 2,
+      "embed_text": "Atuin › Keyboard Shortcuts › Mode switching\nCtrl+S\nCycle search mode",
+      "content_hash": "188d941abe1795c6bbd603427cd5cbf9c6ea52f10ffc147f1ee09efaab4177f1",
+      "description_vi": "Chuyển đổi vòng lặp qua các chế độ tìm kiếm (search mode)",
+      "embed_text_vi": "Atuin › Keyboard Shortcuts › Mode switching\nCtrl+S\nChuyển đổi vòng lặp qua các chế độ tìm kiếm (search mode)\nchuyển đổi chế độ tìm kiếm\nthay đổi search mode prefix fulltext fuzzy\ncycle qua các kiểu so khớp tìm kiếm",
+      "content_hash_vi": "9aa981e38c33f24993e1a3f191908a06627d190517eb19c75949aa4643190750"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 4,
+      "card": "Keyboard Shortcuts",
+      "section": "Vim mode",
+      "lang": null,
+      "kind": "shortcut",
+      "command": "Esc",
+      "description": "Enter vim-normal mode",
+      "display": {
+        "key_style": "keys"
+      },
+      "position": 1,
+      "embed_text": "Atuin › Keyboard Shortcuts › Vim mode\nEsc\nEnter vim-normal mode",
+      "content_hash": "ea46176c6aebd68822864c92fb29412535293e057a965c51109a02101c1fe1da",
+      "description_vi": "Chuyển sang chế độ bình thường (normal mode)",
+      "embed_text_vi": "Atuin › Keyboard Shortcuts › Vim mode\nEsc\nChuyển sang chế độ bình thường (normal mode)\nchuyển sang normal mode\nbật chế độ điều hướng normal\nthoát soạn thảo về normal mode",
+      "content_hash_vi": "d52b72d9b419316cdedf0f772a274cfd78b9f4137a4cca783076b7cd1f8fae49"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 4,
+      "card": "Keyboard Shortcuts",
+      "section": "Vim mode",
+      "lang": null,
+      "kind": "shortcut",
+      "command": "I",
+      "description": "Return to insert mode",
+      "display": {
+        "key_style": "keys"
+      },
+      "position": 2,
+      "embed_text": "Atuin › Keyboard Shortcuts › Vim mode\nI\nReturn to insert mode",
+      "content_hash": "7fb390b610bf086cfbb48faf6e96d6253d2adf71fbcaaffb3493aab445400594",
+      "description_vi": "Quay lại chế độ chèn (insert mode) để nhập văn bản",
+      "embed_text_vi": "Atuin › Keyboard Shortcuts › Vim mode\nI\nQuay lại chế độ chèn (insert mode) để nhập văn bản\nquay lại insert mode\nchuyển sang insert mode để gõ tiếp\nbật chế độ nhập văn bản insert",
+      "content_hash_vi": "557fe9a8e149661e1c6013bd5dd3fd86aeefd83f1a51344bfa6e4d6420e061d0"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 3,
+      "section_pos": 1,
+      "card": "Filter Modes (Ctrl+R)",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "global",
+      "description": "All history — every machine, session & directory",
+      "display": {
+        "key_style": "mode",
+        "variant": "global"
+      },
+      "position": 1,
+      "embed_text": "Atuin › Filter Modes (Ctrl+R)\nglobal\nAll history — every machine, session & directory",
+      "content_hash": "39eedb31f3b3613bf2017cd8666de58a0bc9b58a11559959b7dbfc3ebcd94c79",
+      "description_vi": "Lọc toàn bộ lịch sử từ mọi máy, phiên và thư mục",
+      "embed_text_vi": "Atuin › Filter Modes (Ctrl+R)\nglobal\nLọc toàn bộ lịch sử từ mọi máy, phiên và thư mục\nlọc toàn bộ lịch sử trên mọi máy\nchế độ filter global tất cả session\ntìm trên mọi thiết bị và thư mục",
+      "content_hash_vi": "839b78d2e5ac102cff270c3f46f0ac7e9bdc239ba068e7a5b90cf7d49a53880e"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 3,
+      "section_pos": 1,
+      "card": "Filter Modes (Ctrl+R)",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "host",
+      "description": "This machine only",
+      "display": {
+        "key_style": "mode",
+        "variant": "host"
+      },
+      "position": 2,
+      "embed_text": "Atuin › Filter Modes (Ctrl+R)\nhost\nThis machine only",
+      "content_hash": "4191776049d89092fbc02be04dc1e342bb66552f6724834b28f290a43f4c747c",
+      "description_vi": "Chỉ lọc lịch sử trên máy tính hiện tại",
+      "embed_text_vi": "Atuin › Filter Modes (Ctrl+R)\nhost\nChỉ lọc lịch sử trên máy tính hiện tại\nlọc lịch sử riêng trên máy hiện tại\nchế độ filter host này\ngiới hạn tìm kiếm trong máy cục bộ",
+      "content_hash_vi": "eabfc09d1d0e7fa851111736c2796e0c7c8f094053c9a8168ec1aef6585af70b"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 3,
+      "section_pos": 1,
+      "card": "Filter Modes (Ctrl+R)",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "session",
+      "description": "Current shell session only",
+      "display": {
+        "key_style": "mode",
+        "variant": "session"
+      },
+      "position": 3,
+      "embed_text": "Atuin › Filter Modes (Ctrl+R)\nsession\nCurrent shell session only",
+      "content_hash": "950f4d00ad8253e2dde258f656c33bf0f8410335b0b0d3d9d1cfe761221a7a3f",
+      "description_vi": "Chỉ lọc lịch sử trong phiên shell hiện tại",
+      "embed_text_vi": "Atuin › Filter Modes (Ctrl+R)\nsession\nChỉ lọc lịch sử trong phiên shell hiện tại\nlọc lịch sử phiên terminal hiện tại\nchế độ filter session đang mở\ntìm trong phiên làm việc này",
+      "content_hash_vi": "b13f4cb85f7f88dc9deef048920fcf9611679c9bda86b564dc08ecefb87d58a7"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 3,
+      "section_pos": 1,
+      "card": "Filter Modes (Ctrl+R)",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "session-preload",
+      "description": "Current session + global history from before session start",
+      "display": {
+        "key_style": "mode",
+        "variant": "session-preload",
+        "note": "/ SESSION+"
+      },
+      "position": 4,
+      "embed_text": "Atuin › Filter Modes (Ctrl+R)\nsession-preload\nCurrent session + global history from before session start",
+      "content_hash": "1bfdd6915ae7cf6ce7b49120cdf91fcb1d96995e4ccdee584c185ba0f12c1a10",
+      "description_vi": "Lọc lịch sử phiên hiện tại kèm lịch sử toàn cục trước đó",
+      "embed_text_vi": "Atuin › Filter Modes (Ctrl+R)\nsession-preload\nLọc lịch sử phiên hiện tại kèm lịch sử toàn cục trước đó\nlọc phiên hiện tại cùng lịch sử trước đó\nchế độ filter session-preload kết hợp\ntìm trong session hiện tại và history cũ toàn cục",
+      "content_hash_vi": "ce50180e56d28a3433abef363625bfdd8b9711b0396a837d39d58a8c77c2632b"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 3,
+      "section_pos": 1,
+      "card": "Filter Modes (Ctrl+R)",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "directory",
+      "description": "Current working directory only",
+      "display": {
+        "key_style": "mode",
+        "variant": "dir"
+      },
+      "position": 5,
+      "embed_text": "Atuin › Filter Modes (Ctrl+R)\ndirectory\nCurrent working directory only",
+      "content_hash": "0cc17f611e26a33da68ed31d6d9f72e4581a26356c2309b3e4e85a7a230e0947",
+      "description_vi": "Chỉ lọc lịch sử trong thư mục làm việc hiện tại",
+      "embed_text_vi": "Atuin › Filter Modes (Ctrl+R)\ndirectory\nChỉ lọc lịch sử trong thư mục làm việc hiện tại\nlọc lịch sử trong thư mục hiện tại\nchế độ filter current working directory\ntìm trong thư mục đang đứng",
+      "content_hash_vi": "52d42f923392f9fd0482244afccf168c8b8eeb406b8030be7de16934aa3ed8d7"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 3,
+      "section_pos": 1,
+      "card": "Filter Modes (Ctrl+R)",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "workspace",
+      "description": "Entire git repo tree (auto in git repos)",
+      "display": {
+        "key_style": "mode",
+        "variant": "ws"
+      },
+      "position": 6,
+      "embed_text": "Atuin › Filter Modes (Ctrl+R)\nworkspace\nEntire git repo tree (auto in git repos)",
+      "content_hash": "a15211125c4295314229ae48231945696689e049a2238ee1df7dc99fa5020a07",
+      "description_vi": "Lọc lịch sử trong toàn bộ thư mục git repository",
+      "embed_text_vi": "Atuin › Filter Modes (Ctrl+R)\nworkspace\nLọc lịch sử trong toàn bộ thư mục git repository\nlọc lịch sử toàn bộ git repository\nchế độ filter workspace git\ntìm trong phạm vi dự án git",
+      "content_hash_vi": "e004a77b9379b20059526e12e4aa1367c80820c0d612d1de52bef27209b700cf"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 3,
+      "section_pos": 2,
+      "card": "Filter Modes (Ctrl+R)",
+      "section": "Search Modes (Ctrl+S)",
+      "lang": null,
+      "kind": "option",
+      "command": "prefix",
+      "description": "Matches commands starting with your query (default)",
+      "display": {
+        "key_style": "mode",
+        "variant": "prefix"
+      },
+      "position": 1,
+      "embed_text": "Atuin › Filter Modes (Ctrl+R) › Search Modes (Ctrl+S)\nprefix\nMatches commands starting with your query (default)",
+      "content_hash": "8f8d4d40f4d98b51b11d8a1ba423d2d7dde52fbd96cb61387771765b3b05ba2b",
+      "description_vi": "So khớp các lệnh bắt đầu bằng từ khoá tìm kiếm (mặc định)",
+      "embed_text_vi": "Atuin › Filter Modes (Ctrl+R) › Search Modes (Ctrl+S)\nprefix\nSo khớp các lệnh bắt đầu bằng từ khoá tìm kiếm (mặc định)\ntìm kiếm so khớp tiền tố prefix\nkhớp phần đầu giống chuỗi tìm kiếm\nchế độ search so khớp từ đầu mặc định",
+      "content_hash_vi": "1f9700570d1d233eb30f78a45ea18fc3739bde41faa62e3ff7abad9cd5747e6b"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 3,
+      "section_pos": 2,
+      "card": "Filter Modes (Ctrl+R)",
+      "section": "Search Modes (Ctrl+S)",
+      "lang": null,
+      "kind": "option",
+      "command": "fulltext",
+      "description": "Matches anywhere in the command string",
+      "display": {
+        "key_style": "mode",
+        "variant": "fulltext"
+      },
+      "position": 2,
+      "embed_text": "Atuin › Filter Modes (Ctrl+R) › Search Modes (Ctrl+S)\nfulltext\nMatches anywhere in the command string",
+      "content_hash": "72d4b1a1a0efd01d974bfb35cde5ef3f5a42f9a6f11690247521b0ff7145543d",
+      "description_vi": "So khớp chuỗi từ khoá ở bất kỳ vị trí nào",
+      "embed_text_vi": "Atuin › Filter Modes (Ctrl+R) › Search Modes (Ctrl+S)\nfulltext\nSo khớp chuỗi từ khoá ở bất kỳ vị trí nào\ntìm kiếm toàn văn chuỗi con bất kỳ\nkhớp từ khoá ở vị trí bất kỳ\nchế độ search fulltext mọi vị trí",
+      "content_hash_vi": "49856652e308f38128b91a8022a8cd17f6a7f1306093b75c695d8644eeb893e2"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 3,
+      "section_pos": 2,
+      "card": "Filter Modes (Ctrl+R)",
+      "section": "Search Modes (Ctrl+S)",
+      "lang": null,
+      "kind": "option",
+      "command": "fuzzy",
+      "description": "Matches letters in any order",
+      "display": {
+        "key_style": "mode",
+        "variant": "fuzzy"
+      },
+      "position": 3,
+      "embed_text": "Atuin › Filter Modes (Ctrl+R) › Search Modes (Ctrl+S)\nfuzzy\nMatches letters in any order",
+      "content_hash": "ee470f985651dc847905d42943ad3b6a40c3e6bd70982050ab8e6c52432c3039",
+      "description_vi": "Tìm kiếm mờ (fuzzy) so khớp các ký tự không liền nhau",
+      "embed_text_vi": "Atuin › Filter Modes (Ctrl+R) › Search Modes (Ctrl+S)\nfuzzy\nTìm kiếm mờ (fuzzy) so khớp các ký tự không liền nhau\ntìm kiếm mờ xấp xỉ fuzzy\nso khớp ký tự không liên tục bất kỳ\nchế độ search mờ gần đúng",
+      "content_hash_vi": "e318052d92fa39938fdf45ea61e9b1f62ee1eb61c1a333b31c9a9a476bc05c97"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 1,
+      "card": "History Commands",
+      "section": "Browse & search",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin history list",
+      "description": "List all history",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 1,
+      "embed_text": "Atuin › History Commands › Browse & search\natuin history list\nList all history",
+      "content_hash": "e1657b536af0750f3aae225298c8d14c87d2d42fc2083b374acb13937a7611b8",
+      "description_vi": "Liệt kê toàn bộ danh sách lịch sử đã lưu",
+      "embed_text_vi": "Atuin › History Commands › Browse & search\natuin history list\nLiệt kê toàn bộ danh sách lịch sử đã lưu\nliệt kê toàn bộ lịch sử đã lưu\nhiển thị tất cả history\nxem danh sách các thao tác đã chạy",
+      "content_hash_vi": "df6efced538e70650fc7c3e7250e87e28463bf29c1b6eecd4ad3d30fe008bce2"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 1,
+      "card": "History Commands",
+      "section": "Browse & search",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin history list --cmd-only",
+      "description": "List commands only (no metadata)",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 2,
+      "embed_text": "Atuin › History Commands › Browse & search\natuin history list --cmd-only\nList commands only (no metadata)",
+      "content_hash": "f38e39fdf6d55fea2977622bbead1d3f0a8bc965c477f5a4d4112ce59487bfb3",
+      "description_vi": "Liệt kê danh sách chỉ gồm lệnh, không kèm metadata",
+      "embed_text_vi": "Atuin › History Commands › Browse & search\natuin history list --cmd-only\nLiệt kê danh sách chỉ gồm lệnh, không kèm metadata\nliệt kê danh sách chỉ gồm lệnh\nhiển thị history bỏ qua metadata\nxem lịch sử dạng chuỗi thuần không có ngày giờ",
+      "content_hash_vi": "f5ca2adeefb30004b663dd02e41757533e67bd09b1b336a07e5a0db31a76bf1d"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 1,
+      "card": "History Commands",
+      "section": "Browse & search",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin search <query>",
+      "description": "Non-interactive search",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 3,
+      "embed_text": "Atuin › History Commands › Browse & search\natuin search <query>\nNon-interactive search",
+      "content_hash": "4d0612f1b72649f7e8a3800a9ef5fd40bb4a6373f4f5ff96c95422541c0571fa",
+      "description_vi": "Tìm kiếm lịch sử dạng văn bản không tương tác",
+      "embed_text_vi": "Atuin › History Commands › Browse & search\natuin search <query>\nTìm kiếm lịch sử dạng văn bản không tương tác\ntìm kiếm lịch sử không tương tác\ntra cứu history xuất kết quả thẳng ra terminal\nsearch văn bản lịch sử dạng text thường",
+      "content_hash_vi": "c0a4d851fa4ee108702ecbc5f47249cb7d81108069026eb338ced6f5922fa632"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 1,
+      "card": "History Commands",
+      "section": "Browse & search",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin search -i <query>",
+      "description": "Interactive TUI search",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 4,
+      "embed_text": "Atuin › History Commands › Browse & search\natuin search -i <query>\nInteractive TUI search",
+      "content_hash": "3969fd8dcd3666cd171a0ff42bc86603b1738bf8403e2ab3734948babb388390",
+      "description_vi": "Tìm kiếm lịch sử trong giao diện TUI tương tác",
+      "embed_text_vi": "Atuin › History Commands › Browse & search\natuin search -i <query>\nTìm kiếm lịch sử trong giao diện TUI tương tác\ntìm kiếm lịch sử với giao diện tương tác TUI\nmở màn hình interactive search history\ntra cứu kết quả trên giao diện TUI",
+      "content_hash_vi": "97f2aaa4d8e3a0c73a87f452d9c69f20bc156798864a8725a0e81a02c70b8539"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 1,
+      "card": "History Commands",
+      "section": "Browse & search",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin search --human <query>",
+      "description": "Search with human-readable timestamps",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 5,
+      "embed_text": "Atuin › History Commands › Browse & search\natuin search --human <query>\nSearch with human-readable timestamps",
+      "content_hash": "a01f458de85a236aeca50ed5c61c0f0480c9398dc4b565748839b2210b71df45",
+      "description_vi": "Tìm kiếm lịch sử hiển thị mốc thời gian dễ đọc",
+      "embed_text_vi": "Atuin › History Commands › Browse & search\natuin search --human <query>\nTìm kiếm lịch sử hiển thị mốc thời gian dễ đọc\ntìm kiếm lịch sử hiển thị ngày giờ dễ đọc\ntra cứu history kèm thời gian dạng người đọc\nsearch hiển thị mốc thời gian thân thiện",
+      "content_hash_vi": "459491c55abc5cff312c8a54000dd27d1387108bf29b6e0193fdee479c4ef59d"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 2,
+      "card": "History Commands",
+      "section": "Search filters",
+      "lang": null,
+      "kind": "option",
+      "command": "--cwd <dir>",
+      "description": "Filter by directory",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 1,
+      "embed_text": "Atuin › History Commands › Search filters\n--cwd <dir>\nFilter by directory",
+      "content_hash": "c1fcac7889b3784c3f321a32068da42c9184f6c738f7ef3d89220a1a0110123a",
+      "description_vi": "Lọc kết quả tìm kiếm theo thư mục <dir> chỉ định",
+      "embed_text_vi": "Atuin › History Commands › Search filters\n--cwd <dir>\nLọc kết quả tìm kiếm theo thư mục <dir> chỉ định\nlọc kết quả tìm kiếm theo thư mục\ngiới hạn tra cứu lịch sử trong folder <dir>\ntuỳ chọn lọc theo đường dẫn thư mục",
+      "content_hash_vi": "da6af327247352a43f4f6a6f7cf73338ea8090d6980d95f7fb5b77618cb3308a"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 2,
+      "card": "History Commands",
+      "section": "Search filters",
+      "lang": null,
+      "kind": "option",
+      "command": "--exit <code>",
+      "description": "Filter by exit code (0 = success)",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 2,
+      "embed_text": "Atuin › History Commands › Search filters\n--exit <code>\nFilter by exit code (0 = success)",
+      "content_hash": "b8f459083c32628dcb3a74973df768ac0239d85658cd198f0144812696cdd87d",
+      "description_vi": "Lọc kết quả theo mã thoát (exit code) của lệnh",
+      "embed_text_vi": "Atuin › History Commands › Search filters\n--exit <code>\nLọc kết quả theo mã thoát (exit code) của lệnh\nlọc kết quả tìm kiếm theo mã thoát\ntìm theo exit code trạng thái kết thúc\ntuỳ chọn lọc theo mã lỗi trả về",
+      "content_hash_vi": "2328afa4ab7dfc819f2017727c9529fb0652e89467934bfd77d103533118c437"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 2,
+      "card": "History Commands",
+      "section": "Search filters",
+      "lang": null,
+      "kind": "option",
+      "command": "--after <time>",
+      "description": "After a point in time",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 3,
+      "embed_text": "Atuin › History Commands › Search filters\n--after <time>\nAfter a point in time",
+      "content_hash": "a702cb5908ed6eeda91e1d883ce7762a87f0a234a7bd9ef3a44241c9153fc324",
+      "description_vi": "Lọc các lệnh đã chạy sau mốc thời gian <time>",
+      "embed_text_vi": "Atuin › History Commands › Search filters\n--after <time>\nLọc các lệnh đã chạy sau mốc thời gian <time>\nlọc kết quả thực thi sau mốc thời gian\ntìm lịch sử chạy sau thời điểm <time>\ntuỳ chọn lọc sau ngày giờ chỉ định",
+      "content_hash_vi": "d9cd86a027df1f337d5f3948d1fbd6c39b8479ff4898410a6ebbbb579306a9e0"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 2,
+      "card": "History Commands",
+      "section": "Search filters",
+      "lang": null,
+      "kind": "option",
+      "command": "--before <time>",
+      "description": "Before a point in time",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 4,
+      "embed_text": "Atuin › History Commands › Search filters\n--before <time>\nBefore a point in time",
+      "content_hash": "b422154a6052b753f40956cccad327295925488b9074cfc8bf61093e6aa2bc6d",
+      "description_vi": "Lọc các lệnh đã chạy trước mốc thời gian <time>",
+      "embed_text_vi": "Atuin › History Commands › Search filters\n--before <time>\nLọc các lệnh đã chạy trước mốc thời gian <time>\nlọc kết quả thực thi trước mốc thời gian\ntìm lịch sử chạy trước thời điểm <time>\ntuỳ chọn lọc trước ngày giờ chỉ định",
+      "content_hash_vi": "cbd2fde432f228e21e860af1eb5d8ec712e0087c1fae181e56ff3f8429f10a14"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 2,
+      "card": "History Commands",
+      "section": "Search filters",
+      "lang": null,
+      "kind": "option",
+      "command": "--limit <n>",
+      "description": "Limit result count",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 5,
+      "embed_text": "Atuin › History Commands › Search filters\n--limit <n>\nLimit result count",
+      "content_hash": "bc0c98633c6e5ee533cb0294dff684172b43f10da4235368b3e37d01d31fc8a5",
+      "description_vi": "Giới hạn số lượng kết quả hiển thị tối đa <n>",
+      "embed_text_vi": "Atuin › History Commands › Search filters\n--limit <n>\nGiới hạn số lượng kết quả hiển thị tối đa <n>\ngiới hạn số lượng kết quả hiển thị\nlấy tối đa <n> bản ghi lịch sử\ntuỳ chọn giới hạn số dòng kết quả",
+      "content_hash_vi": "d0a5b033ca7dc7743364b6578b7275e9dfbc2710f1adefd197d77f55fe868437"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 2,
+      "card": "History Commands",
+      "section": "Search filters",
+      "lang": null,
+      "kind": "option",
+      "command": "--human",
+      "description": "Human-readable timestamps",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 6,
+      "embed_text": "Atuin › History Commands › Search filters\n--human\nHuman-readable timestamps",
+      "content_hash": "e43138299ca1ebb3b09d209c4a74c10f6986e7a99750453f0f535798fc299f79",
+      "description_vi": "Tuỳ chọn hiển thị mốc thời gian ở dạng người đọc được",
+      "embed_text_vi": "Atuin › History Commands › Search filters\n--human\nTuỳ chọn hiển thị mốc thời gian ở dạng người đọc được\nbật hiển thị mốc thời gian dễ đọc\ntuỳ chọn định dạng thời gian thân thiện\ntham số xem ngày giờ dạng người đọc",
+      "content_hash_vi": "c7b2dbc90be28146a01851a32fbd72005f61ca186274cc70a8eeb7c1e5890999"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 3,
+      "card": "History Commands",
+      "section": "Delete & prune",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin search --delete <query>",
+      "description": "Delete matching entries",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 1,
+      "embed_text": "Atuin › History Commands › Delete & prune\natuin search --delete <query>\nDelete matching entries",
+      "content_hash": "d19efdb5528c6595297ea1bd498c6902fe505985acf7e75a34ad37f8a29acbba",
+      "description_vi": "Tìm và xoá các mục lịch sử khớp với <query>",
+      "embed_text_vi": "Atuin › History Commands › Delete & prune\natuin search --delete <query>\nTìm và xoá các mục lịch sử khớp với <query>\nxoá các mục lịch sử khớp với truy vấn\ngỡ bỏ bản ghi tìm được theo query\ndelete hàng loạt history theo chuỗi tìm kiếm",
+      "content_hash_vi": "895437ae91fd6de59d5960d2dd6ce68a9ecf534ab3384f7f44453e66a68761a9"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 3,
+      "card": "History Commands",
+      "section": "Delete & prune",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin history prune --dry-run",
+      "description": "Preview what prune removes",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 2,
+      "embed_text": "Atuin › History Commands › Delete & prune\natuin history prune --dry-run\nPreview what prune removes",
+      "content_hash": "2893949cebe22c2e4c8e4912ffdd5d6a61eb817de097e6ae5c4fdf656b3d4126",
+      "description_vi": "Xem trước các lệnh lịch sử sẽ bị xoá khi dọn dẹp (prune).",
+      "embed_text_vi": "Atuin › History Commands › Delete & prune\natuin history prune --dry-run\nXem trước các lệnh lịch sử sẽ bị xoá khi dọn dẹp (prune).\nxem trước dọn dẹp lịch sử\nchạy thử xoá lịch sử prune\nkiểm tra danh sách prune sẽ xoá",
+      "content_hash_vi": "b067eb469e949445988895d7c821123dbd3100fe007b3040dbb653b6b7213832"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 3,
+      "card": "History Commands",
+      "section": "Delete & prune",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin history prune",
+      "description": "Remove filtered entries",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 3,
+      "embed_text": "Atuin › History Commands › Delete & prune\natuin history prune\nRemove filtered entries",
+      "content_hash": "8e02d6d1d63e8ae9437a910cc277aac2dadd607f3fe72acb2a05932a1b63666b",
+      "description_vi": "Dọn dẹp và xoá các bản ghi lịch sử theo bộ lọc đã cấu hình.",
+      "embed_text_vi": "Atuin › History Commands › Delete & prune\natuin history prune\nDọn dẹp và xoá các bản ghi lịch sử theo bộ lọc đã cấu hình.\ndọn dẹp lịch sử theo bộ lọc\nxoá bản ghi lịch sử bằng prune\nlàm sạch lịch sử đã lọc",
+      "content_hash_vi": "b3cd414f8aff02515013045a947ba9bbe6318211986da517961b67e83f2c174d"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 4,
+      "section_pos": 3,
+      "card": "History Commands",
+      "section": "Delete & prune",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin history dedup",
+      "description": "Remove exact duplicates",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 4,
+      "embed_text": "Atuin › History Commands › Delete & prune\natuin history dedup\nRemove exact duplicates",
+      "content_hash": "b1f6cf9f010435e2dd54be5af1632efcbf9e1cf19340556af839e145000bc544",
+      "description_vi": "Xoá các lệnh trùng lặp hoàn toàn trong lịch sử.",
+      "embed_text_vi": "Atuin › History Commands › Delete & prune\natuin history dedup\nXoá các lệnh trùng lặp hoàn toàn trong lịch sử.\nxoá lệnh trùng lặp trong lịch sử\nlọc bỏ bản ghi trùng nhau hoàn toàn\nkhử trùng lặp dedup lịch sử",
+      "content_hash_vi": "3f23434df158d0c37457e415824905e627c439576485c31a250109c876eed1e6"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 5,
+      "section_pos": 1,
+      "card": "Sync & Account",
+      "section": "Sync",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin sync",
+      "description": "Sync with server (bidirectional)",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 1,
+      "embed_text": "Atuin › Sync & Account › Sync\natuin sync\nSync with server (bidirectional)",
+      "content_hash": "457ef93485ae54c7b3863e4ff3430e1cdba977f8ae1124c93853a6800e5b31a9",
+      "description_vi": "Đồng bộ lịch sử hai chiều với máy chủ (server).",
+      "embed_text_vi": "Atuin › Sync & Account › Sync\natuin sync\nĐồng bộ lịch sử hai chiều với máy chủ (server).\nđồng bộ lịch sử với server\nsync lịch sử hai chiều\ncập nhật đồng bộ lịch sử máy chủ",
+      "content_hash_vi": "f25d1dbd93d591291cb1aa011882852e24486d5bd1837f0a72e35dce4005ded5"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 5,
+      "section_pos": 1,
+      "card": "Sync & Account",
+      "section": "Sync",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin sync --force",
+      "description": "Force full re-sync",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 2,
+      "embed_text": "Atuin › Sync & Account › Sync\natuin sync --force\nForce full re-sync",
+      "content_hash": "dd5d88bc9f1c3cf0dfa5caa41db8996e482330b25199e3f7f87979e3be111636",
+      "description_vi": "Bắt buộc đồng bộ lại toàn bộ lịch sử với máy chủ.",
+      "embed_text_vi": "Atuin › Sync & Account › Sync\natuin sync --force\nBắt buộc đồng bộ lại toàn bộ lịch sử với máy chủ.\nép buộc đồng bộ lại toàn bộ\nforce sync toàn bộ lịch sử\nđồng bộ lại từ đầu với server",
+      "content_hash_vi": "83c3d6092296d571c272550d8a38912174720e2b1791232e4c9fc677e095e976"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 5,
+      "section_pos": 2,
+      "card": "Sync & Account",
+      "section": "Account",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin register -u <u> -e <e>",
+      "description": "Create account",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 1,
+      "embed_text": "Atuin › Sync & Account › Account\natuin register -u <u> -e <e>\nCreate account",
+      "content_hash": "a3e3787569931851ec7485e9afb8850f10b04db24cfc403a5a527ccdb5c6905c",
+      "description_vi": "Đăng ký tài khoản mới với username <u> và email <e>.",
+      "embed_text_vi": "Atuin › Sync & Account › Account\natuin register -u <u> -e <e>\nĐăng ký tài khoản mới với username <u> và email <e>.\nđăng ký tài khoản đồng bộ mới\ntạo tài khoản sync với email\nđăng ký user <u> và email <e>",
+      "content_hash_vi": "0837e24db7e9a3e78f2af52764ef0b0b2a16ee3123c908bff27412a3d572e273"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 5,
+      "section_pos": 2,
+      "card": "Sync & Account",
+      "section": "Account",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin login -u <user>",
+      "description": "Login to sync server",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 2,
+      "embed_text": "Atuin › Sync & Account › Account\natuin login -u <user>\nLogin to sync server",
+      "content_hash": "2a92d055d890a4eacc013f997e88cfe60d9509ac733cc4f2657e6e0bbaa287e7",
+      "description_vi": "Đăng nhập vào máy chủ đồng bộ với tài khoản <user>.",
+      "embed_text_vi": "Atuin › Sync & Account › Account\natuin login -u <user>\nĐăng nhập vào máy chủ đồng bộ với tài khoản <user>.\nđăng nhập máy chủ đồng bộ\nlogin sync server với user <user>\nđăng nhập tài khoản đồng bộ lịch sử",
+      "content_hash_vi": "3ca92272fbc997151ccf36473bc7edd2813f7c569d3d12b5501f83390e55c60c"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 5,
+      "section_pos": 2,
+      "card": "Sync & Account",
+      "section": "Account",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin logout",
+      "description": "Logout",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 3,
+      "embed_text": "Atuin › Sync & Account › Account\natuin logout\nLogout",
+      "content_hash": "4317135720358264c7d112b2f631fe4658deb69201a34a03f8ca9a69b95ca2db",
+      "description_vi": "Đăng xuất khỏi tài khoản máy chủ đồng bộ.",
+      "embed_text_vi": "Atuin › Sync & Account › Account\natuin logout\nĐăng xuất khỏi tài khoản máy chủ đồng bộ.\nđăng xuất tài khoản đồng bộ\nthoát đăng nhập sync server\nlogout khỏi máy chủ",
+      "content_hash_vi": "04efb8696eea2ea2e6bc0408ed783391bf9c5c643c790ec7ac3f1c44bd6055ce"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 5,
+      "section_pos": 2,
+      "card": "Sync & Account",
+      "section": "Account",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin account delete",
+      "description": "Permanently delete account",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 4,
+      "embed_text": "Atuin › Sync & Account › Account\natuin account delete\nPermanently delete account",
+      "content_hash": "4e8f1252643ca86081de1d3318cf66c37f24835cbdbcc98120da22e8bc170696",
+      "description_vi": "Xoá vĩnh viễn tài khoản đồng bộ trên máy chủ.",
+      "embed_text_vi": "Atuin › Sync & Account › Account\natuin account delete\nXoá vĩnh viễn tài khoản đồng bộ trên máy chủ.\nxoá vĩnh viễn tài khoản sync\nhuỷ tài khoản đồng bộ trên server\ngỡ bỏ hoàn toàn tài khoản",
+      "content_hash_vi": "ea7bc0efcaec7e1280d340032b8d53de58dc217c1662d4e1fad7c2a286fe73bd"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 5,
+      "section_pos": 3,
+      "card": "Sync & Account",
+      "section": "Key management",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin key",
+      "description": "Show encryption key (keep safe!)",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 1,
+      "embed_text": "Atuin › Sync & Account › Key management\natuin key\nShow encryption key (keep safe!)",
+      "content_hash": "785bb58cc181538314a07c1f16604f856feb447c9ab71a7f1284a0a1955cbda9",
+      "description_vi": "Hiển thị khoá mã hoá (encryption key) tài khoản.",
+      "embed_text_vi": "Atuin › Sync & Account › Key management\natuin key\nHiển thị khoá mã hoá (encryption key) tài khoản.\nxem khoá mã hoá tài khoản\nhiển thị encryption key đồng bộ\nlấy mã khoá bảo mật tài khoản",
+      "content_hash_vi": "23b688581bb06a222433319ab5d6548e6c9c2f9251441b0e1ae934ce82e66a75"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 5,
+      "section_pos": 4,
+      "card": "Sync & Account",
+      "section": "Import",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin import auto",
+      "description": "Auto-detect shell & import",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 1,
+      "embed_text": "Atuin › Sync & Account › Import\natuin import auto\nAuto-detect shell & import",
+      "content_hash": "feb118acd1d3b26702c68eec68776a5bc39e9c5328d85b4bc75b4fa23ee9eff4",
+      "description_vi": "Tự động nhận diện shell và nhập (import) lịch sử lệnh.",
+      "embed_text_vi": "Atuin › Sync & Account › Import\natuin import auto\nTự động nhận diện shell và nhập (import) lịch sử lệnh.\ntự động nhận diện shell để import\nnhập lịch sử tự động từ shell hiện tại\nauto import lịch sử command line",
+      "content_hash_vi": "9b215e3e25d9c5a676069f2b1e4877ef01bc512664059833fc17e605b9f54727"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 5,
+      "section_pos": 4,
+      "card": "Sync & Account",
+      "section": "Import",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin import bash",
+      "description": "Import from bash history",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 2,
+      "embed_text": "Atuin › Sync & Account › Import\natuin import bash\nImport from bash history",
+      "content_hash": "1194ea47d3412b2b523681c2c41e7359c485449193565851c226ba81af2d1ac0",
+      "description_vi": "Nhập (import) lịch sử lệnh từ bash history.",
+      "embed_text_vi": "Atuin › Sync & Account › Import\natuin import bash\nNhập (import) lịch sử lệnh từ bash history.\nnhập lịch sử từ bash\nimport bash history\nchuyển dữ liệu lịch sử bash",
+      "content_hash_vi": "4c59a46305d5b26b1ee1adaec9e0f39c70ec0b8cc655df76af26b2dd61650cfa"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 5,
+      "section_pos": 4,
+      "card": "Sync & Account",
+      "section": "Import",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin import zsh",
+      "description": "Import from zsh history",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 3,
+      "embed_text": "Atuin › Sync & Account › Import\natuin import zsh\nImport from zsh history",
+      "content_hash": "afff462c6b0dd6b5763a128df06ede5862d1dc5a3ec7a68aaa8621481b5b1819",
+      "description_vi": "Nhập (import) lịch sử lệnh từ zsh history.",
+      "embed_text_vi": "Atuin › Sync & Account › Import\natuin import zsh\nNhập (import) lịch sử lệnh từ zsh history.\nnhập lịch sử từ zsh\nimport zsh history\nđồng bộ dữ liệu từ zsh history",
+      "content_hash_vi": "643b980cba4f9b29f062d437edd325ed06246d6c9da769ee2b6fa3f6056da8ea"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 5,
+      "section_pos": 4,
+      "card": "Sync & Account",
+      "section": "Import",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin import fish",
+      "description": "Import from fish history",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 4,
+      "embed_text": "Atuin › Sync & Account › Import\natuin import fish\nImport from fish history",
+      "content_hash": "dfaf6ba6c8892e7002c063e675ee0709c8fdf399ca95d55b2c9d9943dc793ea6",
+      "description_vi": "Nhập (import) lịch sử lệnh từ fish shell history.",
+      "embed_text_vi": "Atuin › Sync & Account › Import\natuin import fish\nNhập (import) lịch sử lệnh từ fish shell history.\nnhập lịch sử từ fish shell\nimport fish history\nnạp lịch sử từ fish shell",
+      "content_hash_vi": "27e46fdc1e4ae6843da8e1019bf6893b314e1a501679e8f078f231b71f5c259c"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 5,
+      "section_pos": 5,
+      "card": "Sync & Account",
+      "section": "Other",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin stats",
+      "description": "Show usage statistics",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 1,
+      "embed_text": "Atuin › Sync & Account › Other\natuin stats\nShow usage statistics",
+      "content_hash": "28478497ed4e4e184b9fc360de20ab7755cd2ee77700c064645c6cffc616e3f8",
+      "description_vi": "Xem thống kê sử dụng các lệnh trong lịch sử.",
+      "embed_text_vi": "Atuin › Sync & Account › Other\natuin stats\nXem thống kê sử dụng các lệnh trong lịch sử.\nxem thống kê sử dụng lệnh\nhiển thị biểu đồ tần suất thực thi\nkiểm tra thống kê stats gần đây",
+      "content_hash_vi": "aef49644943c74b5e04c9d83809a06da37e3c9cfb56d348b6cfd45094db3066f"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 5,
+      "section_pos": 5,
+      "card": "Sync & Account",
+      "section": "Other",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin stats all",
+      "description": "Show all-time usage statistics",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 2,
+      "embed_text": "Atuin › Sync & Account › Other\natuin stats all\nShow all-time usage statistics",
+      "content_hash": "8d7f308eedfdd4a4d89b8c8712266204e2aa0eaa8515ea87b20d331e5bb55d7c",
+      "description_vi": "Xem toàn bộ thống kê sử dụng lệnh từ trước đến nay.",
+      "embed_text_vi": "Atuin › Sync & Account › Other\natuin stats all\nXem toàn bộ thống kê sử dụng lệnh từ trước đến nay.\nxem thống kê toàn thời gian\nhiển thị thống kê lịch sử all time\ntổng kết tần suất sử dụng từ trước đến nay",
+      "content_hash_vi": "c03228890327588f0767dbd3386557d7c1d00f2c92d4616fd995c2952b589c9a"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 5,
+      "section_pos": 5,
+      "card": "Sync & Account",
+      "section": "Other",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin doctor",
+      "description": "Diagnose issues & dump system info",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 3,
+      "embed_text": "Atuin › Sync & Account › Other\natuin doctor\nDiagnose issues & dump system info",
+      "content_hash": "d4571a9983b825b2ca6fa4ca06927e4e9dd18c607623428167d24b89948a128d",
+      "description_vi": "Chẩn đoán lỗi và xuất thông tin hệ thống.",
+      "embed_text_vi": "Atuin › Sync & Account › Other\natuin doctor\nChẩn đoán lỗi và xuất thông tin hệ thống.\nchẩn đoán lỗi hệ thống\nkiểm tra trạng thái hoạt động doctor\nxuất thông tin gỡ lỗi cấu hình",
+      "content_hash_vi": "9244fa9bee54d43762960e91309effa202f358515952426b5cea31619cb8d825"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 5,
+      "section_pos": 5,
+      "card": "Sync & Account",
+      "section": "Other",
+      "lang": null,
+      "kind": "command",
+      "command": "atuin server start",
+      "description": "Run self-hosted server",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 4,
+      "embed_text": "Atuin › Sync & Account › Other\natuin server start\nRun self-hosted server",
+      "content_hash": "84474bb2a1ae7075bf933fe526a5c3cfaa3776f414782edd88fbbb572f31072d",
+      "description_vi": "Khởi chạy máy chủ đồng bộ tự lưu trữ (self-hosted).",
+      "embed_text_vi": "Atuin › Sync & Account › Other\natuin server start\nKhởi chạy máy chủ đồng bộ tự lưu trữ (self-hosted).\nkhởi chạy sync server tự host\nchạy máy chủ đồng bộ self-hosted\nbật server đồng bộ riêng",
+      "content_hash_vi": "e193b1877b823d3f33da532e134e405520ce1ba89cf0adebe01d47ccbdfd66d4"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 6,
+      "section_pos": 1,
+      "card": "Useful Examples",
+      "section": "Practical queries",
+      "lang": "bash",
+      "kind": "command",
+      "command": "atuin search --exit 1 --cwd .",
+      "description": "All failed commands in current dir",
+      "display": {
+        "raw": "# All failed commands in current dir\natuin search --exit 1 --cwd ."
+      },
+      "position": 1,
+      "embed_text": "Atuin › Useful Examples › Practical queries\natuin search --exit 1 --cwd .\nAll failed commands in current dir",
+      "content_hash": "0d45b5b0243d3eb7ba2f417984874e18d4032842926accbf0f3b250d56007205",
+      "description_vi": "Tìm tất cả lệnh thất bại trong thư mục hiện tại.",
+      "embed_text_vi": "Atuin › Useful Examples › Practical queries\natuin search --exit 1 --cwd .\nTìm tất cả lệnh thất bại trong thư mục hiện tại.\ntìm lệnh lỗi trong thư mục hiện tại\nlọc các thao tác thất bại tại thư mục này\ntìm kiếm exit code 1 ở cwd",
+      "content_hash_vi": "8257be695f2c9042af525ba46dfdab373868591e1d6be5fb7e56aadce9331c25"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 6,
+      "section_pos": 1,
+      "card": "Useful Examples",
+      "section": "Practical queries",
+      "lang": "bash",
+      "kind": "command",
+      "command": "atuin search --exit 0 --after \"yesterday 3pm\" git commit",
+      "description": "Successful git commits after yesterday 3pm",
+      "display": {
+        "raw": "\n# Successful git commits after yesterday 3pm\natuin search --exit 0 --after \"yesterday 3pm\" git commit"
+      },
+      "position": 2,
+      "embed_text": "Atuin › Useful Examples › Practical queries\natuin search --exit 0 --after \"yesterday 3pm\" git commit\nSuccessful git commits after yesterday 3pm",
+      "content_hash": "fa67ae7ea1406d9fea9edc926e285af0293accfca37796da50e51560d168fe36",
+      "description_vi": "Tìm các lệnh git commit thành công sau 3 giờ chiều hôm qua.",
+      "embed_text_vi": "Atuin › Useful Examples › Practical queries\natuin search --exit 0 --after \"yesterday 3pm\" git commit\nTìm các lệnh git commit thành công sau 3 giờ chiều hôm qua.\ntìm git commit thành công từ chiều qua\nlọc git commit exit 0 sau yesterday 3pm\ntìm kiếm commit thành công sau 3h chiều hôm qua",
+      "content_hash_vi": "afe7ef1974dd7f726887e5029e948add3c850f566dc1dcd51ef43a292b0b079b"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 6,
+      "section_pos": 1,
+      "card": "Useful Examples",
+      "section": "Practical queries",
+      "lang": "bash",
+      "kind": "command",
+      "command": "atuin search --after \"1 hour ago\"",
+      "description": "Commands run in the last hour",
+      "display": {
+        "raw": "\n# Commands run in the last hour\natuin search --after \"1 hour ago\""
+      },
+      "position": 3,
+      "embed_text": "Atuin › Useful Examples › Practical queries\natuin search --after \"1 hour ago\"\nCommands run in the last hour",
+      "content_hash": "f94492bfe83072932636711de04dab1818f85d15059ca5275ecb8be4584d92e4",
+      "description_vi": "Tìm các lệnh đã chạy trong vòng một giờ qua.",
+      "embed_text_vi": "Atuin › Useful Examples › Practical queries\natuin search --after \"1 hour ago\"\nTìm các lệnh đã chạy trong vòng một giờ qua.\ntìm lệnh chạy trong 1 giờ qua\nxem lịch sử một tiếng gần đây\nlọc thực thi trong vòng 1 hour ago",
+      "content_hash_vi": "6e93490fb261ec1123398fa710ef2390243789dbc0a60f3ebbb96cb6654ca93c"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 6,
+      "section_pos": 1,
+      "card": "Useful Examples",
+      "section": "Practical queries",
+      "lang": "bash",
+      "kind": "command",
+      "command": "atuin search --delete --exit 127",
+      "description": "Find and delete command-not-found entries",
+      "display": {
+        "raw": "\n# Find and delete command-not-found entries\natuin search --delete --exit 127"
+      },
+      "position": 4,
+      "embed_text": "Atuin › Useful Examples › Practical queries\natuin search --delete --exit 127\nFind and delete command-not-found entries",
+      "content_hash": "ce6bdc0af2382be58cc99ea0fc1310340a91f6582ef7cd3955a264c500a42de5",
+      "description_vi": "Tìm và xoá các bản ghi lệnh không tồn tại (lỗi 127).",
+      "embed_text_vi": "Atuin › Useful Examples › Practical queries\natuin search --delete --exit 127\nTìm và xoá các bản ghi lệnh không tồn tại (lỗi 127).\ntìm và xoá lỗi command not found\nxoá lịch sử các mã lỗi 127\nloại bỏ bản ghi gõ sai không tìm thấy",
+      "content_hash_vi": "30f77410c89ba75d7c4c81f40df066be908bfbf7ea051fb0cc2afc61344bc20d"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 6,
+      "section_pos": 1,
+      "card": "Useful Examples",
+      "section": "Practical queries",
+      "lang": "bash",
+      "kind": "command",
+      "command": "atuin history prune --dry-run",
+      "description": "Preview pruning without deleting",
+      "display": {
+        "raw": "\n# Preview pruning without deleting\natuin history prune --dry-run"
+      },
+      "position": 5,
+      "embed_text": "Atuin › Useful Examples › Practical queries\natuin history prune --dry-run\nPreview pruning without deleting",
+      "content_hash": "6c22ae9b52ca6768f86fa29aa2ea55d10f516add90aeca29b74d097390a06894",
+      "description_vi": "Xem trước kết quả dọn dẹp lịch sử mà không xoá thật.",
+      "embed_text_vi": "Atuin › Useful Examples › Practical queries\natuin history prune --dry-run\nXem trước kết quả dọn dẹp lịch sử mà không xoá thật.\nchạy thử prune không xoá thật\nxem trước dọn dẹp lịch sử dry-run\nkiểm tra trước kết quả prune xoá bỏ",
+      "content_hash_vi": "e2ff61044c244ff5ba2cd7927a1a1130b677aad245258518c4c4e0bf0079d52f"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 6,
+      "section_pos": 1,
+      "card": "Useful Examples",
+      "section": "Practical queries",
+      "lang": "bash",
+      "kind": "command",
+      "command": "atuin stats \"7 days ago\"",
+      "description": "Stats for last 7 days",
+      "display": {
+        "raw": "\n# Stats for last 7 days\natuin stats \"7 days ago\""
+      },
+      "position": 6,
+      "embed_text": "Atuin › Useful Examples › Practical queries\natuin stats \"7 days ago\"\nStats for last 7 days",
+      "content_hash": "7b63e83cecb587c9c6292a1f4d32dd6f87f4eb88831d04c2dd7eaa2e2b56304a",
+      "description_vi": "Xem thống kê sử dụng lệnh trong 7 ngày gần nhất.",
+      "embed_text_vi": "Atuin › Useful Examples › Practical queries\natuin stats \"7 days ago\"\nXem thống kê sử dụng lệnh trong 7 ngày gần nhất.\nxem thống kê sử dụng trong 7 ngày qua\nhiển thị tần suất lệnh 7 ngày gần đây\nkiểm tra thống kê stats tuần qua",
+      "content_hash_vi": "f1e5948d46a7623a09a01e1e94a48334dad8eb2c9099c6b0e8a7afca800c00f9"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 6,
+      "section_pos": 1,
+      "card": "Useful Examples",
+      "section": "Practical queries",
+      "lang": "bash",
+      "kind": "command",
+      "command": "HISTFILE=~/.zsh_custom_history atuin import zsh",
+      "description": "Import from custom history file",
+      "display": {
+        "raw": "\n# Import from custom history file\nHISTFILE=~/.zsh_custom_history atuin import zsh"
+      },
+      "position": 7,
+      "embed_text": "Atuin › Useful Examples › Practical queries\nHISTFILE=~/.zsh_custom_history atuin import zsh\nImport from custom history file",
+      "content_hash": "4b3dc4e26c82adeef323aa6c29938c227b164e8ce0a106219e76684230987de6",
+      "description_vi": "Nhập lịch sử zsh từ tệp lịch sử tuỳ chỉnh.",
+      "embed_text_vi": "Atuin › Useful Examples › Practical queries\nHISTFILE=~/.zsh_custom_history atuin import zsh\nNhập lịch sử zsh từ tệp lịch sử tuỳ chỉnh.\nimport zsh từ file lịch sử tuỳ chỉnh\nnạp lịch sử zsh qua biến HISTFILE riêng\nnhập history zsh từ đường dẫn tự chọn",
+      "content_hash_vi": "69f16a949dc5fbef9bf312e0eff1ddb94fa7d1943ee842c37e9f46e551392be2"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 6,
+      "section_pos": 2,
+      "card": "Useful Examples",
+      "section": "Supported time formats",
+      "lang": null,
+      "kind": "option",
+      "command": "Relative",
+      "description": "`\"2 hours ago\"`, `\"last week\"`",
+      "display": {
+        "key_style": "plain"
+      },
+      "position": 1,
+      "embed_text": "Atuin › Useful Examples › Supported time formats\nRelative\n`\"2 hours ago\"`, `\"last week\"`",
+      "content_hash": "425f50caaa1b4206013e78b2b6b468ba9efeeb6d6a055a9fca58c1be3cc3c454",
+      "description_vi": "Định dạng thời gian tương đối như 2 hours ago, last week.",
+      "embed_text_vi": "Atuin › Useful Examples › Supported time formats\nRelative\nĐịnh dạng thời gian tương đối như 2 hours ago, last week.\nđịnh dạng thời gian tương đối\nlọc lịch sử theo relative time\ncú pháp thời gian 2 hours ago hoặc last week",
+      "content_hash_vi": "6dc62d834e16064ab425c1bfd525b3694b436d3457042297b4ec9fa0bef4ef78"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 6,
+      "section_pos": 2,
+      "card": "Useful Examples",
+      "section": "Supported time formats",
+      "lang": null,
+      "kind": "option",
+      "command": "Natural",
+      "description": "`\"yesterday 3pm\"`, `\"Monday\"`",
+      "display": {
+        "key_style": "plain"
+      },
+      "position": 2,
+      "embed_text": "Atuin › Useful Examples › Supported time formats\nNatural\n`\"yesterday 3pm\"`, `\"Monday\"`",
+      "content_hash": "0d633e6857d194a024106f823f7e733691dcd2a684c01473a17aef87f68aad3b",
+      "description_vi": "Định dạng thời gian ngôn ngữ tự nhiên như yesterday 3pm, Monday.",
+      "embed_text_vi": "Atuin › Useful Examples › Supported time formats\nNatural\nĐịnh dạng thời gian ngôn ngữ tự nhiên như yesterday 3pm, Monday.\nđịnh dạng thời gian tự nhiên\nlọc theo ngày giờ tự nhiên yesterday Monday\ncú pháp thời gian natural language",
+      "content_hash_vi": "d6b0aa9d08a9d03dc93dbbd217541a41d40a94cd5f037631cf4d2a336f1bf2d6"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 6,
+      "section_pos": 2,
+      "card": "Useful Examples",
+      "section": "Supported time formats",
+      "lang": null,
+      "kind": "option",
+      "command": "Absolute",
+      "description": "`\"2024-01-15\"`",
+      "display": {
+        "key_style": "plain"
+      },
+      "position": 3,
+      "embed_text": "Atuin › Useful Examples › Supported time formats\nAbsolute\n`\"2024-01-15\"`",
+      "content_hash": "09a81d500e75dab904962a106cbeb0ca3272c4a0c6bf5562ea4b62c820e8def5",
+      "description_vi": "Định dạng thời gian tuyệt đối theo ngày tháng như 2024-01-15.",
+      "embed_text_vi": "Atuin › Useful Examples › Supported time formats\nAbsolute\nĐịnh dạng thời gian tuyệt đối theo ngày tháng như 2024-01-15.\nđịnh dạng thời gian tuyệt đối\nlọc lịch sử theo ngày tháng năm cụ thể\ncú pháp thời gian absolute YYYY-MM-DD",
+      "content_hash_vi": "9daabf99ffd1bf9773a478f95373b8119ec42ab569b97bc95d8a242951b2b5b6"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 7,
+      "section_pos": 1,
+      "card": "Config Reference ~/.config/atuin/config.toml",
+      "section": "Sync",
+      "lang": null,
+      "kind": "option",
+      "command": "sync_address",
+      "description": "Server URL (default: api.atuin.sh)",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 1,
+      "embed_text": "Atuin › Config Reference ~/.config/atuin/config.toml › Sync\nsync_address\nServer URL (default: api.atuin.sh)",
+      "content_hash": "78a039da33d34313020f6e5d57ee7e062db919022baecce087aa1c0a79fb9f3e",
+      "description_vi": "Cấu hình địa chỉ URL máy chủ đồng bộ (mặc định api.atuin.sh).",
+      "embed_text_vi": "Atuin › Config Reference ~/.config/atuin/config.toml › Sync\nsync_address\nCấu hình địa chỉ URL máy chủ đồng bộ (mặc định api.atuin.sh).\ncấu hình địa chỉ server đồng bộ\nthay đổi URL sync server\ntuỳ chọn sync_address máy chủ",
+      "content_hash_vi": "10c5c4a99069ef11052ac6ba9a1a3ceacea4216fa0df3496ebdc464a58b5cb36"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 7,
+      "section_pos": 1,
+      "card": "Config Reference ~/.config/atuin/config.toml",
+      "section": "Sync",
+      "lang": null,
+      "kind": "option",
+      "command": "auto_sync",
+      "description": "`true` / `false`",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 2,
+      "embed_text": "Atuin › Config Reference ~/.config/atuin/config.toml › Sync\nauto_sync\n`true` / `false`",
+      "content_hash": "cf18d698b326ba10fe875f6acd0077b4ca0a1b0182666b7305eb4feeca061d7d",
+      "description_vi": "Bật hoặc tắt tính năng tự động đồng bộ lịch sử.",
+      "embed_text_vi": "Atuin › Config Reference ~/.config/atuin/config.toml › Sync\nauto_sync\nBật hoặc tắt tính năng tự động đồng bộ lịch sử.\nbật tắt tự động đồng bộ\ncấu hình auto_sync lịch sử\nchế độ tự sync với máy chủ",
+      "content_hash_vi": "5f24da80ccab663cfa0a7c2bdd2b1ed770000d540633575e5460bbba481721d4"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 7,
+      "section_pos": 1,
+      "card": "Config Reference ~/.config/atuin/config.toml",
+      "section": "Sync",
+      "lang": null,
+      "kind": "option",
+      "command": "sync_frequency",
+      "description": "`\"10m\"`, `\"1h\"`, `\"0\"` (every cmd)",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 3,
+      "embed_text": "Atuin › Config Reference ~/.config/atuin/config.toml › Sync\nsync_frequency\n`\"10m\"`, `\"1h\"`, `\"0\"` (every cmd)",
+      "content_hash": "897e35f5ee0f4c17a14151aca097f07976e6b6a380f4c2815160e97fdb4cb4b9",
+      "description_vi": "Tần suất đồng bộ lịch sử định kỳ hoặc sau mỗi lệnh.",
+      "embed_text_vi": "Atuin › Config Reference ~/.config/atuin/config.toml › Sync\nsync_frequency\nTần suất đồng bộ lịch sử định kỳ hoặc sau mỗi lệnh.\ncấu hình tần suất đồng bộ\nchỉnh chu kỳ sync lịch sử\nthời gian lặp lại sync_frequency",
+      "content_hash_vi": "3b5642d38171afdc831b30029bc4ad581ff20cd281e44faa76524f341a194d0f"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 7,
+      "section_pos": 1,
+      "card": "Config Reference ~/.config/atuin/config.toml",
+      "section": "Sync",
+      "lang": null,
+      "kind": "option",
+      "command": "network_timeout",
+      "description": "Seconds (default: 30)",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 4,
+      "embed_text": "Atuin › Config Reference ~/.config/atuin/config.toml › Sync\nnetwork_timeout\nSeconds (default: 30)",
+      "content_hash": "59938d1bf636a159562f4e9865e86ecb7684e9ef6ce2f6508e007eb478323aa5",
+      "description_vi": "Thời gian chờ tối đa kết nối mạng tính bằng giây.",
+      "embed_text_vi": "Atuin › Config Reference ~/.config/atuin/config.toml › Sync\nnetwork_timeout\nThời gian chờ tối đa kết nối mạng tính bằng giây.\ncấu hình timeout kết nối mạng\nthời gian chờ mạng network_timeout\nchỉnh timeout đồng bộ tính bằng giây",
+      "content_hash_vi": "e6426aa94a408a9191a35699e5f35efb2517342cc90781ef09293c784fc726d5"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 7,
+      "section_pos": 2,
+      "card": "Config Reference ~/.config/atuin/config.toml",
+      "section": "UI & Keymaps",
+      "lang": null,
+      "kind": "option",
+      "command": "theme",
+      "description": "`\"default\"` · `\"autumn\"` · `\"marine\"`",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 1,
+      "embed_text": "Atuin › Config Reference ~/.config/atuin/config.toml › UI & Keymaps\ntheme\n`\"default\"` · `\"autumn\"` · `\"marine\"`",
+      "content_hash": "532de92cce7cdd5a0fbb7a65fd640549446a4b717e45fbaadb99c7750db53793",
+      "description_vi": "Cấu hình giao diện màu sắc (theme) hiển thị.",
+      "embed_text_vi": "Atuin › Config Reference ~/.config/atuin/config.toml › UI & Keymaps\ntheme\nCấu hình giao diện màu sắc (theme) hiển thị.\nđổi giao diện màu sắc theme\ncấu hình theme giao diện\nchọn bảng màu default autumn marine",
+      "content_hash_vi": "e315136d5583099facfd7a75ec51dbdedfd5a449e228cfe0829641ebe43ccb01"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 7,
+      "section_pos": 2,
+      "card": "Config Reference ~/.config/atuin/config.toml",
+      "section": "UI & Keymaps",
+      "lang": null,
+      "kind": "option",
+      "command": "keymap_mode",
+      "description": "`\"emacs\"` · `\"vim-insert\"`",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 2,
+      "embed_text": "Atuin › Config Reference ~/.config/atuin/config.toml › UI & Keymaps\nkeymap_mode\n`\"emacs\"` · `\"vim-insert\"`",
+      "content_hash": "ff0ee539705f9bc43e3dfcf2d8e61373b785e6cd818a70bfc51010dd87439628",
+      "description_vi": "Chế độ phím tắt điều khiển (emacs hoặc vim-insert).",
+      "embed_text_vi": "Atuin › Config Reference ~/.config/atuin/config.toml › UI & Keymaps\nkeymap_mode\nChế độ phím tắt điều khiển (emacs hoặc vim-insert).\ncấu hình chế độ phím tắt keymap\nchọn kiểu bàn phím emacs hoặc insert\ncài đặt keymap_mode điều khiển",
+      "content_hash_vi": "7ce06ac905967159d3ec1c5a66a638503958885cfd5705c9015a041be629a843"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 7,
+      "section_pos": 2,
+      "card": "Config Reference ~/.config/atuin/config.toml",
+      "section": "UI & Keymaps",
+      "lang": null,
+      "kind": "option",
+      "command": "filter_mode",
+      "description": "Default filter mode on open",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 3,
+      "embed_text": "Atuin › Config Reference ~/.config/atuin/config.toml › UI & Keymaps\nfilter_mode\nDefault filter mode on open",
+      "content_hash": "49088ab6d8b8018eeaf4338fb5b446cdc27371de333ab70be9aa8548ea403ccc",
+      "description_vi": "Chế độ lọc phạm vi lịch sử mặc định khi mở.",
+      "embed_text_vi": "Atuin › Config Reference ~/.config/atuin/config.toml › UI & Keymaps\nfilter_mode\nChế độ lọc phạm vi lịch sử mặc định khi mở.\ncấu hình chế độ lọc mặc định\nđổi filter_mode khi mở tìm kiếm\nthiết lập phạm vi lọc lịch sử ban đầu",
+      "content_hash_vi": "66edaaf0c61c5515f083590e106c0c988df55460714ecbdf903e56ec5945300f"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 7,
+      "section_pos": 2,
+      "card": "Config Reference ~/.config/atuin/config.toml",
+      "section": "UI & Keymaps",
+      "lang": null,
+      "kind": "option",
+      "command": "search_mode",
+      "description": "Default search mode on open",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 4,
+      "embed_text": "Atuin › Config Reference ~/.config/atuin/config.toml › UI & Keymaps\nsearch_mode\nDefault search mode on open",
+      "content_hash": "9d183783994c300d402d63a837bd4da5ec5074fafc4b985de4044c43f82d6286",
+      "description_vi": "Chế độ tìm kiếm mặc định khi mở giao diện.",
+      "embed_text_vi": "Atuin › Config Reference ~/.config/atuin/config.toml › UI & Keymaps\nsearch_mode\nChế độ tìm kiếm mặc định khi mở giao diện.\ncấu hình chế độ tìm kiếm mặc định\nđổi search_mode khi tra cứu\nthiết lập kiểu tìm kiếm ban đầu",
+      "content_hash_vi": "aad15649dfb4418a2e5fddd2e786dc8eaac3d4512e0ec1b2791a3aa1d5a3b412"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 7,
+      "section_pos": 2,
+      "card": "Config Reference ~/.config/atuin/config.toml",
+      "section": "UI & Keymaps",
+      "lang": null,
+      "kind": "option",
+      "command": "columns",
+      "description": "Columns shown in TUI list",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 5,
+      "embed_text": "Atuin › Config Reference ~/.config/atuin/config.toml › UI & Keymaps\ncolumns\nColumns shown in TUI list",
+      "content_hash": "4e9cf5e5b068237a8446fce50c343162406e97346ae44daf843a8f2b2a073709",
+      "description_vi": "Cấu hình các cột hiển thị trong danh sách TUI.",
+      "embed_text_vi": "Atuin › Config Reference ~/.config/atuin/config.toml › UI & Keymaps\ncolumns\nCấu hình các cột hiển thị trong danh sách TUI.\ncấu hình cột hiển thị trong danh sách\ntuỳ chỉnh các cột giao diện TUI\nẩn hiện cột columns danh sách lịch sử",
+      "content_hash_vi": "8af5a8911dc7fb4c1e7118b3a91ff75e66e0d8e9461efdc143d535a9f8102a14"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 7,
+      "section_pos": 3,
+      "card": "Config Reference ~/.config/atuin/config.toml",
+      "section": "Filtering",
+      "lang": null,
+      "kind": "option",
+      "command": "history_filter",
+      "description": "Regex list — skip matching cmds",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 1,
+      "embed_text": "Atuin › Config Reference ~/.config/atuin/config.toml › Filtering\nhistory_filter\nRegex list — skip matching cmds",
+      "content_hash": "8eac62e327b36f07e0d645ebc0df24ddf4267eae1de0960a4115b31d286930bf",
+      "description_vi": "Danh sách regex bỏ qua không lưu các lệnh khớp.",
+      "embed_text_vi": "Atuin › Config Reference ~/.config/atuin/config.toml › Filtering\nhistory_filter\nDanh sách regex bỏ qua không lưu các lệnh khớp.\nbỏ qua không lưu lịch sử theo regex\nregex loại trừ history_filter\nchặn lưu lịch sử khớp biểu thức chính quy",
+      "content_hash_vi": "866e95709074b2cc65f5079dbe6695c08e5f42e12d51f23cda45d4ba48733494"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 7,
+      "section_pos": 3,
+      "card": "Config Reference ~/.config/atuin/config.toml",
+      "section": "Filtering",
+      "lang": null,
+      "kind": "option",
+      "command": "cwd_filter",
+      "description": "Regex list — skip matching dirs",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 2,
+      "embed_text": "Atuin › Config Reference ~/.config/atuin/config.toml › Filtering\ncwd_filter\nRegex list — skip matching dirs",
+      "content_hash": "ea5bfd6f6746b80b783ff0ecc56317509596c57e6357f463186680ca1ce78893",
+      "description_vi": "Danh sách regex bỏ qua không lưu lệnh theo thư mục.",
+      "embed_text_vi": "Atuin › Config Reference ~/.config/atuin/config.toml › Filtering\ncwd_filter\nDanh sách regex bỏ qua không lưu lệnh theo thư mục.\nbỏ qua thư mục không lưu lịch sử\nregex loại trừ thư mục cwd_filter\nchặn ghi lịch sử trong thư mục khớp regex",
+      "content_hash_vi": "39ba5e6f28608bb5b9237740fbf0323d75b3acba9d2b64cb527906f95df66050"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 7,
+      "section_pos": 4,
+      "card": "Config Reference ~/.config/atuin/config.toml",
+      "section": "Stored metadata per command",
+      "lang": null,
+      "kind": "note",
+      "command": null,
+      "description": "command, exit_code, duration, cwd, hostname, session, timestamp, user, shell",
+      "display": {
+        "tags": [
+          "command",
+          "exit_code",
+          "duration",
+          "cwd",
+          "hostname",
+          "session",
+          "timestamp",
+          "user",
+          "shell"
+        ]
+      },
+      "position": 1,
+      "embed_text": "Atuin › Config Reference ~/.config/atuin/config.toml › Stored metadata per command\ncommand, exit_code, duration, cwd, hostname, session, timestamp, user, shell",
+      "content_hash": "e7873178cbaf95974e9e52372332d49fcbbb17ade0e16ac62f245c18d47066b5",
+      "description_vi": "Các trường siêu dữ liệu (metadata) được lưu trữ cho mỗi lệnh.",
+      "embed_text_vi": "Atuin › Config Reference ~/.config/atuin/config.toml › Stored metadata per command\nCác trường siêu dữ liệu (metadata) được lưu trữ cho mỗi lệnh.\ncác thông tin metadata lưu kèm bản ghi\ndanh sách trường dữ liệu lưu cho mỗi bản ghi\nsiêu dữ liệu lưu trữ gồm những gì",
+      "content_hash_vi": "65a5f9c2a54fe3d65c4beb6a9c895e41a9395cc378f3b358376b62c1cc41c3b2"
+    },
+    {
+      "details": null,
+      "example": null,
+      "danger": null,
+      "card_pos": 8,
+      "section_pos": 1,
+      "card": "Example config.toml",
+      "section": null,
+      "lang": "toml",
+      "kind": "snippet",
+      "command": "## ~/.config/atuin/config.toml\n\n# Sync\nauto_sync        = true\nsync_frequency  = \"5m\"\nsync_address    = \"https://api.atuin.sh\"\n\n# UI\ntheme           = \"default\"\nkeymap_mode     = \"vim-insert\"\nfilter_mode     = \"global\"\nsearch_mode     = \"fuzzy\"\n\n# Columns shown in search TUI\ncolumns = [\"time\", \"duration\", \"exit_code\", \"command\"]\n\n# Exclude commands from history\nhistory_filter = [\n  \"^sudo -i$\",\n  \"^ .*\",        # leading space = private\n]\n\n# Exclude directories from recording\ncwd_filter = [\n  \"/tmp/.*\",\n  \"/private/.*\",\n]\n\n# Updates\ncheck_update             = true\nupdate_check_interval   = \"1d\"",
+      "description": null,
+      "display": {
+        "raw": "## ~/.config/atuin/config.toml\n\n# Sync\nauto_sync        = true\nsync_frequency  = \"5m\"\nsync_address    = \"https://api.atuin.sh\"\n\n# UI\ntheme           = \"default\"\nkeymap_mode     = \"vim-insert\"\nfilter_mode     = \"global\"\nsearch_mode     = \"fuzzy\"\n\n# Columns shown in search TUI\ncolumns = [\"time\", \"duration\", \"exit_code\", \"command\"]\n\n# Exclude commands from history\nhistory_filter = [\n  \"^sudo -i$\",\n  \"^ .*\",        # leading space = private\n]\n\n# Exclude directories from recording\ncwd_filter = [\n  \"/tmp/.*\",\n  \"/private/.*\",\n]\n\n# Updates\ncheck_update             = true\nupdate_check_interval   = \"1d\""
+      },
+      "position": 1,
+      "embed_text": "Atuin › Example config.toml\n## ~/.config/atuin/config.toml\n\n# Sync\nauto_sync        = true\nsync_frequency  = \"5m\"\nsync_address    = \"https://api.atuin.sh\"\n\n# UI\ntheme           = \"default\"\nkeymap_mode     = \"vim-insert\"\nfilter_mode     = \"global\"\nsearch_mode     = \"fuzzy\"\n\n# Columns shown in search TUI\ncolumns = [\"time\", \"duration\", \"exit_code\", \"command\"]\n\n# Exclude commands from history\nhistory_filter = [\n  \"^sudo -i$\",\n  \"^ .*\",        # leading space = private\n]\n\n# Exclude directories from recording\ncwd_filter = [\n  \"/tmp/.*\",\n  \"/private/.*\",\n]\n\n# Updates\ncheck_update             = true\nupdate_check_interval   = \"1d\"",
+      "content_hash": "6fae44a4fcd7f6444bd886773fa3ec388070fb2bdcc6c8ff73993cff77337d21",
+      "description_vi": "File cấu hình mẫu config.toml cho đồng bộ, giao diện và bộ lọc lịch sử shell",
+      "embed_text_vi": "Atuin › Example config.toml\n## ~/.config/atuin/config.toml\n\n# Sync\nauto_sync        = true\nsync_frequency  = \"5m\"\nsync_address    = \"https://api.atuin.sh\"\n\n# UI\ntheme           = \"default\"\nkeymap_mode     = \"vim-insert\"\nfilter_mode     = \"global\"\nsearch_mode     = \"fuzzy\"\n\n# Columns shown in search TUI\ncolumns = [\"time\", \"duration\", \"exit_code\", \"command\"]\n\n# Exclude commands from history\nhistory_filter = [\n  \"^sudo -i$\",\n  \"^ .*\",        # leading space = private\n]\n\n# Exclude directories from recording\ncwd_filter = [\n  \"/tmp/.*\",\n  \"/private/.*\",\n]\n\n# Updates\ncheck_update             = true\nupdate_check_interval   = \"1d\"\nFile cấu hình mẫu config.toml cho đồng bộ, giao diện và bộ lọc lịch sử shell\nfile config mẫu toml đồng bộ lịch sử terminal\ncấu hình giao diện và phím tắt tìm kiếm history shell\nthiết lập tự động sync và lọc lịch sử dòng lệnh",
+      "content_hash_vi": "36d0016bc9728720fbaac220871e6d484b5e03e88d66baa50d8aac4be51a20d8"
+    }
+  ],
+  "aliases": [
+    "atuin"
+  ]
+}

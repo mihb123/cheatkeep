@@ -1,0 +1,460 @@
+[
+ {
+  "q": "cài đặt atuin cho zsh",
+  "expect": [
+   "eval \"$(atuin init zsh)\""
+  ]
+ },
+ {
+  "q": "tạo tài khoản đồng bộ atuin",
+  "expect": [
+   "atuin register"
+  ]
+ },
+ {
+  "q": "nhập lịch sử cũ từ zsh vào atuin",
+  "expect": [
+   "atuin import zsh",
+   "atuin import auto"
+  ]
+ },
+ {
+  "q": "xoá các lệnh trùng lặp trong lịch sử",
+  "expect": [
+   "atuin history dedup"
+  ]
+ },
+ {
+  "q": "tìm các lệnh bị lỗi trong thư mục hiện tại",
+  "expect": [
+   "atuin search --exit 1 --cwd ."
+  ]
+ },
+ {
+  "q": "xem các lệnh đã chạy trong một giờ qua",
+  "expect": [
+   "atuin search --after \"1 hour ago\""
+  ]
+ },
+ {
+  "q": "hiển thị khoá mã hoá",
+  "expect": [
+   "atuin key"
+  ]
+ },
+ {
+  "q": "thống kê lệnh dùng nhiều nhất",
+  "expect": [
+   "atuin stats"
+  ]
+ },
+ {
+  "q": "chuyển chế độ lọc lịch sử",
+  "expect": [
+   "Ctrl+R"
+  ],
+  "sheet": "atuin"
+ },
+ {
+  "q": "tự chạy server atuin riêng",
+  "expect": [
+   "atuin server start"
+  ]
+ },
+ {
+  "q": "xoá tài khoản vĩnh viễn",
+  "expect": [
+   "atuin account delete"
+  ]
+ },
+ {
+  "q": "không lưu các lệnh khớp regex vào lịch sử",
+  "expect": [
+   "history_filter"
+  ]
+ },
+ {
+  "q": "đăng nhập máy chủ đồng bộ",
+  "expect": [
+   "atuin login -u <user>"
+  ]
+ },
+ {
+  "q": "chỉ hiện lịch sử của máy này",
+  "expect": [
+   "host"
+  ]
+ },
+ {
+  "q": "tìm kiếm mờ khớp chữ cái theo thứ tự bất kỳ",
+  "expect": [
+   "fuzzy"
+  ]
+ },
+ {
+  "q": "xem trước những gì sẽ bị xoá khi prune",
+  "expect": [
+   "atuin history prune --dry-run"
+  ]
+ },
+ {
+  "q": "câu lệnh tạo bảng trong mysql là gì?",
+  "expect": [
+   "CREATE TABLE table (field1 type1, field2 type2"
+  ]
+ },
+ {
+  "q": "sao lưu database ra file sql",
+  "expect": [
+   "mysqldump"
+  ]
+ },
+ {
+  "q": "khôi phục database từ file backup",
+  "expect": [
+   "mysql -u Username -p dbNameYouWant <"
+  ]
+ },
+ {
+  "q": "xem danh sách các bảng",
+  "expect": [
+   "SHOW TABLES;"
+  ]
+ },
+ {
+  "q": "xem cấu trúc cột của bảng",
+  "expect": [
+   "SHOW FIELDS FROM table / DESCRIBE table;"
+  ]
+ },
+ {
+  "q": "đổi tên cột trong bảng",
+  "expect": [
+   "ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1"
+  ]
+ },
+ {
+  "q": "thêm cột mới vào bảng",
+  "expect": [
+   "ALTER TABLE table ADD new_name_field1 type1"
+  ]
+ },
+ {
+  "q": "xoá cột khỏi bảng",
+  "expect": [
+   "ALTER TABLE table DROP field1"
+  ]
+ },
+ {
+  "q": "tạo user mới trong mysql",
+  "expect": [
+   "CREATE USER"
+  ]
+ },
+ {
+  "q": "cấp toàn bộ quyền cho user",
+  "expect": [
+   "GRANT ALL PRIVILEGES"
+  ]
+ },
+ {
+  "q": "thu hồi quyền của user",
+  "expect": [
+   "REVOKE ALL PRIVILEGES"
+  ]
+ },
+ {
+  "q": "đặt lại mật khẩu root khi quên",
+  "expect": [
+   "mysqld_safe --skip-grant-tables",
+   "UPDATE mysql.user SET password"
+  ]
+ },
+ {
+  "q": "sửa bảng bị hỏng sau khi tắt máy đột ngột",
+  "expect": [
+   "mysqlcheck --all-databases"
+  ]
+ },
+ {
+  "q": "lấy các giá trị không trùng lặp",
+  "expect": [
+   "SELECT DISTINCT"
+  ]
+ },
+ {
+  "q": "sắp xếp kết quả giảm dần",
+  "expect": [
+   "SELECT ... FROM ... WHERE condition ORDER BY field1, field2 DESC;"
+  ]
+ },
+ {
+  "q": "giới hạn số dòng trả về",
+  "expect": [
+   "SELECT ... FROM ... WHERE condition LIMIT 10;"
+  ]
+ },
+ {
+  "q": "xem các tiến trình đang chạy trong mysql",
+  "expect": [
+   "SHOW PROCESSLIST;"
+  ]
+ },
+ {
+  "q": "nối hai bảng giữ cả dòng không khớp bên trái",
+  "expect": [
+   "SELECT ... FROM t1 LEFT JOIN"
+  ]
+ },
+ {
+  "q": "xoá toàn bộ dữ liệu trong bảng",
+  "expect": [
+   "DELETE FROM table1 / TRUNCATE table1"
+  ]
+ },
+ {
+  "q": "tạo khoá ngoại",
+  "expect": [
+   "CREATE TABLE table (..., FOREIGN KEY",
+   "CREATE TABLE table1 (fk_field1"
+  ]
+ },
+ {
+  "q": "kiểu dữ liệu lưu văn bản nhiều dòng",
+  "expect": [
+   "TEXT (multi-lines"
+  ]
+ },
+ {
+  "q": "chia đôi màn hình theo chiều dọc",
+  "expect": [
+   "Ctrl+w v",
+   ":sp / :vsp"
+  ]
+ },
+ {
+  "q": "lưu file rồi thoát",
+  "expect": [
+   ":wq / :x"
+  ]
+ },
+ {
+  "q": "thoát không lưu",
+  "expect": [
+   ":q!"
+  ]
+ },
+ {
+  "q": "làm lại thao tác vừa hoàn tác",
+  "expect": [
+   "Ctrl+r"
+  ],
+  "sheet": "neovim"
+ },
+ {
+  "q": "thay thế tất cả trong file",
+  "expect": [
+   ":%s/old/new/g"
+  ]
+ },
+ {
+  "q": "xoá một dòng trong vim",
+  "expect": [
+   "dd"
+  ]
+ },
+ {
+  "q": "sao chép dòng hiện tại",
+  "expect": [
+   "yy"
+  ]
+ },
+ {
+  "q": "nhảy tới dòng số 50",
+  "expect": [
+   ":{N}"
+  ]
+ },
+ {
+  "q": "ghi macro",
+  "expect": [
+   "q{a-z}"
+  ]
+ },
+ {
+  "q": "hiện số dòng",
+  "expect": [
+   ":set number"
+  ]
+ },
+ {
+  "q": "tắt tô sáng kết quả tìm kiếm",
+  "expect": [
+   ":noh"
+  ]
+ },
+ {
+  "q": "đổi tên biến bằng lsp",
+  "expect": [
+   "grn"
+  ]
+ },
+ {
+  "q": "mở terminal trong nvim",
+  "expect": [
+   ":terminal"
+  ]
+ },
+ {
+  "q": "thoát khỏi terminal về normal mode",
+  "expect": [
+   "Ctrl+\\ Ctrl+n"
+  ]
+ },
+ {
+  "q": "đóng tất cả các tab khác",
+  "expect": [
+   ":tabonly"
+  ]
+ },
+ {
+  "q": "gập đoạn code lại",
+  "expect": [
+   "zf{motion}",
+   "zc / zo",
+   "za"
+  ]
+ },
+ {
+  "q": "nhảy tới dấu ngoặc tương ứng",
+  "expect": [
+   "%"
+  ]
+ },
+ {
+  "q": "thụt lề đoạn đã chọn",
+  "expect": [
+   "> / <"
+  ]
+ },
+ {
+  "q": "đảo chữ hoa chữ thường",
+  "expect": [
+   "~",
+   "u / U"
+  ]
+ },
+ {
+  "q": "đi tới định nghĩa của hàm",
+  "expect": [
+   "gd"
+  ]
+ },
+ {
+  "q": "xem tài liệu của hàm dưới con trỏ",
+  "expect": [
+   "K"
+  ],
+  "sheet": "neovim"
+ },
+ {
+  "q": "lưu file và tạo luôn thư mục cha nếu chưa có",
+  "expect": [
+   ":w ++p"
+  ]
+ },
+ {
+  "q": "sao luu database mysql",
+  "expect": [
+   "mysqldump"
+  ]
+ },
+ {
+  "q": "chia man hinh doc trong vim",
+  "expect": [
+   "Ctrl+w v",
+   ":sp / :vsp"
+  ]
+ },
+ {
+  "q": "xoa lenh trung lap lich su atuin",
+  "expect": [
+   "atuin history dedup"
+  ]
+ },
+ {
+  "q": "doi ten cot trong bang mysql",
+  "expect": [
+   "ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1"
+  ]
+ },
+ {
+  "q": "thoat vim khong luu",
+  "expect": [
+   ":q!"
+  ]
+ },
+ {
+  "q": "mysqldump",
+  "expect": [
+   "mysqldump"
+  ]
+ },
+ {
+  "q": "atuin search --cwd",
+  "expect": [
+   "--cwd <dir>",
+   "atuin search --exit 1 --cwd ."
+  ]
+ },
+ {
+  "q": ":wq",
+  "expect": [
+   ":wq / :x"
+  ]
+ },
+ {
+  "q": "delete line vim",
+  "expect": [
+   "dd"
+  ]
+ },
+ {
+  "q": "vertical split",
+  "expect": [
+   "Ctrl+w v",
+   ":sp / :vsp"
+  ]
+ },
+ {
+  "q": "show databases",
+  "expect": [
+   "SHOW DATABASES;"
+  ]
+ },
+ {
+  "q": "import history from bash",
+  "expect": [
+   "atuin import bash"
+  ]
+ },
+ {
+  "q": "rename column mysql",
+  "expect": [
+   "ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1"
+  ]
+ },
+ {
+  "q": "grant privileges to user",
+  "expect": [
+   "GRANT ALL PRIVILEGES",
+   "GRANT SELECT, INSERT, DELETE"
+  ]
+ },
+ {
+  "q": "jump to matching bracket",
+  "expect": [
+   "%"
+  ]
+ }
+]

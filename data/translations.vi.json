@@ -1,0 +1,3035 @@
+{
+ "95f76e3e00d2612a78795db8fc57593bd8ad90265a5c3a680a1e0bada28bb687": {
+  "src": "mysql · DELETE FROM table1 / TRUNCATE table1",
+  "vi": "Xoá toàn bộ dữ liệu trong bảng table1",
+  "q": [
+   "xoá hết dữ liệu trong bảng",
+   "truncate làm trống bảng table1",
+   "dọn sạch toàn bộ bản ghi table1"
+  ]
+ },
+ "5f7ce11faf57cc35f75ac54f9785447264a04946440d96fbfbe9d1edfeac99a7": {
+  "src": "mysql · DELETE FROM table1 WHERE condition",
+  "vi": "Xoá các bản ghi thoả mãn điều kiện trong bảng table1",
+  "q": [
+   "xoá bản ghi có điều kiện where",
+   "gỡ bỏ dòng dữ liệu thoả điều kiện table1",
+   "xoá dữ liệu table1 theo condition"
+  ]
+ },
+ "37ef3244a1f8271040d132ef9bfaccca25f598905f1738ea6c7878e2cec73324": {
+  "src": "mysql · DELETE FROM table1, table2 WHERE table1.id1 =\n  table2.id2 A",
+  "vi": "Xoá dữ liệu từ nhiều bảng theo điều kiện kết nối (join)",
+  "q": [
+   "xoá dữ liệu nhiều bảng liên kết",
+   "delete dữ liệu từ 2 bảng join",
+   "xoá bản ghi trên cả table1 và table2"
+  ]
+ },
+ "b8c0eb21a5068fffcd3c833f54b8834b52d5bffb40cb0f9163d8f6f152e58b94": {
+  "src": "mysql · UPDATE table1 SET field1=new_value1 WHERE condition;",
+  "vi": "Cập nhật giá trị trường field1 trong bảng theo điều kiện",
+  "q": [
+   "cập nhật giá trị cột có điều kiện",
+   "sửa dữ liệu field1 trong table1",
+   "update giá trị cột thoả mãn where"
+  ]
+ },
+ "a07562a646aedffe5ee7afd1abf0037da31f5891afaf90f7a611418b69a3f26c": {
+  "src": "mysql · UPDATE table1, table2 SET field1=new_value1, field2=new_valu",
+  "vi": "Cập nhật dữ liệu trên nhiều bảng đồng thời có kết nối",
+  "q": [
+   "cập nhật dữ liệu nhiều bảng cùng lúc",
+   "update nhiều bảng theo điều kiện join",
+   "sửa giá trị cột trên 2 bảng liên kết"
+  ]
+ },
+ "f84e57dfae04688b62773a1a87195bbd396905356b22873dbe505ffb30685151": {
+  "src": "mysql · CREATE TABLE table (field1 type1, field2 type2);",
+  "vi": "Tạo bảng mới với các trường cơ bản",
+  "q": [
+   "tạo bảng mới cơ bản",
+   "create table đơn giản với các cột",
+   "khởi tạo bảng với danh sách trường"
+  ]
+ },
+ "278cfdd75e813622838ba58e4b958c8f7d7e80327ee7cda584b052d51a5edc21": {
+  "src": "mysql · CREATE TABLE table (field1 type1, field2 type2, INDEX (field",
+  "vi": "Tạo bảng mới có đánh chỉ mục (index) cho cột",
+  "q": [
+   "tạo bảng có đánh index",
+   "create table kèm chỉ mục cột",
+   "khởi tạo bảng có khai báo index"
+  ]
+ },
+ "b1d375cd7d488e0241a7816735808be96b65e0bab5e8e7a173877d5cbbe8af61": {
+  "src": "mysql · CREATE TABLE table (field1 type1, field2 type2, PRIMARY KEY ",
+  "vi": "Tạo bảng mới với khoá chính (primary key) là một cột",
+  "q": [
+   "tạo bảng có primary key 1 cột",
+   "create table với khoá chính đơn",
+   "khởi tạo bảng xác định primary key field1"
+  ]
+ },
+ "28799407cd59810852f14c8858ff40a7bafd88bea64f0ed4b72d61f8ccf06680": {
+  "src": "mysql · CREATE TABLE table (field1 type1, field2 type2, PRIMARY KEY ",
+  "vi": "Tạo bảng mới với khoá chính tổ hợp từ nhiều cột",
+  "q": [
+   "tạo bảng có primary key phức hợp",
+   "create table khoá chính gồm 2 cột",
+   "khởi tạo bảng với composite primary key"
+  ]
+ },
+ "39b53ec3cd01e15fc4a903f83823c7a6ccef98a761a568d9231d0c808d17d004": {
+  "src": "mysql · CREATE TABLE table1 (fk_field1 type1, field2 type2, ...,\n  F",
+  "vi": "Tạo bảng có khoá ngoại (foreign key) kèm tuỳ chọn cascade hoặc set null",
+  "q": [
+   "tạo bảng có foreign key on delete cascade",
+   "create table với khoá ngoại on update set null",
+   "khởi tạo bảng liên kết khoá ngoại có cascade"
+  ]
+ },
+ "97daa0bfa84d793fdf1929b62b3f78202541da5d76ffad6176adf89f63649849": {
+  "src": "mysql · CREATE TABLE table1 (fk_field1 type1, fk_field2 type2, ...,\n",
+  "vi": "Tạo bảng có khoá ngoại tổ hợp nhiều cột tham chiếu bảng khác",
+  "q": [
+   "tạo bảng có foreign key nhiều cột",
+   "create table khoá ngoại phức hợp composite",
+   "khởi tạo bảng tham chiếu foreign key 2 trường"
+  ]
+ },
+ "ff76cb2fe0c8d9b8c7242a7bc6ee751bb54e6e544057a53a71678a5885cc83ee": {
+  "src": "mysql · CREATE TABLE table IF NOT EXISTS;",
+  "vi": "Tạo bảng chỉ khi bảng đó chưa tồn tại",
+  "q": [
+   "tạo bảng nếu chưa tồn tại if not exists",
+   "create table kiểm tra tồn tại tránh lỗi",
+   "khởi tạo bảng if not exists"
+  ]
+ },
+ "16bb5fe6449e688121ca86fdfe6572242a8302fa4bc01c40b5ff26d361649c54": {
+  "src": "mysql · CREATE TEMPORARY TABLE table;",
+  "vi": "Tạo bảng tạm thời tự xoá sau khi kết thúc phiên",
+  "q": [
+   "tạo bảng tạm temporary table",
+   "create temporary table phiên làm việc",
+   "khởi tạo bảng tạm thời tự huỷ"
+  ]
+ },
+ "197cf15b0ae898ae813c896b4e7038079ade894ebad8f56d08b0a146697d1c65": {
+  "src": "mysql · DROP TABLE table;",
+  "vi": "Xoá hoàn toàn một bảng khỏi database",
+  "q": [
+   "xoá bỏ hoàn toàn bảng dữ liệu",
+   "drop table một bảng",
+   "huỷ bỏ bảng table"
+  ]
+ },
+ "f988a92ee928c9fa0fe8de228eb05109bbbf7850e785ef11afe78952814157ca": {
+  "src": "mysql · DROP TABLE IF EXISTS table;",
+  "vi": "Xoá bảng chỉ khi bảng đó tồn tại",
+  "q": [
+   "xoá bảng nếu tồn tại if exists",
+   "drop table tránh lỗi khi bảng không có",
+   "huỷ bảng có kiểm tra if exists"
+  ]
+ },
+ "4869c4ddaf1aeefc5f65a45475bc1ebb5abb9ecb316f3908f69e4afa4db12dff": {
+  "src": "mysql · DROP TABLE table1, table2, ...",
+  "vi": "Xoá nhiều bảng cùng một lúc",
+  "q": [
+   "xoá nhiều bảng cùng lúc",
+   "drop table danh sách nhiều bảng",
+   "huỷ hàng loạt bảng table1 table2"
+  ]
+ },
+ "a31c34384400aebd67036347630cf74849477e70a186b2a13e19ed6c2660419c": {
+  "src": "mysql · ALTER TABLE table MODIFY field1 type1",
+  "vi": "Thay đổi kiểu dữ liệu của một cột hiện có",
+  "q": [
+   "sửa kiểu dữ liệu cột trong bảng",
+   "modify kiểu của trường field1",
+   "đổi data type của cột table"
+  ]
+ },
+ "ad9d1b474bea09091cf18dbc2c9ebab993bb7648358ed121a0f892531ea72dec": {
+  "src": "mysql · ALTER TABLE table MODIFY field1 type1 NOT NULL ...",
+  "vi": "Sửa kiểu dữ liệu cột và gán thêm ràng buộc NOT NULL",
+  "q": [
+   "sửa cột thành not null trong bảng",
+   "modify field1 đặt ràng buộc not null",
+   "thay đổi kiểu dữ liệu cột bắt buộc nhập"
+  ]
+ },
+ "393bd807bee1cd91f057d1db078ef5ef8c993b6dac657312b1cb8529f8720922": {
+  "src": "mysql · ALTER TABLE table CHANGE old_name_field1 new_name_field1 typ",
+  "vi": "Đổi tên cột và cập nhật kiểu dữ liệu của cột",
+  "q": [
+   "đổi tên cột trong bảng",
+   "change tên và kiểu dữ liệu field1",
+   "thay tên trường old_name thành new_name"
+  ]
+ },
+ "e4b2a3585ea06784bc23f934b30cc0381582d4aa179c47afa780e2def0014e97": {
+  "src": "mysql · ALTER TABLE table CHANGE old_name_field1 new_name_field1 typ",
+  "vi": "Đổi tên cột kèm thiết lập kiểu dữ liệu và NOT NULL",
+  "q": [
+   "đổi tên cột kèm đặt not null",
+   "change tên trường và gán ràng buộc not null",
+   "thay tên cột mới bắt buộc nhập dữ liệu"
+  ]
+ },
+ "4510b58f112587bec60000f3f2ef627f8410583e1f07e084d3ae1ebf357d1120": {
+  "src": "mysql · ALTER TABLE table ALTER field1 SET DEFAULT ...",
+  "vi": "Đặt giá trị mặc định (default) cho một cột",
+  "q": [
+   "đặt giá trị mặc định cho cột",
+   "gán default value cho field1",
+   "set default giá trị mặc định trường bảng"
+  ]
+ },
+ "8cdb6356592958798efdef0938536ca5ccda51f568c1f2e6b79fe2e84e05bcdf": {
+  "src": "mysql · ALTER TABLE table ALTER field1 DROP DEFAULT",
+  "vi": "Xoá bỏ giá trị mặc định (default) của một cột",
+  "q": [
+   "xoá giá trị mặc định của cột",
+   "drop default khỏi trường field1",
+   "gỡ bỏ default value cột bảng"
+  ]
+ },
+ "a90cf664a1978e43aef4f0337529f6beae50ab391b602b5ec6003cdac2e79353": {
+  "src": "mysql · ALTER TABLE table ADD new_name_field1 type1",
+  "vi": "Thêm một cột mới vào cuối bảng",
+  "q": [
+   "thêm cột mới vào bảng",
+   "add column vào table",
+   "bổ sung trường mới new_name_field1"
+  ]
+ },
+ "0ffb07185f0e5f7a15921e4241c61c67617955b243dc992ce178f6df70c5c89d": {
+  "src": "mysql · ALTER TABLE table ADD new_name_field1 type1 FIRST",
+  "vi": "Thêm một cột mới vào vị trí đầu tiên của bảng",
+  "q": [
+   "thêm cột vào vị trí đầu bảng",
+   "add column lên đầu tiên với FIRST",
+   "bổ sung trường mới ở đầu table"
+  ]
+ },
+ "6ab0ec434c70aaf2c6a65d5fb0b04e50339d833c277d638bb0581fdfd36e5028": {
+  "src": "mysql · ALTER TABLE table ADD new_name_field1 type1 AFTER another_fi",
+  "vi": "Thêm một cột mới vào sau một cột chỉ định",
+  "q": [
+   "thêm cột mới vào sau cột khác",
+   "add column đứng sau another_field",
+   "bổ sung trường nằm sau cột chỉ định"
+  ]
+ },
+ "2b54d5508bd98ac98f06958d81287b9a9d7325f7673fd7f2e0a3f11e6df38d2e": {
+  "src": "mysql · ALTER TABLE table DROP field1",
+  "vi": "Xoá một cột khỏi bảng",
+  "q": [
+   "xoá một cột khỏi bảng",
+   "drop column field1 trong table",
+   "gỡ bỏ trường dữ liệu khỏi bảng"
+  ]
+ },
+ "d721f8672cc0abfe5305b274f3d50b92917a05ce3ed648e4c39840f03c8e8bd1": {
+  "src": "mysql · ALTER TABLE table ADD INDEX (field);",
+  "vi": "Tạo thêm chỉ mục (index) cho cột trong bảng đã có",
+  "q": [
+   "thêm index cho cột trong bảng",
+   "tạo chỉ mục tìm kiếm với alter table add index",
+   "đánh index bổ sung cho field"
+  ]
+ },
+ "fdf82e60713653f60b3e83b71052401c47be65e7d3c303017d457549f853e9fb": {
+  "src": "mysql · ALTER TABLE table MODIFY field1 type1 FIRST",
+  "vi": "Chuyển cột hiện có lên vị trí đầu tiên của bảng",
+  "q": [
+   "chuyển vị trí cột lên đầu bảng",
+   "modify đưa field1 lên vị trí đầu tiên",
+   "thay đổi thứ tự cột lên first"
+  ]
+ },
+ "ccfee5d66b653742a8141f098d743aa1ba029a50508750aa92b4a5c396fe8d73": {
+  "src": "mysql · ALTER TABLE table MODIFY field1 type1 AFTER another_field",
+  "vi": "Chuyển cột hiện có ra sau một cột khác trong bảng",
+  "q": [
+   "chuyển vị trí cột ra sau cột khác",
+   "modify đổi thứ tự field1 đứng sau another_field",
+   "sắp xếp cột đứng sau một trường cụ thể"
+  ]
+ },
+ "6f47f1c32bd48bf7466b256a9e43887dc012c38714ba28d0d1c1bffc8e766f18": {
+  "src": "mysql · ALTER TABLE table CHANGE old_name_field1 new_name_field1 typ",
+  "vi": "Đổi tên cột và đồng thời chuyển lên vị trí đầu bảng",
+  "q": [
+   "đổi tên cột và chuyển lên đầu bảng",
+   "change tên cột đưa lên vị trí đầu tiên",
+   "sửa tên trường kèm dịch chuyển lên first"
+  ]
+ },
+ "b6eb7d0b4e65056cc974319df42836ca046f9335465e84eb9c70231f6c13f8bd": {
+  "src": "mysql · ALTER TABLE table CHANGE old_name_field1 new_name_field1 typ",
+  "vi": "Đổi tên cột và đồng thời chuyển ra sau cột chỉ định",
+  "q": [
+   "đổi tên cột và dời ra sau cột khác",
+   "change tên cột đặt sau another_field",
+   "sửa tên trường kèm chuyển vị trí đứng sau cột khác"
+  ]
+ },
+ "48c50b878eca9f7f6bc7a6c93bae32bd5f592f290790037f2ae68eaff8b1d88f": {
+  "src": "mysql · CREATE TABLE table (..., PRIMARY KEY (field1, field2))",
+  "vi": "Khai báo khoá chính (primary key) kết hợp từ hai cột khi tạo bảng",
+  "q": [
+   "khai báo khoá chính hai cột",
+   "tạo primary key gồm 2 trường",
+   "định nghĩa composite primary key trong create table"
+  ]
+ },
+ "267c7fd6a587a66273907a91e540c57bed352f87360fa3521d7957f1d4574582": {
+  "src": "mysql · CREATE TABLE table (..., FOREIGN KEY (field1, field2) REFERE",
+  "vi": "Khai báo khoá ngoại (foreign key) tổ hợp tham chiếu đến table2",
+  "q": [
+   "khai báo foreign key tham chiếu table2",
+   "tạo khoá ngoại nhiều cột liên kết bảng khác",
+   "định nghĩa foreign key references table2"
+  ]
+ },
+ "75bc61e898124723cc9fd4dd011f2fd6979ec04b94186ed9ef97cb9c9daaf54d": {
+  "src": "mysql · (t2_field1, t2_field2))",
+  "vi": "Chỉ định các cột được tham chiếu trong bảng khoá ngoại",
+  "q": [
+   "chỉ định cột tham chiếu khoá ngoại",
+   "cột liên kết trong foreign key",
+   "danh sách trường tham chiếu table2"
+  ]
+ },
+ "f8ee8106e5122f91a6929fb58537573ee7ca47702cc6faf988d16d1afe167ad6": {
+  "src": "mysql · CREATE USER 'user'@'localhost';",
+  "vi": "Tạo tài khoản người dùng mới kết nối từ localhost",
+  "q": [
+   "tạo user mới trên localhost",
+   "khởi tạo tài khoản người dùng localhost",
+   "thêm người dùng mới user localhost"
+  ]
+ },
+ "497facfabbf2070843e834ee1c47c352323a92d5f72de3a2692dbae6b89d7a7c": {
+  "src": "mysql · GRANT ALL PRIVILEGES ON base.* TO 'user'@'localhost' IDENTIF",
+  "vi": "Cấp toàn bộ quyền trên database cho user và đặt mật khẩu",
+  "q": [
+   "cấp tất cả quyền cho user trên database",
+   "grant all privileges kèm mật khẩu password",
+   "gán toàn quyền trên base cho người dùng localhost"
+  ]
+ },
+ "dbda3a61ab790336081911093a3356722c48aa221b324e9e6f78bab4e0439a33": {
+  "src": "mysql · GRANT SELECT, INSERT, DELETE ON base.* TO 'user'@'localhost'",
+  "vi": "Cấp các quyền chọn lọc SELECT, INSERT, DELETE cho user kèm mật khẩu",
+  "q": [
+   "cấp quyền select insert delete cho user",
+   "grant quyền đọc ghi dữ liệu trên database",
+   "phân quyền truy vấn và thêm xoá cho người dùng"
+  ]
+ },
+ "5369dd602b1ad9684fbb7291b917014e4d7887bd9ac74267b932c06dfcd88dd5": {
+  "src": "mysql · REVOKE ALL PRIVILEGES ON base.* FROM 'user'@'host';",
+  "vi": "Thu hồi toàn bộ quyền trên một database của user",
+  "q": [
+   "thu hồi tất cả quyền trên một database",
+   "revoke all privileges trên base của user",
+   "huỷ toàn quyền database từ người dùng"
+  ]
+ },
+ "e576e9f927e569b2fd08d00698704c93d7791735349c5bfce8026d271a32f293": {
+  "src": "mysql · REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'user'@'host';",
+  "vi": "Thu hồi tất cả quyền và quyền uỷ quyền (GRANT OPTION) của user",
+  "q": [
+   "thu hồi toàn bộ quyền và grant option",
+   "revoke tất cả đặc quyền của người dùng",
+   "tước bỏ toàn quyền kèm grant option từ user"
+  ]
+ },
+ "e3ed1249a91b7fc37a2ecc73b475d3d924958f1826b783028c61ca83b0d8e8f6": {
+  "src": "mysql · FLUSH PRIVILEGES;",
+  "vi": "Tải lại các bảng phân quyền để áp dụng thay đổi ngay",
+  "q": [
+   "tải lại bảng phân quyền flush privileges",
+   "reload quyền người dùng không cần khởi động lại",
+   "làm mới quyền phân quyền privileges"
+  ]
+ },
+ "6fae44a4fcd7f6444bd886773fa3ec388070fb2bdcc6c8ff73993cff77337d21": {
+  "src": "atuin · ## ~/.config/atuin/config.toml\n\n# Sync\nauto_sync        = tr",
+  "vi": "File cấu hình mẫu config.toml cho đồng bộ, giao diện và bộ lọc lịch sử shell",
+  "q": [
+   "file config mẫu toml đồng bộ lịch sử terminal",
+   "cấu hình giao diện và phím tắt tìm kiếm history shell",
+   "thiết lập tự động sync và lọc lịch sử dòng lệnh"
+  ]
+ },
+ "9241bc5e832c751d1e6fd7367ff59821d5ba219f90f9af68ea728edde6df4441": {
+  "src": "mysql · SHOW DATABASES;",
+  "vi": "Liệt kê (xem) tất cả database hiện có trên server",
+  "q": [
+   "xem danh sách database",
+   "liệt kê tất cả cơ sở dữ liệu",
+   "hiển thị các database hiện có"
+  ]
+ },
+ "2210c5d2c730b4398864a735e978c9bf4c2667a7ffa493dd50c8afee094dd436": {
+  "src": "mysql · SHOW TABLES;",
+  "vi": "Liệt kê các table trong database đang chọn",
+  "q": [
+   "xem danh sách bảng trong database",
+   "liệt kê các table",
+   "hiển thị toàn bộ bảng hiện tại"
+  ]
+ },
+ "526afb94d131645061b94576a0d590cd07db3fbfce541abb17632cd0908c7953": {
+  "src": "mysql · SHOW FIELDS FROM table / DESCRIBE table;",
+  "vi": "Xem cấu trúc và các cột (field) của table",
+  "q": [
+   "xem cấu trúc các cột table",
+   "kiểm tra schema của bảng",
+   "mô tả chi tiết field trong table"
+  ]
+ },
+ "edf74369feb49a52c06b070c8f5871f36348c62d4ff27408df2f6faf7d22ac32": {
+  "src": "mysql · SHOW CREATE TABLE table;",
+  "vi": "Xem câu lệnh DDL dùng để tạo table",
+  "q": [
+   "xem cú pháp DDL tạo bảng",
+   "hiển thị mã create table của bảng",
+   "trích xuất định nghĩa tạo table"
+  ]
+ },
+ "260a30e813e14e7cee0b92ef1babde8c1e06096abdd78f33d3b0011eed04789a": {
+  "src": "mysql · SHOW PROCESSLIST;",
+  "vi": "Xem danh sách các tiến trình và query đang chạy",
+  "q": [
+   "xem danh sách tiến trình đang chạy",
+   "liệt kê các query đang thực thi",
+   "kiểm tra connection và process đang xử lý"
+  ]
+ },
+ "c42a3c4d9475301ac0df1c5d3ce8d27dfcba3572a53c4b00ab2f448923d9947c": {
+  "src": "mysql · KILL process_number;",
+  "vi": "Huỷ (dừng) một tiến trình đang chạy theo ID",
+  "q": [
+   "huỷ tiến trình theo id",
+   "dừng query đang chạy bị treo",
+   "ngắt process_number đang thực thi"
+  ]
+ },
+ "fc74a8fcde61e2827612b9f1c42d14ea416d3bd8d7c8daec8996e57bd2a623d8": {
+  "src": "mysql · SELECT * FROM table;",
+  "vi": "Lấy toàn bộ dữ liệu và các cột từ table",
+  "q": [
+   "lấy toàn bộ dữ liệu từ bảng",
+   "truy vấn tất cả bản ghi trong table",
+   "xem tất cả cột và dòng của bảng"
+  ]
+ },
+ "8f39cd303e0bbce407b45135ec8ebffc77948284660ed15845e8d1cbe8a25673": {
+  "src": "mysql · SELECT * FROM table1, table2;",
+  "vi": "Lấy toàn bộ dữ liệu tích Descartes từ hai table",
+  "q": [
+   "truy vấn dữ liệu từ hai bảng cùng lúc",
+   "lấy tất cả dữ liệu tích Descartes hai table",
+   "kết hợp dữ liệu nhiều bảng không dùng join"
+  ]
+ },
+ "a9da862498ea77c2357d3cad2992d7bc322613ac1fcbb2dcb426ea55065f0bc3": {
+  "src": "mysql · SELECT field1, field2 FROM table1, table2;",
+  "vi": "Chọn các cột cụ thể từ hai table",
+  "q": [
+   "lấy các cột cụ thể từ hai bảng",
+   "chọn trường field1 field2 từ nhiều table",
+   "truy vấn cột chỉ định giữa hai bảng"
+  ]
+ },
+ "3bf264039801606b06d84339eca810a5390311216a38d8c19b4f4dd589b5f99f": {
+  "src": "mysql · SELECT ... FROM ... WHERE condition",
+  "vi": "Truy vấn dữ liệu có lọc theo điều kiện WHERE",
+  "q": [
+   "lọc dữ liệu theo điều kiện where",
+   "truy vấn bản ghi thoả mãn tiêu chí",
+   "tìm kiếm dòng theo condition trong bảng"
+  ]
+ },
+ "e98c4441222b3d3fcc40a99acea201e620bf9e3a23eacd726f8408bc3d5545f8": {
+  "src": "mysql · SELECT ... FROM ... WHERE condition GROUP BY field;",
+  "vi": "Nhóm dữ liệu theo cột field kết hợp điều kiện WHERE",
+  "q": [
+   "nhóm dữ liệu theo cột có điều kiện lọc",
+   "group by gom nhóm bản ghi theo trường",
+   "tổng hợp dữ liệu theo field thoả mãn where"
+  ]
+ },
+ "54fbdbf45835d0a63d0ee453e2c2829d0cb689738065d85b39a04d17816e063b": {
+  "src": "mysql · SELECT ... FROM ... WHERE condition GROUP BY field HAVING co",
+  "vi": "Lọc kết quả sau khi nhóm bằng mệnh đề HAVING",
+  "q": [
+   "lọc kết quả sau khi group by bằng having",
+   "điều kiện lọc trên nhóm dữ liệu đã gom",
+   "dùng having lọc nhóm sau khi tổng hợp"
+  ]
+ },
+ "1025da32362213dac89cab4d559881f70bab1f091b584c6c90f74c99cdfd85f7": {
+  "src": "mysql · SELECT ... FROM ... WHERE condition ORDER BY field1, field2;",
+  "vi": "Sắp xếp kết quả tăng dần theo field1, field2",
+  "q": [
+   "sắp xếp kết quả tăng dần theo nhiều cột",
+   "order by sắp thứ tự bản ghi theo trường",
+   "xếp thứ tự dữ liệu theo field1 và field2"
+  ]
+ },
+ "89b91040266186f3e2433e9d5ab22e82f143badbbd4bd33f8519faa9c29a5492": {
+  "src": "mysql · SELECT ... FROM ... WHERE condition ORDER BY field1, field2 ",
+  "vi": "Sắp xếp kết quả giảm dần theo field1, field2",
+  "q": [
+   "sắp xếp kết quả giảm dần theo nhiều cột",
+   "xếp dữ liệu giảm dần desc theo trường",
+   "order by sắp thứ tự từ lớn đến bé"
+  ]
+ },
+ "278016cb58fb303ac2b720219f8cdf7ae4f5d137318a9761c68ab80278a58f6e": {
+  "src": "mysql · SELECT ... FROM ... WHERE condition LIMIT 10;",
+  "vi": "Giới hạn số lượng bản ghi trả về tối đa 10 dòng",
+  "q": [
+   "giới hạn số dòng trả về 10 bản ghi",
+   "lấy 10 kết quả đầu tiên từ bảng",
+   "limit số lượng dòng trong truy vấn"
+  ]
+ },
+ "0f606f6a61f688ba703e8c61e52e501f2b5ebb76297faf95112466ec532d9849": {
+  "src": "mysql · SELECT DISTINCT field1 FROM ...",
+  "vi": "Lấy các giá trị duy nhất (không trùng lặp) của field1",
+  "q": [
+   "lọc giá trị duy nhất không trùng của cột",
+   "chọn trường field1 loại bỏ bản ghi trùng",
+   "distinct lấy dữ liệu độc nhất một cột"
+  ]
+ },
+ "5790ca752eef152cb74c286688867ea4657046f59420287edeefe7170706dc1e": {
+  "src": "mysql · SELECT DISTINCT field1, field2 FROM ...",
+  "vi": "Lấy các cặp giá trị duy nhất của field1 và field2",
+  "q": [
+   "lấy các cặp giá trị không trùng của hai cột",
+   "distinct loại bỏ trùng lặp trên nhiều trường",
+   "truy vấn tổ hợp giá trị duy nhất field1 field2"
+  ]
+ },
+ "e60dd7a0c018b977e3d94ee5b192a9d55e2572aaefef4c47a7d67e87e54b385a": {
+  "src": "mysql · SELECT ... FROM t1 JOIN t2 ON t1.id1 = t2.id2 WHERE conditio",
+  "vi": "Nối trong (INNER JOIN) hai bảng theo điều kiện khoá",
+  "q": [
+   "nối hai bảng bằng inner join theo khoá",
+   "kết hợp dữ liệu hai table theo điều kiện on",
+   "truy vấn join giữa bảng t1 và t2"
+  ]
+ },
+ "21ed721893a6c7be16e781b313d745a7578282fbaf86f82d887e44e3cc1ed6c1": {
+  "src": "mysql · SELECT ... FROM t1 LEFT JOIN t2 ON t1.id1 = t2.id2 WHERE con",
+  "vi": "Nối ngoài bên trái (LEFT JOIN) giữ toàn bộ dòng t1",
+  "q": [
+   "nối bảng left join giữ nguyên dữ liệu bảng trái",
+   "kết hợp hai bảng lấy tất cả bản ghi t1",
+   "truy vấn left outer join giữa hai table"
+  ]
+ },
+ "9b328b7f46fe86e53f2c811df41456819ef165e8a9bc17fc81604d1f3bc9fe5d": {
+  "src": "mysql · SELECT ... FROM t1 JOIN (t2 JOIN t3 ON ...) ON ...",
+  "vi": "Nối nhiều bảng lồng nhau theo các điều kiện khoá",
+  "q": [
+   "nối nhiều bảng lồng nhau",
+   "kết hợp ba table bằng join lồng",
+   "truy vấn join lồng giữa t1 t2 t3"
+  ]
+ },
+ "c346b15eb83d96f00e6939a63aa444608d48289fd99ae24fb54b90cec0f52d89": {
+  "src": "mysql · field1 = value1",
+  "vi": "So sánh bằng giữa cột và giá trị",
+  "q": [
+   "so sánh giá trị cột bằng nhau",
+   "điều kiện bằng trường với giá trị",
+   "lọc bản ghi có field bằng value"
+  ]
+ },
+ "ef8ccc3d6ffa2e45e207f8f5177b63c9ad00059bb6a59fb4c698f68c95d40746": {
+  "src": "mysql · field1 <> value1",
+  "vi": "So sánh khác nhau giữa cột và giá trị",
+  "q": [
+   "so sánh giá trị cột khác nhau",
+   "điều kiện không bằng trường với giá trị",
+   "lọc bản ghi có field khác value"
+  ]
+ },
+ "3d55967f1c0f8dd699d72243208f62cfc8ae0f896505e5b03621383cd17b8e81": {
+  "src": "mysql · field1 LIKE 'value _ %'",
+  "vi": "Khớp mẫu chuỗi với ký tự đại diện bằng LIKE",
+  "q": [
+   "tìm kiếm chuỗi theo mẫu ký tự đại diện",
+   "khớp chuỗi gần đúng bằng like",
+   "điều kiện so khớp wildcard cho cột"
+  ]
+ },
+ "068e026ed4dff1202d7e4bf368bd94b86444e26112769f160cfaa9158bc2063d": {
+  "src": "mysql · field1 IS NULL",
+  "vi": "Kiểm tra cột có giá trị rỗng (NULL)",
+  "q": [
+   "kiểm tra cột có giá trị null rỗng",
+   "lọc bản ghi chứa trường null",
+   "tìm các dòng có field1 rỗng"
+  ]
+ },
+ "2420eb4b6dfdf08a840f9d5d2243252f13ae1984255c97e7188c67d08a9579a7": {
+  "src": "mysql · field1 IS NOT NULL",
+  "vi": "Kiểm tra cột có giá trị khác rỗng (NOT NULL)",
+  "q": [
+   "kiểm tra cột khác giá trị null",
+   "lọc bản ghi trường không bị rỗng",
+   "tìm các dòng có field1 không null"
+  ]
+ },
+ "fad36bf1bad74398606d8d7de288c506f32157111d2c424023713b373fbbe396": {
+  "src": "mysql · field1 IS IN (value1, value2)",
+  "vi": "Kiểm tra giá trị cột thuộc danh sách chỉ định",
+  "q": [
+   "kiểm tra giá trị cột nằm trong danh sách",
+   "lọc trường thuộc tập hợp các giá trị",
+   "điều kiện in tìm giá trị trong bộ chỉ định"
+  ]
+ },
+ "faa569b403d02eea0b377e47d04063b252dcf6f22e497f328203c9fc30f2d4ea": {
+  "src": "mysql · field1 IS NOT IN (value1, value2)",
+  "vi": "Kiểm tra giá trị cột không thuộc danh sách chỉ định",
+  "q": [
+   "kiểm tra giá trị cột không nằm trong danh sách",
+   "lọc trường không thuộc tập hợp giá trị",
+   "điều kiện not in loại trừ các giá trị liệt kê"
+  ]
+ },
+ "4bbd2e9c16deb55e0d312560488d437076c1bd8b547da03434687092ba9b3db9": {
+  "src": "mysql · condition1 AND condition2",
+  "vi": "Kết hợp đồng thời thoả mãn cả hai điều kiện",
+  "q": [
+   "kết hợp thoả mãn đồng thời hai điều kiện",
+   "toán tử logic and giữa các tiêu chí lọc",
+   "ghép hai condition bắt buộc cùng đúng"
+  ]
+ },
+ "40b747ec74047aae325b08ffcc401240683373d240330a859b79b211e1a6dd2c": {
+  "src": "mysql · condition1 OR condition2",
+  "vi": "Kết hợp thoả mãn ít nhất một trong hai điều kiện",
+  "q": [
+   "kết hợp thoả mãn một trong hai điều kiện",
+   "toán tử logic or giữa các tiêu chí lọc",
+   "ghép hai condition chỉ cần một cái đúng"
+  ]
+ },
+ "a96d5b533ecc18345dffb57a225e734b676144d2735f195f612b37a1a63e42cc": {
+  "src": "mysql · CREATE DATABASE DatabaseName;",
+  "vi": "Tạo một database mới với tên DatabaseName",
+  "q": [
+   "tạo mới một database",
+   "khởi tạo cơ sở dữ liệu mới",
+   "thêm cơ sở dữ liệu DatabaseName"
+  ]
+ },
+ "534b736de734b101954602a1332bec2093538038bfb2bbe4846aa23e51ad5e49": {
+  "src": "mysql · CREATE DATABASE DatabaseName CHARACTER SET utf8;",
+  "vi": "Tạo database mới có định dạng bảng mã utf8",
+  "q": [
+   "tạo database hỗ trợ bảng mã utf8",
+   "khởi tạo cơ sở dữ liệu kèm character set utf8",
+   "thêm database mới định dạng tiếng việt utf8"
+  ]
+ },
+ "5f564d836eab202cc04c4551ea33fef10893d49d12fd1ce207b9791fee54a30c": {
+  "src": "mysql · USE DatabaseName;",
+  "vi": "Chọn (mở) database để thao tác làm việc",
+  "q": [
+   "chọn database để thao tác làm việc",
+   "chuyển sang cơ sở dữ liệu DatabaseName",
+   "mở database đang cần dùng"
+  ]
+ },
+ "545f090c02095756a26ebb99ee000e5b2fe42961d50fa2798c8682e170439263": {
+  "src": "mysql · DROP DATABASE DatabaseName;",
+  "vi": "Xoá hoàn toàn một database khỏi hệ thống",
+  "q": [
+   "xoá vĩnh viễn một database",
+   "gỡ bỏ cơ sở dữ liệu DatabaseName",
+   "huỷ bỏ toàn bộ database khỏi server"
+  ]
+ },
+ "6797ac0b0bcb4c05455ed28da9c0c12d8242541593916015d2115596a49b6b31": {
+  "src": "mysql · ALTER DATABASE DatabaseName CHARACTER SET utf8;",
+  "vi": "Thay đổi bảng mã của database sang utf8",
+  "q": [
+   "đổi bảng mã database sang utf8",
+   "thay đổi character set của cơ sở dữ liệu",
+   "chuyển encoding database thành utf8"
+  ]
+ },
+ "bacc0c0f4691df92d549485e958f633e26996993adb8dc3a699a59f169c23c19": {
+  "src": "mysql · mysqldump -u Username -p dbNameYouWant > databasename_backup",
+  "vi": "Sao lưu (backup) database ra file SQL",
+  "q": [
+   "sao lưu database ra file sql",
+   "backup cơ sở dữ liệu thành tập tin sql",
+   "xuất dữ liệu database ra databasename_backup.sql"
+  ]
+ },
+ "ea0e337afff521f2f69aae2aba81d35c8ad9f2056a8ac06aeb37527c35b114f7": {
+  "src": "mysql · mysql -u Username -p dbNameYouWant < databasename_backup.sql",
+  "vi": "Phục hồi (restore) database từ file sao lưu SQL",
+  "q": [
+   "phục hồi database từ file sao lưu sql",
+   "restore cơ sở dữ liệu từ file sql",
+   "nhập dữ liệu vào database từ tập tin backup"
+  ]
+ },
+ "851dc846e093a38a80cf7dceae7f60e6b91ef74e358075294092d76a7df3e1d7": {
+  "src": "mysql · mysqlcheck --all-databases;",
+  "vi": "Kiểm tra và sửa chữa table toàn bộ database sau sự cố",
+  "q": [
+   "kiểm tra sửa chữa table tất cả database",
+   "sửa lỗi bảng sau sự cố tắt đột ngột",
+   "quét và phục hồi toàn bộ cơ sở dữ liệu"
+  ]
+ },
+ "73e5f0a291b965346b7aea45c84bdbb09df77ade4f60596493af3436a8680862": {
+  "src": "mysql · mysqlcheck --all-databases --fast;",
+  "vi": "Kiểm tra nhanh và sửa table chỉ quét bảng chưa đóng đúng",
+  "q": [
+   "kiểm tra sửa lỗi bảng nhanh sau sự cố",
+   "quét nhanh table chưa đóng đúng toàn bộ database",
+   "sửa lỗi cơ sở dữ liệu chế độ fast"
+  ]
+ },
+ "a453c8209b3853955ba24a11e7be0076aa4e2a44cb7a59972cfb3f6f1317d80c": {
+  "src": "mysql · INSERT INTO table1 (field1, field2) VALUES (value1, value2);",
+  "vi": "Thêm (chèn) dòng dữ liệu mới vào table",
+  "q": [
+   "thêm bản ghi mới vào bảng",
+   "chèn dòng dữ liệu vào table",
+   "tạo mới hàng dữ liệu với các trường chỉ định"
+  ]
+ },
+ "5909d99751d14d2615a537578f7c3ac2017f99ebe4c7ccd7268b3185d6b844a0": {
+  "src": "atuin · curl --proto '=https' --tlsv1.2 -LsSf \\\n  https://setup.atui",
+  "vi": "Cài đặt nhanh bằng shell script",
+  "q": [
+   "cài đặt nhanh bằng script curl",
+   "tải và cài đặt tự động qua script",
+   "setup nhanh bằng shell script"
+  ]
+ },
+ "d25f013d90ae78476f6b843b3275aafddd3d247fca924436e1875fd0342286ea": {
+  "src": "atuin · eval \"$(atuin init bash)\"",
+  "vi": "Khởi tạo cấu hình tích hợp cho shell bash",
+  "q": [
+   "tích hợp vào shell bash",
+   "khởi tạo cấu hình bash rc",
+   "setup init cho bash"
+  ]
+ },
+ "4eb0c1d53bc63cf481bd4e73986fb8b18f342858d2dee6285416ed01b66369db": {
+  "src": "atuin · eval \"$(atuin init zsh)\"",
+  "vi": "Khởi tạo cấu hình tích hợp cho shell zsh",
+  "q": [
+   "tích hợp vào shell zsh",
+   "khởi tạo cấu hình zsh rc",
+   "setup init cho zsh"
+  ]
+ },
+ "d44dfe08222060428301bafca7f6f0b417bbf2208c5341bf7919051f5d0019a7": {
+  "src": "atuin · atuin init fish | source",
+  "vi": "Khởi tạo cấu hình tích hợp cho shell fish",
+  "q": [
+   "tích hợp vào shell fish",
+   "khởi tạo cấu hình config fish",
+   "setup init cho fish"
+  ]
+ },
+ "07e9dd866394e538bf892ace709624bbe548247d4455a363b257ceef18dbc2d2": {
+  "src": "atuin · atuin register -u <user> -e <email>",
+  "vi": "Đăng ký tài khoản đồng bộ mới với <user> và <email>",
+  "q": [
+   "đăng ký tài khoản đồng bộ",
+   "tạo user sync history mới",
+   "register account đồng bộ dữ liệu"
+  ]
+ },
+ "671305bae7c39bfd278a18f7ff1774d92aa72409e6172a3cd3da4ba2332d976f": {
+  "src": "atuin · atuin import auto",
+  "vi": "Tự động nhập (import) lịch sử lệnh hiện có từ shell",
+  "q": [
+   "nhập lịch sử lệnh cũ tự động",
+   "import history từ shell hiện tại",
+   "nạp lịch sử terminal có sẵn"
+  ]
+ },
+ "5c435d605f7d130d788e5ce1f95b563b9c13d68249f23f4c15181fc8882264ba": {
+  "src": "atuin · atuin sync",
+  "vi": "Đồng bộ (sync) lịch sử lệnh lần đầu với server",
+  "q": [
+   "đồng bộ lịch sử lệnh lần đầu",
+   "sync history với server",
+   "chạy đồng bộ dữ liệu ban đầu"
+  ]
+ },
+ "8c977ea3cf2662ab7d400581253d3c9126bb5e8329d2304303dd3d0e12b900e6": {
+  "src": "atuin · ↑ ↓ / K J",
+  "vi": "Di chuyển lên xuống qua các kết quả tìm kiếm",
+  "q": [
+   "di chuyển lên xuống trong kết quả",
+   "cuộn danh sách lịch sử tìm được",
+   "duyệt qua lại các kết quả"
+  ]
+ },
+ "1c80ccf959557b07bcebef7e98938722dbd5c6044e0a141728080d121c243aa5": {
+  "src": "atuin · ← →",
+  "vi": "Di chuyển con trỏ trong ô nhập truy vấn tìm kiếm",
+  "q": [
+   "di chuyển con trỏ trong ô tìm kiếm",
+   "sang trái phải sửa chuỗi truy vấn",
+   "trượt con trỏ soạn thảo query"
+  ]
+ },
+ "7d4647e9e782a198b38c00a3ba1e332f94619da82d6d7fa4c2e431b3b45dee68": {
+  "src": "atuin · Alt+0–9",
+  "vi": "Nhảy nhanh đến kết quả tìm kiếm theo số thứ tự N",
+  "q": [
+   "nhảy nhanh đến kết quả theo số",
+   "chọn kết quả theo số thứ tự",
+   "chuyển tới dòng kết quả N"
+  ]
+ },
+ "78c6ffe0ebb0685e02618e3e26c77082ffbcb2dc8a5bc9f9f5b4ac0ed73a7363": {
+  "src": "atuin · Enter",
+  "vi": "Thực thi lệnh đang được chọn ngay lập tức",
+  "q": [
+   "thực thi dòng đang chọn",
+   "chạy ngay kết quả đã chọn",
+   "enter để chạy dòng lịch sử"
+  ]
+ },
+ "2c3de2d3eaba102c48dc862d7623a13bf384f7c3ee7ad2ba7dd6cc44543ad60a": {
+  "src": "atuin · Tab",
+  "vi": "Đưa lệnh đã chọn ra shell để chỉnh sửa tiếp",
+  "q": [
+   "chèn kết quả ra shell để sửa",
+   "đưa dòng đã chọn ra dòng nhắc chỉnh sửa",
+   "paste kết quả ra terminal để edit"
+  ]
+ },
+ "0bec966a16457f079d8a7a4903ce0bf797b31775be31ff8eb9008f57a091079b": {
+  "src": "atuin · Ctrl+O",
+  "vi": "Mở bảng xem chi tiết thông tin (inspector) của lệnh",
+  "q": [
+   "xem chi tiết thông tin của kết quả",
+   "mở thanh thanh tra inspector",
+   "hiển thị metadata của dòng đã chọn"
+  ]
+ },
+ "f7f0cf28e16e53131d0863881517d814a26d5279cec64dd472785ee53d2c6406": {
+  "src": "atuin · Ctrl+X",
+  "vi": "Xoá mục lịch sử đang được chọn",
+  "q": [
+   "xoá mục lịch sử đang chọn",
+   "gỡ bỏ dòng kết quả được chọn",
+   "delete bản ghi khỏi history"
+  ]
+ },
+ "11bbedfd44dba90b337e43bd42ba6487a5b6f28fc82b8d1b9303b56d2e809635": {
+  "src": "atuin · Ctrl+C / Ctrl+D",
+  "vi": "Huỷ tìm kiếm và đóng giao diện",
+  "q": [
+   "huỷ tìm kiếm lịch sử",
+   "thoát màn hình tra cứu",
+   "đóng giao diện search"
+  ]
+ },
+ "58eb06cfaac42262ea26e431ec0f032b2c65f9b8ce8f845ccbe246272d37ef26": {
+  "src": "atuin · Ctrl+R",
+  "vi": "Chuyển đổi vòng lặp qua các chế độ lọc (filter mode)",
+  "q": [
+   "chuyển đổi chế độ lọc tìm kiếm",
+   "thay đổi filter mode lịch sử",
+   "cycle qua các phạm vi lọc"
+  ]
+ },
+ "188d941abe1795c6bbd603427cd5cbf9c6ea52f10ffc147f1ee09efaab4177f1": {
+  "src": "atuin · Ctrl+S",
+  "vi": "Chuyển đổi vòng lặp qua các chế độ tìm kiếm (search mode)",
+  "q": [
+   "chuyển đổi chế độ tìm kiếm",
+   "thay đổi search mode prefix fulltext fuzzy",
+   "cycle qua các kiểu so khớp tìm kiếm"
+  ]
+ },
+ "ea46176c6aebd68822864c92fb29412535293e057a965c51109a02101c1fe1da": {
+  "src": "atuin · Esc",
+  "vi": "Chuyển sang chế độ bình thường (normal mode)",
+  "q": [
+   "chuyển sang normal mode",
+   "bật chế độ điều hướng normal",
+   "thoát soạn thảo về normal mode"
+  ]
+ },
+ "7fb390b610bf086cfbb48faf6e96d6253d2adf71fbcaaffb3493aab445400594": {
+  "src": "atuin · I",
+  "vi": "Quay lại chế độ chèn (insert mode) để nhập văn bản",
+  "q": [
+   "quay lại insert mode",
+   "chuyển sang insert mode để gõ tiếp",
+   "bật chế độ nhập văn bản insert"
+  ]
+ },
+ "39eedb31f3b3613bf2017cd8666de58a0bc9b58a11559959b7dbfc3ebcd94c79": {
+  "src": "atuin · global",
+  "vi": "Lọc toàn bộ lịch sử từ mọi máy, phiên và thư mục",
+  "q": [
+   "lọc toàn bộ lịch sử trên mọi máy",
+   "chế độ filter global tất cả session",
+   "tìm trên mọi thiết bị và thư mục"
+  ]
+ },
+ "4191776049d89092fbc02be04dc1e342bb66552f6724834b28f290a43f4c747c": {
+  "src": "atuin · host",
+  "vi": "Chỉ lọc lịch sử trên máy tính hiện tại",
+  "q": [
+   "lọc lịch sử riêng trên máy hiện tại",
+   "chế độ filter host này",
+   "giới hạn tìm kiếm trong máy cục bộ"
+  ]
+ },
+ "950f4d00ad8253e2dde258f656c33bf0f8410335b0b0d3d9d1cfe761221a7a3f": {
+  "src": "atuin · session",
+  "vi": "Chỉ lọc lịch sử trong phiên shell hiện tại",
+  "q": [
+   "lọc lịch sử phiên terminal hiện tại",
+   "chế độ filter session đang mở",
+   "tìm trong phiên làm việc này"
+  ]
+ },
+ "1bfdd6915ae7cf6ce7b49120cdf91fcb1d96995e4ccdee584c185ba0f12c1a10": {
+  "src": "atuin · session-preload",
+  "vi": "Lọc lịch sử phiên hiện tại kèm lịch sử toàn cục trước đó",
+  "q": [
+   "lọc phiên hiện tại cùng lịch sử trước đó",
+   "chế độ filter session-preload kết hợp",
+   "tìm trong session hiện tại và history cũ toàn cục"
+  ]
+ },
+ "0cc17f611e26a33da68ed31d6d9f72e4581a26356c2309b3e4e85a7a230e0947": {
+  "src": "atuin · directory",
+  "vi": "Chỉ lọc lịch sử trong thư mục làm việc hiện tại",
+  "q": [
+   "lọc lịch sử trong thư mục hiện tại",
+   "chế độ filter current working directory",
+   "tìm trong thư mục đang đứng"
+  ]
+ },
+ "a15211125c4295314229ae48231945696689e049a2238ee1df7dc99fa5020a07": {
+  "src": "atuin · workspace",
+  "vi": "Lọc lịch sử trong toàn bộ thư mục git repository",
+  "q": [
+   "lọc lịch sử toàn bộ git repository",
+   "chế độ filter workspace git",
+   "tìm trong phạm vi dự án git"
+  ]
+ },
+ "8f8d4d40f4d98b51b11d8a1ba423d2d7dde52fbd96cb61387771765b3b05ba2b": {
+  "src": "atuin · prefix",
+  "vi": "So khớp các lệnh bắt đầu bằng từ khoá tìm kiếm (mặc định)",
+  "q": [
+   "tìm kiếm so khớp tiền tố prefix",
+   "khớp phần đầu giống chuỗi tìm kiếm",
+   "chế độ search so khớp từ đầu mặc định"
+  ]
+ },
+ "72d4b1a1a0efd01d974bfb35cde5ef3f5a42f9a6f11690247521b0ff7145543d": {
+  "src": "atuin · fulltext",
+  "vi": "So khớp chuỗi từ khoá ở bất kỳ vị trí nào",
+  "q": [
+   "tìm kiếm toàn văn chuỗi con bất kỳ",
+   "khớp từ khoá ở vị trí bất kỳ",
+   "chế độ search fulltext mọi vị trí"
+  ]
+ },
+ "ee470f985651dc847905d42943ad3b6a40c3e6bd70982050ab8e6c52432c3039": {
+  "src": "atuin · fuzzy",
+  "vi": "Tìm kiếm mờ (fuzzy) so khớp các ký tự không liền nhau",
+  "q": [
+   "tìm kiếm mờ xấp xỉ fuzzy",
+   "so khớp ký tự không liên tục bất kỳ",
+   "chế độ search mờ gần đúng"
+  ]
+ },
+ "e1657b536af0750f3aae225298c8d14c87d2d42fc2083b374acb13937a7611b8": {
+  "src": "atuin · atuin history list",
+  "vi": "Liệt kê toàn bộ danh sách lịch sử đã lưu",
+  "q": [
+   "liệt kê toàn bộ lịch sử đã lưu",
+   "hiển thị tất cả history",
+   "xem danh sách các thao tác đã chạy"
+  ]
+ },
+ "f38e39fdf6d55fea2977622bbead1d3f0a8bc965c477f5a4d4112ce59487bfb3": {
+  "src": "atuin · atuin history list --cmd-only",
+  "vi": "Liệt kê danh sách chỉ gồm lệnh, không kèm metadata",
+  "q": [
+   "liệt kê danh sách chỉ gồm lệnh",
+   "hiển thị history bỏ qua metadata",
+   "xem lịch sử dạng chuỗi thuần không có ngày giờ"
+  ]
+ },
+ "4d0612f1b72649f7e8a3800a9ef5fd40bb4a6373f4f5ff96c95422541c0571fa": {
+  "src": "atuin · atuin search <query>",
+  "vi": "Tìm kiếm lịch sử dạng văn bản không tương tác",
+  "q": [
+   "tìm kiếm lịch sử không tương tác",
+   "tra cứu history xuất kết quả thẳng ra terminal",
+   "search văn bản lịch sử dạng text thường"
+  ]
+ },
+ "3969fd8dcd3666cd171a0ff42bc86603b1738bf8403e2ab3734948babb388390": {
+  "src": "atuin · atuin search -i <query>",
+  "vi": "Tìm kiếm lịch sử trong giao diện TUI tương tác",
+  "q": [
+   "tìm kiếm lịch sử với giao diện tương tác TUI",
+   "mở màn hình interactive search history",
+   "tra cứu kết quả trên giao diện TUI"
+  ]
+ },
+ "a01f458de85a236aeca50ed5c61c0f0480c9398dc4b565748839b2210b71df45": {
+  "src": "atuin · atuin search --human <query>",
+  "vi": "Tìm kiếm lịch sử hiển thị mốc thời gian dễ đọc",
+  "q": [
+   "tìm kiếm lịch sử hiển thị ngày giờ dễ đọc",
+   "tra cứu history kèm thời gian dạng người đọc",
+   "search hiển thị mốc thời gian thân thiện"
+  ]
+ },
+ "c1fcac7889b3784c3f321a32068da42c9184f6c738f7ef3d89220a1a0110123a": {
+  "src": "atuin · --cwd <dir>",
+  "vi": "Lọc kết quả tìm kiếm theo thư mục <dir> chỉ định",
+  "q": [
+   "lọc kết quả tìm kiếm theo thư mục",
+   "giới hạn tra cứu lịch sử trong folder <dir>",
+   "tuỳ chọn lọc theo đường dẫn thư mục"
+  ]
+ },
+ "b8f459083c32628dcb3a74973df768ac0239d85658cd198f0144812696cdd87d": {
+  "src": "atuin · --exit <code>",
+  "vi": "Lọc kết quả theo mã thoát (exit code) của lệnh",
+  "q": [
+   "lọc kết quả tìm kiếm theo mã thoát",
+   "tìm theo exit code trạng thái kết thúc",
+   "tuỳ chọn lọc theo mã lỗi trả về"
+  ]
+ },
+ "a702cb5908ed6eeda91e1d883ce7762a87f0a234a7bd9ef3a44241c9153fc324": {
+  "src": "atuin · --after <time>",
+  "vi": "Lọc các lệnh đã chạy sau mốc thời gian <time>",
+  "q": [
+   "lọc kết quả thực thi sau mốc thời gian",
+   "tìm lịch sử chạy sau thời điểm <time>",
+   "tuỳ chọn lọc sau ngày giờ chỉ định"
+  ]
+ },
+ "b422154a6052b753f40956cccad327295925488b9074cfc8bf61093e6aa2bc6d": {
+  "src": "atuin · --before <time>",
+  "vi": "Lọc các lệnh đã chạy trước mốc thời gian <time>",
+  "q": [
+   "lọc kết quả thực thi trước mốc thời gian",
+   "tìm lịch sử chạy trước thời điểm <time>",
+   "tuỳ chọn lọc trước ngày giờ chỉ định"
+  ]
+ },
+ "bc0c98633c6e5ee533cb0294dff684172b43f10da4235368b3e37d01d31fc8a5": {
+  "src": "atuin · --limit <n>",
+  "vi": "Giới hạn số lượng kết quả hiển thị tối đa <n>",
+  "q": [
+   "giới hạn số lượng kết quả hiển thị",
+   "lấy tối đa <n> bản ghi lịch sử",
+   "tuỳ chọn giới hạn số dòng kết quả"
+  ]
+ },
+ "e43138299ca1ebb3b09d209c4a74c10f6986e7a99750453f0f535798fc299f79": {
+  "src": "atuin · --human",
+  "vi": "Tuỳ chọn hiển thị mốc thời gian ở dạng người đọc được",
+  "q": [
+   "bật hiển thị mốc thời gian dễ đọc",
+   "tuỳ chọn định dạng thời gian thân thiện",
+   "tham số xem ngày giờ dạng người đọc"
+  ]
+ },
+ "d19efdb5528c6595297ea1bd498c6902fe505985acf7e75a34ad37f8a29acbba": {
+  "src": "atuin · atuin search --delete <query>",
+  "vi": "Tìm và xoá các mục lịch sử khớp với <query>",
+  "q": [
+   "xoá các mục lịch sử khớp với truy vấn",
+   "gỡ bỏ bản ghi tìm được theo query",
+   "delete hàng loạt history theo chuỗi tìm kiếm"
+  ]
+ },
+ "2893949cebe22c2e4c8e4912ffdd5d6a61eb817de097e6ae5c4fdf656b3d4126": {
+  "src": "atuin · atuin history prune --dry-run",
+  "vi": "Xem trước các lệnh lịch sử sẽ bị xoá khi dọn dẹp (prune).",
+  "q": [
+   "xem trước dọn dẹp lịch sử",
+   "chạy thử xoá lịch sử prune",
+   "kiểm tra danh sách prune sẽ xoá"
+  ]
+ },
+ "8e02d6d1d63e8ae9437a910cc277aac2dadd607f3fe72acb2a05932a1b63666b": {
+  "src": "atuin · atuin history prune",
+  "vi": "Dọn dẹp và xoá các bản ghi lịch sử theo bộ lọc đã cấu hình.",
+  "q": [
+   "dọn dẹp lịch sử theo bộ lọc",
+   "xoá bản ghi lịch sử bằng prune",
+   "làm sạch lịch sử đã lọc"
+  ]
+ },
+ "b1f6cf9f010435e2dd54be5af1632efcbf9e1cf19340556af839e145000bc544": {
+  "src": "atuin · atuin history dedup",
+  "vi": "Xoá các lệnh trùng lặp hoàn toàn trong lịch sử.",
+  "q": [
+   "xoá lệnh trùng lặp trong lịch sử",
+   "lọc bỏ bản ghi trùng nhau hoàn toàn",
+   "khử trùng lặp dedup lịch sử"
+  ]
+ },
+ "457ef93485ae54c7b3863e4ff3430e1cdba977f8ae1124c93853a6800e5b31a9": {
+  "src": "atuin · atuin sync",
+  "vi": "Đồng bộ lịch sử hai chiều với máy chủ (server).",
+  "q": [
+   "đồng bộ lịch sử với server",
+   "sync lịch sử hai chiều",
+   "cập nhật đồng bộ lịch sử máy chủ"
+  ]
+ },
+ "dd5d88bc9f1c3cf0dfa5caa41db8996e482330b25199e3f7f87979e3be111636": {
+  "src": "atuin · atuin sync --force",
+  "vi": "Bắt buộc đồng bộ lại toàn bộ lịch sử với máy chủ.",
+  "q": [
+   "ép buộc đồng bộ lại toàn bộ",
+   "force sync toàn bộ lịch sử",
+   "đồng bộ lại từ đầu với server"
+  ]
+ },
+ "a3e3787569931851ec7485e9afb8850f10b04db24cfc403a5a527ccdb5c6905c": {
+  "src": "atuin · atuin register -u <u> -e <e>",
+  "vi": "Đăng ký tài khoản mới với username <u> và email <e>.",
+  "q": [
+   "đăng ký tài khoản đồng bộ mới",
+   "tạo tài khoản sync với email",
+   "đăng ký user <u> và email <e>"
+  ]
+ },
+ "2a92d055d890a4eacc013f997e88cfe60d9509ac733cc4f2657e6e0bbaa287e7": {
+  "src": "atuin · atuin login -u <user>",
+  "vi": "Đăng nhập vào máy chủ đồng bộ với tài khoản <user>.",
+  "q": [
+   "đăng nhập máy chủ đồng bộ",
+   "login sync server với user <user>",
+   "đăng nhập tài khoản đồng bộ lịch sử"
+  ]
+ },
+ "4317135720358264c7d112b2f631fe4658deb69201a34a03f8ca9a69b95ca2db": {
+  "src": "atuin · atuin logout",
+  "vi": "Đăng xuất khỏi tài khoản máy chủ đồng bộ.",
+  "q": [
+   "đăng xuất tài khoản đồng bộ",
+   "thoát đăng nhập sync server",
+   "logout khỏi máy chủ"
+  ]
+ },
+ "4e8f1252643ca86081de1d3318cf66c37f24835cbdbcc98120da22e8bc170696": {
+  "src": "atuin · atuin account delete",
+  "vi": "Xoá vĩnh viễn tài khoản đồng bộ trên máy chủ.",
+  "q": [
+   "xoá vĩnh viễn tài khoản sync",
+   "huỷ tài khoản đồng bộ trên server",
+   "gỡ bỏ hoàn toàn tài khoản"
+  ]
+ },
+ "785bb58cc181538314a07c1f16604f856feb447c9ab71a7f1284a0a1955cbda9": {
+  "src": "atuin · atuin key",
+  "vi": "Hiển thị khoá mã hoá (encryption key) tài khoản.",
+  "q": [
+   "xem khoá mã hoá tài khoản",
+   "hiển thị encryption key đồng bộ",
+   "lấy mã khoá bảo mật tài khoản"
+  ]
+ },
+ "feb118acd1d3b26702c68eec68776a5bc39e9c5328d85b4bc75b4fa23ee9eff4": {
+  "src": "atuin · atuin import auto",
+  "vi": "Tự động nhận diện shell và nhập (import) lịch sử lệnh.",
+  "q": [
+   "tự động nhận diện shell để import",
+   "nhập lịch sử tự động từ shell hiện tại",
+   "auto import lịch sử command line"
+  ]
+ },
+ "1194ea47d3412b2b523681c2c41e7359c485449193565851c226ba81af2d1ac0": {
+  "src": "atuin · atuin import bash",
+  "vi": "Nhập (import) lịch sử lệnh từ bash history.",
+  "q": [
+   "nhập lịch sử từ bash",
+   "import bash history",
+   "chuyển dữ liệu lịch sử bash"
+  ]
+ },
+ "afff462c6b0dd6b5763a128df06ede5862d1dc5a3ec7a68aaa8621481b5b1819": {
+  "src": "atuin · atuin import zsh",
+  "vi": "Nhập (import) lịch sử lệnh từ zsh history.",
+  "q": [
+   "nhập lịch sử từ zsh",
+   "import zsh history",
+   "đồng bộ dữ liệu từ zsh history"
+  ]
+ },
+ "dfaf6ba6c8892e7002c063e675ee0709c8fdf399ca95d55b2c9d9943dc793ea6": {
+  "src": "atuin · atuin import fish",
+  "vi": "Nhập (import) lịch sử lệnh từ fish shell history.",
+  "q": [
+   "nhập lịch sử từ fish shell",
+   "import fish history",
+   "nạp lịch sử từ fish shell"
+  ]
+ },
+ "28478497ed4e4e184b9fc360de20ab7755cd2ee77700c064645c6cffc616e3f8": {
+  "src": "atuin · atuin stats",
+  "vi": "Xem thống kê sử dụng các lệnh trong lịch sử.",
+  "q": [
+   "xem thống kê sử dụng lệnh",
+   "hiển thị biểu đồ tần suất thực thi",
+   "kiểm tra thống kê stats gần đây"
+  ]
+ },
+ "8d7f308eedfdd4a4d89b8c8712266204e2aa0eaa8515ea87b20d331e5bb55d7c": {
+  "src": "atuin · atuin stats all",
+  "vi": "Xem toàn bộ thống kê sử dụng lệnh từ trước đến nay.",
+  "q": [
+   "xem thống kê toàn thời gian",
+   "hiển thị thống kê lịch sử all time",
+   "tổng kết tần suất sử dụng từ trước đến nay"
+  ]
+ },
+ "d4571a9983b825b2ca6fa4ca06927e4e9dd18c607623428167d24b89948a128d": {
+  "src": "atuin · atuin doctor",
+  "vi": "Chẩn đoán lỗi và xuất thông tin hệ thống.",
+  "q": [
+   "chẩn đoán lỗi hệ thống",
+   "kiểm tra trạng thái hoạt động doctor",
+   "xuất thông tin gỡ lỗi cấu hình"
+  ]
+ },
+ "84474bb2a1ae7075bf933fe526a5c3cfaa3776f414782edd88fbbb572f31072d": {
+  "src": "atuin · atuin server start",
+  "vi": "Khởi chạy máy chủ đồng bộ tự lưu trữ (self-hosted).",
+  "q": [
+   "khởi chạy sync server tự host",
+   "chạy máy chủ đồng bộ self-hosted",
+   "bật server đồng bộ riêng"
+  ]
+ },
+ "0d45b5b0243d3eb7ba2f417984874e18d4032842926accbf0f3b250d56007205": {
+  "src": "atuin · atuin search --exit 1 --cwd .",
+  "vi": "Tìm tất cả lệnh thất bại trong thư mục hiện tại.",
+  "q": [
+   "tìm lệnh lỗi trong thư mục hiện tại",
+   "lọc các thao tác thất bại tại thư mục này",
+   "tìm kiếm exit code 1 ở cwd"
+  ]
+ },
+ "fa67ae7ea1406d9fea9edc926e285af0293accfca37796da50e51560d168fe36": {
+  "src": "atuin · atuin search --exit 0 --after \"yesterday 3pm\" git commit",
+  "vi": "Tìm các lệnh git commit thành công sau 3 giờ chiều hôm qua.",
+  "q": [
+   "tìm git commit thành công từ chiều qua",
+   "lọc git commit exit 0 sau yesterday 3pm",
+   "tìm kiếm commit thành công sau 3h chiều hôm qua"
+  ]
+ },
+ "f94492bfe83072932636711de04dab1818f85d15059ca5275ecb8be4584d92e4": {
+  "src": "atuin · atuin search --after \"1 hour ago\"",
+  "vi": "Tìm các lệnh đã chạy trong vòng một giờ qua.",
+  "q": [
+   "tìm lệnh chạy trong 1 giờ qua",
+   "xem lịch sử một tiếng gần đây",
+   "lọc thực thi trong vòng 1 hour ago"
+  ]
+ },
+ "ce6bdc0af2382be58cc99ea0fc1310340a91f6582ef7cd3955a264c500a42de5": {
+  "src": "atuin · atuin search --delete --exit 127",
+  "vi": "Tìm và xoá các bản ghi lệnh không tồn tại (lỗi 127).",
+  "q": [
+   "tìm và xoá lỗi command not found",
+   "xoá lịch sử các mã lỗi 127",
+   "loại bỏ bản ghi gõ sai không tìm thấy"
+  ]
+ },
+ "6c22ae9b52ca6768f86fa29aa2ea55d10f516add90aeca29b74d097390a06894": {
+  "src": "atuin · atuin history prune --dry-run",
+  "vi": "Xem trước kết quả dọn dẹp lịch sử mà không xoá thật.",
+  "q": [
+   "chạy thử prune không xoá thật",
+   "xem trước dọn dẹp lịch sử dry-run",
+   "kiểm tra trước kết quả prune xoá bỏ"
+  ]
+ },
+ "7b63e83cecb587c9c6292a1f4d32dd6f87f4eb88831d04c2dd7eaa2e2b56304a": {
+  "src": "atuin · atuin stats \"7 days ago\"",
+  "vi": "Xem thống kê sử dụng lệnh trong 7 ngày gần nhất.",
+  "q": [
+   "xem thống kê sử dụng trong 7 ngày qua",
+   "hiển thị tần suất lệnh 7 ngày gần đây",
+   "kiểm tra thống kê stats tuần qua"
+  ]
+ },
+ "4b3dc4e26c82adeef323aa6c29938c227b164e8ce0a106219e76684230987de6": {
+  "src": "atuin · HISTFILE=~/.zsh_custom_history atuin import zsh",
+  "vi": "Nhập lịch sử zsh từ tệp lịch sử tuỳ chỉnh.",
+  "q": [
+   "import zsh từ file lịch sử tuỳ chỉnh",
+   "nạp lịch sử zsh qua biến HISTFILE riêng",
+   "nhập history zsh từ đường dẫn tự chọn"
+  ]
+ },
+ "425f50caaa1b4206013e78b2b6b468ba9efeeb6d6a055a9fca58c1be3cc3c454": {
+  "src": "atuin · Relative",
+  "vi": "Định dạng thời gian tương đối như 2 hours ago, last week.",
+  "q": [
+   "định dạng thời gian tương đối",
+   "lọc lịch sử theo relative time",
+   "cú pháp thời gian 2 hours ago hoặc last week"
+  ]
+ },
+ "0d633e6857d194a024106f823f7e733691dcd2a684c01473a17aef87f68aad3b": {
+  "src": "atuin · Natural",
+  "vi": "Định dạng thời gian ngôn ngữ tự nhiên như yesterday 3pm, Monday.",
+  "q": [
+   "định dạng thời gian tự nhiên",
+   "lọc theo ngày giờ tự nhiên yesterday Monday",
+   "cú pháp thời gian natural language"
+  ]
+ },
+ "09a81d500e75dab904962a106cbeb0ca3272c4a0c6bf5562ea4b62c820e8def5": {
+  "src": "atuin · Absolute",
+  "vi": "Định dạng thời gian tuyệt đối theo ngày tháng như 2024-01-15.",
+  "q": [
+   "định dạng thời gian tuyệt đối",
+   "lọc lịch sử theo ngày tháng năm cụ thể",
+   "cú pháp thời gian absolute YYYY-MM-DD"
+  ]
+ },
+ "78a039da33d34313020f6e5d57ee7e062db919022baecce087aa1c0a79fb9f3e": {
+  "src": "atuin · sync_address",
+  "vi": "Cấu hình địa chỉ URL máy chủ đồng bộ (mặc định api.atuin.sh).",
+  "q": [
+   "cấu hình địa chỉ server đồng bộ",
+   "thay đổi URL sync server",
+   "tuỳ chọn sync_address máy chủ"
+  ]
+ },
+ "cf18d698b326ba10fe875f6acd0077b4ca0a1b0182666b7305eb4feeca061d7d": {
+  "src": "atuin · auto_sync",
+  "vi": "Bật hoặc tắt tính năng tự động đồng bộ lịch sử.",
+  "q": [
+   "bật tắt tự động đồng bộ",
+   "cấu hình auto_sync lịch sử",
+   "chế độ tự sync với máy chủ"
+  ]
+ },
+ "897e35f5ee0f4c17a14151aca097f07976e6b6a380f4c2815160e97fdb4cb4b9": {
+  "src": "atuin · sync_frequency",
+  "vi": "Tần suất đồng bộ lịch sử định kỳ hoặc sau mỗi lệnh.",
+  "q": [
+   "cấu hình tần suất đồng bộ",
+   "chỉnh chu kỳ sync lịch sử",
+   "thời gian lặp lại sync_frequency"
+  ]
+ },
+ "59938d1bf636a159562f4e9865e86ecb7684e9ef6ce2f6508e007eb478323aa5": {
+  "src": "atuin · network_timeout",
+  "vi": "Thời gian chờ tối đa kết nối mạng tính bằng giây.",
+  "q": [
+   "cấu hình timeout kết nối mạng",
+   "thời gian chờ mạng network_timeout",
+   "chỉnh timeout đồng bộ tính bằng giây"
+  ]
+ },
+ "532de92cce7cdd5a0fbb7a65fd640549446a4b717e45fbaadb99c7750db53793": {
+  "src": "atuin · theme",
+  "vi": "Cấu hình giao diện màu sắc (theme) hiển thị.",
+  "q": [
+   "đổi giao diện màu sắc theme",
+   "cấu hình theme giao diện",
+   "chọn bảng màu default autumn marine"
+  ]
+ },
+ "ff0ee539705f9bc43e3dfcf2d8e61373b785e6cd818a70bfc51010dd87439628": {
+  "src": "atuin · keymap_mode",
+  "vi": "Chế độ phím tắt điều khiển (emacs hoặc vim-insert).",
+  "q": [
+   "cấu hình chế độ phím tắt keymap",
+   "chọn kiểu bàn phím emacs hoặc insert",
+   "cài đặt keymap_mode điều khiển"
+  ]
+ },
+ "49088ab6d8b8018eeaf4338fb5b446cdc27371de333ab70be9aa8548ea403ccc": {
+  "src": "atuin · filter_mode",
+  "vi": "Chế độ lọc phạm vi lịch sử mặc định khi mở.",
+  "q": [
+   "cấu hình chế độ lọc mặc định",
+   "đổi filter_mode khi mở tìm kiếm",
+   "thiết lập phạm vi lọc lịch sử ban đầu"
+  ]
+ },
+ "9d183783994c300d402d63a837bd4da5ec5074fafc4b985de4044c43f82d6286": {
+  "src": "atuin · search_mode",
+  "vi": "Chế độ tìm kiếm mặc định khi mở giao diện.",
+  "q": [
+   "cấu hình chế độ tìm kiếm mặc định",
+   "đổi search_mode khi tra cứu",
+   "thiết lập kiểu tìm kiếm ban đầu"
+  ]
+ },
+ "4e9cf5e5b068237a8446fce50c343162406e97346ae44daf843a8f2b2a073709": {
+  "src": "atuin · columns",
+  "vi": "Cấu hình các cột hiển thị trong danh sách TUI.",
+  "q": [
+   "cấu hình cột hiển thị trong danh sách",
+   "tuỳ chỉnh các cột giao diện TUI",
+   "ẩn hiện cột columns danh sách lịch sử"
+  ]
+ },
+ "8eac62e327b36f07e0d645ebc0df24ddf4267eae1de0960a4115b31d286930bf": {
+  "src": "atuin · history_filter",
+  "vi": "Danh sách regex bỏ qua không lưu các lệnh khớp.",
+  "q": [
+   "bỏ qua không lưu lịch sử theo regex",
+   "regex loại trừ history_filter",
+   "chặn lưu lịch sử khớp biểu thức chính quy"
+  ]
+ },
+ "ea5bfd6f6746b80b783ff0ecc56317509596c57e6357f463186680ca1ce78893": {
+  "src": "atuin · cwd_filter",
+  "vi": "Danh sách regex bỏ qua không lưu lệnh theo thư mục.",
+  "q": [
+   "bỏ qua thư mục không lưu lịch sử",
+   "regex loại trừ thư mục cwd_filter",
+   "chặn ghi lịch sử trong thư mục khớp regex"
+  ]
+ },
+ "e7873178cbaf95974e9e52372332d49fcbbb17ade0e16ac62f245c18d47066b5": {
+  "src": "atuin · command, exit_code, duration, cwd, hostname, session, timest",
+  "vi": "Các trường siêu dữ liệu (metadata) được lưu trữ cho mỗi lệnh.",
+  "q": [
+   "các thông tin metadata lưu kèm bản ghi",
+   "danh sách trường dữ liệu lưu cho mỗi bản ghi",
+   "siêu dữ liệu lưu trữ gồm những gì"
+  ]
+ },
+ "6a1acca441e16ce66895a12e78d682b2b3a5d571cbcf301e0aa3f7ec9392759e": {
+  "src": "mysql · SET PASSWORD = PASSWORD('new_pass');",
+  "vi": "Đổi mật khẩu cho người dùng (user) hiện tại đang đăng nhập.",
+  "q": [
+   "đổi mật khẩu user hiện tại",
+   "thay password tài khoản đang đăng nhập",
+   "cập nhật mật khẩu đang dùng"
+  ]
+ },
+ "c6480e96304e5be4c2b567e363fe0f6e4418becd16c76005113ccb8b37525c19": {
+  "src": "mysql · SET PASSWORD FOR 'user'@'host' = PASSWORD('new_pass');",
+  "vi": "Đổi mật khẩu cho một user cụ thể tại host chỉ định.",
+  "q": [
+   "đổi mật khẩu user chỉ định",
+   "thay password tài khoản người dùng khác",
+   "cập nhật mật khẩu user và host"
+  ]
+ },
+ "f3f79868c726daef3286c9d757ce85d11abcbaa76d7f744ffb6313581b61bcf6": {
+  "src": "mysql · SET PASSWORD = OLD_PASSWORD('new_pass');",
+  "vi": "Đổi mật khẩu user hiện tại bằng thuật toán băm cũ (OLD_PASSWORD).",
+  "q": [
+   "đổi mật khẩu bằng hàm old password",
+   "thay password chuẩn băm cũ",
+   "set password dùng thuật toán cũ"
+  ]
+ },
+ "3e5e35035915d92e467cf0bae4680c892ae01f579062c59a78c9f631cfac41c1": {
+  "src": "mysql · DROP USER 'user'@'host';",
+  "vi": "Xoá tài khoản người dùng (user) tại host chỉ định.",
+  "q": [
+   "xoá tài khoản user",
+   "gỡ bỏ user chỉ định",
+   "hủy người dùng và host"
+  ]
+ },
+ "ee01cd628a66d1eba96c1744a4f2ba8be775d3d8d509b7c16fd4ad9e227f31b3": {
+  "src": "mysql · Host ‘%’ indicates any host.",
+  "vi": "Ký tự '%' biểu thị cho phép kết nối từ bất kỳ host nào.",
+  "q": [
+   "ý nghĩa ký tự phần trăm trong host",
+   "cho phép user kết nối mọi host",
+   "ký hiệu đại diện all host người dùng"
+  ]
+ },
+ "f2bf74207cce5ac7c2b32f17e242161f0eddc85302d4b515768454a68d7021b0": {
+  "src": "mysql · TINYINT (1o: -128 to +127)",
+  "vi": "Kiểu số nguyên rất nhỏ TINYINT chiếm 1 byte (-128 đến 127).",
+  "q": [
+   "kiểu số nguyên tinyint 1 byte",
+   "phạm vi giá trị tinyint",
+   "kích thước bộ nhớ tinyint"
+  ]
+ },
+ "0b67635026ac946482f08814730b57c759ec03f6e2ffa1ee0fe5f9402135038b": {
+  "src": "mysql · SMALLINT (2o: +-65 000)",
+  "vi": "Kiểu số nguyên nhỏ SMALLINT chiếm 2 byte (khoảng +-65.000).",
+  "q": [
+   "kiểu số nguyên smallint 2 byte",
+   "phạm vi lưu trữ smallint",
+   "kích thước dung lượng smallint"
+  ]
+ },
+ "a99e0001315b67c18e1aef5dc8fd3e1de5de3d36e3c035dd3bea2b9983cdd9c4": {
+  "src": "mysql · MEDIUMINT (3o: +-16 000 000)",
+  "vi": "Kiểu số nguyên vừa MEDIUMINT chiếm 3 byte (khoảng +-16 triệu).",
+  "q": [
+   "kiểu số nguyên mediumint 3 byte",
+   "phạm vi giá trị mediumint",
+   "độ lớn lưu trữ mediumint"
+  ]
+ },
+ "52576a1b7ab1a1819ab793174f38e123e43aaa250c68ab25345e6f190801f109": {
+  "src": "mysql · INT (4o: +- 2 000 000 000)",
+  "vi": "Kiểu số nguyên chuẩn INT chiếm 4 byte (khoảng +-2 tỷ).",
+  "q": [
+   "kiểu số nguyên int 4 byte",
+   "phạm vi lưu trữ số nguyên int",
+   "giới hạn giá trị kiểu int"
+  ]
+ },
+ "443a2e2e69bbf4b55a87c183cc217be284771b4560ee41f59eee5f70b9648c04": {
+  "src": "mysql · BIGINT (8o: +-9.10^18)",
+  "vi": "Kiểu số nguyên lớn BIGINT chiếm 8 byte (khoảng +-9x10^18).",
+  "q": [
+   "kiểu số nguyên lớn bigint 8 byte",
+   "phạm vi giá trị bigint",
+   "giới hạn lưu trữ kiểu bigint"
+  ]
+ },
+ "d86f359f4e148ad0b360ea392469d75b9976165097cee4ab8724eaf6b32148c1": {
+  "src": "mysql · Precise interval: -(2^(8*N-1)) -> (2^8*N)-1",
+  "vi": "Công thức tính chính xác khoảng giá trị số nguyên theo N byte.",
+  "q": [
+   "công thức tính khoảng giá trị số nguyên",
+   "tính phạm vi lưu trữ theo số byte n",
+   "giới hạn min max kiểu số nguyên"
+  ]
+ },
+ "e982e99dc54de6503859ee53b0ffdf8f690d9e93906409c2da35f91c088303c4": {
+  "src": "mysql · ⚠ INT(2) = “2 digits displayed” – NOT “number with 2 digits ",
+  "vi": "Lưu ý INT(2) chỉ là độ rộng hiển thị, không giới hạn giá trị 2 chữ số.",
+  "q": [
+   "ý nghĩa tham số trong int",
+   "độ rộng hiển thị int khác giới hạn giá trị",
+   "phân biệt int2 hiển thị và lưu trữ"
+  ]
+ },
+ "2b304bed20fbc9db0ab066b7cc786ced8960c78ac51b94225d75e755c71db37d": {
+  "src": "mysql · FLOAT(M,D)",
+  "vi": "Kiểu số thực FLOAT với tổng M chữ số và D số thập phân.",
+  "q": [
+   "kiểu số thực dấu phẩy động float m d",
+   "khai báo float m d chữ số thập phân",
+   "định dạng số thực float m d"
+  ]
+ },
+ "429c086b08098ed992e261d7838d33656f4c47be93a3c2aa99ed4e14bb20ebc2": {
+  "src": "mysql · DOUBLE(M,D)",
+  "vi": "Kiểu số thực kép DOUBLE với M chữ số và D số thập phân.",
+  "q": [
+   "kiểu số thực độ chính xác kép double m d",
+   "khai báo double m d chữ số thập phân",
+   "định dạng số thực double m d"
+  ]
+ },
+ "ff2f5b1f55b9262137aa343d1ba1580ff3f6b87766a3e4137d3731dd728df7d1": {
+  "src": "mysql · FLOAT(D=0->53)",
+  "vi": "Kiểu FLOAT với tham số độ chính xác từ 0 đến 53 bit.",
+  "q": [
+   "kiểu float chỉ định độ chính xác bit",
+   "khai báo float tham số từ 0 đến 53",
+   "thiết lập độ chính xác float d"
+  ]
+ },
+ "716992c3c5d84a59cffa28ca3febd7f00a9252d6b3c682f99eefe7d5528774b4": {
+  "src": "mysql · ⚠ 8,3 -> 12345,678 – NOT 12345678,123!",
+  "vi": "Lưu ý định dạng (M,D): M là tổng số chữ số bao gồm D số thập phân.",
+  "q": [
+   "quy tắc định dạng m d chữ số",
+   "giải thích ký hiệu m d trong kiểu số thực",
+   "phân biệt tổng chữ số và phần thập phân"
+  ]
+ },
+ "b532d62d1130cdbf51880527f542501195361f29a0cfd93a3fb1f8a5c9f743ab": {
+  "src": "mysql · TIME (HH:MM)",
+  "vi": "Kiểu dữ liệu thời gian TIME theo định dạng giờ phút (HH:MM).",
+  "q": [
+   "kiểu dữ liệu thời gian time",
+   "lưu giờ phút bằng kiểu time",
+   "định dạng giờ phút hh mm"
+  ]
+ },
+ "52095fabbc18a0b8826c971a3265c7e5754c6d32b76b411caffe5f0d09caed25": {
+  "src": "mysql · YEAR (AAAA)",
+  "vi": "Kiểu dữ liệu năm YEAR theo định dạng 4 chữ số.",
+  "q": [
+   "kiểu dữ liệu năm year",
+   "lưu năm 4 chữ số",
+   "định dạng kiểu year"
+  ]
+ },
+ "05fdc565088841bd7aedfb64fca086e3e325d8185b2c76e86a5f652c7ded4bab": {
+  "src": "mysql · DATE (AAAA-MM-JJ)",
+  "vi": "Kiểu dữ liệu ngày DATE theo định dạng năm-tháng-ngày.",
+  "q": [
+   "kiểu dữ liệu ngày date",
+   "lưu ngày tháng năm định dạng date",
+   "định dạng ngày date yyyy mm dd"
+  ]
+ },
+ "d05b6f74b553ebcdd622bdd41d25b08cac52bde79c0b2787d4ed2ab828d22006": {
+  "src": "mysql · DATETIME (AAAA-MM-JJ HH:MM; années 1000->9999)",
+  "vi": "Kiểu ngày giờ DATETIME với phạm vi năm từ 1000 đến 9999.",
+  "q": [
+   "kiểu dữ liệu ngày giờ datetime",
+   "lưu ngày và giờ từ năm 1000 đến 9999",
+   "định dạng datetime năm tháng ngày giờ"
+  ]
+ },
+ "1f7d31031ae3b2f759616ed2f65f13da3baeac28f39dd7c86dcc4e76dd7a1063": {
+  "src": "mysql · TIMESTAMP (like DATETIME, but 1970->2038, compatible with Un",
+  "vi": "Kiểu mốc thời gian TIMESTAMP tương thích Unix, từ năm 1970 đến 2038.",
+  "q": [
+   "kiểu dữ liệu timestamp unix",
+   "lưu mốc thời gian từ 1970 đến 2038",
+   "phân biệt timestamp và datetime"
+  ]
+ },
+ "1837ae9c18615c64554f04e8dc82f44e778e2ad1a382e23fcd11606dbac7b7a0": {
+  "src": "mysql · VARCHAR (single-line; explicit size)",
+  "vi": "Kiểu chuỗi ký tự độ dài biến đổi VARCHAR với kích thước chỉ định.",
+  "q": [
+   "kiểu chuỗi biến đổi varchar",
+   "lưu chuỗi một dòng có giới hạn độ dài",
+   "định dạng chuỗi ký tự varchar"
+  ]
+ },
+ "962aa428b3e2e7c913f84c10d98494ec0f0d42f0bbd1d9e711cc99a46a6d20d2": {
+  "src": "mysql · TEXT (multi-lines; max size=65535)",
+  "vi": "Kiểu văn bản nhiều dòng TEXT với dung lượng tối đa 65.535 ký tự.",
+  "q": [
+   "kiểu văn bản nhiều dòng text",
+   "lưu đoạn văn bản dài tối đa 65535",
+   "định dạng text dữ liệu lớn"
+  ]
+ },
+ "769beafc755ad235a402f8321723003542f4d11e33533d5ac7889b07aa734ff1": {
+  "src": "mysql · BLOB (binary; max size=65535)",
+  "vi": "Kiểu dữ liệu nhị phân BLOB với dung lượng tối đa 65.535 byte.",
+  "q": [
+   "kiểu nhị phân blob",
+   "lưu file nhị phân tối đa 65535 byte",
+   "dữ liệu binary lớn blob"
+  ]
+ },
+ "a07118b52aced830edd365e9f0e5b7ec946e92a484237121810150b944ed1515": {
+  "src": "mysql · Variants for TEXT&BLOB: `TINY` (max=255), `MEDIUM` (max=~160",
+  "vi": "Các biến thể của TEXT và BLOB gồm TINY, MEDIUM và LONG theo dung lượng.",
+  "q": [
+   "các biến thể của text và blob",
+   "phân biệt tinytext mediumtext longtext",
+   "dung lượng tinyblob mediumblob longblob"
+  ]
+ },
+ "2f87902ce19095d1684bdcbdbf479c05aca295d879c094a9ad3b9ffb31f827f0": {
+  "src": "mysql · ENUM ('value1', 'value2', ...)",
+  "vi": "Kiểu liệt kê ENUM chỉ nhận một trong các giá trị định sẵn.",
+  "q": [
+   "kiểu liệt kê danh sách enum",
+   "định nghĩa cột enum các giá trị cố định",
+   "chọn một trong các giá trị định sẵn enum"
+  ]
+ },
+ "8bb142557478b6d7de6df2a7f9da9568aefa80c73ba4fe9b61432aead5dfac19": {
+  "src": "mysql · /etc/init.d/mysql stop",
+  "vi": "Dừng dịch vụ database qua script init.d để chuẩn bị đặt lại mật khẩu.",
+  "q": [
+   "dừng dịch vụ database qua init d",
+   "tắt service database bằng init d stop",
+   "stop database trước khi reset mật khẩu root"
+  ]
+ },
+ "dcf813964e32a1812691431adb6c65afdc08e6feb995173bb7b2628313d1b222": {
+  "src": "mysql · mysqld_safe --skip-grant-tables",
+  "vi": "Khởi động database ở chế độ an toàn bỏ qua kiểm tra quyền (grant tables).",
+  "q": [
+   "khởi động database bỏ qua bảng phân quyền",
+   "chạy chế độ an toàn safe mode không cần mật khẩu",
+   "bật chế độ an toàn skip grant tables"
+  ]
+ },
+ "2688f2eb1d4b9e13877b7fa660b55c4b6f42aa098fdc1c31d0b00e95f2c3d47f": {
+  "src": "mysql · mysql",
+  "vi": "Mở client database trên terminal khác mà không cần mật khẩu.",
+  "q": [
+   "kết nối database client không cần mật khẩu",
+   "mở client trên terminal khác khi skip grant",
+   "truy cập console database lúc reset root"
+  ]
+ },
+ "3b336c95fb490aeee56c892d567e992e7d1588455bc39e781576260c10ee4e62": {
+  "src": "mysql · UPDATE mysql.user SET password=PASSWORD('new_pass') WHERE us",
+  "vi": "Đặt lại mật khẩu mới cho user root trong bảng user hệ thống.",
+  "q": [
+   "đặt lại mật khẩu root trong bảng user",
+   "cập nhật password tài khoản root",
+   "sửa password root trực tiếp bằng update"
+  ]
+ },
+ "78e3cbdd566b219bc8cee82f48ed1d54f2eecc3dd3b5cc595be319c4da4b029e": {
+  "src": "mysql · /etc/init.d/mysql start",
+  "vi": "Khởi động lại dịch vụ database bình thường sau khi đổi xong mật khẩu.",
+  "q": [
+   "khởi động lại dịch vụ database sau khi reset root",
+   "bật lại service database bằng init d start",
+   "chạy lại database chế độ bình thường"
+  ]
+ },
+ "d3b537a9a6a1e2fec74d5b5e2e6b3502fea2ab021bccdc22033f9f6c35d8df16": {
+  "src": "mysql · Your commands may vary depending on your OS.",
+  "vi": "Lưu ý các lệnh có thể khác nhau tùy thuộc vào hệ điều hành.",
+  "q": [
+   "lưu ý cú pháp khác biệt theo hệ điều hành",
+   "khác biệt thao tác theo từng os",
+   "sự phụ thuộc vào từng hệ điều hành"
+  ]
+ },
+ "25c63e405a0eb0d62df73a831a874a318ce7c0040f3f1b86b81d03430a483fc7": {
+  "src": "neovim · i",
+  "vi": "Chuyển sang chế độ chèn (Insert) trước vị trí con trỏ.",
+  "q": [
+   "chèn văn bản trước con trỏ",
+   "vào chế độ insert trước con trỏ",
+   "nhập ký tự phía trước vị trí hiện tại"
+  ]
+ },
+ "4cc4516ff85f2d842b1c55afe9db4232454fee7475820a28724253c9efee7f7f": {
+  "src": "neovim · I",
+  "vi": "Chuyển sang chế độ chèn tại ký tự đầu tiên không phải khoảng trắng.",
+  "q": [
+   "chèn văn bản ở đầu dòng bỏ qua khoảng trắng",
+   "vào chế độ insert tại ký tự đầu tiên của dòng",
+   "nhập ký tự trước chữ cái đầu dòng"
+  ]
+ },
+ "81c67c6e9963dcb6a8de272338a66619376515c57a5070bf5702b7db61c2fad9": {
+  "src": "neovim · a",
+  "vi": "Chuyển sang chế độ chèn (Insert) ngay sau vị trí con trỏ.",
+  "q": [
+   "chèn văn bản sau con trỏ",
+   "vào chế độ insert phía sau con trỏ",
+   "thêm ký tự tiếp theo sau vị trí hiện tại"
+  ]
+ },
+ "c45e219ff32336a748b5474b99a33be7c2f0b968a9a86c866b8ca1026e88ee04": {
+  "src": "neovim · A",
+  "vi": "Chuyển sang chế độ chèn (Insert) tại vị trí cuối dòng.",
+  "q": [
+   "chèn văn bản vào cuối dòng",
+   "vào chế độ insert ở đuôi dòng",
+   "thêm nội dung tại vị trí kết thúc dòng"
+  ]
+ },
+ "f3dc38e9eeeb1e0a41f3e3a3cdc006f7d18f069564887670ad6614b2eb8aeb0a": {
+  "src": "neovim · o",
+  "vi": "Mở một dòng mới bên dưới dòng hiện tại và vào chế độ chèn.",
+  "q": [
+   "mở dòng mới bên dưới để nhập văn bản",
+   "tạo dòng trống phía dưới và vào insert",
+   "thêm dòng mới dưới vị trí hiện tại"
+  ]
+ },
+ "666f7698c7f22dc3a2dd485ef5cbadad0216221533a6b9ec9e739e0c9b3b21ab": {
+  "src": "neovim · O",
+  "vi": "Mở một dòng mới bên trên dòng hiện tại và vào chế độ chèn.",
+  "q": [
+   "mở dòng mới bên trên để nhập văn bản",
+   "tạo dòng trống phía trên và vào insert",
+   "thêm dòng mới trên vị trí hiện tại"
+  ]
+ },
+ "8999af9f48d41bcc78e53d1a92fd9236b2e6f6bdef2277f4df65bf5796309ee6": {
+  "src": "neovim · v",
+  "vi": "Bật chế độ trực quan (Visual) để bôi đen chọn từng ký tự.",
+  "q": [
+   "bật chế độ visual chọn từng ký tự",
+   "bôi đen vùng văn bản theo ký tự",
+   "chọn ký tự trong chế độ visual"
+  ]
+ },
+ "a66093b0861bebe4884da7d3252fc315a7a4cc6a329252a0fda500c3508ff39b": {
+  "src": "neovim · V",
+  "vi": "Bật chế độ trực quan theo dòng (Visual Line) để chọn toàn bộ dòng.",
+  "q": [
+   "bật chế độ visual line chọn cả dòng",
+   "bôi đen toàn bộ dòng văn bản",
+   "chọn từng dòng trong chế độ visual"
+  ]
+ },
+ "7beae22dabd857161a16eadeda8f73d18e8368e080437c30ec8090fb2cf2dd73": {
+  "src": "neovim · Ctrl+v",
+  "vi": "Chuyển sang chế độ Visual Block để chọn vùng văn bản dạng khối chữ nhật",
+  "q": [
+   "chọn văn bản theo khối chữ nhật",
+   "bôi đen dạng cột visual block",
+   "chế độ visual block"
+  ]
+ },
+ "6d012c835f3dc991405f66e26972b431e281181d4e68551fdac26dd99630e7f7": {
+  "src": "neovim · :",
+  "vi": "Vào chế độ dòng lệnh (Command mode) để gõ các lệnh Ex",
+  "q": [
+   "chuyển sang command mode",
+   "mở thanh nhập ex command",
+   "nhập thao tác lưu hoặc thoát"
+  ]
+ },
+ "fe42f13972d2a4ce9826df4b4189b91da6576a42fa81149c8802b11a81e0d634": {
+  "src": "neovim · Esc / Ctrl+[",
+  "vi": "Quay trở lại chế độ Normal từ các chế độ khác",
+  "q": [
+   "quay lại normal mode",
+   "thoát chế độ chèn về normal",
+   "trở về chế độ bình thường"
+  ]
+ },
+ "b47757809fb18d4048b235e733c3a716ebb70f6caa9d12bb7b249690596ad4cd": {
+  "src": "neovim · R",
+  "vi": "Vào chế độ Replace để gõ đè từng ký tự lên văn bản",
+  "q": [
+   "bật chế độ gõ đè ký tự",
+   "vào replace mode ghi đè",
+   "thay thế ký tự liên tục"
+  ]
+ },
+ "a2de86bf3fc2ccd7cefe28ae82c1fa13c7b76445cc4961ea17d74a7c17fdfc77": {
+  "src": "neovim · h j k l",
+  "vi": "Di chuyển con trỏ sang trái, xuống dưới, lên trên hoặc sang phải",
+  "q": [
+   "di chuyển con trỏ bốn hướng",
+   "phím điều hướng cơ bản",
+   "chuyển con trỏ trái xuống lên phải"
+  ]
+ },
+ "3bec0467df7c0fd989c2e3965f37354adce95bf5b70172673066db38d208e97c": {
+  "src": "neovim · w / W",
+  "vi": "Nhảy con trỏ tới đầu từ tiếp theo phía trước",
+  "q": [
+   "nhảy tới đầu từ tiếp theo",
+   "chuyển con trỏ đến từ kế tiếp",
+   "di chuyển tới đầu word kế tiếp"
+  ]
+ },
+ "0f15d122d979ad5d9e3ca700489d78473050b55ec44b1380027383a11b2ee933": {
+  "src": "neovim · b / B",
+  "vi": "Lùi con trỏ về đầu từ phía trước",
+  "q": [
+   "lùi con trỏ về đầu từ trước",
+   "nhảy ngược lại từ phía trước",
+   "chuyển con trỏ về word trước đó"
+  ]
+ },
+ "da66e66096c17f282b6a845811844c1541de60680c37c936b8a614f39f9cd525": {
+  "src": "neovim · e / E",
+  "vi": "Di chuyển con trỏ tới cuối từ hiện tại hoặc tiếp theo",
+  "q": [
+   "nhảy tới chữ cái cuối của từ",
+   "chuyển con trỏ đến đuôi từ",
+   "di chuyển đến cuối word"
+  ]
+ },
+ "18970112f52772231045e3c0233c7a8bc31fd04b28b633a8a14ea7bb3bb6d567": {
+  "src": "neovim · 0 / ^",
+  "vi": "Nhảy về cột đầu dòng hoặc ký tự khác khoảng trắng đầu tiên",
+  "q": [
+   "về đầu dòng hoặc ký tự đầu tiên",
+   "nhảy con trỏ về vị trí đầu dòng",
+   "di chuyển tới ký tự đầu tiên không trống"
+  ]
+ },
+ "299c767c80537d4944fb1b5f8808fa968b48f46c76774786771ceeebb90b7499": {
+  "src": "neovim · $",
+  "vi": "Di chuyển con trỏ tới ký tự cuối cùng của dòng hiện tại",
+  "q": [
+   "nhảy tới cuối dòng hiện tại",
+   "chuyển con trỏ về đuôi dòng",
+   "di chuyển đến ký tự cuối dòng"
+  ]
+ },
+ "fe5874dfacdd2a270799b2574833bac70521b5ad92b4a0ea1151133607c76ac2": {
+  "src": "neovim · gg / G",
+  "vi": "Nhảy tới dòng đầu tiên hoặc dòng cuối cùng của tập tin",
+  "q": [
+   "nhảy lên đầu hoặc xuống cuối file",
+   "về dòng đầu tiên hoặc dòng cuối file",
+   "chuyển con trỏ tới đỉnh hoặc đáy tập tin"
+  ]
+ },
+ "1106f333fbf6914209bab00c8bcf1276a04e9836229e35d11d2ae6dd69f758d0": {
+  "src": "neovim · :{N}",
+  "vi": "Nhảy trực tiếp đến số dòng N cụ thể",
+  "q": [
+   "nhảy đến số dòng chỉ định",
+   "chuyển tới dòng N cụ thể",
+   "đi tới dòng theo số thứ tự"
+  ]
+ },
+ "09b438cc38e2d013b4e74aa1344c7b6013b1925a5e6ddc42cba165271a3285a1": {
+  "src": "neovim · %",
+  "vi": "Nhảy tới dấu ngoặc tương ứng đóng hoặc mở với dấu hiện tại",
+  "q": [
+   "nhảy đến dấu ngoặc tương ứng",
+   "tìm cặp dấu ngoặc đóng mở",
+   "chuyển con trỏ tới ngoặc đối ứng"
+  ]
+ },
+ "bc4014605579eccde8cb8bf038a5f6675e6bbfd84e16200b186de5805950aaca": {
+  "src": "neovim · { / }",
+  "vi": "Nhảy con trỏ tới đoạn văn (dòng trống) trước hoặc sau",
+  "q": [
+   "nhảy giữa các đoạn văn bản",
+   "chuyển tới dòng trống trước hoặc sau",
+   "di chuyển con trỏ qua từng paragraph"
+  ]
+ },
+ "0e0e97a380bdbdf79f6ee5181f882bb299b37af4f26b88200aae17c138ea697f": {
+  "src": "neovim · Ctrl+d / Ctrl+u",
+  "vi": "Cuộn màn hình xuống hoặc lên nửa trang",
+  "q": [
+   "cuộn màn hình nửa trang lên xuống",
+   "lướt trang xuống hoặc lên 50%",
+   "cuộn nửa màn hình"
+  ]
+ },
+ "34a77e9bd419a6fd9f0e0499cea982a5543d0f041201d69bd34c251325646c67": {
+  "src": "neovim · Ctrl+f / Ctrl+b",
+  "vi": "Cuộn màn hình tiến hoặc lùi toàn bộ một trang",
+  "q": [
+   "cuộn màn hình nguyên một trang",
+   "lướt trang đầy đủ lên xuống",
+   "chuyển trang toàn màn hình trước sau"
+  ]
+ },
+ "396e3b4833f3b357a3e1d4829b73fb8492721260b8d80f64badbf670462a1847": {
+  "src": "neovim · x",
+  "vi": "Xoá ký tự ngay tại vị trí con trỏ",
+  "q": [
+   "xoá ký tự dưới con trỏ",
+   "gỡ bỏ một chữ cái hiện tại",
+   "cắt ký tự đang đứng"
+  ]
+ },
+ "8cb8cb3d070f4a491cd9532e4d5d13f7b01cced71417dc378cc1193fd01c7319": {
+  "src": "neovim · dd",
+  "vi": "Xoá toàn bộ dòng hiện tại và lưu vào register",
+  "q": [
+   "xoá toàn bộ dòng hiện tại",
+   "cắt nguyên dòng đang đứng",
+   "gỡ bỏ dòng văn bản"
+  ]
+ },
+ "41bcc5994c2e445d2ccc936378ccd1b35fd2d60882e1ac3fc453949dc362712b": {
+  "src": "neovim · dw",
+  "vi": "Xoá từ vị trí con trỏ đến đầu từ tiếp theo",
+  "q": [
+   "xoá từ con trỏ tới từ tiếp theo",
+   "cắt một từ phía trước con trỏ",
+   "gỡ bỏ chữ hiện tại đến đầu chữ kế tiếp"
+  ]
+ },
+ "e23861588946c08eb03ad409e30089fbc5aaea9840b478d68d2b96065bf4dcfc": {
+  "src": "neovim · d$ / D",
+  "vi": "Xoá từ vị trí con trỏ đến hết dòng",
+  "q": [
+   "xoá từ con trỏ đến hết dòng",
+   "cắt phần còn lại của dòng",
+   "gỡ bỏ đoạn văn bản tới cuối dòng"
+  ]
+ },
+ "8f317fc18133dbf508619ed946e826157532cdd52549ad12967b9c40812e2b24": {
+  "src": "neovim · yy",
+  "vi": "Sao chép (yank/copy) toàn bộ dòng hiện tại vào register",
+  "q": [
+   "sao chép nguyên dòng hiện tại",
+   "copy cả dòng văn bản",
+   "yank toàn bộ một dòng"
+  ]
+ },
+ "eb53239c52dae5e88055df8a9ab198c672d189578d41076c8aeaff205c876924": {
+  "src": "neovim · Y",
+  "vi": "Sao chép từ con trỏ đến hết dòng",
+  "q": [
+   "sao chép từ con trỏ đến hết dòng",
+   "copy phần còn lại tới cuối dòng",
+   "yank văn bản từ con trỏ ra đuôi dòng"
+  ]
+ },
+ "7cb60102722b35b557739326b6a67352af79b917d8a3709e33a607caaf630a86": {
+  "src": "neovim · yw",
+  "vi": "Sao chép từ con trỏ tới đầu từ tiếp theo",
+  "q": [
+   "sao chép từ con trỏ đến từ kế tiếp",
+   "copy một từ hiện tại",
+   "yank từ vị trí hiện tại đến đầu chữ sau"
+  ]
+ },
+ "ff2a47723507379cc7bfe2a2b9fdc2f96a0c9278f9177b91ae4e74bc962185d0": {
+  "src": "neovim · p / P",
+  "vi": "Dán (paste) nội dung đã sao chép ra sau hoặc trước con trỏ",
+  "q": [
+   "dán nội dung sau hoặc trước con trỏ",
+   "paste văn bản vừa copy",
+   "chèn dữ liệu đã sao chép vào vị trí con trỏ"
+  ]
+ },
+ "15c8968139d95e4a4e4ed660d5dd20117d49fb1a41e323c15dd0a4ed2a8a5f3a": {
+  "src": "neovim · u",
+  "vi": "Hoàn tác (undo) thao tác chỉnh sửa gần nhất",
+  "q": [
+   "hoàn tác thao tác vừa sửa",
+   "undo thay đổi gần nhất",
+   "quay lại trạng thái trước khi sửa"
+  ]
+ },
+ "ab40ba9773d3dbe108c03e66c1f8f13fb26dbc68f68290d61351205ab69d27fc": {
+  "src": "neovim · Ctrl+r",
+  "vi": "Làm lại (redo) thao tác chỉnh sửa vừa hoàn tác",
+  "q": [
+   "làm lại thao tác vừa undo",
+   "redo thay đổi đã hoàn tác",
+   "khôi phục chỉnh sửa sau khi undo"
+  ]
+ },
+ "17ca84d52cc51d07062d7bef9d77b515bfb54edc76bfa55b43b2a3d2328a5ffa": {
+  "src": "neovim · cc / C",
+  "vi": "Xoá cả dòng hoặc tới hết dòng rồi vào chế độ chèn (Insert)",
+  "q": [
+   "xoá dòng và nhập nội dung mới",
+   "thay thế cả dòng hoặc tới cuối dòng",
+   "sửa lại nguyên dòng chuyển sang insert"
+  ]
+ },
+ "554f95ad2223c52e6f673226656e535defefdff46a70fca6517bc8f278f9c966": {
+  "src": "neovim · cw",
+  "vi": "Xoá từ con trỏ tới hết từ rồi chuyển sang chế độ Insert",
+  "q": [
+   "xoá từ và gõ lại từ mới",
+   "thay đổi nội dung từ hiện tại",
+   "sửa từ chuyển sang insert mode"
+  ]
+ },
+ "29a061847df09e39398d2835bab28cd9439c0705af5f6927e44ad3c407d237c8": {
+  "src": "neovim · r{char}",
+  "vi": "Thay thế ký tự dưới con trỏ bằng một ký tự khác",
+  "q": [
+   "thay thế một ký tự duy nhất",
+   "đổi ký tự dưới con trỏ",
+   "ghi đè một chữ cái giữ nguyên normal mode"
+  ]
+ },
+ "42021e1b8f9c0501fd3a8af97d97874263eba299fba8ed38eaf2f5a84cb84c16": {
+  "src": "neovim · ~",
+  "vi": "Chuyển đổi chữ hoa chữ thường của ký tự dưới con trỏ",
+  "q": [
+   "đổi chữ hoa thành chữ thường và ngược lại",
+   "chuyển hoa thường ký tự hiện tại",
+   "toggle case chữ cái dưới con trỏ"
+  ]
+ },
+ "12f7d6c90b3610343020ac7d2a96109367542dea69fd71d5151bcc5eba33b023": {
+  "src": "neovim · J",
+  "vi": "Nối dòng liền kề bên dưới vào cuối dòng hiện tại",
+  "q": [
+   "nối dòng dưới vào dòng hiện tại",
+   "ghép hai dòng thành một dòng",
+   "gộp dòng kế tiếp lên trên"
+  ]
+ },
+ "635f8331203084235d2fef9ecd8bb1095990027f89102554cc59f5211fc7d4ba": {
+  "src": "neovim · .",
+  "vi": "Lặp lại thao tác chỉnh sửa gần nhất",
+  "q": [
+   "lặp lại thao tác sửa gần nhất",
+   "thực hiện lại thay đổi trước đó",
+   "repeat hành động chỉnh sửa vừa làm"
+  ]
+ },
+ "3fff1e3e81a67a22789bcce9c7502f1ced34309c9cdd4e0946ed8a9554c185cf": {
+  "src": "neovim · iw / aw",
+  "vi": "Chọn bên trong (iw) hoặc bao gồm khoảng trắng quanh từ (aw)",
+  "q": [
+   "chọn trọn vẹn một từ kèm khoảng trắng",
+   "thao tác bên trong hoặc quanh từ",
+   "text object từ inner aw iw"
+  ]
+ },
+ "af7fdadb1368d8e0ad40f479e80b6ddfd47d97a51675ff146719ab94d0ce5543": {
+  "src": "neovim · is / as",
+  "vi": "Chọn bên trong (is) hoặc bao gồm toàn bộ câu (as)",
+  "q": [
+   "chọn một câu văn bản đầy đủ",
+   "thao tác bên trong hoặc bao quanh câu",
+   "text object câu văn sentence"
+  ]
+ },
+ "61e9b8f6b46e0fe9de94a629d41ae4796081fbb24057f13337cbfc09ea1db40e": {
+  "src": "neovim · ip / ap",
+  "vi": "Chọn bên trong (ip) hoặc toàn bộ đoạn văn (ap)",
+  "q": [
+   "chọn trọn vẹn một đoạn văn",
+   "thao tác cả khối đoạn văn bản",
+   "text object paragraph đoạn văn"
+  ]
+ },
+ "ca77ffb39e1b858320de7004925d565fbfa1c9aa0eb2cbd10e3d2e9730b23ac9": {
+  "src": "neovim · i\" / a\"",
+  "vi": "Chọn văn bản bên trong hoặc bao gồm cả cặp dấu ngoặc kép",
+  "q": [
+   "chọn nội dung trong dấu ngoặc kép",
+   "chọn văn bản bao gồm cả ngoặc kép",
+   "thao tác khối chữ giữa hai dấu ngoặc kép"
+  ]
+ },
+ "7031064e23dd371e9732212f1510aa6a6ba6ea9993c61b16e8cf74be0900015f": {
+  "src": "neovim · i' / a'",
+  "vi": "Chọn văn bản bên trong hoặc bao gồm cả cặp dấu nháy đơn",
+  "q": [
+   "chọn nội dung trong dấu nháy đơn",
+   "chọn văn bản bao gồm cả nháy đơn",
+   "thao tác khối chữ kẹp giữa nháy đơn"
+  ]
+ },
+ "a7c3513e73734c001943ee5fca620af4e643884e08e1a04b32a83b50e830a4ea": {
+  "src": "neovim · i` / a`",
+  "vi": "Chọn văn bản bên trong hoặc bao gồm cả cặp dấu backtick",
+  "q": [
+   "chọn nội dung bên trong cặp backtick",
+   "chọn văn bản kẹp giữa dấu backtick",
+   "thao tác chuỗi nằm trong dấu phẩy ngược"
+  ]
+ },
+ "85dccbc4997a9c032cdf8d0625da03f6b19a7da5c8121ae4a61574b64a4f091b": {
+  "src": "neovim · i( / a(",
+  "vi": "Chọn văn bản bên trong hoặc bao gồm cả cặp dấu ngoặc tròn",
+  "q": [
+   "chọn nội dung trong dấu ngoặc tròn",
+   "chọn văn bản bao gồm cả ngoặc tròn",
+   "thao tác khối chữ kẹp giữa ngoặc tròn"
+  ]
+ },
+ "cc1719699e912c8db4df3cd01886b52f522b181eb2f59bfbc20d8cb6f63e00f0": {
+  "src": "neovim · i[ / a[",
+  "vi": "Chọn văn bản bên trong hoặc bao gồm cả cặp dấu ngoặc vuông",
+  "q": [
+   "chọn nội dung trong dấu ngoặc vuông",
+   "chọn văn bản bao gồm cả ngoặc vuông",
+   "thao tác khối chữ kẹp giữa ngoặc vuông"
+  ]
+ },
+ "2cceea5304d31fb063aa9e34585268fbc4346cf88f1000b0f32fd0d2efc87d78": {
+  "src": "neovim · i{ / a{",
+  "vi": "Chọn văn bản bên trong hoặc bao gồm cả cặp ngoặc nhọn.",
+  "q": [
+   "chọn nội dung bên trong ngoặc nhọn",
+   "bôi đen cả cặp ngoặc nhọn",
+   "thao tác văn bản trong ngoặc nhọn"
+  ]
+ },
+ "16819df706c961e76517ed02ab02f54b4faf1b0b13b9ffabd5c4189779190f36": {
+  "src": "neovim · it / at",
+  "vi": "Chọn văn bản bên trong hoặc bao gồm cả thẻ HTML/XML.",
+  "q": [
+   "chọn nội dung bên trong thẻ html",
+   "bôi đen cả thẻ xml",
+   "thao tác văn bản trong cặp tag"
+  ]
+ },
+ "1422bfe08a08f1e16de389401b7a5a292d6a95d6cbef84b8e4cfbc07a4bc40c2": {
+  "src": "neovim · /pattern",
+  "vi": "Tìm kiếm xuôi từ vị trí con trỏ tới cuối tệp.",
+  "q": [
+   "tìm kiếm xuôi xuống cuối file",
+   "tìm từ khóa theo chiều xuôi",
+   "tra cứu chuỗi hướng xuống dưới"
+  ]
+ },
+ "34e9d960a890898a4a0c1f7f8a619f3d2856c84f9e332e63a653c0009556159f": {
+  "src": "neovim · ?pattern",
+  "vi": "Tìm kiếm ngược từ vị trí con trỏ về đầu tệp.",
+  "q": [
+   "tìm kiếm ngược lên đầu file",
+   "tìm từ khóa theo chiều ngược",
+   "tra cứu chuỗi hướng lên trên"
+  ]
+ },
+ "aafad04ef249d388e7e0abd59e60b227c59865e37759e90d6df7e18416f12875": {
+  "src": "neovim · n / N",
+  "vi": "Nhảy tới kết quả tìm kiếm tiếp theo hoặc trước đó.",
+  "q": [
+   "chuyển tới kết quả tìm kiếm tiếp theo",
+   "nhảy về kết quả tìm kiếm trước",
+   "duyệt qua các vị trí khớp tìm kiếm"
+  ]
+ },
+ "b1612e29fcbe8cac0c1f55775650d768d0f9e1acdd9bae42b316a7ebf4dead7a": {
+  "src": "neovim · *",
+  "vi": "Tìm kiếm xuôi theo đúng từ tại vị trí con trỏ.",
+  "q": [
+   "tìm xuôi từ ngay tại con trỏ",
+   "tìm kiếm từ dưới con trỏ hướng xuống",
+   "tra cứu xuôi từ đang trỏ"
+  ]
+ },
+ "18310ef95766ec1998de743d7f6589f7e79dfe977e013713a72016ee10ba51b9": {
+  "src": "neovim · #",
+  "vi": "Tìm kiếm ngược theo đúng từ tại vị trí con trỏ.",
+  "q": [
+   "tìm ngược từ ngay tại con trỏ",
+   "tìm kiếm từ dưới con trỏ hướng lên",
+   "tra cứu ngược từ đang trỏ"
+  ]
+ },
+ "830a8a763730099c2b9c832eb96e4d8135d0be9d22eb99a93ba1ffeb25b28616": {
+  "src": "neovim · :s/old/new/",
+  "vi": "Thay thế vị trí khớp đầu tiên trên dòng hiện tại.",
+  "q": [
+   "thay thế từ đầu tiên trên dòng",
+   "đổi chuỗi khớp đầu tiên trong dòng",
+   "thay thế lần xuất hiện đầu trên một dòng"
+  ]
+ },
+ "71217fccec578c993f6d464bd30a2cf419b121269adeac990be1556b9c0df4d8": {
+  "src": "neovim · :s/old/new/g",
+  "vi": "Thay thế tất cả các vị trí khớp trên dòng hiện tại.",
+  "q": [
+   "thay thế toàn bộ trên một dòng",
+   "đổi tất cả chuỗi khớp trong dòng hiện tại",
+   "thay thế hết các từ trên cùng dòng"
+  ]
+ },
+ "31ea51bd7cc85072d18974b402536872c2e46b81cc38a711c2f02b673ef863a4": {
+  "src": "neovim · :%s/old/new/g",
+  "vi": "Thay thế toàn bộ chuỗi khớp trong toàn bộ file không hỏi xác nhận.",
+  "q": [
+   "thay thế tất cả trong toàn bộ file",
+   "đổi từ hàng loạt toàn file không hỏi",
+   "tìm và thay thế toàn bộ văn bản"
+  ]
+ },
+ "361633c94f35b0a8865f692ef590b2f471811823922e0b92330358dd8af4f053": {
+  "src": "neovim · :%s/old/new/gc",
+  "vi": "Thay thế toàn bộ trong file kèm hỏi xác nhận từng vị trí.",
+  "q": [
+   "thay thế toàn file có hỏi xác nhận",
+   "tìm và thay thế từng vị trí có hỏi trước",
+   "đổi từ toàn bộ file cần confirm từng chỗ"
+  ]
+ },
+ "676e37228beac900b67a7647c5681783ee14e127fbdf1ef0f696ac4e5263b363": {
+  "src": "neovim · :noh",
+  "vi": "Tắt đánh dấu (highlight) kết quả tìm kiếm trên màn hình.",
+  "q": [
+   "tắt highlight tìm kiếm",
+   "xóa vệt sáng tô màu từ khóa",
+   "bỏ bôi sáng kết quả search"
+  ]
+ },
+ "d452041ef31e6c78d301781279fc47ca32ccaa0ad0e1c5d7c1b9800502f12f14": {
+  "src": "neovim · :sp / :vsp",
+  "vi": "Chia đôi cửa sổ theo chiều ngang (:sp) hoặc chiều dọc (:vsp).",
+  "q": [
+   "chia đôi màn hình ngang hoặc dọc",
+   "tách cửa sổ theo chiều ngang và dọc",
+   "mở split window ngang hoặc dọc"
+  ]
+ },
+ "76ccda9d2e196983c42b35462a9cf83e9658ecff8372b6b8169915addca2bb42": {
+  "src": "neovim · Ctrl+w s",
+  "vi": "Chia đôi cửa sổ hiện tại theo chiều ngang.",
+  "q": [
+   "phím tắt chia đôi cửa sổ ngang",
+   "tách màn hình theo chiều ngang",
+   "chia split ngang bằng phím tắt"
+  ]
+ },
+ "ded7d708c7d2e0cd39281c18c2f35973e2d8ed238e86ba3b8ca6b75fa1c31997": {
+  "src": "neovim · Ctrl+w v",
+  "vi": "Chia đôi cửa sổ hiện tại theo chiều dọc.",
+  "q": [
+   "phím tắt chia đôi cửa sổ dọc",
+   "tách màn hình theo chiều dọc",
+   "chia split dọc bằng phím tắt"
+  ]
+ },
+ "c8d0f9e931681d4192c235cd6da70c33ef109cae704e00cc985708e9dd8b24fc": {
+  "src": "neovim · Ctrl+w h/j/k/l",
+  "vi": "Di chuyển tiêu điểm con trỏ giữa các cửa sổ chia tách.",
+  "q": [
+   "chuyển con trỏ qua lại giữa các split",
+   "di chuyển focus sang cửa sổ bên cạnh",
+   "chuyển vùng chọn giữa các ô cửa sổ"
+  ]
+ },
+ "a1c753f898c3e6116f0f669b6cd11e93d41a819478ac917814c74b5fd2247e88": {
+  "src": "neovim · Ctrl+w H/J/K/L",
+  "vi": "Di chuyển cửa sổ chia tách hiện tại ra mép ngoài cùng.",
+  "q": [
+   "chuyển cửa sổ chia tách ra sát mép",
+   "kéo split window về biên ngoài cùng",
+   "dời khung cửa sổ ra sát viền màn hình"
+  ]
+ },
+ "5f0d30e78d1696c0c5feb69e3c46aa9842c646cd12eed1e420f377bbd1aac6d7": {
+  "src": "neovim · Ctrl+w =",
+  "vi": "Căn đều kích thước các cửa sổ chia tách đang mở.",
+  "q": [
+   "căn đều kích thước các split",
+   "chỉnh các cửa sổ chia tách bằng nhau",
+   "chia đều kích thước màn hình đang tách"
+  ]
+ },
+ "138ffba2cc60594f1b80466bf015176779252096d8fe69bdd3889a96114c2517": {
+  "src": "neovim · Ctrl+w _ / |",
+  "vi": "Phóng to tối đa chiều cao (_) hoặc chiều rộng (|) của cửa sổ.",
+  "q": [
+   "phóng to cực đại chiều cao hoặc rộng split",
+   "tăng tối đa kích thước cửa sổ chia tách",
+   "mở rộng hết cỡ split đang chọn"
+  ]
+ },
+ "34c39cdcfd7bbf2478546997217ed6b163ae7b76711dc0197cd790bdf6a9c5b4": {
+  "src": "neovim · Ctrl+w +/-",
+  "vi": "Tăng (+) hoặc giảm (-) chiều cao của cửa sổ chia tách.",
+  "q": [
+   "tăng giảm chiều cao cửa sổ split",
+   "thay đổi kích thước chiều dọc khung chia tách",
+   "chỉnh chiều cao ô cửa sổ hiện tại"
+  ]
+ },
+ "3585bcf3f1c547e0486b1240979da4b6ce258bc41a39168bd27718e01d053119": {
+  "src": "neovim · Ctrl+w q",
+  "vi": "Đóng cửa sổ chia tách hiện tại.",
+  "q": [
+   "đóng cửa sổ split hiện tại",
+   "tắt ô màn hình đang chọn",
+   "thoát khỏi khung chia tách hiện tại"
+  ]
+ },
+ "c41f299f2fe6594805df39e740431ec5475567df0398e254eb778ab2fa48b71c": {
+  "src": "neovim · Ctrl+w o",
+  "vi": "Đóng tất cả các cửa sổ chia tách khác, chỉ giữ lại cửa sổ hiện tại.",
+  "q": [
+   "đóng tất cả các split khác",
+   "chỉ giữ lại cửa sổ chia tách hiện tại",
+   "tắt toàn bộ khung màn hình trừ ô đang chọn"
+  ]
+ },
+ "dc111a2022f03eb5083e73fee428fd16045bafc7e3e77153bcdd618a1be6f6eb": {
+  "src": "neovim · :tabnew",
+  "vi": "Mở một tab trống mới.",
+  "q": [
+   "mở tab trống mới",
+   "tạo trang tab mới",
+   "thêm một tab rỗng"
+  ]
+ },
+ "89c6eb0dc226966fdf5b585866051d6e5724bddd90ad9fbcbc66b72f592c9a01": {
+  "src": "neovim · :tabnew {file}",
+  "vi": "Mở tệp chỉ định trong một tab mới.",
+  "q": [
+   "mở file trong tab mới",
+   "mở tệp tin sang trang tab riêng",
+   "load file vào một tab mới"
+  ]
+ },
+ "3020970df0a1793492862b5bc6cbeaa535580835062cf6704a43be59e34ae12e": {
+  "src": "neovim · gt / gT",
+  "vi": "Chuyển sang tab kế tiếp (gt) hoặc tab trước đó (gT).",
+  "q": [
+   "phím tắt chuyển tab tới hoặc lùi",
+   "nhảy sang tab kế tiếp hoặc tab trước",
+   "chuyển qua lại các tab bằng phím"
+  ]
+ },
+ "d4045d3da611c3b1c9bde6a088ecfe344e43305a3a77537350b653d05506fe3c": {
+  "src": "neovim · :tabn / :tabp",
+  "vi": "Chuyển sang tab kế tiếp (:tabn) hoặc tab trước đó (:tabp).",
+  "q": [
+   "đi tới tab sau hoặc tab trước đó",
+   "chuyển sang tab kế tiếp hoặc tab trước",
+   "duyệt qua tab tiếp theo và tab trước"
+  ]
+ },
+ "e030f6f0b6efe717e1915533e11c4ecc1bf1189d75d1d8b0180987732a14c764": {
+  "src": "neovim · :tabclose",
+  "vi": "Đóng trang tab hiện tại (buffer chưa lưu chuyển sang dạng ẩn).",
+  "q": [
+   "đóng tab hiện tại",
+   "tắt trang tab đang mở",
+   "thoát tab đang làm việc"
+  ]
+ },
+ "2f4ca349145d820af768a50910f5576ecd0d7a64bec5f93115804739ab411f85": {
+  "src": "neovim · :tabonly",
+  "vi": "Đóng tất cả các tab khác, chỉ giữ lại tab hiện tại.",
+  "q": [
+   "đóng tất cả các tab khác",
+   "chỉ giữ lại tab đang xem",
+   "tắt các trang tab còn lại"
+  ]
+ },
+ "bf2163bcb7eb7826e9e365cd83a90c4c9724c7e60096cdf92c70a7b638ea2f81": {
+  "src": "neovim · {N}gt",
+  "vi": "Nhảy trực tiếp đến tab có số thứ tự {N}.",
+  "q": [
+   "chuyển nhanh đến tab số N",
+   "nhảy tới tab theo số thứ tự",
+   "mở thẳng tab có số hiệu chỉ định"
+  ]
+ },
+ "c5b806ebac246d1c81266dabaa621a291b41219dd5217403e1cfeb7c62d01e99": {
+  "src": "neovim · :e {file}",
+  "vi": "Mở tệp {file} để chỉnh sửa hoặc tạo buffer mới nếu chưa có.",
+  "q": [
+   "mở file để chỉnh sửa",
+   "tạo buffer chỉnh sửa tệp mới",
+   "load tệp tin vào để sửa"
+  ]
+ },
+ "2b1ce96abd1008a1d993550a7a65e5d88622305be9a1f4d10375108da2731933": {
+  "src": "neovim · :w",
+  "vi": "Lưu (save) nội dung buffer hiện tại vào ổ đĩa.",
+  "q": [
+   "lưu nội dung file đang mở",
+   "ghi buffer hiện tại vào đĩa",
+   "save tệp tin đang chỉnh sửa"
+  ]
+ },
+ "c17ab4fac8389d887433c13b62a59eec489619cfc51773953ea99181ee056790": {
+  "src": "neovim · :w {file}",
+  "vi": "Ghi bản sao buffer ra tệp mới {file} mà không đổi tên buffer.",
+  "q": [
+   "ghi bản sao buffer ra file mới",
+   "lưu bản copy sang tệp khác",
+   "xuất nội dung hiện tại ra file mới"
+  ]
+ },
+ "136f08f9d02b1b3ac765b5a869bbea072a603dfc35cf6a5579d470d088f5b1ca": {
+  "src": "neovim · :w ++p",
+  "vi": "Lưu tệp và tự động tạo thư mục cha nếu chưa tồn tại.",
+  "q": [
+   "lưu file tự tạo thư mục cha",
+   "ghi tệp tự tạo folder cha nếu thiếu",
+   "save file kèm tạo thư mục đường dẫn"
+  ]
+ },
+ "b5ed0f80d76819465a1f6da20942f8c3d805011639398f2d53e87cdafdd80868": {
+  "src": "neovim · :wq / :x",
+  "vi": "Lưu file và thoát khỏi cửa sổ hiện tại.",
+  "q": [
+   "lưu thay đổi và thoát",
+   "ghi file rồi đóng cửa sổ",
+   "save và quit ra ngoài"
+  ]
+ },
+ "628557d84d08329539be799872ac256ad7d6f88b37cfd7e815ba50a0ad7ce06f": {
+  "src": "neovim · :q",
+  "vi": "Thoát khỏi cửa sổ hiện tại nếu không có thay đổi chưa lưu.",
+  "q": [
+   "thoát cửa sổ hiện tại",
+   "đóng màn hình soạn thảo",
+   "quit cửa sổ đang làm việc"
+  ]
+ },
+ "18652bccb5b8c4ac4bf072d12f46fed64fdf610df462a5fc9a8451c8d489028a": {
+  "src": "neovim · :q!",
+  "vi": "Buộc thoát mà không lưu, hủy bỏ mọi thay đổi chưa lưu.",
+  "q": [
+   "thoát không lưu thay đổi",
+   "buộc thoát hủy bỏ các sửa đổi",
+   "force quit không ghi lại file"
+  ]
+ },
+ "cc5453733d265ada6cc0b3f7aacc8455385d15c65066969f8bbaef70bdb8470d": {
+  "src": "neovim · :wqa",
+  "vi": "Lưu tất cả các buffer đang mở và thoát hoàn toàn.",
+  "q": [
+   "lưu tất cả buffer rồi thoát hoàn toàn",
+   "ghi toàn bộ tệp và đóng ứng dụng",
+   "save all rồi quit hết"
+  ]
+ },
+ "44939722ccea9aa770c13490dc4fa0f8c07117902bbd12780ee82021b6117311": {
+  "src": "neovim · :ls / :buffers",
+  "vi": "Liệt kê danh sách tất cả các buffer đang mở kèm trạng thái.",
+  "q": [
+   "liệt kê danh sách buffer đang mở",
+   "xem các buffer hiện có và trạng thái",
+   "hiển thị danh sách tệp đệm đang mở"
+  ]
+ },
+ "5e8ab51b0102fa41e68a3c813c4ec4572ddda439b5cb7c48e7d37ee46ad540d4": {
+  "src": "neovim · :bn / :bp",
+  "vi": "Chuyển sang buffer kế tiếp (:bn) hoặc buffer trước đó (:bp).",
+  "q": [
+   "chuyển sang buffer tiếp theo hoặc trước đó",
+   "nhảy qua lại giữa các buffer trong danh sách",
+   "duyệt tới buffer sau và buffer trước"
+  ]
+ },
+ "f83d25daa1d7ae1da861d182818d09aadf942380317499627130ace7395f6fc6": {
+  "src": "neovim · :bd",
+  "vi": "Xoá (đóng) buffer hiện tại khỏi danh sách buffer.",
+  "q": [
+   "xóa buffer hiện tại khỏi danh sách",
+   "đóng buffer đang làm việc",
+   "gỡ bỏ buffer đang mở"
+  ]
+ },
+ "6f6697445f35b1a6f4e8b5ff414396ff651d2e04365714979468cc748bba3575": {
+  "src": "neovim · :b {N}",
+  "vi": "Chuyển sang buffer theo số thứ tự N",
+  "q": [
+   "chuyển đến buffer theo số",
+   "mở buffer bằng số thứ tự",
+   "nhảy tới buffer chỉ định N"
+  ]
+ },
+ "f5686fddce2ef8b26b2af3ff9fbc630962be69f69f739296da90210130437e00": {
+  "src": "neovim · Ctrl+^",
+  "vi": "Chuyển đổi qua lại giữa hai buffer gần nhất",
+  "q": [
+   "chuyển qua lại hai buffer gần nhất",
+   "đổi giữa buffer hiện tại và trước đó",
+   "quay về buffer vừa xem"
+  ]
+ },
+ "4a3e4be450e9da9d6af548e50e2ecfa86228ea98a906bdf5f1609ce7396eb361": {
+  "src": "neovim · m{a-z}",
+  "vi": "Đặt đánh dấu (mark) cục bộ trong file hiện tại",
+  "q": [
+   "đặt mark cục bộ trong file",
+   "tạo đánh dấu ký tự thường",
+   "gán mốc vị trí nội bộ file"
+  ]
+ },
+ "48a6b17ecc529afb0b982c22fe5fb58502dea016656a5fd4d35902ac775d2134": {
+  "src": "neovim · m{A-Z}",
+  "vi": "Đặt đánh dấu (mark) toàn cục giữa các file",
+  "q": [
+   "đặt mark toàn cục giữa các file",
+   "tạo đánh dấu chữ hoa toàn hệ thống",
+   "gán mốc nhảy qua lại nhiều file"
+  ]
+ },
+ "bbc08328b7febbbdd4abe81cae5b61c0a3275932787cdc135af3c508e9f96700": {
+  "src": "neovim · '{mark}",
+  "vi": "Nhảy đến đầu dòng chứa điểm đánh dấu (mark)",
+  "q": [
+   "nhảy đến dòng chứa mark",
+   "di chuyển tới đầu dòng có đánh dấu",
+   "về dòng gắn mốc vị trí"
+  ]
+ },
+ "e40f9c3025215f7c2cc1df510e8c5c072c115ce341edc2e511c5e9f02f6e6691": {
+  "src": "neovim · `{mark}",
+  "vi": "Nhảy chính xác đến vị trí dòng và cột của mark",
+  "q": [
+   "nhảy chính xác vị trí mark",
+   "tới đúng dòng và cột đã đánh dấu",
+   "di chuyển đến toạ độ điểm gắn mốc"
+  ]
+ },
+ "a55ddc2609fd9a8206ce1c8285f54bf14d7d9f37bd06a9150b1c4e2a673237ba": {
+  "src": "neovim · ''",
+  "vi": "Nhảy về dòng ở vị trí trước lần nhảy gần nhất",
+  "q": [
+   "nhảy về dòng trước lần nhảy gần nhất",
+   "quay lại vị trí trước khi jump",
+   "trở về dòng thao tác trước đó"
+  ]
+ },
+ "0d226dee2123eccb3a6b8fa873b8ff3ff66cd71a768ba92600b6b52376fe977f": {
+  "src": "neovim · Ctrl+o / Ctrl+i",
+  "vi": "Nhảy lùi hoặc tiến trong lịch sử các vị trí con trỏ",
+  "q": [
+   "nhảy lùi tiến trong lịch sử con trỏ",
+   "quay lại hoặc đi tới trong jump list",
+   "di chuyển qua lại danh sách vị trí đã nhảy"
+  ]
+ },
+ "676d737dc90a6dd6013262aa07c49a058a3d705957b9c637548d2e53e0dd0ff1": {
+  "src": "neovim · :marks",
+  "vi": "Hiển thị danh sách tất cả các điểm đánh dấu (mark)",
+  "q": [
+   "xem danh sách tất cả mark",
+   "hiển thị các điểm đánh dấu đang có",
+   "liệt kê vị trí mark hiện tại"
+  ]
+ },
+ "0a908e40effe308ac11df7cdcefb40cf1034e657289b380d8807c86f02ed4c44": {
+  "src": "neovim · q{a-z}",
+  "vi": "Bắt đầu ghi macro vào register chỉ định",
+  "q": [
+   "bắt đầu ghi macro vào thanh ghi",
+   "thu lại thao tác phím vào register",
+   "record macro ký tự a đến z"
+  ]
+ },
+ "36e174e2c74961576486d7b6cc2937b5a73084622ba44cf95e16189fd4524c82": {
+  "src": "neovim · q",
+  "vi": "Dừng ghi macro đang thu",
+  "q": [
+   "dừng ghi macro",
+   "kết thúc thu thao tác macro",
+   "ngừng record macro đang chạy"
+  ]
+ },
+ "d3f8c05d966fee14ed8b05d107230e70f5b44f673969097ed2251d8f15d23df3": {
+  "src": "neovim · @{a-z}",
+  "vi": "Chạy macro lưu trong register chỉ định",
+  "q": [
+   "chạy macro trong register",
+   "phát lại macro từ thanh ghi",
+   "thực thi thao tác đã ghi theo tên"
+  ]
+ },
+ "cf7e8637dc2c7d73b2281b60b41d02e6a4e974c18f6f00084d48a5f9955d8ce6": {
+  "src": "neovim · @@",
+  "vi": "Lặp lại macro vừa chạy gần nhất",
+  "q": [
+   "chạy lại macro gần nhất",
+   "lặp lại macro vừa thực thi",
+   "phát lại macro trước đó một lần nữa"
+  ]
+ },
+ "4f13e0348c165aff60287e250dc33a1233e32875b3f72ad6333bd0b6d4f45255": {
+  "src": "neovim · {N}@{a-z}",
+  "vi": "Thực thi macro lặp lại N lần liên tiếp",
+  "q": [
+   "chạy macro N lần liên tiếp",
+   "lặp lại thao tác macro nhiều lần",
+   "thực thi macro theo số lần chỉ định"
+  ]
+ },
+ "e407275814618f846bfeb8a391aa57b5a44718212cd29c64b1dc55e9948bfc6e": {
+  "src": "neovim · :reg",
+  "vi": "Xem nội dung tất cả các register và macro",
+  "q": [
+   "xem nội dung tất cả register",
+   "hiển thị danh sách thanh ghi và macro",
+   "kiểm tra dữ liệu trong các register"
+  ]
+ },
+ "2ba62b67a4115262bb657fcfe3769a30b9e99f26764d00016db45d3c7ffedea5": {
+  "src": "neovim · v + motion",
+  "vi": "Bật Visual mode để chọn văn bản theo từng ký tự",
+  "q": [
+   "chọn văn bản theo từng ký tự",
+   "bôi đen ký tự bằng visual mode",
+   "quét chọn ký tự theo chuyển động con trỏ"
+  ]
+ },
+ "fde014aea9480b7ae890895e95c648ea4f0d7fd178c0bf64d910fe74cdb832da": {
+  "src": "neovim · V + motion",
+  "vi": "Bật Visual Line mode để chọn toàn bộ các dòng",
+  "q": [
+   "chọn bôi đen cả dòng",
+   "quét chọn toàn bộ nhiều dòng văn bản",
+   "bật visual line chọn theo dòng"
+  ]
+ },
+ "3df8e4b8653d07c9e2b5628fb04163ff9223537008da0600beddf55c0d5e1dca": {
+  "src": "neovim · Ctrl+v + motion",
+  "vi": "Bật Visual Block mode để chọn khối văn bản dạng cột",
+  "q": [
+   "chọn khối chữ hình chữ nhật",
+   "bôi đen văn bản theo cột dọc",
+   "bật visual block chọn khối"
+  ]
+ },
+ "8b6484a67e4d5b9264c3fdf033cf3334c00b465c8e22c13d0c3b9cdceafe3fec": {
+  "src": "neovim · d / x",
+  "vi": "Xoá phần văn bản đang được bôi đen",
+  "q": [
+   "xoá vùng văn bản đang chọn",
+   "cắt khối chữ đang bôi đen",
+   "gỡ bỏ phần lựa chọn trong visual mode"
+  ]
+ },
+ "9a585ef4a0d062c1294fef64864442858b3647c4eba72cf49371eaa6df8022ea": {
+  "src": "neovim · y",
+  "vi": "Sao chép (yank/copy) phần văn bản đang chọn",
+  "q": [
+   "sao chép vùng văn bản đang chọn",
+   "copy phần bôi đen vào register",
+   "yank khối chữ đang chọn"
+  ]
+ },
+ "96fdcc12229476173d89cf052f705ae59a122f7daebe9d4771f4bd9b424b1a57": {
+  "src": "neovim · c",
+  "vi": "Xoá vùng chọn và chuyển sang Insert mode để thay thế",
+  "q": [
+   "thay thế vùng văn bản đang bôi đen",
+   "xoá khối đang chọn để gõ nội dung mới",
+   "đổi vùng chọn sang insert mode"
+  ]
+ },
+ "c143d4046cc01876ba0dc703b9b1d10304682ff528b622e4d36cad2578cb7e40": {
+  "src": "neovim · > / <",
+  "vi": "Thụt dòng sang phải hoặc lùi dòng sang trái cho vùng chọn",
+  "q": [
+   "thụt đầu dòng vùng đang chọn",
+   "lùi lề trái hoặc thụt lề phải khối bôi đen",
+   "tăng giảm thụt lề cho vùng chọn"
+  ]
+ },
+ "eaf10b85fad19b430c33062b73138b575ea187ea962d00d421bf0bdfc4bb7de0": {
+  "src": "neovim · u / U",
+  "vi": "Chuyển đổi vùng chọn thành chữ thường hoặc chữ hoa",
+  "q": [
+   "chuyển vùng chọn thành chữ hoa hoặc thường",
+   "đổi chữ bôi đen sang in hoa in thường",
+   "viết hoa hoặc viết thường khối văn bản"
+  ]
+ },
+ "e3b6abe8a5167266855fb64123f1c3d7056579c36c70646b1509de918ccd569f": {
+  "src": "neovim · :",
+  "vi": "Mở dòng lệnh áp dụng cho phạm vi vùng đang chọn",
+  "q": [
+   "thực thi trên vùng chọn",
+   "áp dụng thao tác lên khối bôi đen",
+   "chạy bộ lọc trên phạm vi đang chọn"
+  ]
+ },
+ "a41b9bc32f99fe440c27be9d3aca21fc10622a2e89fa467e7484c7949173b7a6": {
+  "src": "neovim · gv",
+  "vi": "Bôi đen lại vùng chọn Visual mode gần nhất",
+  "q": [
+   "chọn lại vùng bôi đen trước đó",
+   "khôi phục phạm vi visual mode vừa chọn",
+   "reselect lại khối chữ đã chọn"
+  ]
+ },
+ "48ed2b90b4c19f2ebd2e15f4a638067dfce16c865154d43788b7498265108615": {
+  "src": "neovim · zc / zo",
+  "vi": "Đóng (zc) hoặc mở (zo) nếp gấp mã tại con trỏ",
+  "q": [
+   "đóng hoặc mở nếp gấp code tại con trỏ",
+   "thu gọn hoặc bung một fold hiện tại",
+   "xổ ra hoặc xếp gọn nếp gấp dòng"
+  ]
+ },
+ "72dff49001738dbcef46dade3aef216504b3b3f82139243b222d412818994366": {
+  "src": "neovim · za",
+  "vi": "Bật/tắt trạng thái đóng mở nếp gấp (fold) tại con trỏ",
+  "q": [
+   "bật tắt đóng mở nếp gấp code",
+   "chuyển đổi thu gọn hoặc bung fold",
+   "toggle fold tại vị trí con trỏ"
+  ]
+ },
+ "5a718d44f3744b99addcd1ae5344a8fab135a131431aad6144443b6cbc5c97e9": {
+  "src": "neovim · zC / zO",
+  "vi": "Đóng hoặc mở đệ quy tất cả nếp gấp lồng nhau tại con trỏ",
+  "q": [
+   "đóng mở tất cả nếp gấp lồng nhau tại con trỏ",
+   "thu gọn hoặc bung đệ quy các fold lồng nhau",
+   "mở hết hoặc đóng hết cấp fold lồng nhau"
+  ]
+ },
+ "44857194f584cc69c2211adc6e9143ad8cbbeec491913b639d5afcf4c82a48db": {
+  "src": "neovim · zM / zR",
+  "vi": "Đóng tất cả (zM) hoặc mở tất cả (zR) nếp gấp trong file",
+  "q": [
+   "thu gọn tất cả hoặc bung toàn bộ fold trong file",
+   "đóng hết hoặc mở hết mọi nếp gấp code",
+   "xếp gọn toàn bộ khối code trong tập tin"
+  ]
+ },
+ "ba1e0f2416329a0f9bf473a1b4d20274491f583bb162bef6427c44f249054bca": {
+  "src": "neovim · zf{motion}",
+  "vi": "Tạo nếp gấp code (fold) thủ công theo phạm vi chuyển động",
+  "q": [
+   "tạo nếp gấp code thủ công theo phạm vi",
+   "gấp khối dòng theo motion",
+   "tạo fold mới bằng tay"
+  ]
+ },
+ "80d4f8250cec8ac0c9b7b4930fda5f688efb5f7e1c45540b554c2613507bc151": {
+  "src": "neovim · zd",
+  "vi": "Xoá nếp gấp (fold) thủ công tại vị trí con trỏ",
+  "q": [
+   "xoá nếp gấp code tại con trỏ",
+   "huỷ fold thủ công đang đứng",
+   "gỡ bỏ nếp gấp marker hiện tại"
+  ]
+ },
+ "31d745d7048531225e90347accf8ee3b12c33507af3195253b52f6c7c3d67c47": {
+  "src": "neovim · zj / zk",
+  "vi": "Di chuyển con trỏ đến nếp gấp (fold) kế tiếp hoặc phía trước",
+  "q": [
+   "nhảy đến nếp gấp tiếp theo hoặc phía trước",
+   "di chuyển con trỏ giữa các fold",
+   "tới đầu fold kế tiếp hoặc cuối fold trước"
+  ]
+ },
+ "0a9ba2958d5c1d485e83679186cd90fc2290ca163a8b8f4a917b6a61fd571ca7": {
+  "src": "neovim · :checkhealth",
+  "vi": "Kiểm tra trạng thái sức khoẻ hệ thống, plugin và LSP",
+  "q": [
+   "kiểm tra sức khoẻ hệ thống và plugin",
+   "chẩn đoán lỗi cấu hình môi trường",
+   "xem trạng thái hoạt động của lsp và dependencies"
+  ]
+ },
+ "4385a28ae9c496bc452acd0b636b909c937e293158357361497c60483e3b0e78": {
+  "src": "neovim · :terminal",
+  "vi": "Mở cửa sổ terminal tích hợp trong buffer mới",
+  "q": [
+   "mở cửa sổ terminal tích hợp",
+   "bật shell dòng lệnh trong buffer",
+   "khởi chạy terminal nội bộ"
+  ]
+ },
+ "be6efcaaa83d1a0b3de47ee0b40da77b2f619681e77e0e6a2859c6813e9d065d": {
+  "src": "neovim · Ctrl+\\ Ctrl+n",
+  "vi": "Thoát khỏi chế độ terminal để quay về Normal mode",
+  "q": [
+   "thoát terminal mode về normal mode",
+   "chuyển từ cửa sổ terminal sang chế độ bình thường",
+   "rời chế độ gõ terminal để dùng phím tắt"
+  ]
+ },
+ "b8216dd2a10f03a11596a8c99b85cc404d32436cca527d45718ecc56d459ab8f": {
+  "src": "neovim · :Lazy",
+  "vi": "Mở giao diện quản lý plugin Lazy.nvim",
+  "q": [
+   "mở giao diện quản lý plugin lazy",
+   "cài đặt cập nhật gỡ bỏ plugin bằng lazy",
+   "bật bảng điều khiển lazy plugin manager"
+  ]
+ },
+ "7fee4f877bcb6acb38d103dc3e934c36a2e0f1c41f7748c747c3fe02b1bf050b": {
+  "src": "neovim · :Mason",
+  "vi": "Mở giao diện Mason để cài đặt LSP, linter và formatter",
+  "q": [
+   "mở giao diện cài đặt lsp mason",
+   "tìm và cài linter formatter lsp server qua mason",
+   "quản lý công cụ bổ trợ mason"
+  ]
+ },
+ "5765b70213d9a4b67aa2fdeb90febd17ca926fe1cd920a433230c4996c7dab25": {
+  "src": "neovim · K",
+  "vi": "Hiển thị tài liệu (hover docs) của ký hiệu tại con trỏ qua LSP",
+  "q": [
+   "xem tài liệu hàm biến dưới con trỏ qua lsp",
+   "hiển thị popup hover documentation của symbol",
+   "tra cứu thông tin ký hiệu bằng lsp hover"
+  ]
+ },
+ "4ceb6626245026a042d04de3f1e82748595740092ef1ce48ecbbc04893acd8ff": {
+  "src": "neovim · gd",
+  "vi": "Nhảy đến vị trí khai báo cục bộ của từ tại con trỏ",
+  "q": [
+   "nhảy đến khai báo cục bộ của biến",
+   "tới vị trí xuất hiện đầu tiên của từ trong hàm",
+   "tìm nơi khai báo nội bộ của từ dưới con trỏ"
+  ]
+ },
+ "c247c790272e4cd0b5fe7f296c9c1a9192fa36a63e1b2d9cbd96253f510d58a5": {
+  "src": "neovim · grr",
+  "vi": "Tìm và liệt kê tất cả tham chiếu (references) qua LSP",
+  "q": [
+   "tìm tất cả tham chiếu của ký hiệu qua lsp",
+   "liệt kê nơi sử dụng biến hàm trong dự án",
+   "xem danh sách lsp references trong quickfix"
+  ]
+ },
+ "babbe9e1291b7687b0b29f4e7c8a2dad66453a835092967c41cef8e1f6c162d6": {
+  "src": "neovim · gri",
+  "vi": "Nhảy tới phần cài đặt (implementation) của symbol qua LSP",
+  "q": [
+   "nhảy đến implementation của symbol",
+   "đi tới code triển khai interface",
+   "tìm nơi cài đặt phương thức abstract"
+  ]
+ },
+ "642e747001dd70415b082df2b7cbfec2648cd49d53c3f27c188ef63499df3efa": {
+  "src": "neovim · grn",
+  "vi": "Đổi tên symbol trên toàn bộ dự án qua LSP",
+  "q": [
+   "đổi tên biến hàm toàn dự án",
+   "rename symbol qua LSP",
+   "thay đổi tên định danh trong project"
+  ]
+ },
+ "51facb2fdf3bf54b0f80ea5481f8b16a837b79520f8af4b67a0c109b0dcead92": {
+  "src": "neovim · gra",
+  "vi": "Mở danh sách code action qua LSP để sửa lỗi hoặc refactor",
+  "q": [
+   "mở code action qua LSP",
+   "gợi ý sửa lỗi nhanh tự động import",
+   "quick fix và refactor mã nguồn"
+  ]
+ },
+ "599ae8454dbbb8c4c87a99ab8dadb91d85db5eee9eec606f02f419cae7fa13a8": {
+  "src": "neovim · gO",
+  "vi": "Liệt kê danh sách symbol trong file hiện tại qua LSP",
+  "q": [
+   "liệt kê symbol trong file hiện tại",
+   "xem danh sách hàm và class trong file",
+   "mở outline cấu trúc file qua LSP"
+  ]
+ },
+ "05e71c91ad8449518f27ba1a79da8c3769d5bdeaa7203344d69f16de9b145207": {
+  "src": "neovim · Ctrl+S",
+  "vi": "Hiển thị gợi ý chữ ký hàm (signature help) qua LSP",
+  "q": [
+   "hiển thị gợi ý tham số hàm",
+   "xem chữ ký hàm signature help khi gõ",
+   "tra cứu kiểu dữ liệu tham số khi gọi hàm"
+  ]
+ },
+ "0cb5766285bb8d315f860df0c8ee57f1c23665a8a5e24bd0894b1c1c5677ca69": {
+  "src": "neovim · ]d / [d",
+  "vi": "Chuyển đến lỗi hoặc cảnh báo (diagnostic) kế tiếp hoặc trước đó",
+  "q": [
+   "nhảy đến lỗi diagnostic tiếp theo hoặc trước",
+   "di chuyển qua lại giữa các warning trong buffer",
+   "chuyển tới vị trí cảnh báo kế tiếp"
+  ]
+ },
+ "9b8ab8f9e4a0fa82b2bb5d913c6b7064c1bb18282ad4ce023a15f4a2f78a8d82": {
+  "src": "neovim · :set number",
+  "vi": "Bật hiển thị số dòng tuyệt đối ở lề trái",
+  "q": [
+   "bật hiển thị số dòng",
+   "hiện số thứ tự dòng tuyệt đối",
+   "mở đánh số dòng ở lề"
+  ]
+ },
+ "12ad3783cd8ea356b31344cc6b713db93241091714117286989792f93bf2dc39": {
+  "src": "neovim · :set relativenumber",
+  "vi": "Bật hiển thị số dòng tương đối so với con trỏ",
+  "q": [
+   "bật số dòng tương đối",
+   "hiển thị relative line number",
+   "đếm khoảng cách dòng so với con trỏ"
+  ]
+ },
+ "4f8ea1ae3292284bd369fd76f5bc28c148db51a9fd710f469281c3c561e808d8": {
+  "src": "neovim · :set wrap / nowrap",
+  "vi": "Bật hoặc tắt tự động ngắt dòng hiển thị cho dòng dài",
+  "q": [
+   "bật tắt tự động xuống dòng",
+   "toggle line wrap cho dòng dài",
+   "cuộn ngang thay vì bẻ dòng"
+  ]
+ },
+ "5e2524ab9cebcf9c89df3a9023f576a57354cb2c00cb121e9d8ac00e8e3dc987": {
+  "src": "neovim · :set ignorecase",
+  "vi": "Bật tìm kiếm không phân biệt chữ hoa chữ thường",
+  "q": [
+   "tìm kiếm không phân biệt hoa thường",
+   "bật case insensitive search",
+   "bỏ qua chữ in hoa khi tìm kiếm"
+  ]
+ },
+ "ba2ce44b7e1e3d1907fcff998acd72a962fe50225aeb7cc68c2d8e31a3982371": {
+  "src": "neovim · :set spell",
+  "vi": "Bật tính năng kiểm tra lỗi chính tả trong văn bản",
+  "q": [
+   "bật kiểm tra chính tả",
+   "soát lỗi chính tả tiếng anh",
+   "enable spell check phát hiện từ sai"
+  ]
+ },
+ "5b3accd19cae53d335c7dc72fdf9801db4415c85a1326d23efbb24fce2f72748": {
+  "src": "neovim · :sort",
+  "vi": "Sắp xếp các dòng theo thứ tự bảng chữ cái",
+  "q": [
+   "sắp xếp các dòng theo bảng chữ cái",
+   "sort dòng đã chọn theo alphabet",
+   "thứ tự các dòng từ a đến z"
+  ]
+ },
+ "05fd782ba78101ae5da7ec29af13d677b6327df6834cb93ac4d5641b46991bc1": {
+  "src": "neovim · :!{cmd}",
+  "vi": "Chạy lệnh shell {cmd} bên ngoài và hiển thị kết quả",
+  "q": [
+   "thực thi lệnh shell ngoài",
+   "chạy bash command trong terminal",
+   "gọi chương trình hệ điều hành bên ngoài"
+  ]
+ },
+ "5910a949716e3a2148cb2775c1efd86b6bc1683dfe3006da453e84d24cc7e03c": {
+  "src": "neovim · :r !{cmd}",
+  "vi": "Chèn kết quả đầu ra của lệnh shell {cmd} vào dưới con trỏ",
+  "q": [
+   "chèn kết quả lệnh shell vào file",
+   "dán output của bash command dưới con trỏ",
+   "lấy stdout từ terminal đưa vào văn bản"
+  ]
+ },
+ "2c8f316b77b41e3c1971701bd60f2b3ea5491b56e5b6ad3ba2f50f071caef51e": {
+  "src": "neovim · :verbose map {key}",
+  "vi": "Xem vị trí file và cấu hình đã gán phím tắt {key}",
+  "q": [
+   "kiểm tra phím tắt được gán ở file nào",
+   "xem nguồn gốc định nghĩa keymap {key}",
+   "truy vết cấu hình gán phím bị xung đột"
+  ]
+ },
+ "4c9720c637017a4a758ba86d3e2d37956e6648306c446e0e0f7c4975c5d84267": {
+  "src": "neovim · Ctrl+g",
+  "vi": "Hiển thị tên file, trạng thái sửa đổi và vị trí con trỏ",
+  "q": [
+   "xem tên file và vị trí con trỏ hiện tại",
+   "hiển thị thông tin file cùng số dòng con trỏ",
+   "kiểm tra trạng thái file đã lưu hay chưa"
+  ]
+ },
+ "68a62e958f56da8daafca5739b32d82db638a9322bcfc6d69bcbdbc364a66b2a": {
+  "src": "neovim · ga",
+  "vi": "Hiển thị mã ký tự (thập phân, hex, bát phân) dưới con trỏ",
+  "q": [
+   "xem mã ascii hex của ký tự dưới con trỏ",
+   "hiển thị mã thập phân bát phân ký tự",
+   "tra cứu character code dec hex"
+  ]
+ }
+}

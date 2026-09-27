@@ -1,0 +1,43 @@
+# Air configuration for Live Reloading Python Cheatsheet Server
+# Usage: air
+
+root = "."
+tmp_dir = "tmp"
+
+[build]
+  # Quick Python syntax check before restarting
+  cmd = "python3 -m py_compile server.py"
+  # Server run command
+  bin = ""
+  full_bin = "uv run server.py"
+  # File extensions to watch
+  include_ext = ["py", "html", "env", "toml", "json", "sql"]
+  # Directories to ignore
+  exclude_dir = [".git", ".venv", "__pycache__", "tmp", "eval"]
+  exclude_file = []
+  exclude_regex = ["_test\\.py$"]
+  # Specific directories to watch
+  include_dir = ["cheatsheet", "web", "db"]
+  # Debounce delay in ms
+  delay = 400
+  # Graceful restart signals
+  send_interrupt = true
+  kill_delay = "500ms"
+  stop_on_error = true
+  log = "build-errors.log"
+
+[color]
+  main = "magenta"
+  watcher = "cyan"
+  build = "yellow"
+  runner = "green"
+
+[log]
+  time = true
+
+[misc]
+  clean_on_exit = true
+
+[screen]
+  clear_on_rebuild = false
+  keep_scroll = true
