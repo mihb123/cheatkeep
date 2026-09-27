@@ -21,7 +21,7 @@ from bs4 import BeautifulSoup, NavigableString, Tag
 
 from cheatsheet.config import ROOT
 
-# Từ khoá để search_entries() tự nhận diện sheet trong câu hỏi (ngoài slug + tên tool).
+# Alias bổ sung (ngoài slug + tên tool): tiền tố "nvim: ..." và từ khoá ưu tiên sheet trong câu hỏi.
 ALIASES = {"neovim": ["nvim", "vim"]}
 TRANSLATIONS = ROOT / "data" / "translations.vi.json"
 SHEETS_DIR = ROOT / "sheets"
@@ -463,6 +463,12 @@ def main():
             kinds[e["kind"]] = kinds.get(e["kind"], 0) + 1
         print(f"{path.name:14} [{source}] cards={len(sheet['layout'])} "
               f"entries={len(sheet['entries'])} {kinds}")
+    # alias là tiền tố "tool:" của câu hỏi → một alias chỉ được trỏ tới đúng một sheet
+    owner = {}
+    for sh in sheets:
+        for a in sh["aliases"]:
+            if owner.setdefault(a, sh["slug"]) != sh["slug"]:
+                sys.exit(f"✗ alias '{a}' trùng giữa sheet {owner[a]} và {sh['slug']}")
     sql, n = to_sql(sheets)
     (ROOT / "db" / "seed.sql").write_text(sql, encoding="utf-8")
     n_vi = sum(1 for sh in sheets for e in sh["entries"] if e["description_vi"])

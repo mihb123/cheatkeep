@@ -5,6 +5,7 @@
 # ///
 """chs — hỏi cheatsheet bằng ngôn ngữ tự nhiên ngay trên terminal.
 
+    chs "mysql: tạo bảng"                 # tiền tố "tool:" → chỉ tìm trong sheet đó (chính xác nhất)
     chs "câu lệnh tạo bảng trong mysql là gì?"
     chs -s neovim "chia đôi màn hình theo chiều dọc"
     chs -c "backup database mysql"        # copy lệnh tốt nhất vào clipboard
@@ -31,7 +32,7 @@ import psycopg  # noqa: E402
 
 from cheatsheet.config import DATABASE_URL  # noqa: E402
 from cheatsheet.embedder import EmbedError  # noqa: E402
-from cheatsheet.search import search  # noqa: E402
+from cheatsheet.search import parse_query, search  # noqa: E402
 
 
 # ------------------------------------------------------------------ output
@@ -83,25 +84,51 @@ def copy_to_clipboard(text):
 
 # ------------------------------------------------------------------ main
 
-def list_sheets(conn, st):
-    rows = conn.execute("SELECT slug, title, entries FROM sheet_list").fetchall()
-    aliases = dict(conn.execute("SELECT slug, array_to_string(aliases, ', ') FROM sheets").fetchall())
-    for slug, title, n in rows:
-        print(f"{st.bold(slug):<20} {title}  {st.dim(f'({n} entries · alias: {aliases.get(slug, "")})')}")
+def list_sheets(conn, st, as_json):
+    """Bảng sheet + mọi tiền tố "tool:" dùng được (slug trước, alias sau)."""
+    rows = [{"slug": slug, "title": title, "entries": n, "prefixes": [slug, *sorted(set(aliases) - {slug})]}
+            for slug, title, n, aliases in conn.execute(
+                "SELECT l.slug, l.title, l.entries, s.aliases FROM sheet_list l JOIN sheets s USING (slug)"
+                " ORDER BY l.slug")]
+    if as_json:
+        print(json.dumps(rows, ensure_ascii=False, indent=2))
+        return
+    # canh cột trước khi tô màu — mã ANSI làm lệch ljust
+    w_slug = max([len("SHEET"), *(len(r["slug"]) for r in rows)])
+    w_pre = max([len("TIỀN TỐ"), *(len("  ".join(f"{p}:" for p in r["prefixes"])) for r in rows)])
+    print(st.dim(f"{'SHEET'.ljust(w_slug)}  {'TIỀN TỐ'.ljust(w_pre)}  ENTRIES"))
+    for r in rows:
+        prefixes = "  ".join(f"{p}:" for p in r["prefixes"])
+        print(f"{st.bold(r['slug'].ljust(w_slug))}  {st.cyan(prefixes.ljust(w_pre))}  {st.dim(str(r['entries']))}")
+    example = next((r for r in rows if len(r["prefixes"]) > 1), rows[0] if rows else None)
+    if example:
+        alias = example["prefixes"][-1]
+        print(st.dim(f'\nDùng: chs "{alias}: <câu hỏi>"  ·  chs -s {alias} "<câu hỏi>"'))
+
+
+def scope_hint(scope, rows):
+    """Gợi ý cú pháp "tool: câu hỏi" khi người dùng không chỉ rõ sheet mà kết quả lẫn nhiều sheet."""
+    sheets = list(dict.fromkeys(r["sheet"] for r in rows))
+    if scope.explicit or len(sheets) < 2:
+        return None
+    return (f"gợi ý: kết quả lẫn nhiều sheet ({', '.join(sheets)}) — ghi rõ tool ở đầu câu để chính xác hơn,"
+            f' vd: chs "{sheets[0]}: {scope.query}" (viết tắt: chs --list)')
 
 
 def main(argv=None):
     ap = argparse.ArgumentParser(
-        prog="chs", description="Tìm lệnh trong cheatsheet bằng câu hỏi tự nhiên (vector + keyword).")
-    ap.add_argument("query", nargs="*", help="câu hỏi; bỏ trống thì đọc từ stdin")
-    ap.add_argument("-s", "--sheet", help="chỉ tìm trong 1 sheet (slug, vd mysql)")
+        prog="chs", description="Tìm lệnh trong cheatsheet bằng câu hỏi tự nhiên (vector + keyword).",
+        epilog='Mẹo: mở đầu câu hỏi bằng "tool:" để chỉ tìm trong sheet đó, vd: chs "mysql: tạo bảng".'
+               ' Xem mọi tiền tố/viết tắt: chs --list')
+    ap.add_argument("query", nargs="*", help='câu hỏi, có thể mở đầu bằng "tool:"; bỏ trống thì đọc từ stdin')
+    ap.add_argument("-s", "--sheet", help="chỉ tìm trong 1 sheet (slug hoặc alias, vd mysql, nvim)")
     ap.add_argument("-n", "--limit", type=int, default=5, help="số kết quả (mặc định 5)")
     ap.add_argument("-c", "--copy", action="store_true", help="copy lệnh tốt nhất vào clipboard")
     ap.add_argument("-p", "--print", dest="print_only", action="store_true",
                     help="chỉ in lệnh tốt nhất (dùng với $(...) hoặc widget shell)")
     ap.add_argument("-v", "--verbose", action="store_true", help="hiện giải thích, ví dụ, điểm")
     ap.add_argument("--json", action="store_true", help="xuất JSON")
-    ap.add_argument("--list", action="store_true", help="liệt kê các sheet")
+    ap.add_argument("--list", action="store_true", help='liệt kê các sheet và tiền tố "tool:" / viết tắt dùng được')
     args = ap.parse_args(argv)
 
     st = Style(use_color(sys.stdout))
@@ -116,9 +143,13 @@ def main(argv=None):
     try:
         with psycopg.connect(DATABASE_URL, connect_timeout=3) as conn:
             if args.list:
-                list_sheets(conn, st)
+                list_sheets(conn, st, args.json)
                 return 0
-            rows = search(conn, query, args.sheet, 1 if args.print_only else max(1, args.limit))
+            scope = parse_query(conn, query, args.sheet)
+            rows = search(conn, scope, 1 if args.print_only else max(1, args.limit))
+    except ValueError as e:
+        print(err.red(f"chs: {e}"), file=sys.stderr)
+        return 2
     except EmbedError as e:
         print(err.red(f"chs: {e}"), file=sys.stderr)
         return 3
@@ -127,6 +158,9 @@ def main(argv=None):
                       f"     chạy: cd {ROOT} && docker compose up -d"), file=sys.stderr)
         return 3
 
+    if scope.unknown:
+        print(err.yellow(f"chs: không có sheet '{scope.unknown}', tìm trên mọi sheet (xem chs --list)"),
+              file=sys.stderr)
     if not rows:
         print(err.yellow("chs: không tìm thấy kết quả"), file=sys.stderr)
         return 1
@@ -138,6 +172,9 @@ def main(argv=None):
         print(best or rows[0]["description"])
     else:
         print_results(rows, st, args.verbose)
+        hint = scope_hint(scope, rows)
+        if hint:
+            print("\n" + err.dim(hint), file=sys.stderr)
 
     if args.copy and best:
         tool = copy_to_clipboard(best)

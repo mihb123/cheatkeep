@@ -13,6 +13,7 @@ CREATE EXTENSION IF NOT EXISTS unaccent;
 
 DROP FUNCTION IF EXISTS search_entries(text, vector, text, text, int);
 DROP FUNCTION IF EXISTS search_entries(text, vector, text, text, int, float8);
+DROP FUNCTION IF EXISTS search_entries(text, vector, text, text, int, float8, text[], float8);
 DROP FUNCTION IF EXISTS sheet_json(text);
 DROP VIEW     IF EXISTS sheet_list;
 DROP TABLE    IF EXISTS entries, sheets CASCADE;
@@ -134,8 +135,12 @@ FROM sheets sh ORDER BY sh.title;
 --   Không dùng RRF: câu hỏi tiếng Việt lẫn vài từ tiếng Anh ("file", "server") khiến nhánh keyword
 --   xếp hạng nhiễu; cộng điểm thưởng theo tỷ lệ khớp giữ vector làm chủ, keyword chỉ để phân định
 --   khi câu hỏi chứa đúng token của lệnh (mysqldump, --cwd, :wq ...) hoặc từ tiếng Việt gõ không dấu.
---   p_sheet NULL → tự nhận diện sheet nếu câu hỏi chứa alias (vd "mysql", "nvim"); alias đó bị bỏ
---   khỏi phần keyword. Không nhận diện được → tìm trên mọi sheet.
+--   Phạm vi sheet do cheatsheet.search.parse_query() quyết định:
+--   p_sheet  lọc cứng — người dùng chỉ rõ (-s hoặc tiền tố "mysql: ...").
+--   p_boost  sheet có tên trong câu hỏi → chỉ cộng p_boost_weight, không lọc: tên tool trong câu có
+--            thể là đối tượng chứ không phải tool cần tìm ("import history from bash" → atuin,
+--            "find and replace in vim" → neovim). Tên tool vẫn giữ trong keyword vì "bash" giúp khớp
+--            đúng `atuin import bash`; bản thân vector câu hỏi cũng đã nghiêng về sheet đó.
 --
 -- Hai bước, viết để planner dùng được index:
 --   1. Lấy ứng viên: nhánh vector ORDER BY khoảng cách trực tiếp trên embeddings (HNSW, iterative
@@ -149,7 +154,9 @@ CREATE FUNCTION search_entries(
   p_model     text,
   p_sheet     text   DEFAULT NULL,
   p_limit     int    DEFAULT 10,
-  p_kw_weight float8 DEFAULT 0.15
+  p_kw_weight float8 DEFAULT 0.15,
+  p_boost     text[] DEFAULT '{}',
+  p_boost_weight float8 DEFAULT 0.05  -- 0.1 bắt đầu kéo entry sheet bash lên trên atuin ở ví dụ trên
 ) RETURNS TABLE (
   id int, sheet text, card text, section text, kind text, command text,
   description text, description_vi text, details text, example text, danger text, lang text,
@@ -158,22 +165,13 @@ CREATE FUNCTION search_entries(
 LANGUAGE sql STABLE
 SET hnsw.iterative_scan = 'relaxed_order'
 AS $$
-  WITH detected AS (
-    SELECT sh.slug, a.alias
-    FROM sheets sh, unnest(sh.aliases) a(alias)
-    WHERE p_sheet IS NULL AND lower(p_query) ~ ('\m' || a.alias || '\M')
-    ORDER BY length(a.alias) DESC
-    LIMIT 1
-  ),
-  target AS (
-    SELECT t.slug, (SELECT sh.id FROM sheets sh WHERE sh.slug = t.slug) AS sheet_id, t.terms,
+  WITH target AS (
+    SELECT p_sheet AS slug, (SELECT sh.id FROM sheets sh WHERE sh.slug = p_sheet) AS sheet_id,
+           ARRAY(SELECT sh.id FROM sheets sh WHERE sh.slug = ANY (p_boost)) AS boost_ids, t.terms,
            CASE WHEN cardinality(t.terms) > 0 THEN
              array_to_string(ARRAY(SELECT quote_literal(x) FROM unnest(t.terms) x), ' | ')::tsquery
            END AS tsq
-    FROM (SELECT COALESCE(p_sheet, (SELECT slug FROM detected)) AS slug,
-                 ARRAY(SELECT x FROM unnest(tsvector_to_array(to_tsvector('simple', f_unaccent(
-                         regexp_replace(lower(p_query),
-                           COALESCE('\m' || (SELECT alias FROM detected) || '\M', '^$'), ' ', 'g'))))) x
+    FROM (SELECT ARRAY(SELECT x FROM unnest(tsvector_to_array(to_tsvector('simple', f_unaccent(lower(p_query))))) x
                        -- hư từ tiếng Việt (đã bỏ dấu) xuất hiện ở hầu hết câu hỏi, không giúp phân định
                        WHERE x <> ALL ('{la,gi,cua,cac,nhung,cho,trong,mot,va,voi,de,thi,nao,cach,
                                         the,nay,do,duoc,co,cau,lenh,muon,toi,minh,hay}'::text[])) AS terms) t
@@ -202,14 +200,15 @@ AS $$
            (SELECT max(1 - (v.embedding <=> p_embedding)) FROM embeddings v
             WHERE v.model = p_model AND v.content_hash IN (e.content_hash, e.content_hash_vi)) AS sim,
            (SELECT count(*) FROM unnest(tsvector_to_array(e.search_tsv)) l WHERE l = ANY (t.terms))::float8
-             / NULLIF(cardinality(t.terms), 0) AS ratio
+             / NULLIF(cardinality(t.terms), 0) AS ratio,
+           CASE WHEN e.sheet_id = ANY (t.boost_ids) THEN p_boost_weight ELSE 0 END AS bonus
     FROM (SELECT id FROM vec UNION SELECT id FROM kw) c
     JOIN entries e ON e.id = c.id
     CROSS JOIN target t
   )
   SELECT s.id, sh.slug, s.card, s.section, s.kind, s.command,
          s.description, s.description_vi, s.details, s.example, s.danger, s.lang,
-         COALESCE(s.sim, 0) + p_kw_weight * COALESCE(s.ratio, 0), s.sim, s.ratio
+         COALESCE(s.sim, 0) + p_kw_weight * COALESCE(s.ratio, 0) + s.bonus, s.sim, s.ratio
   FROM scored s JOIN sheets sh ON sh.id = s.sheet_id
   ORDER BY 13 DESC
   LIMIT p_limit

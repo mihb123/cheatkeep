@@ -3,20 +3,23 @@
   "q": "cài đặt atuin cho zsh",
   "expect": [
    "eval \"$(atuin init zsh)\""
-  ]
+  ],
+  "sheet": "atuin"
  },
  {
   "q": "tạo tài khoản đồng bộ atuin",
   "expect": [
    "atuin register"
-  ]
+  ],
+  "sheet": "atuin"
  },
  {
   "q": "nhập lịch sử cũ từ zsh vào atuin",
   "expect": [
    "atuin import zsh",
    "atuin import auto"
-  ]
+  ],
+  "sheet": "atuin"
  },
  {
   "q": "xoá các lệnh trùng lặp trong lịch sử",
@@ -59,7 +62,8 @@
   "q": "tự chạy server atuin riêng",
   "expect": [
    "atuin server start"
-  ]
+  ],
+  "sheet": "atuin"
  },
  {
   "q": "xoá tài khoản vĩnh viễn",
@@ -101,7 +105,8 @@
   "q": "câu lệnh tạo bảng trong mysql là gì?",
   "expect": [
    "CREATE TABLE table (field1 type1, field2 type2"
-  ]
+  ],
+  "sheet": "mysql"
  },
  {
   "q": "sao lưu database ra file sql",
@@ -112,31 +117,38 @@
  {
   "q": "khôi phục database từ file backup",
   "expect": [
-   "mysql -u Username -p dbNameYouWant <"
+   "mysql -u Username -p dbNameYouWant <",
+   "pg_restore",
+   "mongorestore"
   ]
  },
  {
   "q": "xem danh sách các bảng",
   "expect": [
-   "SHOW TABLES;"
+   "SHOW TABLES;",
+   "\\dt"
   ]
  },
  {
   "q": "xem cấu trúc cột của bảng",
   "expect": [
-   "SHOW FIELDS FROM table / DESCRIBE table;"
+   "SHOW FIELDS FROM table / DESCRIBE table;",
+   "\\d <table_name>"
   ]
  },
  {
   "q": "đổi tên cột trong bảng",
   "expect": [
-   "ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1"
+   "ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1",
+   "ALTER TABLE <t> RENAME COLUMN",
+   "ALTER TABLE <table> RENAME COLUMN"
   ]
  },
  {
   "q": "thêm cột mới vào bảng",
   "expect": [
-   "ALTER TABLE table ADD new_name_field1 type1"
+   "ALTER TABLE table ADD new_name_field1 type1",
+   "ALTER TABLE <table> ADD COLUMN"
   ]
  },
  {
@@ -149,7 +161,8 @@
   "q": "tạo user mới trong mysql",
   "expect": [
    "CREATE USER"
-  ]
+  ],
+  "sheet": "mysql"
  },
  {
   "q": "cấp toàn bộ quyền cho user",
@@ -179,13 +192,16 @@
  {
   "q": "lấy các giá trị không trùng lặp",
   "expect": [
-   "SELECT DISTINCT"
+   "SELECT DISTINCT",
+   "db.<coll>.distinct("
   ]
  },
  {
   "q": "sắp xếp kết quả giảm dần",
   "expect": [
-   "SELECT ... FROM ... WHERE condition ORDER BY field1, field2 DESC;"
+   "SELECT ... FROM ... WHERE condition ORDER BY field1, field2 DESC;",
+   "db.<coll>.find().sort(",
+   "ORDER BY <c1> ASC, <c2> DESC"
   ]
  },
  {
@@ -198,12 +214,14 @@
   "q": "xem các tiến trình đang chạy trong mysql",
   "expect": [
    "SHOW PROCESSLIST;"
-  ]
+  ],
+  "sheet": "mysql"
  },
  {
   "q": "nối hai bảng giữ cả dòng không khớp bên trái",
   "expect": [
-   "SELECT ... FROM t1 LEFT JOIN"
+   "SELECT ... FROM t1 LEFT JOIN",
+   "LEFT JOIN"
   ]
  },
  {
@@ -261,7 +279,8 @@
   "q": "xoá một dòng trong vim",
   "expect": [
    "dd"
-  ]
+  ],
+  "sheet": "neovim"
  },
  {
   "q": "sao chép dòng hiện tại",
@@ -284,7 +303,15 @@
  {
   "q": "hiện số dòng",
   "expect": [
-   ":set number"
+   ":set number",
+   {
+    "sheet": "grep",
+    "cmd": "-n"
+   },
+   {
+    "sheet": "sed",
+    "cmd": "="
+   }
   ]
  },
  {
@@ -303,7 +330,8 @@
   "q": "mở terminal trong nvim",
   "expect": [
    ":terminal"
-  ]
+  ],
+  "sheet": "neovim"
  },
  {
   "q": "thoát khỏi terminal về normal mode",
@@ -341,7 +369,8 @@
   "q": "đảo chữ hoa chữ thường",
   "expect": [
    "~",
-   "u / U"
+   "u / U",
+   "g~"
   ]
  },
  {
@@ -367,32 +396,39 @@
   "q": "sao luu database mysql",
   "expect": [
    "mysqldump"
-  ]
+  ],
+  "sheet": "mysql"
  },
  {
   "q": "chia man hinh doc trong vim",
   "expect": [
    "Ctrl+w v",
    ":sp / :vsp"
-  ]
+  ],
+  "sheet": "neovim"
  },
  {
   "q": "xoa lenh trung lap lich su atuin",
   "expect": [
    "atuin history dedup"
-  ]
+  ],
+  "sheet": "atuin"
  },
  {
   "q": "doi ten cot trong bang mysql",
   "expect": [
-   "ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1"
-  ]
+   "ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1",
+   "ALTER TABLE <t> RENAME COLUMN"
+  ],
+  "sheet": "mysql"
  },
  {
   "q": "thoat vim khong luu",
   "expect": [
-   ":q!"
-  ]
+   ":q!",
+   ":qa!"
+  ],
+  "sheet": "neovim"
  },
  {
   "q": "mysqldump",
@@ -405,7 +441,8 @@
   "expect": [
    "--cwd <dir>",
    "atuin search --exit 1 --cwd ."
-  ]
+  ],
+  "sheet": "atuin"
  },
  {
   "q": ":wq",
@@ -417,7 +454,8 @@
   "q": "delete line vim",
   "expect": [
    "dd"
-  ]
+  ],
+  "sheet": "neovim"
  },
  {
   "q": "vertical split",
@@ -441,14 +479,17 @@
  {
   "q": "rename column mysql",
   "expect": [
-   "ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1"
-  ]
+   "ALTER TABLE table CHANGE old_name_field1 new_name_field1 type1",
+   "ALTER TABLE <t> RENAME COLUMN"
+  ],
+  "sheet": "mysql"
  },
  {
   "q": "grant privileges to user",
   "expect": [
    "GRANT ALL PRIVILEGES",
-   "GRANT SELECT, INSERT, DELETE"
+   "GRANT SELECT, INSERT, DELETE",
+   "GRANT <priv> ON <table> TO <role>"
   ]
  },
  {
@@ -456,5 +497,434 @@
   "expect": [
    "%"
   ]
+ },
+ {
+  "q": "mysql: tạo bảng mới",
+  "expect": [
+   "CREATE TABLE table (field1 type1, field2 type2);"
+  ],
+  "sheet": "mysql"
+ },
+ {
+  "q": "mysql: xoá bảng",
+  "expect": [
+   "DROP TABLE"
+  ],
+  "sheet": "mysql"
+ },
+ {
+  "q": "nvim: lưu và thoát",
+  "expect": [
+   ":wq"
+  ],
+  "sheet": "neovim"
+ },
+ {
+  "q": "neovim: xoá dòng",
+  "expect": [
+   "dd"
+  ],
+  "sheet": "neovim"
+ },
+ {
+  "q": "atuin: xoá lệnh trùng lặp",
+  "expect": [
+   "atuin history dedup"
+  ],
+  "sheet": "atuin"
+ },
+ {
+  "q": "psql: cấp quyền",
+  "expect": [
+   "GRANT <priv> ON",
+   "ALTER DEFAULT PRIVILEGES"
+  ],
+  "sheet": "psql"
+ },
+ {
+  "q": "psql: liệt kê các database",
+  "expect": [
+   "\\l"
+  ],
+  "sheet": "psql"
+ },
+ {
+  "q": "kết nối postgres bằng user và host",
+  "expect": [
+   "psql -U <user> -h <host>"
+  ],
+  "sheet": "psql"
+ },
+ {
+  "q": "pg: xem các truy vấn đang chạy",
+  "expect": [
+   "pg_stat_activity"
+  ],
+  "sheet": "psql"
+ },
+ {
+  "q": "dump database postgresql ra file",
+  "expect": [
+   "pg_dump"
+  ],
+  "sheet": "psql"
+ },
+ {
+  "q": "psql: huỷ một truy vấn đang chạy",
+  "expect": [
+   "pg_cancel_backend",
+   "pg_terminate_backend"
+  ],
+  "sheet": "psql"
+ },
+ {
+  "q": "xem dung lượng database postgres",
+  "expect": [
+   "pg_size_pretty(pg_database_size"
+  ],
+  "sheet": "psql"
+ },
+ {
+  "q": "postgres: insert hoặc update nếu trùng khoá",
+  "expect": [
+   "INSERT ... ON CONFLICT (<col>) DO UPDATE"
+  ],
+  "sheet": "psql"
+ },
+ {
+  "q": "mongo: liệt kê các collection",
+  "expect": [
+   "show collections"
+  ],
+  "sheet": "mongodb"
+ },
+ {
+  "q": "mongodb: đếm số document theo điều kiện",
+  "expect": [
+   "db.<coll>.countDocuments"
+  ],
+  "sheet": "mongodb"
+ },
+ {
+  "q": "mongo: tạo index cho một trường",
+  "expect": [
+   "db.<coll>.createIndex({ <field>: 1 })"
+  ],
+  "sheet": "mongodb"
+ },
+ {
+  "q": "backup database mongodb",
+  "expect": [
+   "mongodump"
+  ],
+  "sheet": "mongodb"
+ },
+ {
+  "q": "mongosh: xoá nhiều document",
+  "expect": [
+   "db.<coll>.deleteMany"
+  ],
+  "sheet": "mongodb"
+ },
+ {
+  "q": "bash: kiểm tra file có tồn tại không",
+  "expect": [
+   "-f <file>",
+   "-e <file>"
+  ],
+  "sheet": "bash"
+ },
+ {
+  "q": "bash: vòng lặp for qua danh sách",
+  "expect": [
+   "for <var> in <list>"
+  ],
+  "sheet": "bash"
+ },
+ {
+  "q": "chuyển hướng stderr vào stdout",
+  "expect": [
+   "2>&1",
+   "&> <file>"
+  ]
+ },
+ {
+  "q": "bash: dừng script khi có lỗi",
+  "expect": [
+   "set -e"
+  ],
+  "sheet": "bash"
+ },
+ {
+  "q": "đọc file từng dòng trong bash",
+  "expect": [
+   "while read -r <var>; do"
+  ],
+  "sheet": "bash"
+ },
+ {
+  "q": "bash: lấy tham số cuối của lệnh trước",
+  "expect": [
+   "!$",
+   "Alt+."
+  ],
+  "sheet": "bash"
+ },
+ {
+  "q": "awk: in cột cuối cùng",
+  "expect": [
+   "$NF",
+   "awk '{print $NF}'"
+  ],
+  "sheet": "awk"
+ },
+ {
+  "q": "tính tổng cột đầu tiên bằng awk",
+  "expect": [
+   "awk '{s+=$1} END {print s}'"
+  ],
+  "sheet": "awk"
+ },
+ {
+  "q": "awk: đổi ký tự phân cách cột",
+  "expect": [
+   "awk -F '<sep>'",
+   "FS"
+  ],
+  "sheet": "awk"
+ },
+ {
+  "q": "xoá dòng trùng lặp nhưng giữ nguyên thứ tự",
+  "expect": [
+   "awk '!seen[$0]++'"
+  ]
+ },
+ {
+  "q": "sed: sửa file trực tiếp",
+  "expect": [
+   "-i",
+   "In-place backup"
+  ],
+  "sheet": "sed"
+ },
+ {
+  "q": "sed: xoá dòng trống",
+  "expect": [
+   "Delete blank lines"
+  ],
+  "sheet": "sed"
+ },
+ {
+  "q": "sed: in dòng thứ N",
+  "expect": [
+   "Print line N"
+  ],
+  "sheet": "sed"
+ },
+ {
+  "q": "xoá khoảng trắng cuối dòng bằng sed",
+  "expect": [
+   "Trim trailing whitespace"
+  ],
+  "sheet": "sed"
+ },
+ {
+  "q": "find: tìm file lớn hơn 100MB",
+  "expect": [
+   "-size +<N>"
+  ],
+  "sheet": "find"
+ },
+ {
+  "q": "find: xoá file cũ hơn 7 ngày",
+  "expect": [
+   "find . -type f -mtime +7 -delete"
+  ],
+  "sheet": "find"
+ },
+ {
+  "q": "find: bỏ qua thư mục node_modules",
+  "expect": [
+   "find . \\( -name node_modules",
+   "-prune"
+  ],
+  "sheet": "find"
+ },
+ {
+  "q": "tìm các thư mục rỗng",
+  "expect": [
+   "find . -type d -empty",
+   "-empty"
+  ]
+ },
+ {
+  "q": "curl: gửi POST với body JSON",
+  "expect": [
+   "curl --json",
+   "curl -X POST -H \"Content-Type: application/json\""
+  ],
+  "sheet": "curl"
+ },
+ {
+  "q": "curl: chỉ xem header của response",
+  "expect": [
+   "curl -I"
+  ],
+  "sheet": "curl"
+ },
+ {
+  "q": "tải file giữ nguyên tên gốc bằng curl",
+  "expect": [
+   "curl -O <url>"
+  ],
+  "sheet": "curl"
+ },
+ {
+  "q": "curl: đi theo redirect",
+  "expect": [
+   "curl -L"
+  ],
+  "sheet": "curl"
+ },
+ {
+  "q": "lấy http status code bằng curl",
+  "expect": [
+   "curl -s -o /dev/null -w",
+   "%{http_code}"
+  ],
+  "sheet": "curl"
+ },
+ {
+  "q": "curl: bỏ qua kiểm tra chứng chỉ ssl",
+  "expect": [
+   "curl -k"
+  ],
+  "sheet": "curl"
+ },
+ {
+  "q": "nén thư mục thành file tar.gz",
+  "expect": [
+   "tar -czf <file.tar.gz>"
+  ],
+  "sheet": "tar"
+ },
+ {
+  "q": "tar: giải nén vào thư mục khác",
+  "expect": [
+   "tar -xzf <file.tar.gz> -C",
+   "-C <dir>"
+  ],
+  "sheet": "tar"
+ },
+ {
+  "q": "xem nội dung file tar mà không giải nén",
+  "expect": [
+   "tar -tvf",
+   "-t"
+  ],
+  "sheet": "tar"
+ },
+ {
+  "q": "zip: nén file có mật khẩu",
+  "expect": [
+   "zip -e"
+  ],
+  "sheet": "tar"
+ },
+ {
+  "q": "unzip: giải nén vào thư mục chỉ định",
+  "expect": [
+   "unzip <archive.zip> -d"
+  ],
+  "sheet": "tar"
+ },
+ {
+  "q": "grep: tìm không phân biệt hoa thường",
+  "expect": [
+   "-i"
+  ],
+  "sheet": "grep"
+ },
+ {
+  "q": "grep: tìm đệ quy trong thư mục",
+  "expect": [
+   "-r",
+   "-R",
+   "grep -r --include"
+  ],
+  "sheet": "grep"
+ },
+ {
+  "q": "grep: hiện vài dòng xung quanh kết quả",
+  "expect": [
+   "-C <num>"
+  ],
+  "sheet": "grep"
+ },
+ {
+  "q": "grep: chỉ in tên file có kết quả",
+  "expect": [
+   "-l"
+  ],
+  "sheet": "grep"
+ },
+ {
+  "q": "tìm dòng không chứa chuỗi bằng grep",
+  "expect": [
+   "-v"
+  ],
+  "sheet": "grep"
+ },
+ {
+  "q": "xargs: chạy song song nhiều tiến trình",
+  "expect": [
+   "-P <max-procs>"
+  ],
+  "sheet": "xargs"
+ },
+ {
+  "q": "xargs: chèn tham số vào giữa lệnh",
+  "expect": [
+   "-I <replace-str>",
+   "<cmd> | xargs -I"
+  ],
+  "sheet": "xargs"
+ },
+ {
+  "q": "xargs: xử lý tên file có khoảng trắng",
+  "expect": [
+   "-0",
+   "find <path> -print0 | xargs -0"
+  ],
+  "sheet": "xargs"
+ },
+ {
+  "q": "cài atuin cho bash",
+  "expect": [
+   "eval \"$(atuin init bash)\""
+  ],
+  "sheet": "atuin"
+ },
+ {
+  "q": "nhập lịch sử bash vào atuin",
+  "expect": [
+   "atuin import bash"
+  ],
+  "sheet": "atuin"
+ },
+ {
+  "q": "find and replace in vim",
+  "expect": [
+   ":%s/old/new/g",
+   ":s/old/new/"
+  ],
+  "sheet": "neovim"
+ },
+ {
+  "q": "tìm và thay thế trong toàn bộ file vim",
+  "expect": [
+   ":%s/old/new/g"
+  ],
+  "sheet": "neovim"
  }
 ]

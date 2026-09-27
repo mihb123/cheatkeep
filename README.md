@@ -12,7 +12,7 @@
   - Tự động đối sánh qua hai tầng vector (ngữ cảnh tiếng Anh gốc và mô tả/cụm từ tiếng Việt) với mô hình `bge-m3`.
 - ⚡ **Hybrid Search (Vector + Full-Text Search)**:
   - Tận dụng `pgvector` (chỉ mục HNSW cosine) kết hợp `tsvector` PostgreSQL có xử lý bỏ dấu tiếng Việt (`unaccent`).
-  - Tự động nhận diện tool/alias trong câu hỏi (ví dụ: `nvim`, `vim` -> `neovim`, `mysql`).
+  - Tiền tố `tool:` để chỉ tìm trong 1 sheet (`chs "nvim: xoá dòng"`, `chs "psql: cấp quyền"`); tên tool nằm trong câu thì được ưu tiên (ví dụ: `nvim`, `vim` -> `neovim`, `pg` -> `psql`).
 - 💻 **Terminal CLI tiện lợi (`chs`)**:
   - Tự động nạp cấu hình và chạy nhanh qua `uv run --script`.
   - Hỗ trợ copy thẳng lệnh tìm được vào clipboard (`-c`).
@@ -25,6 +25,8 @@
   - Parser trích xuất nội dung từ các file HTML cheatsheet.
   - Tự động sinh bản dịch và mở rộng từ khóa tìm kiếm tiếng Việt (`data/translations.vi.json`).
   - Đánh vector embedding gia tăng (incremental, kiểm tra model digest để tự làm mới khi model cập nhật).
+
+> 📖 **Xem tài liệu kiến trúc & tính năng chi tiết theo feature tại:** [docs/README.md](file:///home/chuminh/cheatsheet/docs/README.md)
 
 ---
 
@@ -97,7 +99,10 @@ ln -sf "$(pwd)/chs" ~/.local/bin/chs
 #### Các ví dụ sử dụng:
 
 ```bash
-# Tra cứu tự nhiên trên mọi sheet
+# Ghi rõ tool ở đầu câu "tool: câu hỏi" → chỉ tìm trong sheet đó, chính xác nhất (khuyên dùng)
+chs "mysql: tạo bảng"
+
+# Tra cứu tự nhiên trên mọi sheet (tên tool trong câu được ưu tiên, không lọc cứng)
 chs "câu lệnh tạo bảng trong mysql là gì?"
 
 # Chỉ định tìm trong 1 sheet cụ thể (-s hoặc --sheet)
@@ -112,7 +117,7 @@ eval "$(chs -p 'tìm lệnh lỗi trong thư mục hiện tại')"
 # Hiển thị thông tin chi tiết: ví dụ, giải thích, điểm tương đồng (-v)
 chs -v "regex tìm kiếm số điện thoại"
 
-# Liệt kê danh sách các cheatsheet hiện có
+# Liệt kê các cheatsheet kèm mọi tiền tố/viết tắt dùng được (vd nvim:, vim:, pg:, postgres:)
 chs --list
 
 # Xuất kết quả dưới định dạng JSON
@@ -174,6 +179,9 @@ Lệnh sẽ tính toán các chỉ số:
 ├── db/
 │   ├── schema.sql           # Cấu trúc bảng, index HNSW, tsvector, store procedures
 │   └── seed.sql             # Dữ liệu seed trích xuất từ các cheatsheet
+├── docs/                    # Tài liệu kiến trúc phân chia theo Feature
+│   ├── README.md            # File Index điều hướng tài liệu
+│   └── features/            # Tài liệu chi tiết cho 8 module tính năng
 ├── eval/
 │   └── queries.json         # Tập mẫu câu hỏi và kết quả kỳ vọng để benchmark
 ├── sheets/                  # Nguồn cheatsheet viết tay (JSON) + README định dạng

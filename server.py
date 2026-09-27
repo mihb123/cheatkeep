@@ -7,7 +7,8 @@
 GET /api/cheatsheets              → danh sách sheet
 GET /api/cheatsheets/<slug>       → toàn bộ 1 sheet dạng card/section/item (sheet_json)
 GET /api/search?q=..&sheet=..&limit=..
-                                  → hybrid search (vector + keyword) — API cho CLI `chs`
+                                  → hybrid search (vector + keyword) — API cho CLI `chs`;
+                                    q nhận tiền tố "tool:" (vd "mysql: tạo bảng") thay cho sheet=
 GET /<slug>                       → web/index.html (frontend tự fetch API theo path)
 """
 
@@ -21,7 +22,7 @@ from psycopg_pool import ConnectionPool
 
 from cheatsheet.config import APP_HOST, APP_PORT, DATABASE_URL, ROOT
 from cheatsheet.embedder import EmbedError
-from cheatsheet.search import search
+from cheatsheet.search import parse_query, search
 
 WEB = ROOT / "web"
 pool = ConnectionPool(DATABASE_URL, min_size=1, max_size=4, open=True, check=ConnectionPool.check_connection)
@@ -64,8 +65,9 @@ class Handler(BaseHTTPRequestHandler):
                     return self.send(400, {"error": "missing q"})
                 limit = max(1, min(int(qs.get("limit", 10)), 50))
                 with pool.connection() as conn:
-                    rows = search(conn, q, qs.get("sheet") or None, limit)
-                return self.send(200, {"query": q, "results": rows})
+                    scope = parse_query(conn, q, qs.get("sheet") or None)
+                    rows = search(conn, scope, limit)
+                return self.send(200, {"query": q, "sheet": scope.sheet, "results": rows})
 
             if path.startswith("/api/"):
                 return self.send(404, {"error": "not found"})

@@ -4,7 +4,9 @@
     uv run -m cheatsheet.evaluate -v        # in cả hạng của từng câu
 
 Mỗi câu có `expect` là danh sách tiền tố lệnh; kết quả đúng khi `command` bắt đầu bằng
-một trong các tiền tố (và thuộc `sheet` nếu có ghi).
+một trong các tiền tố (và thuộc `sheet` nếu có ghi). Câu không nêu tool chấp nhận đáp án đúng ở
+mọi sheet; phần tử dạng {"sheet": "grep", "cmd": "-n"} chỉ đúng khi nằm ở sheet đó (tránh `-n`
+của sed có nghĩa khác).
 """
 
 import argparse
@@ -14,16 +16,20 @@ import time
 import psycopg
 
 from cheatsheet.config import DATABASE_URL, ROOT
-from cheatsheet.search import search
+from cheatsheet.search import parse_query, search
 
 K = 10
 
 
+def matches(row, expect, sheet):
+    if isinstance(expect, dict):
+        sheet, expect = expect["sheet"], expect["cmd"]
+    return (row["command"] or "").startswith(expect) and (sheet is None or row["sheet"] == sheet)
+
+
 def rank_of(rows, case):
     for i, r in enumerate(rows, 1):
-        cmd = r["command"] or ""
-        if any(cmd.startswith(p) for p in case["expect"]) and (
-                "sheet" not in case or r["sheet"] == case["sheet"]):
+        if any(matches(r, e, case.get("sheet")) for e in case["expect"]):
             return i
     return None
 
@@ -38,7 +44,7 @@ def main():
     ranks, t0 = [], time.perf_counter()
     with psycopg.connect(DATABASE_URL) as conn:
         for c in cases:
-            rows = search(conn, c["q"], None, K, args.kw_weight)
+            rows = search(conn, parse_query(conn, c["q"]), K, args.kw_weight)
             rk = rank_of(rows, c)
             ranks.append(rk)
             if args.verbose or not rk or rk > 1:
