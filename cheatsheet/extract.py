@@ -6,7 +6,10 @@ Code block có thể copy từng dòng được tách thành 1 entry / lệnh, c
 Bản dịch tiếng Việt (data/translations.vi.json, sinh bởi cheatsheet.translate) được ghép vào
 entry qua content_hash → thêm description_vi + embed_text_vi (vector thứ hai cho câu hỏi tiếng Việt).
 
-    uv run -m cheatsheet.extract            # đọc *.html ở thư mục gốc
+    uv run -m cheatsheet.extract            # đọc *.html ở thư mục gốc + sheets/*.json
+
+sheets/<slug>.json là nguồn viết tay (không cần HTML): cùng cấu trúc cây card → section → item
+mà parser dựng ra, thêm `aliases` tuỳ chọn. Trường nào bỏ trống sẽ lấy mặc định.
 """
 
 import hashlib
@@ -21,6 +24,7 @@ from cheatsheet.config import ROOT
 # Từ khoá để search_entries() tự nhận diện sheet trong câu hỏi (ngoài slug + tên tool).
 ALIASES = {"neovim": ["nvim", "vim"]}
 TRANSLATIONS = ROOT / "data" / "translations.vi.json"
+SHEETS_DIR = ROOT / "sheets"
 
 
 def sha256(text):
@@ -263,6 +267,20 @@ def parse_devhints(soup):
     return sheet
 
 
+# ---------------------------------------------------------------- sheets/*.json
+
+def load_json_sheet(path):
+    src = json.loads(path.read_text(encoding="utf-8"))
+    cards = []
+    for c in src.pop("cards"):
+        sections = [{**new_section(), **sec, "items": [new_item(**it) for it in sec.get("items", [])]}
+                    for sec in c.get("sections", [])]
+        cards.append({"icon": None, "title": None, "title_accent": None, "title_note": None, "color": None, "tip": None,
+                      "layout": "grid", "body_cols": 1, **c, "sections": sections})
+    return {"description": None, "source_url": None, "subtitle": None, "badge": None, "logo": None,
+            "links": [], "meta": {}, "aliases": [], **src, "slug": path.stem, "cards": cards}
+
+
 # ---------------------------------------------------------------- flatten → entries
 
 KIND_BY_STYLE = {"cmd": "command", "keys": "shortcut", "key": "shortcut",
@@ -357,7 +375,7 @@ def flatten(sheet, translations):
                 e["embed_text_vi"] = "\n".join(x for x in (ctx, e["command"], vi["vi"], *vi["q"]) if x) if vi else None
                 e["content_hash_vi"] = sha256(e["embed_text_vi"]) if vi else None
                 entries.append(e)
-    aliases = sorted({sheet["slug"], tool.lower(), *ALIASES.get(sheet["slug"], [])})
+    aliases = sorted({sheet["slug"], tool.lower(), *ALIASES.get(sheet["slug"], []), *sheet.get("aliases", [])})
     return layout, entries, aliases
 
 
@@ -419,23 +437,31 @@ def to_sql(sheets):
 def main():
     sheets, translations = [], load_translations()
     (ROOT / "data").mkdir(exist_ok=True)
-    for path in sorted(ROOT.glob("*.html")):
-        soup = BeautifulSoup(path.read_text(encoding="utf-8"), "html.parser")
-        parser = detect(soup)
-        if not parser:
-            print(f"skip {path.name}: không nhận ra cấu trúc", file=sys.stderr)
-            continue
-        sheet = {"slug": path.stem, "description": meta_desc(soup),
-                 "source_url": canonical(soup), **parser(soup)}
+    sources = {}
+    for path in [*ROOT.glob("*.html"), *SHEETS_DIR.glob("*.json")]:
+        if path.stem in sources:
+            sys.exit(f"✗ trùng slug {path.stem}: {sources[path.stem].name} và {path.name}")
+        sources[path.stem] = path
+    for slug, path in sorted(sources.items()):
+        if path.suffix == ".json":
+            sheet, source = load_json_sheet(path), "json"
+        else:
+            soup = BeautifulSoup(path.read_text(encoding="utf-8"), "html.parser")
+            parser = detect(soup)
+            if not parser:
+                print(f"skip {path.name}: không nhận ra cấu trúc", file=sys.stderr)
+                continue
+            sheet, source = {"slug": slug, "description": meta_desc(soup),
+                             "source_url": canonical(soup), **parser(soup)}, parser.__name__
         sheet["layout"], sheet["entries"], sheet["aliases"] = flatten(sheet, translations)
         del sheet["cards"]
         sheets.append(sheet)
-        (ROOT / "data" / f"{path.stem}.json").write_text(
+        (ROOT / "data" / f"{slug}.json").write_text(
             json.dumps(sheet, ensure_ascii=False, indent=2), encoding="utf-8")
         kinds = {}
         for e in sheet["entries"]:
             kinds[e["kind"]] = kinds.get(e["kind"], 0) + 1
-        print(f"{path.name:14} [{parser.__name__}] cards={len(sheet['layout'])} "
+        print(f"{path.name:14} [{source}] cards={len(sheet['layout'])} "
               f"entries={len(sheet['entries'])} {kinds}")
     sql, n = to_sql(sheets)
     (ROOT / "db" / "seed.sql").write_text(sql, encoding="utf-8")

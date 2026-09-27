@@ -1,0 +1,1404 @@
+{
+  "title": "Bash Cheatsheet",
+  "subtitle": "The GNU Bourne-Again SHell",
+  "description": "Comprehensive reference for Bash syntax, scripting, and command line usage.",
+  "source_url": "https://www.gnu.org/software/bash/manual/",
+  "links": [
+    {
+      "label": "GNU Bash Manual",
+      "url": "https://www.gnu.org/software/bash/manual/"
+    }
+  ],
+  "cards": [
+    {
+      "icon": "⌨️",
+      "title": "Keyboard Shortcuts",
+      "sections": [
+        {
+          "label": "Movement & Editing",
+          "kind": "table",
+          "items": [
+            {
+              "key": "Ctrl+a",
+              "key_style": "key",
+              "description": "Move cursor to beginning of line"
+            },
+            {
+              "key": "Ctrl+e",
+              "key_style": "key",
+              "description": "Move cursor to end of line"
+            },
+            {
+              "key": "Alt+b",
+              "key_style": "key",
+              "description": "Move cursor backward one word"
+            },
+            {
+              "key": "Alt+f",
+              "key_style": "key",
+              "description": "Move cursor forward one word"
+            },
+            {
+              "key": "Ctrl+u",
+              "key_style": "key",
+              "description": "Cut text from cursor to beginning of line"
+            },
+            {
+              "key": "Ctrl+k",
+              "key_style": "key",
+              "description": "Cut text from cursor to end of line"
+            },
+            {
+              "key": "Ctrl+w",
+              "key_style": "key",
+              "description": "Cut the word before the cursor"
+            },
+            {
+              "key": "Ctrl+y",
+              "key_style": "key",
+              "description": "Paste the last cut text (yank)"
+            },
+            {
+              "key": "Ctrl+l",
+              "key_style": "key",
+              "description": "Clear the screen"
+            },
+            {
+              "key": "Ctrl+c",
+              "key_style": "key",
+              "description": "Interrupt and cancel the current command"
+            },
+            {
+              "key": "Ctrl+d",
+              "key_style": "key",
+              "description": "Close the terminal or exit current shell"
+            },
+            {
+              "key": "Ctrl+z",
+              "key_style": "key",
+              "description": "Suspend current foreground process"
+            },
+            {
+              "key": "Ctrl+r",
+              "key_style": "key",
+              "description": "Search command history backward interactively",
+              "example": "Ctrl+r grep"
+            },
+            {
+              "key": "Alt+.",
+              "key_style": "key",
+              "description": "Insert the last argument of the previous command"
+            },
+            {
+              "key": "Tab",
+              "key_style": "key",
+              "description": "Autocomplete file, directory, or command name"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🕰️",
+      "title": "History Expansion",
+      "sections": [
+        {
+          "label": "History References",
+          "kind": "table",
+          "items": [
+            {
+              "key": "!!",
+              "key_style": "code",
+              "description": "Repeat the last command",
+              "example": "sudo !!"
+            },
+            {
+              "key": "!$",
+              "key_style": "code",
+              "description": "Last argument of the previous command",
+              "example": "cat !$ (read the file just touched)"
+            },
+            {
+              "key": "!^",
+              "key_style": "code",
+              "description": "First argument of the previous command",
+              "example": "vim !^ (edit first file)"
+            },
+            {
+              "key": "!*",
+              "key_style": "code",
+              "description": "All arguments of the previous command",
+              "example": "echo !* (print all previous arguments)"
+            },
+            {
+              "key": "!<n>",
+              "key_style": "code",
+              "description": "Run the nth command in history",
+              "example": "!42 (run command #42)"
+            },
+            {
+              "key": "!<prefix>",
+              "key_style": "code",
+              "description": "Run the most recent command starting with prefix",
+              "example": "!git (run last git command)"
+            },
+            {
+              "key": "^<old>^<new>",
+              "key_style": "code",
+              "description": "Replace string in last command and run it",
+              "example": "^sl^ls"
+            },
+            {
+              "key": "history",
+              "key_style": "cmd",
+              "description": "List command history with line numbers",
+              "example": "history | grep find"
+            },
+            {
+              "key": "fc",
+              "key_style": "cmd",
+              "description": "Open last command in default editor and run on save",
+              "example": "fc -l (list history)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "📦",
+      "title": "Variables & Quoting",
+      "sections": [
+        {
+          "label": "Variables",
+          "kind": "table",
+          "items": [
+            {
+              "key": "<var>=<value>",
+              "key_style": "cmd",
+              "description": "Assign value to variable (no spaces around =)",
+              "example": "NAME=\"John Doe\""
+            },
+            {
+              "key": "export <var>=<value>",
+              "key_style": "cmd",
+              "description": "Set environment variable for child processes",
+              "example": "export PATH=\"$PATH:/usr/local/bin\""
+            },
+            {
+              "key": "readonly <var>=<value>",
+              "key_style": "cmd",
+              "description": "Define a variable that cannot be changed",
+              "example": "readonly VERSION=\"1.0.0\""
+            },
+            {
+              "key": "local <var>=<value>",
+              "key_style": "cmd",
+              "description": "Define a local variable inside a function",
+              "example": "local tmp_dir=\"/tmp/test\""
+            },
+            {
+              "key": "unset <var>",
+              "key_style": "cmd",
+              "description": "Remove a variable or function definition",
+              "example": "unset API_KEY"
+            },
+            {
+              "key": "env",
+              "key_style": "cmd",
+              "description": "Display all exported environment variables",
+              "example": "env | grep USER"
+            }
+          ]
+        },
+        {
+          "label": "Quoting",
+          "kind": "table",
+          "items": [
+            {
+              "key": "'<string>'",
+              "key_style": "code",
+              "description": "Single quotes (literal, prevents variable expansion)",
+              "example": "echo 'Cost: $100'"
+            },
+            {
+              "key": "\"<string>\"",
+              "key_style": "code",
+              "description": "Double quotes (allows variable and command expansion)",
+              "example": "echo \"Hello, $USER\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "✨",
+      "title": "Special Parameters",
+      "sections": [
+        {
+          "label": "Script & Function Arguments",
+          "kind": "table",
+          "items": [
+            {
+              "key": "$0",
+              "key_style": "code",
+              "description": "Name of the shell or shell script",
+              "example": "echo \"Usage: $0 [file]\""
+            },
+            {
+              "key": "$1",
+              "key_style": "code",
+              "description": "First positional argument (also $2, $3, etc.)",
+              "example": "cat \"$1\""
+            },
+            {
+              "key": "$#",
+              "key_style": "code",
+              "description": "Number of positional arguments passed",
+              "example": "if [ $# -eq 0 ]; then echo \"No args\"; fi"
+            },
+            {
+              "key": "$@",
+              "key_style": "code",
+              "description": "All arguments as individual quoted strings",
+              "example": "for arg in \"$@\"; do echo \"$arg\"; done"
+            },
+            {
+              "key": "$*",
+              "key_style": "code",
+              "description": "All arguments as a single string",
+              "example": "echo \"All args: $*\""
+            }
+          ]
+        },
+        {
+          "label": "Process State",
+          "kind": "table",
+          "items": [
+            {
+              "key": "$?",
+              "key_style": "code",
+              "description": "Exit status of the last executed command",
+              "example": "if [ $? -ne 0 ]; then echo \"Failed\"; fi"
+            },
+            {
+              "key": "$$",
+              "key_style": "code",
+              "description": "Process ID (PID) of the current shell",
+              "example": "echo \"My PID: $$\""
+            },
+            {
+              "key": "$!",
+              "key_style": "code",
+              "description": "Process ID (PID) of the last background command",
+              "example": "wait $!"
+            },
+            {
+              "key": "$_",
+              "key_style": "code",
+              "description": "Last argument of the previous executed command",
+              "example": "echo \"$_\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "✂️",
+      "title": "Parameter Expansion",
+      "sections": [
+        {
+          "label": "Default Values & Errors",
+          "kind": "table",
+          "items": [
+            {
+              "key": "${<var>:-<def>}",
+              "key_style": "code",
+              "description": "Use default value if variable is unset or null",
+              "example": "echo \"${USER:-guest}\""
+            },
+            {
+              "key": "${<var>:=<def>}",
+              "key_style": "code",
+              "description": "Assign default value to variable if unset or null",
+              "example": "echo \"${EDITOR:=nano}\""
+            },
+            {
+              "key": "${<var>:?<err>}",
+              "key_style": "code",
+              "description": "Print error message and exit if variable is unset",
+              "example": "echo \"${API_KEY:?Missing API key}\""
+            },
+            {
+              "key": "${<var>:+<alt>}",
+              "key_style": "code",
+              "description": "Use alternate value if variable is set and not null",
+              "example": "echo \"${DEBUG:+Debug mode enabled}\""
+            }
+          ]
+        },
+        {
+          "label": "String Manipulation",
+          "kind": "table",
+          "items": [
+            {
+              "key": "${#<var>}",
+              "key_style": "code",
+              "description": "Length of the variable's value",
+              "example": "echo \"Length: ${#PASSWORD}\""
+            },
+            {
+              "key": "${<var>#<pat>}",
+              "key_style": "code",
+              "description": "Remove shortest matching prefix pattern",
+              "example": "echo \"${FILE#*.}\" (removes first extension)"
+            },
+            {
+              "key": "${<var>##<pat>}",
+              "key_style": "code",
+              "description": "Remove longest matching prefix pattern",
+              "example": "echo \"${FILE##*.}\" (gets last extension)"
+            },
+            {
+              "key": "${<var>%<pat>}",
+              "key_style": "code",
+              "description": "Remove shortest matching suffix pattern",
+              "example": "echo \"${FILE%.*}\" (removes last extension)"
+            },
+            {
+              "key": "${<var>%%<pat>}",
+              "key_style": "code",
+              "description": "Remove longest matching suffix pattern",
+              "example": "echo \"${URL%%/*}\" (gets domain from url)"
+            },
+            {
+              "key": "${<var>/<old>/<new>}",
+              "key_style": "code",
+              "description": "Replace first occurrence of pattern",
+              "example": "echo \"${PATH/bin/BIN}\""
+            },
+            {
+              "key": "${<var>//<old>/<new>}",
+              "key_style": "code",
+              "description": "Replace all occurrences of pattern",
+              "example": "echo \"${TEXT// /_}\" (replace spaces with underscores)"
+            },
+            {
+              "key": "${<var>:<off>:<len>}",
+              "key_style": "code",
+              "description": "Substring starting at offset with given length",
+              "example": "echo \"${STRING:0:5}\" (first 5 chars)"
+            },
+            {
+              "key": "${<var>^^}",
+              "key_style": "code",
+              "description": "Convert string to uppercase",
+              "example": "echo \"${NAME^^}\""
+            },
+            {
+              "key": "${<var>,,}",
+              "key_style": "code",
+              "description": "Convert string to lowercase",
+              "example": "echo \"${NAME,,}\""
+            }
+          ]
+        },
+        {
+          "label": "Indirection & Prefix",
+          "kind": "table",
+          "items": [
+            {
+              "key": "${!<var>}",
+              "key_style": "code",
+              "description": "Indirect expansion (value of variable whose name is var's value)",
+              "example": "ref=\"USER\"; echo \"${!ref}\""
+            },
+            {
+              "key": "${!<prefix>*}",
+              "key_style": "code",
+              "description": "List of variable names starting with prefix",
+              "example": "echo \"${!BASH*}\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "📚",
+      "title": "Arrays",
+      "sections": [
+        {
+          "label": "Indexed Arrays",
+          "kind": "table",
+          "items": [
+            {
+              "key": "declare -a <arr>",
+              "key_style": "cmd",
+              "description": "Declare an indexed array",
+              "example": "declare -a my_array=(apple banana)"
+            },
+            {
+              "key": "<arr>+=(<item>)",
+              "key_style": "cmd",
+              "description": "Append elements to an array",
+              "example": "fruits+=(orange kiwi)"
+            },
+            {
+              "key": "${<arr>[<idx>]}",
+              "key_style": "code",
+              "description": "Access element at index",
+              "example": "echo \"${fruits[0]}\""
+            },
+            {
+              "key": "${#<arr>[@]}",
+              "key_style": "code",
+              "description": "Get length of the array",
+              "example": "echo \"Count: ${#fruits[@]}\""
+            },
+            {
+              "key": "${<arr>[@]}",
+              "key_style": "code",
+              "description": "Access all elements of the array",
+              "example": "for f in \"${fruits[@]}\"; do echo \"$f\"; done"
+            },
+            {
+              "key": "${<arr>[@]:<off>:<len>}",
+              "key_style": "code",
+              "description": "Slice array starting at offset",
+              "example": "echo \"${fruits[@]:1:2}\""
+            }
+          ]
+        },
+        {
+          "label": "Associative Arrays (Dictionaries)",
+          "kind": "table",
+          "items": [
+            {
+              "key": "declare -A <arr>",
+              "key_style": "cmd",
+              "description": "Declare an associative array",
+              "example": "declare -A user=([name]=\"Alice\" [age]=25)"
+            },
+            {
+              "key": "${!<arr>[@]}",
+              "key_style": "code",
+              "description": "Get all keys of an associative array",
+              "example": "echo \"Keys: ${!user[@]}\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🧮",
+      "title": "Arithmetic",
+      "sections": [
+        {
+          "label": "Evaluation",
+          "kind": "table",
+          "items": [
+            {
+              "key": "(( <expr> ))",
+              "key_style": "cmd",
+              "description": "Evaluate arithmetic expression (returns status)",
+              "example": "(( a = 5 + 3 ))"
+            },
+            {
+              "key": "$(( <expr> ))",
+              "key_style": "code",
+              "description": "Arithmetic expansion (returns the result)",
+              "example": "echo \"Result: $(( 5 * 10 ))\""
+            },
+            {
+              "key": "let \"<expr>\"",
+              "key_style": "cmd",
+              "description": "Evaluate arithmetic expression (assigns variables)",
+              "example": "let \"a = b + c\""
+            }
+          ]
+        },
+        {
+          "label": "Operators",
+          "kind": "table",
+          "items": [
+            {
+              "key": "++",
+              "key_style": "code",
+              "description": "Increment operator (can be prefix or postfix)",
+              "example": "(( count++ ))"
+            },
+            {
+              "key": "**",
+              "key_style": "code",
+              "description": "Exponentiation operator",
+              "example": "echo $(( 2 ** 8 ))"
+            },
+            {
+              "key": "%",
+              "key_style": "code",
+              "description": "Modulo operator (remainder)",
+              "example": "echo $(( 10 % 3 ))"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⚖️",
+      "title": "Conditionals",
+      "sections": [
+        {
+          "label": "If / Else & Brackets",
+          "kind": "table",
+          "items": [
+            {
+              "key": "if <cmd>; then ... elif <cmd>; then ... else ... fi",
+              "key_style": "code",
+              "description": "Conditional execution structure",
+              "example": "if [ -d \"$DIR\" ]; then echo \"Found\"; fi"
+            },
+            {
+              "key": "[[ <expr> ]]",
+              "key_style": "code",
+              "description": "Advanced bash conditional command (supports &&, ||, =~)",
+              "example": "if [[ $a == \"x\" && $b == \"y\" ]]; then echo \"Match\"; fi"
+            },
+            {
+              "key": "[ <expr> ]",
+              "key_style": "code",
+              "description": "POSIX standard test command",
+              "example": "if [ \"$a\" = \"$b\" ]; then echo \"Match\"; fi"
+            }
+          ]
+        },
+        {
+          "label": "File Tests",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-e <file>",
+              "key_style": "code",
+              "description": "True if file or directory exists",
+              "example": "[[ -e \"$file\" ]] && echo \"Exists\""
+            },
+            {
+              "key": "-f <file>",
+              "key_style": "code",
+              "description": "True if it is a regular file",
+              "example": "[[ -f \"$file\" ]] && cat \"$file\""
+            },
+            {
+              "key": "-d <dir>",
+              "key_style": "code",
+              "description": "True if it is a directory",
+              "example": "[[ -d \"$dir\" ]] && cd \"$dir\""
+            },
+            {
+              "key": "-s <file>",
+              "key_style": "code",
+              "description": "True if file exists and has size greater than 0",
+              "example": "[[ -s \"$file\" ]] && echo \"Not empty\""
+            },
+            {
+              "key": "-r <file>",
+              "key_style": "code",
+              "description": "True if file is readable",
+              "example": "[[ -r \"$file\" ]] && cat \"$file\""
+            },
+            {
+              "key": "-w <file>",
+              "key_style": "code",
+              "description": "True if file is writable",
+              "example": "[[ -w \"$file\" ]] && echo \"ok\" > \"$file\""
+            },
+            {
+              "key": "-x <file>",
+              "key_style": "code",
+              "description": "True if file is executable",
+              "example": "[[ -x \"$file\" ]] && ./\"$file\""
+            },
+            {
+              "key": "-L <file>",
+              "key_style": "code",
+              "description": "True if file is a symbolic link",
+              "example": "[[ -L \"$file\" ]] && ls -l \"$file\""
+            },
+            {
+              "key": "<file1> -nt <file2>",
+              "key_style": "code",
+              "description": "True if file1 is newer than file2",
+              "example": "[[ \"$src\" -nt \"$dest\" ]] && make"
+            }
+          ]
+        },
+        {
+          "label": "String & Numeric Tests",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-z <str>",
+              "key_style": "code",
+              "description": "True if string length is zero",
+              "example": "[[ -z \"$var\" ]] && echo \"Empty\""
+            },
+            {
+              "key": "-n <str>",
+              "key_style": "code",
+              "description": "True if string length is non-zero",
+              "example": "[[ -n \"$var\" ]] && echo \"Not empty\""
+            },
+            {
+              "key": "<str1> == <str2>",
+              "key_style": "code",
+              "description": "True if strings are equal",
+              "example": "[[ \"$a\" == \"$b\" ]] && echo \"Equal\""
+            },
+            {
+              "key": "<str1> != <str2>",
+              "key_style": "code",
+              "description": "True if strings are not equal",
+              "example": "[[ \"$a\" != \"$b\" ]] && echo \"Different\""
+            },
+            {
+              "key": "<str> =~ <regex>",
+              "key_style": "code",
+              "description": "True if string matches extended regular expression",
+              "example": "[[ \"$email\" =~ @ ]] && echo \"Valid\""
+            },
+            {
+              "key": "<str1> < <str2>",
+              "key_style": "code",
+              "description": "True if str1 sorts before str2",
+              "example": "[[ \"$a\" < \"$b\" ]] && echo \"Earlier\""
+            },
+            {
+              "key": "-eq, -ne, -lt, -gt, -le, -ge",
+              "key_style": "code",
+              "description": "Numeric comparisons (equal, not equal, less than, etc.)",
+              "example": "[[ $age -ge 18 ]] && echo \"Adult\""
+            },
+            {
+              "key": "&&, ||",
+              "key_style": "code",
+              "description": "Logical AND, OR inside [[ ]] or between commands",
+              "example": "[[ -f $file && -r $file ]] && cat $file"
+            }
+          ]
+        },
+        {
+          "label": "Case Statement",
+          "kind": "table",
+          "items": [
+            {
+              "key": "case <var> in <pat>) ... ;; esac",
+              "key_style": "code",
+              "description": "Pattern matching branching",
+              "example": "case \"$cmd\" in start) start_srv ;; stop) stop_srv ;; *) echo \"Usage\" ;; esac"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔄",
+      "title": "Loops",
+      "sections": [
+        {
+          "label": "For Loops",
+          "kind": "table",
+          "items": [
+            {
+              "key": "for <var> in <list>; do ...; done",
+              "key_style": "code",
+              "description": "Iterate over a list of items",
+              "example": "for f in *.txt; do cat \"$f\"; done"
+            },
+            {
+              "key": "for (( <i>=0; <i><<max>; <i>++ )); do ...; done",
+              "key_style": "code",
+              "description": "C-style arithmetic for loop",
+              "example": "for (( i=0; i<10; i++ )); do echo $i; done"
+            },
+            {
+              "key": "seq <start> <step> <end>",
+              "key_style": "cmd",
+              "description": "Generate a sequence of numbers",
+              "example": "for i in $(seq 1 2 10); do echo $i; done"
+            },
+            {
+              "key": "{<start>..<end>}",
+              "key_style": "code",
+              "description": "Brace expansion range",
+              "example": "for i in {1..10}; do echo $i; done"
+            }
+          ]
+        },
+        {
+          "label": "While / Until & Controls",
+          "kind": "table",
+          "items": [
+            {
+              "key": "while <cmd>; do ...; done",
+              "key_style": "code",
+              "description": "Execute while condition is true",
+              "example": "while true; do sleep 1; done"
+            },
+            {
+              "key": "while read -r <var>; do ...; done < <file>",
+              "key_style": "code",
+              "description": "Read file line by line safely",
+              "example": "while read -r line; do echo \"$line\"; done < file.txt"
+            },
+            {
+              "key": "until <cmd>; do ...; done",
+              "key_style": "code",
+              "description": "Execute until condition becomes true",
+              "example": "until ping -c 1 8.8.8.8; do sleep 1; done"
+            },
+            {
+              "key": "break",
+              "key_style": "cmd",
+              "description": "Exit the innermost loop",
+              "example": "if [ -z \"$var\" ]; then break; fi"
+            },
+            {
+              "key": "continue",
+              "key_style": "cmd",
+              "description": "Skip the rest of the loop and start next iteration",
+              "example": "if [ -d \"$dir\" ]; then continue; fi"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⚙️",
+      "title": "Functions",
+      "sections": [
+        {
+          "label": "Definition & Arguments",
+          "kind": "table",
+          "items": [
+            {
+              "key": "<name>() { ... }",
+              "key_style": "code",
+              "description": "Define a function",
+              "example": "greet() { echo \"Hello $1\"; }"
+            },
+            {
+              "key": "function <name> { ... }",
+              "key_style": "code",
+              "description": "Alternative syntax for defining a function",
+              "example": "function greet { echo \"Hello $1\"; }"
+            },
+            {
+              "key": "local <var>=<value>",
+              "key_style": "cmd",
+              "description": "Declare variable local to function",
+              "example": "local temp=\"/tmp\""
+            },
+            {
+              "key": "return <status>",
+              "key_style": "cmd",
+              "description": "Return an exit status (0-255) from function",
+              "example": "return 0"
+            },
+            {
+              "key": "echo <value>",
+              "key_style": "cmd",
+              "description": "Print value to stdout to \"return\" a string from function",
+              "example": "result=$(my_function)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔀",
+      "title": "Redirection & Pipelines",
+      "sections": [
+        {
+          "label": "File Redirection",
+          "kind": "table",
+          "items": [
+            {
+              "key": "> <file>",
+              "key_style": "code",
+              "description": "Redirect stdout to file (overwrite)",
+              "example": "echo \"hello\" > out.txt",
+              "danger": "Overwrites existing file content"
+            },
+            {
+              "key": ">> <file>",
+              "key_style": "code",
+              "description": "Redirect stdout to file (append)",
+              "example": "echo \"log entry\" >> log.txt"
+            },
+            {
+              "key": "< <file>",
+              "key_style": "code",
+              "description": "Redirect stdin from file",
+              "example": "wc -l < input.txt"
+            },
+            {
+              "key": "2> <file>",
+              "key_style": "code",
+              "description": "Redirect stderr to file",
+              "example": "ls missing_file 2> error.log"
+            },
+            {
+              "key": "2>&1",
+              "key_style": "code",
+              "description": "Redirect stderr to stdout",
+              "example": "make 2>&1 | tee build.log"
+            },
+            {
+              "key": "&> <file>",
+              "key_style": "code",
+              "description": "Redirect both stdout and stderr to file (overwrite)",
+              "example": "command &> all.log"
+            },
+            {
+              "key": "&>> <file>",
+              "key_style": "code",
+              "description": "Redirect both stdout and stderr to file (append)",
+              "example": "command &>> all.log"
+            },
+            {
+              "key": ">/dev/null",
+              "key_style": "code",
+              "description": "Discard output",
+              "example": "grep \"pattern\" file.txt >/dev/null"
+            },
+            {
+              "key": "exec <fd>> <file>",
+              "key_style": "cmd",
+              "description": "Redirect file descriptor for current shell",
+              "example": "exec 3> debug.log"
+            }
+          ]
+        },
+        {
+          "label": "Here-Docs & Pipelines",
+          "kind": "table",
+          "items": [
+            {
+              "key": "<<EOF ... EOF",
+              "key_style": "code",
+              "description": "Here-document (multi-line input, allows expansion)",
+              "example": "cat <<EOF\\nHello $USER\\nEOF"
+            },
+            {
+              "key": "<<-EOF ... EOF",
+              "key_style": "code",
+              "description": "Here-document that strips leading tabs",
+              "example": "cat <<-EOF\\n\\tIndented text\\nEOF"
+            },
+            {
+              "key": "<<'EOF' ... EOF",
+              "key_style": "code",
+              "description": "Here-document (literal, prevents expansion)",
+              "example": "cat <<'EOF'\\nLiteral $USER\\nEOF"
+            },
+            {
+              "key": "<<< \"<string>\"",
+              "key_style": "code",
+              "description": "Here-string (feed string as stdin)",
+              "example": "grep \"error\" <<< \"log error string\""
+            },
+            {
+              "key": "tee <file>",
+              "key_style": "cmd",
+              "description": "Read from stdin and write to stdout and file(s)",
+              "example": "echo \"output\" | tee result.txt"
+            },
+            {
+              "key": "|",
+              "key_style": "code",
+              "description": "Pipe stdout of first command to stdin of second",
+              "example": "cat file.txt | grep \"pattern\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🧩",
+      "title": "Substitutions & Subshells",
+      "sections": [
+        {
+          "label": "Command & Process",
+          "kind": "table",
+          "items": [
+            {
+              "key": "$( <cmd> )",
+              "key_style": "code",
+              "description": "Command substitution (evaluates to command stdout)",
+              "example": "today=$(date +%F)"
+            },
+            {
+              "key": "`<cmd>`",
+              "key_style": "code",
+              "description": "Legacy command substitution (avoid)",
+              "example": "today=`date`"
+            },
+            {
+              "key": "<( <cmd> )",
+              "key_style": "code",
+              "description": "Process substitution (run command and feed its output as a file)",
+              "example": "diff <(ls dir1) <(ls dir2)"
+            },
+            {
+              "key": ">( <cmd> )",
+              "key_style": "code",
+              "description": "Process substitution (feed file output to command stdin)",
+              "example": "tar cf >(gzip -c > out.tar.gz) dir/"
+            }
+          ]
+        },
+        {
+          "label": "Grouping",
+          "kind": "table",
+          "items": [
+            {
+              "key": "( <cmd1>; <cmd2> )",
+              "key_style": "code",
+              "description": "Execute commands in a subshell",
+              "example": "(cd /tmp && make)"
+            },
+            {
+              "key": "{ <cmd1>; <cmd2>; }",
+              "key_style": "code",
+              "description": "Execute commands in the current shell context",
+              "example": "{ echo \"start\"; make; }"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "📂",
+      "title": "Brace Expansion & Globbing",
+      "sections": [
+        {
+          "label": "Globbing (Pattern Matching)",
+          "kind": "table",
+          "items": [
+            {
+              "key": "*",
+              "key_style": "code",
+              "description": "Match zero or more characters",
+              "example": "ls *.txt"
+            },
+            {
+              "key": "?",
+              "key_style": "code",
+              "description": "Match exactly one character",
+              "example": "ls file?.txt"
+            },
+            {
+              "key": "[...]",
+              "key_style": "code",
+              "description": "Match any character within brackets",
+              "example": "ls [abc]*.txt"
+            },
+            {
+              "key": "**",
+              "key_style": "code",
+              "description": "Match files/directories recursively (needs globstar)",
+              "example": "ls **/*.py"
+            }
+          ]
+        },
+        {
+          "label": "Extended Globbing (extglob)",
+          "kind": "table",
+          "items": [
+            {
+              "key": "?(<pat>|<pat>)",
+              "key_style": "code",
+              "description": "Match zero or one occurrence of given patterns",
+              "example": "rm ?(*.txt|*.md)"
+            },
+            {
+              "key": "*(<pat>|<pat>)",
+              "key_style": "code",
+              "description": "Match zero or more occurrences of given patterns",
+              "example": "ls *(old|backup)-*"
+            },
+            {
+              "key": "+(<pat>|<pat>)",
+              "key_style": "code",
+              "description": "Match one or more occurrences of given patterns",
+              "example": "ls +(img|image)_*"
+            },
+            {
+              "key": "@(<pat>|<pat>)",
+              "key_style": "code",
+              "description": "Match exactly one of the given patterns",
+              "example": "cat @(info|help).txt"
+            },
+            {
+              "key": "!(<pat>|<pat>)",
+              "key_style": "code",
+              "description": "Match anything except the given patterns",
+              "example": "rm !(*.sh)"
+            }
+          ]
+        },
+        {
+          "label": "Shell Options (shopt)",
+          "kind": "table",
+          "items": [
+            {
+              "key": "shopt -s globstar",
+              "key_style": "cmd",
+              "description": "Enable recursive globbing (**)",
+              "example": "shopt -s globstar && ls **/*.md"
+            },
+            {
+              "key": "shopt -s nullglob",
+              "key_style": "cmd",
+              "description": "Unmatched globs expand to nothing (instead of themselves)",
+              "example": "shopt -s nullglob; files=(*.txt)"
+            },
+            {
+              "key": "shopt -s extglob",
+              "key_style": "cmd",
+              "description": "Enable extended globbing patterns",
+              "example": "shopt -s extglob; rm !(*.sh)"
+            },
+            {
+              "key": "shopt -s dotglob",
+              "key_style": "cmd",
+              "description": "Globs match hidden files (starting with dot)",
+              "example": "shopt -s dotglob; cp -r * /backup/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🚦",
+      "title": "Job Control",
+      "sections": [
+        {
+          "label": "Background & Foreground",
+          "kind": "table",
+          "items": [
+            {
+              "key": "&",
+              "key_style": "code",
+              "description": "Run command in background",
+              "example": "long_job &"
+            },
+            {
+              "key": "jobs",
+              "key_style": "cmd",
+              "description": "List active background jobs",
+              "example": "jobs -l"
+            },
+            {
+              "key": "fg",
+              "key_style": "cmd",
+              "description": "Bring most recent background job to foreground",
+              "example": "fg %2"
+            },
+            {
+              "key": "bg",
+              "key_style": "cmd",
+              "description": "Resume suspended job in background",
+              "example": "bg %1"
+            },
+            {
+              "key": "%<n>",
+              "key_style": "code",
+              "description": "Refer to job number n",
+              "example": "fg %1"
+            },
+            {
+              "key": "wait",
+              "key_style": "cmd",
+              "description": "Wait for background jobs to finish",
+              "example": "wait %1"
+            }
+          ]
+        },
+        {
+          "label": "Process Management",
+          "kind": "table",
+          "items": [
+            {
+              "key": "nohup <cmd> &",
+              "key_style": "cmd",
+              "description": "Run command immune to hangups (terminal closure)",
+              "example": "nohup ./script.sh &"
+            },
+            {
+              "key": "disown",
+              "key_style": "cmd",
+              "description": "Remove job from shell's active job table",
+              "example": "disown %1"
+            },
+            {
+              "key": "kill %<n>",
+              "key_style": "cmd",
+              "description": "Send SIGTERM to job n",
+              "example": "kill %1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🛡️",
+      "title": "Script Safety & Debugging",
+      "sections": [
+        {
+          "label": "Safety Options",
+          "kind": "table",
+          "items": [
+            {
+              "key": "#!/usr/bin/env bash",
+              "key_style": "code",
+              "description": "Shebang to specify bash interpreter",
+              "example": "#!/usr/bin/env bash\\necho \"Starting\""
+            },
+            {
+              "key": "set -e",
+              "key_style": "cmd",
+              "description": "Exit immediately if a command fails",
+              "example": "set -e; echo \"stops on error\""
+            },
+            {
+              "key": "set -u",
+              "key_style": "cmd",
+              "description": "Treat unset variables as an error",
+              "example": "set -u; echo \"$UNSET_VAR\" # fails"
+            },
+            {
+              "key": "set -o pipefail",
+              "key_style": "cmd",
+              "description": "Return exit status of last failed command in pipe",
+              "example": "set -o pipefail; grep \"x\" | wc -l"
+            },
+            {
+              "key": "set -x",
+              "key_style": "cmd",
+              "description": "Print commands and their arguments as they are executed"
+            },
+            {
+              "key": "bash -n <script>",
+              "key_style": "cmd",
+              "description": "Check script syntax without executing it",
+              "example": "bash -n ./script.sh"
+            }
+          ]
+        },
+        {
+          "label": "Traps & Exits",
+          "kind": "table",
+          "items": [
+            {
+              "key": "trap <cmd> EXIT",
+              "key_style": "cmd",
+              "description": "Run command on script exit",
+              "example": "trap 'rm -f $tempfile' EXIT"
+            },
+            {
+              "key": "trap <cmd> ERR",
+              "key_style": "cmd",
+              "description": "Run command on error (command failure)",
+              "example": "trap 'echo \"Error occurred\"' ERR"
+            },
+            {
+              "key": "trap <cmd> INT",
+              "key_style": "cmd",
+              "description": "Run command on interrupt (Ctrl+C)",
+              "example": "trap 'echo \"Interrupted\"' INT"
+            },
+            {
+              "key": "exit <status>",
+              "key_style": "cmd",
+              "description": "Exit shell script with status code",
+              "example": "exit 1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "📥",
+      "title": "Input / Output Builtins",
+      "sections": [
+        {
+          "label": "Reading Input",
+          "kind": "table",
+          "items": [
+            {
+              "key": "read -p <prompt> <var>",
+              "key_style": "cmd",
+              "description": "Output prompt and read input into variable",
+              "example": "read -p \"Enter name: \" name"
+            },
+            {
+              "key": "read -s <var>",
+              "key_style": "cmd",
+              "description": "Silent mode (do not echo input, useful for passwords)",
+              "example": "read -s -p \"Password: \" pass"
+            },
+            {
+              "key": "read -t <sec> <var>",
+              "key_style": "cmd",
+              "description": "Timeout after specified seconds",
+              "example": "read -t 5 -p \"Proceed? \" ans"
+            },
+            {
+              "key": "read -a <arr>",
+              "key_style": "cmd",
+              "description": "Read words into an array",
+              "example": "read -a words <<< \"one two three\""
+            },
+            {
+              "key": "read -r <var>",
+              "key_style": "cmd",
+              "description": "Do not treat backslashes as escape characters",
+              "example": "read -r line < file.txt"
+            },
+            {
+              "key": "mapfile <arr> < <file>",
+              "key_style": "cmd",
+              "description": "Read lines from file into array (alias for readarray)",
+              "example": "mapfile lines < data.txt"
+            }
+          ]
+        },
+        {
+          "label": "Output",
+          "kind": "table",
+          "items": [
+            {
+              "key": "printf <fmt> <args>",
+              "key_style": "cmd",
+              "description": "Formatted output (C-style)",
+              "example": "printf \"Name: %s\\tAge: %d\\n\" \"$name\" $age"
+            },
+            {
+              "key": "echo -e <str>",
+              "key_style": "cmd",
+              "description": "Enable interpretation of backslash escapes",
+              "example": "echo -e \"Line 1\\nLine 2\""
+            },
+            {
+              "key": "echo -n <str>",
+              "key_style": "cmd",
+              "description": "Do not output the trailing newline",
+              "example": "echo -n \"No newline\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🛠️",
+      "title": "Builtins & Argument Parsing",
+      "sections": [
+        {
+          "label": "Argument Parsing",
+          "kind": "table",
+          "items": [
+            {
+              "key": "getopts <optstr> <var>",
+              "key_style": "cmd",
+              "description": "Parse short command-line options",
+              "example": "while getopts \"ab:c\" opt; do ...; done"
+            }
+          ]
+        },
+        {
+          "label": "Useful Builtins",
+          "kind": "table",
+          "items": [
+            {
+              "key": "source <file>",
+              "key_style": "cmd",
+              "description": "Execute commands from file in current shell",
+              "example": "source ~/.bashrc"
+            },
+            {
+              "key": "type <cmd>",
+              "key_style": "cmd",
+              "description": "Describe a command (alias, builtin, file)",
+              "example": "type grep"
+            },
+            {
+              "key": "command -v <cmd>",
+              "key_style": "cmd",
+              "description": "Print path or command that will be executed",
+              "example": "command -v python3"
+            },
+            {
+              "key": "alias <name>=\"<cmd>\"",
+              "key_style": "cmd",
+              "description": "Create a shortcut for a command",
+              "example": "alias ll=\"ls -l\""
+            },
+            {
+              "key": "unalias <name>",
+              "key_style": "cmd",
+              "description": "Remove an alias",
+              "example": "unalias ll"
+            },
+            {
+              "key": "pushd <dir>",
+              "key_style": "cmd",
+              "description": "Save current directory to stack and change to dir",
+              "example": "pushd /var/log"
+            },
+            {
+              "key": "popd",
+              "key_style": "cmd",
+              "description": "Change to top directory on stack and remove it",
+              "example": "popd && ls"
+            },
+            {
+              "key": "dirs",
+              "key_style": "cmd",
+              "description": "Display directory stack",
+              "example": "dirs -v"
+            },
+            {
+              "key": "cd -",
+              "key_style": "cmd",
+              "description": "Change to previous working directory",
+              "example": "cd - && pwd"
+            },
+            {
+              "key": "time <cmd>",
+              "key_style": "cmd",
+              "description": "Measure execution time of a command",
+              "example": "time sleep 2"
+            },
+            {
+              "key": "shopt",
+              "key_style": "cmd",
+              "description": "Set or print shell options",
+              "example": "shopt -p"
+            },
+            {
+              "key": "ulimit",
+              "key_style": "cmd",
+              "description": "Get or set resource limits",
+              "example": "ulimit -n 4096"
+            },
+            {
+              "key": "umask",
+              "key_style": "cmd",
+              "description": "Get or set file mode creation mask",
+              "example": "umask 022"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,267 @@
+{
+  "title": "xargs Cheatsheet",
+  "subtitle": "Build and execute command lines from standard input",
+  "description": "Comprehensive reference for xargs: splitting input, batching arguments, parallel execution, and safe filename handling.",
+  "source_url": "https://www.gnu.org/software/findutils/manual/html_node/find_html/Invoking-xargs.html",
+  "links": [
+    {
+      "label": "GNU findutils (xargs)",
+      "url": "https://www.gnu.org/software/findutils/manual/html_node/find_html/Invoking-xargs.html"
+    }
+  ],
+  "cards": [
+    {
+      "icon": "📥",
+      "title": "Input & Splitting",
+      "layout": "grid",
+      "sections": [
+        {
+          "kind": "text",
+          "content": "By default, xargs splits on spaces, tabs, and newlines. It also processes single quotes, double quotes, and backslashes, which can cause errors if input contains unmatched quotes. Use -0 or -d to disable quote processing."
+        },
+        {
+          "kind": "table",
+          "items": [
+            {
+              "key": "xargs",
+              "key_style": "cmd",
+              "description": "Read standard input and build command lines (defaults to echo)",
+              "example": "echo 'a b c' | xargs"
+            },
+            {
+              "key": "-d <delim>",
+              "key_style": "code",
+              "description": "Split input by an exact character instead of whitespace",
+              "example": "echo 'a,b,c' | xargs -d ','"
+            },
+            {
+              "key": "-0",
+              "key_style": "code",
+              "description": "Split input by null characters (disables quote processing)",
+              "example": "find . -print0 | xargs -0 rm"
+            },
+            {
+              "key": "-a <file>",
+              "key_style": "code",
+              "description": "Read arguments from a file instead of standard input",
+              "example": "xargs -a args.txt echo"
+            },
+            {
+              "key": "-E <eof-str>",
+              "key_style": "code",
+              "description": "Stop reading input when the exact EOF string is encountered",
+              "example": "echo 'a b stop c' | xargs -E 'stop'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⚙️",
+      "title": "Controlling Execution",
+      "sections": [
+        {
+          "kind": "table",
+          "items": [
+            {
+              "key": "-n <max-args>",
+              "key_style": "code",
+              "description": "Pass at most N arguments per command invocation",
+              "example": "echo 1 2 3 4 | xargs -n 2 echo"
+            },
+            {
+              "key": "-L <max-lines>",
+              "key_style": "code",
+              "description": "Pass at most N non-blank input lines per command invocation",
+              "example": "ls -1 | xargs -L 10 echo"
+            },
+            {
+              "key": "-I <replace-str>",
+              "key_style": "code",
+              "description": "Replace placeholder in command with input line (implies -L 1)",
+              "example": "ls | xargs -I {} mv {} {}.bak"
+            },
+            {
+              "key": "-r",
+              "key_style": "code",
+              "description": "Do not run the command if standard input is empty",
+              "example": "find . -name '*.tmp' | xargs -r rm"
+            },
+            {
+              "key": "-s <max-chars>",
+              "key_style": "code",
+              "description": "Limit the maximum length of the command line in characters",
+              "example": "xargs -s 10000 echo"
+            },
+            {
+              "key": "-x",
+              "key_style": "code",
+              "description": "Exit immediately if the size limit (from -s) is exceeded",
+              "example": "xargs -s 10 -x echo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⚡",
+      "title": "Interactive & Parallel",
+      "sections": [
+        {
+          "kind": "table",
+          "items": [
+            {
+              "key": "-p",
+              "key_style": "code",
+              "description": "Prompt for confirmation before running each command line",
+              "example": "ls | xargs -p rm"
+            },
+            {
+              "key": "-t",
+              "key_style": "code",
+              "description": "Print the command line to stderr before executing it",
+              "example": "ls | xargs -t echo"
+            },
+            {
+              "key": "-o",
+              "key_style": "code",
+              "description": "Reopen stdin as /dev/tty for interactive applications",
+              "example": "grep -l 'TODO' *.txt | xargs -o vim"
+            },
+            {
+              "key": "-P <max-procs>",
+              "key_style": "code",
+              "description": "Run up to max-procs processes simultaneously",
+              "example": "cat urls.txt | xargs -n 1 -P 4 wget"
+            },
+            {
+              "key": "--process-slot-var=<var>",
+              "key_style": "code",
+              "description": "Set environment variable to the process slot index",
+              "example": "xargs -P 4 --process-slot-var=ID -I {} sh -c 'echo Slot $ID: {}'"
+            },
+            {
+              "key": "--show-limits",
+              "key_style": "code",
+              "description": "Display limits on the command-line length imposed by the OS",
+              "example": "xargs --show-limits < /dev/null"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "💡",
+      "title": "Patterns & Practical Examples",
+      "layout": "wide",
+      "sections": [
+        {
+          "kind": "table",
+          "items": [
+            {
+              "key": "find <path> -print0 | xargs -0 <cmd>",
+              "key_style": "cmd",
+              "description": "Safely pass filenames with spaces or newlines to a command",
+              "example": "find . -name '*.log' -print0 | xargs -0 rm -f",
+              "danger": "Be careful when chaining rm -f with find/xargs"
+            },
+            {
+              "key": "<cmd> | xargs sh -c '<cmds>' sh",
+              "key_style": "cmd",
+              "description": "Run multiple shell commands per argument using sh -c",
+              "example": "echo \"d1 d2\" | xargs -n 1 sh -c 'mkdir \"$1\" && touch \"$1/f\"' sh"
+            },
+            {
+              "key": "grep -l <pattern> | xargs sed -i <replace>",
+              "key_style": "cmd",
+              "description": "Find and replace text across multiple matching files",
+              "example": "grep -rl 'old_api' . | xargs sed -i 's/old_api/new_api/g'",
+              "danger": "Modifies files in-place"
+            },
+            {
+              "key": "<cmd> | xargs -I {} <cmd> {} <arg>",
+              "key_style": "cmd",
+              "description": "Place the argument in the middle or multiple times using a placeholder",
+              "example": "cat files.txt | xargs -I {} cp {} /backup/{}"
+            },
+            {
+              "key": "<cmd> | xargs -n 1 -P <procs> <cmd>",
+              "key_style": "cmd",
+              "description": "Batch and run commands in parallel for faster execution",
+              "example": "cat list.txt | xargs -n 1 -P 8 curl -O"
+            },
+            {
+              "key": "ls | xargs tar -cvzf <archive.tar.gz>",
+              "key_style": "cmd",
+              "description": "Pass multiple files as arguments to create an archive",
+              "example": "ls *.txt | xargs tar -cvzf text_files.tar.gz"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🛑",
+      "title": "Exit Status & Info",
+      "sections": [
+        {
+          "kind": "rows",
+          "items": [
+            {
+              "key": "0",
+              "key_style": "plain",
+              "description": "Success (all commands succeeded)"
+            },
+            {
+              "key": "1",
+              "key_style": "plain",
+              "description": "Some other error occurred in xargs"
+            },
+            {
+              "key": "123",
+              "key_style": "plain",
+              "description": "Command exited with status 1-125"
+            },
+            {
+              "key": "124",
+              "key_style": "plain",
+              "description": "Command exited with status 255"
+            },
+            {
+              "key": "125",
+              "key_style": "plain",
+              "description": "Command was killed by a signal"
+            },
+            {
+              "key": "126",
+              "key_style": "plain",
+              "description": "Command cannot be run (e.g. permission denied)"
+            },
+            {
+              "key": "127",
+              "key_style": "plain",
+              "description": "Command was not found"
+            }
+          ]
+        },
+        {
+          "kind": "table",
+          "items": [
+            {
+              "key": "--help",
+              "key_style": "code",
+              "description": "Print a summary of options to xargs and exit",
+              "example": "xargs --help"
+            },
+            {
+              "key": "--version",
+              "key_style": "code",
+              "description": "Print the version number of xargs and exit",
+              "example": "xargs --version"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

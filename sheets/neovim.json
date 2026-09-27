@@ -1,0 +1,2391 @@
+{
+  "title": "Neovim Cheatsheet",
+  "subtitle": "Complete nvim command reference - searchable, fast, always free",
+  "description": "A fast, searchable Neovim cheatsheet covering every essential nvim command: modes, navigation, editing, text objects, search & replace, splits, tabs, buffers, macros, LSP, and more.",
+  "source_url": "https://neovimcheatsheet.com/",
+  "links": [
+    {
+      "label": "neovim.io",
+      "url": "https://neovim.io"
+    }
+  ],
+  "meta": {
+    "legend": [
+      {
+        "badge": "N",
+        "badge_class": "badge-n",
+        "label": "Normal",
+        "tip": "The default mode - you're here unless you've switched. Navigate, run operators, and issue commands. Enter with Esc from any other mode. Most commands only work in Normal mode."
+      },
+      {
+        "badge": "I",
+        "badge_class": "badge-i",
+        "label": "Insert",
+        "tip": "Type text directly into the buffer. Enter with i (before cursor), a (after), o (new line below), or O (new line above). Return to Normal with Esc or Ctrl+[."
+      },
+      {
+        "badge": "V",
+        "badge_class": "badge-v",
+        "label": "Visual",
+        "tip": "Select text interactively, then apply an operator. Enter with v (character), V (line), or Ctrl+v (block). Apply d, c, y, >, < to the selection - returns to Normal automatically."
+      },
+      {
+        "badge": "C",
+        "badge_class": "badge-c",
+        "label": "Command",
+        "tip": "Type Ex commands starting with :, or search with / and ?. Enter with : from Normal mode. Run with Enter, cancel with Esc. Supports tab completion for commands, files, and options."
+      }
+    ]
+  },
+  "aliases": [
+    "nvim",
+    "vim"
+  ],
+  "cards": [
+    {
+      "title": "Modes",
+      "color": "green",
+      "tip": "Neovim has distinct modes for different tasks. Normal is default - navigate and issue commands. Switch with i/a/o (Insert), v/V/Ctrl+v (Visual), or : (Command). Always return to Normal with Esc.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": "i",
+              "key_style": "key",
+              "description": "Insert before cursor",
+              "tip": "Enter Insert mode before the cursor position",
+              "example": "i"
+            },
+            {
+              "key": "I",
+              "key_style": "key",
+              "description": "Insert at first non-blank",
+              "tip": "Enter Insert mode before the first non-blank character of the line",
+              "example": "I"
+            },
+            {
+              "key": "a",
+              "key_style": "key",
+              "description": "Insert after cursor",
+              "tip": "Enter Insert mode after the cursor position",
+              "example": "a"
+            },
+            {
+              "key": "A",
+              "key_style": "key",
+              "description": "Insert at line end",
+              "tip": "Enter Insert mode at the end of the line",
+              "example": "A"
+            },
+            {
+              "key": "o",
+              "key_style": "key",
+              "description": "New line below, insert",
+              "tip": "Open a new line below the current line and enter Insert mode",
+              "example": "o"
+            },
+            {
+              "key": "O",
+              "key_style": "key",
+              "description": "New line above, insert",
+              "tip": "Open a new line above the current line and enter Insert mode",
+              "example": "O"
+            },
+            {
+              "key": "v",
+              "key_style": "key",
+              "description": "Visual (character)",
+              "tip": "Enter Visual mode to select individual characters",
+              "example": "v"
+            },
+            {
+              "key": "V",
+              "key_style": "key",
+              "description": "Visual (line)",
+              "tip": "Enter Visual Line mode to select entire lines",
+              "example": "V"
+            },
+            {
+              "key": "Ctrl+v",
+              "key_style": "key",
+              "description": "Visual (block)",
+              "tip": "Enter Visual Block mode to select a rectangular region of text",
+              "example": "Ctrl+v"
+            },
+            {
+              "key": ":",
+              "key_style": "key",
+              "description": "Command mode",
+              "tip": "Enter Command mode to type Ex commands like :w, :q, :s",
+              "example": ":w"
+            },
+            {
+              "key": "Esc / Ctrl+[",
+              "key_style": "key",
+              "description": "Return to Normal",
+              "tip": "Return to Normal mode from Insert, Visual, or Command-line mode (Terminal mode uses Ctrl+\\ Ctrl+N)",
+              "example": "Esc"
+            },
+            {
+              "key": "R",
+              "key_style": "key",
+              "description": "Replace mode",
+              "tip": "Enter Replace mode - typed characters overwrite existing text character by character",
+              "example": "R"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Navigation - Basic",
+      "tip": "In Normal mode use h/j/k/l instead of arrow keys. Combine motions with counts: 5j moves 5 lines down. Motions also work as operator arguments - d5j deletes 5 lines down.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": "h j k l",
+              "key_style": "key",
+              "description": "← ↓ ↑ →",
+              "tip": "Move the cursor left (h), down (j), up (k), or right (l) - prefix with a count",
+              "example": "5j"
+            },
+            {
+              "key": "w / W",
+              "key_style": "key",
+              "description": "Next word / WORD",
+              "tip": "Move forward to the start of the next word; w stops at punctuation while W (WORD) uses whitespace-only boundaries, keeping punctuation as part of the WORD",
+              "example": "3w"
+            },
+            {
+              "key": "b / B",
+              "key_style": "key",
+              "description": "Prev word / WORD",
+              "tip": "Move backward to the start of the previous word; b stops at punctuation while B (WORD) uses whitespace-only boundaries, keeping punctuation as part of the WORD",
+              "example": "b"
+            },
+            {
+              "key": "e / E",
+              "key_style": "key",
+              "description": "End of word / WORD",
+              "tip": "Move to the end of the current or next word; e stops at punctuation while E (WORD) uses whitespace-only boundaries, keeping punctuation as part of the WORD",
+              "example": "e"
+            },
+            {
+              "key": "0 / ^",
+              "key_style": "key",
+              "description": "Line start / first non-blank",
+              "tip": "Jump to column 0 (0) or the first non-blank character on the line (^)",
+              "example": "^"
+            },
+            {
+              "key": "$",
+              "key_style": "key",
+              "description": "Line end",
+              "tip": "Move to the last character on the current line",
+              "example": "$"
+            },
+            {
+              "key": "gg / G",
+              "key_style": "key",
+              "description": "File start / file end",
+              "tip": "Jump to the very first line (gg) or very last line (G) of the file",
+              "example": "gg"
+            },
+            {
+              "key": ":{N}",
+              "key_style": "key",
+              "description": "Go to line N",
+              "tip": "Jump directly to a specific line number",
+              "example": ":42"
+            },
+            {
+              "key": "%",
+              "key_style": "key",
+              "description": "Jump to matching bracket",
+              "tip": "Jump to the bracket, parenthesis, or brace that matches the one under the cursor",
+              "example": "%"
+            },
+            {
+              "key": "{ / }",
+              "key_style": "key",
+              "description": "Prev / next blank line (paragraph)",
+              "tip": "Jump to the previous ({) or next (}) empty line - moves between paragraphs",
+              "example": "}"
+            },
+            {
+              "key": "Ctrl+d / Ctrl+u",
+              "key_style": "key",
+              "description": "Half-page down / up",
+              "tip": "Scroll down (Ctrl+d) or up (Ctrl+u) by half a screen",
+              "example": "Ctrl+d"
+            },
+            {
+              "key": "Ctrl+f / Ctrl+b",
+              "key_style": "key",
+              "description": "Full-page down / up",
+              "tip": "Scroll forward (Ctrl+f) or backward (Ctrl+b) by a full screen",
+              "example": "Ctrl+f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Editing",
+      "color": "orange",
+      "tip": "Operators like d (delete), c (change), and y (yank) act on motions or text objects. Most edits go into the unnamed register and can be pasted with p. Use . to repeat the last change.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": "x",
+              "key_style": "key",
+              "description": "Delete character",
+              "tip": "Delete the character under the cursor and put it in the unnamed register",
+              "example": "x"
+            },
+            {
+              "key": "dd",
+              "key_style": "key",
+              "description": "Delete line",
+              "tip": "Delete the entire current line - goes to the unnamed register, not lost",
+              "example": "dd",
+              "danger": "Deletes the line from the buffer immediately"
+            },
+            {
+              "key": "dw",
+              "key_style": "key",
+              "description": "Delete word",
+              "tip": "Delete from the cursor to the start of the next word",
+              "example": "dw"
+            },
+            {
+              "key": "d$ / D",
+              "key_style": "key",
+              "description": "Delete to end of line",
+              "tip": "Delete from the cursor to the end of the line",
+              "example": "D"
+            },
+            {
+              "key": "yy",
+              "key_style": "key",
+              "description": "Yank (copy) line",
+              "tip": "Yank (copy) the entire current line into the unnamed register",
+              "example": "yy"
+            },
+            {
+              "key": "Y",
+              "key_style": "key",
+              "description": "Yank to end of line (= y$)",
+              "tip": "Yank from the cursor to the end of the line - equivalent to y$ in Neovim",
+              "example": "Y"
+            },
+            {
+              "key": "yw",
+              "key_style": "key",
+              "description": "Yank word",
+              "tip": "Yank from the cursor to the start of the next word",
+              "example": "yw"
+            },
+            {
+              "key": "p / P",
+              "key_style": "key",
+              "description": "Paste after / before cursor",
+              "tip": "Paste after the cursor (p) or before it (P) - linewise yanks go below/above on a new line",
+              "example": "p"
+            },
+            {
+              "key": "u",
+              "key_style": "key",
+              "description": "Undo",
+              "tip": "Undo the last change - press repeatedly to undo further",
+              "example": "u"
+            },
+            {
+              "key": "Ctrl+r",
+              "key_style": "key",
+              "description": "Redo",
+              "tip": "Redo the last undone change",
+              "example": "Ctrl+r"
+            },
+            {
+              "key": "cc / C",
+              "key_style": "key",
+              "description": "Change line / to end of line",
+              "tip": "Delete the line (cc) or to end of line (C) and enter Insert mode",
+              "example": "cc"
+            },
+            {
+              "key": "cw",
+              "key_style": "key",
+              "description": "Change word",
+              "tip": "Change from the cursor to the end of the word, then enter Insert mode (acts like ce)",
+              "example": "cw"
+            },
+            {
+              "key": "r{char}",
+              "key_style": "key",
+              "description": "Replace single character",
+              "tip": "Replace only the character under the cursor - stays in Normal mode",
+              "example": "ra"
+            },
+            {
+              "key": "~",
+              "key_style": "key",
+              "description": "Toggle case",
+              "tip": "Toggle the case of the character under the cursor and move the cursor right",
+              "example": "~"
+            },
+            {
+              "key": "J",
+              "key_style": "key",
+              "description": "Join line below to current",
+              "tip": "Join the line below to the end of the current line, separated by a space",
+              "example": "J"
+            },
+            {
+              "key": ".",
+              "key_style": "key",
+              "description": "Repeat last change",
+              "tip": "Repeat the last edit command - one of the most powerful Normal mode keys",
+              "example": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Text Objects (combine with d/c/y/v)",
+      "color": "purple",
+      "tip": "Text objects describe a region by structure: words, sentences, paragraphs, or delimiters. Combine with any operator: operator + i/a + object. Example: diw deletes inner word, ci( changes inside parens.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": "iw / aw",
+              "key_style": "key",
+              "description": "Inner / around word",
+              "tip": "Select inside (iw) or around (aw) a word - use with d, c, y, or v",
+              "example": "diw"
+            },
+            {
+              "key": "is / as",
+              "key_style": "key",
+              "description": "Inner / around sentence",
+              "tip": "Select inside or around a sentence - useful for prose editing",
+              "example": "dis"
+            },
+            {
+              "key": "ip / ap",
+              "key_style": "key",
+              "description": "Inner / around paragraph",
+              "tip": "Select inside or around a paragraph (contiguous block of non-empty lines)",
+              "example": "dip"
+            },
+            {
+              "key": "i\" / a\"",
+              "key_style": "key",
+              "description": "Inner / around double quotes",
+              "tip": "Select text inside (i\") or including (a\") the surrounding double quotes",
+              "example": "ci\""
+            },
+            {
+              "key": "i' / a'",
+              "key_style": "key",
+              "description": "Inner / around single quotes",
+              "tip": "Select text inside or including the surrounding single quotes",
+              "example": "ci'"
+            },
+            {
+              "key": "i` / a`",
+              "key_style": "key",
+              "description": "Inner / around backticks",
+              "tip": "Select text inside or including the surrounding backticks",
+              "example": "ci`"
+            },
+            {
+              "key": "i( / a(",
+              "key_style": "key",
+              "description": "Inner / around parens",
+              "tip": "Select text inside or including the surrounding parentheses",
+              "example": "ci("
+            },
+            {
+              "key": "i[ / a[",
+              "key_style": "key",
+              "description": "Inner / around brackets",
+              "tip": "Select text inside or including the surrounding square brackets",
+              "example": "ci["
+            },
+            {
+              "key": "i{ / a{",
+              "key_style": "key",
+              "description": "Inner / around braces",
+              "tip": "Select text inside or including the surrounding curly braces",
+              "example": "ci{"
+            },
+            {
+              "key": "it / at",
+              "key_style": "key",
+              "description": "Inner / around HTML tag",
+              "tip": "Select text inside or including the surrounding HTML/XML tag",
+              "example": "dit"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Search & Replace",
+      "color": "red",
+      "tip": "Search with /pattern (forward) or ?pattern (backward). Press n/N to cycle matches. :%s/old/new/g replaces all occurrences in the file - add c flag to confirm each match individually.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": "/pattern",
+              "key_style": "key",
+              "description": "Search forward",
+              "tip": "Search forward for a pattern - press Enter to jump to the first match",
+              "example": "/function"
+            },
+            {
+              "key": "?pattern",
+              "key_style": "key",
+              "description": "Search backward",
+              "tip": "Search backward for a pattern in the file",
+              "example": "?TODO"
+            },
+            {
+              "key": "n / N",
+              "key_style": "key",
+              "description": "Next / prev match",
+              "tip": "Jump to the next (n) or previous (N) search match",
+              "example": "n"
+            },
+            {
+              "key": "*",
+              "key_style": "key",
+              "description": "Search word under cursor (fwd)",
+              "tip": "Search forward for the exact whole word under the cursor",
+              "example": "*"
+            },
+            {
+              "key": "#",
+              "key_style": "key",
+              "description": "Search word under cursor (bwd)",
+              "tip": "Search backward for the exact whole word under the cursor",
+              "example": "#"
+            },
+            {
+              "key": ":s/old/new/",
+              "key_style": "key",
+              "description": "Replace first on line",
+              "tip": "Replace the first occurrence of a pattern with a new string on the current line",
+              "example": ":s/foo/bar/"
+            },
+            {
+              "key": ":s/old/new/g",
+              "key_style": "key",
+              "description": "Replace all on line",
+              "tip": "Replace all occurrences on the current line",
+              "example": ":s/foo/bar/g"
+            },
+            {
+              "key": ":%s/old/new/g",
+              "key_style": "key",
+              "description": "Replace all in file",
+              "tip": "Replace every match across the entire file - no confirmation prompt",
+              "example": ":%s/foo/bar/g",
+              "danger": "Replaces all matches in the entire file with no undo prompt"
+            },
+            {
+              "key": ":%s/old/new/gc",
+              "key_style": "key",
+              "description": "Replace with confirmation",
+              "tip": "Replace all in file but prompt y/n/a/q at each match for safety",
+              "example": ":%s/foo/bar/gc"
+            },
+            {
+              "key": ":noh",
+              "key_style": "key",
+              "description": "Clear search highlight",
+              "tip": "Clear the search highlight without clearing the search pattern itself",
+              "example": ":noh"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Splits & Windows",
+      "color": "yellow",
+      "tip": "Display multiple buffers side by side in split windows. Use :sp for horizontal and :vsp for vertical splits. Navigate splits with Ctrl+w + h/j/k/l. Resize with Ctrl+w +/-/_/|.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": ":sp / :vsp",
+              "key_style": "key",
+              "description": "Horizontal / vertical split",
+              "tip": "Split the current window horizontally (:sp) or vertically (:vsp)",
+              "example": ":vsp"
+            },
+            {
+              "key": "Ctrl+w s",
+              "key_style": "key",
+              "description": "Horizontal split",
+              "tip": "Split the current window horizontally - same as :sp",
+              "example": "Ctrl+w s"
+            },
+            {
+              "key": "Ctrl+w v",
+              "key_style": "key",
+              "description": "Vertical split",
+              "tip": "Split the current window vertically - same as :vsp",
+              "example": "Ctrl+w v"
+            },
+            {
+              "key": "Ctrl+w h/j/k/l",
+              "key_style": "key",
+              "description": "Move between splits",
+              "tip": "Move focus to the split in the left/down/up/right direction",
+              "example": "Ctrl+w l"
+            },
+            {
+              "key": "Ctrl+w H/J/K/L",
+              "key_style": "key",
+              "description": "Move split to edge",
+              "tip": "Move the current split window to the far left/bottom/top/right edge",
+              "example": "Ctrl+w H"
+            },
+            {
+              "key": "Ctrl+w =",
+              "key_style": "key",
+              "description": "Equalize split sizes",
+              "tip": "Resize all open splits to equal dimensions",
+              "example": "Ctrl+w ="
+            },
+            {
+              "key": "Ctrl+w _ / |",
+              "key_style": "key",
+              "description": "Max height / max width",
+              "tip": "Maximize the height (_) or width (|) of the current split",
+              "example": "Ctrl+w _"
+            },
+            {
+              "key": "Ctrl+w +/-",
+              "key_style": "key",
+              "description": "Increase / decrease height",
+              "tip": "Increase (+) or decrease (-) the height of the current split by one line",
+              "example": "Ctrl+w +"
+            },
+            {
+              "key": "Ctrl+w q",
+              "key_style": "key",
+              "description": "Close split",
+              "tip": "Close the current split window",
+              "example": "Ctrl+w q"
+            },
+            {
+              "key": "Ctrl+w o",
+              "key_style": "key",
+              "description": "Close all other splits",
+              "tip": "Close all splits except the current one",
+              "example": "Ctrl+w o",
+              "danger": "Closes all other split windows immediately"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Tabs",
+      "color": "teal",
+      "tip": "Tabs in Neovim are tab pages - each holds its own window layout, not just a single file. Use :tabnew to open a tab, gt/gT to switch. A single tab can contain multiple splits.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": ":tabnew",
+              "key_style": "key",
+              "description": "Open new tab",
+              "tip": "Open a new empty tab page",
+              "example": ":tabnew"
+            },
+            {
+              "key": ":tabnew {file}",
+              "key_style": "key",
+              "description": "Open file in new tab",
+              "tip": "Open a specific file in a new tab page",
+              "example": ":tabnew index.lua"
+            },
+            {
+              "key": "gt / gT",
+              "key_style": "key",
+              "description": "Next / prev tab",
+              "tip": "Switch to the next (gt) or previous (gT) tab page",
+              "example": "gt"
+            },
+            {
+              "key": ":tabn / :tabp",
+              "key_style": "key",
+              "description": "Next / prev tab",
+              "tip": "Go to the next (:tabn) or previous (:tabp) tab page",
+              "example": ":tabn"
+            },
+            {
+              "key": ":tabclose",
+              "key_style": "key",
+              "description": "Close current tab",
+              "tip": "Close the current tab page. With Neovim's default 'hidden' on, it closes even when a buffer has unsaved changes - that buffer just becomes hidden and its changes stay in the buffer list (:ls). Only fails when this is the last tab page (E784).",
+              "example": ":tabclose"
+            },
+            {
+              "key": ":tabonly",
+              "key_style": "key",
+              "description": "Close all other tabs",
+              "tip": "Close all other tab pages. With Neovim's default 'hidden' on, it closes them all even when buffers have unsaved changes - those buffers become hidden (not kept as tabs), with their changes preserved in the buffer list (:ls).",
+              "example": ":tabonly"
+            },
+            {
+              "key": "{N}gt",
+              "key_style": "key",
+              "description": "Go to tab N",
+              "tip": "Jump directly to tab number N",
+              "example": "3gt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Files & Buffers",
+      "tip": "A buffer is an in-memory copy of a file. You can have many buffers open at once - :ls lists them all, :bn/:bp navigates between them. Splits and tabs are just different views into buffers.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": ":e {file}",
+              "key_style": "key",
+              "description": "Edit file",
+              "tip": "Open a file for editing. If it does not exist yet, this opens an empty buffer; the file is written to disk only when you save (:w)",
+              "example": ":e src/main.lua"
+            },
+            {
+              "key": ":w",
+              "key_style": "key",
+              "description": "Save",
+              "tip": "Write the current buffer to disk",
+              "example": ":w"
+            },
+            {
+              "key": ":w {file}",
+              "key_style": "key",
+              "description": "Write a copy",
+              "tip": "Write a copy to a new file - the buffer keeps its original name (:saveas renames)",
+              "example": ":w newfile.txt"
+            },
+            {
+              "key": ":w ++p",
+              "key_style": "key",
+              "description": "Save, creating parent dirs if needed",
+              "tip": "Write the file and automatically create any missing parent directories",
+              "example": ":w ++p"
+            },
+            {
+              "key": ":wq / :x",
+              "key_style": "key",
+              "description": "Save and quit",
+              "tip": "Save the file and quit - :x only writes if there are unsaved changes",
+              "example": ":wq"
+            },
+            {
+              "key": ":q",
+              "key_style": "key",
+              "description": "Quit",
+              "tip": "Quit the current window; fails (E37) only when it's the last window of a buffer with unsaved changes",
+              "example": ":q"
+            },
+            {
+              "key": ":q!",
+              "key_style": "key",
+              "description": "Quit without saving",
+              "tip": "Force-quit without saving, discarding all unsaved changes",
+              "example": ":q!",
+              "danger": "Discards all unsaved changes - cannot be undone"
+            },
+            {
+              "key": ":wqa",
+              "key_style": "key",
+              "description": "Save all and quit",
+              "tip": "Save all open buffers and quit Neovim completely",
+              "example": ":wqa"
+            },
+            {
+              "key": ":ls / :buffers",
+              "key_style": "key",
+              "description": "List buffers",
+              "tip": "List all open buffers and their status (modified, active, etc.)",
+              "example": ":ls"
+            },
+            {
+              "key": ":bn / :bp",
+              "key_style": "key",
+              "description": "Next / prev buffer",
+              "tip": "Switch to the next (:bn) or previous (:bp) buffer in the buffer list",
+              "example": ":bn"
+            },
+            {
+              "key": ":bd",
+              "key_style": "key",
+              "description": "Delete (close) buffer",
+              "tip": "Delete (close) the current buffer from the buffer list",
+              "example": ":bd"
+            },
+            {
+              "key": ":b {N}",
+              "key_style": "key",
+              "description": "Switch to buffer N",
+              "tip": "Switch to a specific buffer by its number from :ls",
+              "example": ":b 3"
+            },
+            {
+              "key": "Ctrl+^",
+              "key_style": "key",
+              "description": "Toggle last two buffers",
+              "tip": "Toggle between the current and the previously active buffer",
+              "example": "Ctrl+^"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Marks & Jumps",
+      "color": "purple",
+      "tip": "Marks bookmark positions in a file. Lowercase marks (m{a-z}) are local to the buffer; uppercase (m{A-Z}) are global across files. The jump list (Ctrl+o/Ctrl+i) tracks everywhere you've jumped.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": "m{a-z}",
+              "key_style": "key",
+              "description": "Set local mark",
+              "tip": "Set a local mark at the cursor - lowercase marks are per-file",
+              "example": "ma"
+            },
+            {
+              "key": "m{A-Z}",
+              "key_style": "key",
+              "description": "Set global mark",
+              "tip": "Set a global mark accessible from any file across sessions",
+              "example": "mA"
+            },
+            {
+              "key": "'{mark}",
+              "key_style": "key",
+              "description": "Jump to mark line",
+              "tip": "Jump to the first non-blank character of the line where the mark was set (use `mark to land on the exact column)",
+              "example": "'a"
+            },
+            {
+              "key": "`{mark}",
+              "key_style": "key",
+              "description": "Jump to exact mark position",
+              "tip": "Jump to the exact position (line and column) where the mark was set",
+              "example": "`a"
+            },
+            {
+              "key": "''",
+              "key_style": "key",
+              "description": "Jump to last position",
+              "tip": "Jump to the first non-blank of the line before your last jump (use `` for the exact column)",
+              "example": "''"
+            },
+            {
+              "key": "Ctrl+o / Ctrl+i",
+              "key_style": "key",
+              "description": "Jump back / forward in history",
+              "tip": "Move backward (Ctrl+o) or forward (Ctrl+i) through the jump list",
+              "example": "Ctrl+o"
+            },
+            {
+              "key": ":marks",
+              "key_style": "key",
+              "description": "List all marks",
+              "tip": "Show a list of all current marks and their file positions",
+              "example": ":marks"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Macros",
+      "color": "orange",
+      "tip": "Macros record a sequence of keystrokes into a named register. Press q{letter} to start recording, make your edits, then q to stop. Replay with @{letter} or run N times with {N}@{letter}.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": "q{a-z}",
+              "key_style": "key",
+              "description": "Start recording macro into register",
+              "tip": "Start recording a macro into the named register - all keystrokes are recorded",
+              "example": "qa"
+            },
+            {
+              "key": "q",
+              "key_style": "key",
+              "description": "Stop recording",
+              "tip": "Stop recording the current macro",
+              "example": "q"
+            },
+            {
+              "key": "@{a-z}",
+              "key_style": "key",
+              "description": "Play macro",
+              "tip": "Replay the macro stored in the named register",
+              "example": "@a"
+            },
+            {
+              "key": "@@",
+              "key_style": "key",
+              "description": "Repeat last macro",
+              "tip": "Repeat the most recently played macro",
+              "example": "@@"
+            },
+            {
+              "key": "{N}@{a-z}",
+              "key_style": "key",
+              "description": "Play macro N times",
+              "tip": "Run a macro N times in a row - great for repetitive edits",
+              "example": "10@a"
+            },
+            {
+              "key": ":reg",
+              "key_style": "key",
+              "description": "View all registers / macros",
+              "tip": "Display the contents of all registers, including recorded macros",
+              "example": ":reg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Visual Mode",
+      "color": "green",
+      "tip": "Select text interactively before applying an operator. Enter with v (character), V (line), or Ctrl+v (block). Apply d, c, y, >, < to the selection - Neovim returns to Normal automatically.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": "v + motion",
+              "key_style": "key",
+              "description": "Select characters",
+              "tip": "Enter Visual mode and extend the selection using any motion command",
+              "example": "ve"
+            },
+            {
+              "key": "V + motion",
+              "key_style": "key",
+              "description": "Select lines",
+              "tip": "Enter Visual Line mode and select entire lines with a motion",
+              "example": "Vj"
+            },
+            {
+              "key": "Ctrl+v + motion",
+              "key_style": "key",
+              "description": "Block select",
+              "tip": "Enter Visual Block mode to select a rectangular region - great for column edits",
+              "example": "Ctrl+v 3j I# Esc"
+            },
+            {
+              "key": "d / x",
+              "key_style": "key",
+              "description": "Delete selection",
+              "tip": "Delete the visually selected text into the unnamed register",
+              "example": "vwd"
+            },
+            {
+              "key": "y",
+              "key_style": "key",
+              "description": "Yank selection",
+              "tip": "Yank (copy) the selected text into the unnamed register",
+              "example": "viwy"
+            },
+            {
+              "key": "c",
+              "key_style": "key",
+              "description": "Change selection",
+              "tip": "Delete the selection and enter Insert mode to type replacement text",
+              "example": "viwc"
+            },
+            {
+              "key": "> / <",
+              "key_style": "key",
+              "description": "Indent / un-indent",
+              "tip": "Indent the selection right (>) or left (<) by one shiftwidth",
+              "example": ">"
+            },
+            {
+              "key": "u / U",
+              "key_style": "key",
+              "description": "Lowercase / uppercase",
+              "tip": "Convert the selected text to lowercase (u) or uppercase (U)",
+              "example": "viwU"
+            },
+            {
+              "key": ":",
+              "key_style": "key",
+              "description": "Run command on selection",
+              "tip": "Enter Command mode with the visual selection range pre-filled as '<,'>",
+              "example": ":'<,'>sort"
+            },
+            {
+              "key": "gv",
+              "key_style": "key",
+              "description": "Reselect last selection",
+              "tip": "Re-select the last visual selection - useful after a paste or command",
+              "example": "gv"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Folding",
+      "color": "red",
+      "tip": "Collapse sections of a file to reduce visual noise. Requires a foldmethod (manual, indent, expr, marker, syntax, or diff). Use zc/zo to close/open a fold, zM/zR to close/open all folds in the file.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": "zc / zo",
+              "key_style": "key",
+              "description": "Close / open fold",
+              "tip": "Close (zc) or open (zo) the fold at the cursor position",
+              "example": "zo"
+            },
+            {
+              "key": "za",
+              "key_style": "key",
+              "description": "Toggle fold",
+              "tip": "Toggle a fold open or closed at the cursor",
+              "example": "za"
+            },
+            {
+              "key": "zC / zO",
+              "key_style": "key",
+              "description": "Close / open all folds at cursor",
+              "tip": "Close (zC) or open (zO) all nested folds at the cursor recursively",
+              "example": "zO"
+            },
+            {
+              "key": "zM / zR",
+              "key_style": "key",
+              "description": "Close all / open all folds in file",
+              "tip": "Close all folds in the file (zM) or open every fold (zR)",
+              "example": "zR"
+            },
+            {
+              "key": "zf{motion}",
+              "key_style": "key",
+              "description": "Create fold",
+              "tip": "Create a fold spanning the range of the motion - works with manual foldmethod",
+              "example": "zf3j"
+            },
+            {
+              "key": "zd",
+              "key_style": "key",
+              "description": "Delete fold at cursor",
+              "tip": "Delete the fold at the cursor - manual/marker folds only (marker folds lose their markers too)",
+              "example": "zd",
+              "danger": "Removes the fold; for marker folds it also deletes the fold-marker characters"
+            },
+            {
+              "key": "zj / zk",
+              "key_style": "key",
+              "description": "Move to next / prev fold",
+              "tip": "Move the cursor to the start of the next fold (zj) or the end of the previous fold (zk)",
+              "example": "zj"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Neovim-Specific",
+      "color": "teal",
+      "tip": "Features unique to Neovim or its ecosystem. LSP keymaps (grr, gri, grn, gra, etc.) are built-in defaults, no config needed, working on any machine or server (K hover and ]d/[d diagnostics since 0.10; the gr* family since 0.11). Note: gd is a built-in Vim motion (local declaration), not an LSP default. Plugin managers like Lazy.nvim and Mason require installation.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": ":checkhealth",
+              "key_style": "key",
+              "description": "Run health diagnostics",
+              "tip": "Run Neovim's built-in health checks for plugins and system dependencies. Shows what LSP servers, tools, and providers are properly installed.",
+              "example": ":checkhealth"
+            },
+            {
+              "key": ":terminal",
+              "key_style": "key",
+              "description": "Open built-in terminal",
+              "tip": "Open a built-in terminal emulator inside a new buffer. The terminal runs in a special mode - normal editing keys are passed to the shell, not Neovim.",
+              "example": ":terminal"
+            },
+            {
+              "key": "Ctrl+\\ Ctrl+n",
+              "key_style": "key",
+              "description": "Exit terminal to Normal mode",
+              "tip": "Exit terminal mode back to Normal mode. By default Esc is sent to the shell rather than Neovim, so this two-key chord is the standard way out (you can remap Esc to trigger it).",
+              "example": "Ctrl+\\ Ctrl+n"
+            },
+            {
+              "key": ":Lazy",
+              "key_style": "key",
+              "description": "Open Lazy.nvim plugin manager",
+              "tip": "Open the Lazy.nvim plugin manager UI to install, update, or remove plugins. Lazy.nvim is the most popular Neovim plugin manager - requires it to be configured in your init.lua first.",
+              "example": ":Lazy"
+            },
+            {
+              "key": ":Mason",
+              "key_style": "key",
+              "description": "Open Mason tool installer",
+              "tip": "Open Mason to browse and install external tools - LSP servers, DAP debug adapters, linters, and formatters. Mason manages the binaries; you still configure each LSP server in your init.lua via lspconfig or similar.",
+              "example": ":Mason"
+            },
+            {
+              "key": "K",
+              "key_style": "key",
+              "description": "LSP hover docs",
+              "tip": "Show hover documentation for the symbol under the cursor. Built-in default since Neovim 0.10 - no config needed. Requires an LSP server attached to the buffer. Press K again to enter the hover window.",
+              "example": "K"
+            },
+            {
+              "key": "gd",
+              "key_style": "key",
+              "description": "Go to local declaration",
+              "tip": "Built-in Vim motion: jump to the local declaration (first occurrence) of the keyword under the cursor in the current function or file. This is NOT LSP go-to-definition, which has no default mapping; map vim.lsp.buf.definition() yourself, or use Ctrl+] for a tag jump. Ctrl+o jumps back.",
+              "example": "gd"
+            },
+            {
+              "key": "grr",
+              "key_style": "key",
+              "description": "Find references (LSP)",
+              "tip": "Show all references to the symbol under the cursor in a quickfix list. Built-in default since Neovim 0.11, grr (two r's) not gr. Use :cn / :cp to navigate the quickfix list.",
+              "example": "grr"
+            },
+            {
+              "key": "gri",
+              "key_style": "key",
+              "description": "Go to implementation (LSP)",
+              "tip": "Jump to the implementation(s) of the symbol under the cursor, useful for interfaces and abstract methods. Built-in default since Neovim 0.11, no config needed.",
+              "example": "gri"
+            },
+            {
+              "key": "grn",
+              "key_style": "key",
+              "description": "Rename symbol (LSP)",
+              "tip": "Rename the symbol under the cursor across the entire project via LSP. Built-in default since Neovim 0.11, smarter than find-and-replace because it understands scope and references.",
+              "example": "grn"
+            },
+            {
+              "key": "gra",
+              "key_style": "key",
+              "description": "Code action (LSP)",
+              "tip": "Trigger a code action at the cursor: auto-import, extract variable, fix diagnostic, etc. Also works in Visual mode on the selection. Built-in default since Neovim 0.11. You may have seen <leader>ca used instead, that is a custom mapping for the same thing, not a built-in.",
+              "example": "gra"
+            },
+            {
+              "key": "gO",
+              "key_style": "key",
+              "description": "Document symbols (LSP)",
+              "tip": "List all symbols in the current file (functions, classes, variables) via LSP. Built-in default, no config needed. Results open in the location-list, use :lnext / :lprev to navigate.",
+              "example": "gO"
+            },
+            {
+              "key": "Ctrl+S",
+              "key_style": "key",
+              "description": "Signature help (LSP)",
+              "note": "(Insert)",
+              "tip": "Show the function signature (parameter types and docs) for the call under the cursor. Built-in default since Neovim 0.11, works in Insert mode while typing a function call.",
+              "example": "Ctrl+S"
+            },
+            {
+              "key": "]d / [d",
+              "key_style": "key",
+              "description": "Next / prev diagnostic",
+              "tip": "Jump to the next (]d) or previous ([d) diagnostic in the buffer - errors, warnings, and hints (from any source, not only LSP). Built-in defaults since Neovim 0.10, no config needed.",
+              "example": "]d"
+            },
+            {
+              "key": "vim.lsp.buf.format()",
+              "key_style": "code",
+              "description": "Format buffer (LSP)",
+              "example": "vim.lsp.buf.format({ async = true })",
+              "tip": "Format the current buffer using the attached LSP server"
+            },
+            {
+              "key": "Ctrl+w d",
+              "key_style": "key",
+              "description": "Show diagnostic popup",
+              "tip": "Show the diagnostic error/warning under the cursor in a floating window"
+            },
+            {
+              "key": "vim.diagnostic.setqflist()",
+              "key_style": "code",
+              "description": "Diagnostics to quickfix",
+              "example": "vim.diagnostic.setqflist({ severity = \"E\" })",
+              "tip": "Populate the quickfix list with all workspace diagnostics"
+            },
+            {
+              "key": ":InspectTree",
+              "key_style": "key",
+              "description": "Show Treesitter tree",
+              "example": ":InspectTree | wincmd H",
+              "tip": "Open a window showing the parsed Treesitter syntax tree for the buffer"
+            },
+            {
+              "key": ":Inspect",
+              "key_style": "key",
+              "description": "Show TS highlight groups",
+              "example": ":Inspect!",
+              "tip": "Show which Treesitter highlight groups apply to the token under the cursor"
+            },
+            {
+              "key": ":EditQuery",
+              "key_style": "key",
+              "description": "Test Treesitter queries",
+              "example": ":EditQuery lua",
+              "tip": "Open an interactive editor to write and test Treesitter queries"
+            },
+            {
+              "key": "Ctrl+s",
+              "key_style": "key",
+              "description": "Signature help (LSP)",
+              "tip": "Show the function signature (parameter types and docs) for the call under the cursor",
+              "note": "0.11+"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Useful Commands",
+      "tip": "Handy Ex commands for customizing your editing environment on the fly. Make any :set option permanent by adding it to your init.lua (or init.vim) config file so it's applied on every launch.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": ":set number",
+              "key_style": "key",
+              "description": "Show line numbers",
+              "tip": "Display absolute line numbers in the left gutter",
+              "example": ":set number"
+            },
+            {
+              "key": ":set relativenumber",
+              "key_style": "key",
+              "description": "Relative line numbers",
+              "tip": "Display line numbers relative to the cursor - great for planning jump counts",
+              "example": ":set relativenumber"
+            },
+            {
+              "key": ":set wrap / nowrap",
+              "key_style": "key",
+              "description": "Toggle line wrap",
+              "tip": "Wrap long lines visually (:set wrap) or scroll them (:set nowrap); :set wrap! toggles",
+              "example": ":set wrap"
+            },
+            {
+              "key": ":set ignorecase",
+              "key_style": "key",
+              "description": "Case-insensitive search",
+              "tip": "Make searches case-insensitive - combine with :set smartcase for best results",
+              "example": ":set ignorecase"
+            },
+            {
+              "key": ":set spell",
+              "key_style": "key",
+              "description": "Enable spell check",
+              "tip": "Enable spell checking - use ]s and [s to navigate misspellings, z= to fix",
+              "example": ":set spell"
+            },
+            {
+              "key": ":sort",
+              "key_style": "key",
+              "description": "Sort lines (file or selection)",
+              "tip": "Sort lines alphabetically - the whole file by default, or just a range / visual selection if one is given",
+              "example": ":'<,'>sort"
+            },
+            {
+              "key": ":!{cmd}",
+              "key_style": "key",
+              "description": "Run shell command",
+              "tip": "Run a shell command without leaving Neovim - its output is shown below, then press Enter to return",
+              "example": ":!ls -la"
+            },
+            {
+              "key": ":r !{cmd}",
+              "key_style": "key",
+              "description": "Insert shell output below line",
+              "tip": "Run a shell command and insert its stdout output below the cursor",
+              "example": ":r !date"
+            },
+            {
+              "key": ":verbose map {key}",
+              "key_style": "key",
+              "description": "Show where a key is mapped",
+              "tip": "Show where a key mapping was defined - useful for debugging config conflicts",
+              "example": ":verbose map <leader>f"
+            },
+            {
+              "key": "Ctrl+g",
+              "key_style": "key",
+              "description": "Show file info + cursor position",
+              "tip": "Print the current filename, modification status, and cursor position on the command line",
+              "example": "Ctrl+g"
+            },
+            {
+              "key": "ga",
+              "key_style": "key",
+              "description": "Show character codes (dec/hex/octal)",
+              "tip": "Show the decimal, hex, and octal value of the character under the cursor (the Unicode/byte view is g8)",
+              "example": "ga"
+            },
+            {
+              "key": ":set expandtab",
+              "key_style": "key",
+              "description": "Use spaces for tabs",
+              "example": ":set expandtab shiftwidth=4",
+              "tip": "Convert tabs to spaces when typing the Tab key"
+            },
+            {
+              "key": ":set shiftwidth={N}",
+              "key_style": "key",
+              "description": "Indent size",
+              "example": ":set shiftwidth=4",
+              "tip": "Number of spaces to use for each step of (auto)indent"
+            },
+            {
+              "key": ":set tabstop={N}",
+              "key_style": "key",
+              "description": "Tab width",
+              "example": ":set tabstop=4",
+              "tip": "Number of spaces that a <Tab> in the file counts for"
+            },
+            {
+              "key": ":set smartcase",
+              "key_style": "key",
+              "description": "Smart case search",
+              "example": ":set ignorecase smartcase",
+              "tip": "Override ignorecase if the search pattern contains uppercase"
+            },
+            {
+              "key": ":set list",
+              "key_style": "key",
+              "description": "Show invisible chars",
+              "example": ":set list listchars=tab:>-",
+              "tip": "Display whitespace like tabs and trailing spaces visually"
+            },
+            {
+              "key": ":set cursorline",
+              "key_style": "key",
+              "description": "Highlight cursor line",
+              "example": ":set cursorline cursorcolumn",
+              "tip": "Highlight the screen line of the cursor"
+            },
+            {
+              "key": ":set clipboard=unnamedplus",
+              "key_style": "key",
+              "description": "Use system clipboard",
+              "example": ":set clipboard=unnamedplus,unnamed",
+              "tip": "Sync all yank and delete operations with the OS clipboard"
+            },
+            {
+              "key": ":set {opt}?",
+              "key_style": "key",
+              "description": "Query option value",
+              "example": ":set tabstop?",
+              "tip": "Check the current value of a specific option"
+            },
+            {
+              "key": ":set {opt}!",
+              "key_style": "key",
+              "description": "Toggle option",
+              "example": ":set wrap!",
+              "tip": "Invert the value of a boolean option"
+            },
+            {
+              "key": "ZZ",
+              "key_style": "key",
+              "description": "Save and quit",
+              "example": "1ZZ",
+              "tip": "Save if modified and quit (equivalent to :x)"
+            },
+            {
+              "key": "ZQ",
+              "key_style": "key",
+              "description": "Quit without saving",
+              "example": "1ZQ",
+              "tip": "Quit without saving (equivalent to :q!)",
+              "danger": "Discards all unsaved changes"
+            },
+            {
+              "key": ":retab",
+              "key_style": "key",
+              "description": "Convert tabs/spaces",
+              "example": ":retab!",
+              "tip": "Replace all sequences of spaces/tabs with the current expandtab setting"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Navigation - Extended",
+      "color": "teal",
+      "tip": "Advanced motions for faster precise navigation on the screen and line.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": "ge",
+              "key_style": "key",
+              "description": "End of prev word",
+              "example": "dge",
+              "tip": "Move backward to the end of the previous word"
+            },
+            {
+              "key": "gE",
+              "key_style": "key",
+              "description": "End of prev WORD",
+              "example": "dgE",
+              "tip": "Move backward to the end of the previous WORD (non-blank)"
+            },
+            {
+              "key": "f{char}",
+              "key_style": "key",
+              "description": "Find character forward",
+              "example": "fa",
+              "tip": "Move cursor to the next occurrence of {char} on the current line"
+            },
+            {
+              "key": "F{char}",
+              "key_style": "key",
+              "description": "Find character backward",
+              "example": "Fa",
+              "tip": "Move cursor to the previous occurrence of {char} on the current line"
+            },
+            {
+              "key": "t{char}",
+              "key_style": "key",
+              "description": "Till character forward",
+              "example": "ta",
+              "tip": "Move cursor to just before the next occurrence of {char}"
+            },
+            {
+              "key": "T{char}",
+              "key_style": "key",
+              "description": "Till character backward",
+              "example": "Ta",
+              "tip": "Move cursor to just after the previous occurrence of {char}"
+            },
+            {
+              "key": ";",
+              "key_style": "key",
+              "description": "Repeat last f/t/F/T",
+              "example": "3;",
+              "tip": "Repeat the last character search in the same direction"
+            },
+            {
+              "key": ",",
+              "key_style": "key",
+              "description": "Repeat last f/t/F/T reversed",
+              "example": "2,",
+              "tip": "Repeat the last character search in the opposite direction"
+            },
+            {
+              "key": "H",
+              "key_style": "key",
+              "description": "Move to top of screen",
+              "example": "dH",
+              "tip": "Move cursor to the Highest line visible on the screen"
+            },
+            {
+              "key": "M",
+              "key_style": "key",
+              "description": "Move to middle of screen",
+              "example": "dM",
+              "tip": "Move cursor to the Middle line of the screen"
+            },
+            {
+              "key": "L",
+              "key_style": "key",
+              "description": "Move to bottom of screen",
+              "example": "dL",
+              "tip": "Move cursor to the Lowest line visible on the screen"
+            },
+            {
+              "key": "{N}G",
+              "key_style": "key",
+              "description": "Go to line N",
+              "example": "42G",
+              "tip": "Jump directly to line N (alternative to :{N})"
+            },
+            {
+              "key": "(",
+              "key_style": "key",
+              "description": "Previous sentence",
+              "example": "d(",
+              "tip": "Jump backward by one sentence"
+            },
+            {
+              "key": ")",
+              "key_style": "key",
+              "description": "Next sentence",
+              "example": "d)",
+              "tip": "Jump forward by one sentence"
+            },
+            {
+              "key": "Ctrl+e",
+              "key_style": "key",
+              "description": "Scroll screen down",
+              "tip": "Scroll the window down one line without moving the cursor"
+            },
+            {
+              "key": "Ctrl+y",
+              "key_style": "key",
+              "description": "Scroll screen up",
+              "tip": "Scroll the window up one line without moving the cursor"
+            },
+            {
+              "key": "zz",
+              "key_style": "key",
+              "description": "Center screen on cursor",
+              "example": "100G zz",
+              "tip": "Redraw the screen with the cursor line in the middle"
+            },
+            {
+              "key": "zt",
+              "key_style": "key",
+              "description": "Top screen on cursor",
+              "example": "100G zt",
+              "tip": "Redraw the screen with the cursor line at the top"
+            },
+            {
+              "key": "zb",
+              "key_style": "key",
+              "description": "Bottom screen on cursor",
+              "example": "100G zb",
+              "tip": "Redraw the screen with the cursor line at the bottom"
+            },
+            {
+              "key": "gj",
+              "key_style": "key",
+              "description": "Move down screen line",
+              "example": "3gj",
+              "tip": "Move down by visual screen lines (useful with wrapped text)"
+            },
+            {
+              "key": "gk",
+              "key_style": "key",
+              "description": "Move up screen line",
+              "example": "3gk",
+              "tip": "Move up by visual screen lines"
+            },
+            {
+              "key": "g_",
+              "key_style": "key",
+              "description": "Jump to last non-blank",
+              "example": "dg_",
+              "tip": "Jump to the last non-blank character of the current line"
+            },
+            {
+              "key": "gi",
+              "key_style": "key",
+              "description": "Insert at last edit",
+              "example": "3gi",
+              "tip": "Jump to the last place you were in Insert mode and enter Insert mode"
+            },
+            {
+              "key": "g;",
+              "key_style": "key",
+              "description": "Go to older edit",
+              "example": "3g;",
+              "tip": "Jump to the previous position in the changelist"
+            },
+            {
+              "key": "g,",
+              "key_style": "key",
+              "description": "Go to newer edit",
+              "example": "2g,",
+              "tip": "Jump to the next position in the changelist"
+            },
+            {
+              "key": "q:",
+              "key_style": "key",
+              "description": "Command-line window",
+              "tip": "Open a window with command history, editable like a regular buffer"
+            },
+            {
+              "key": "q/",
+              "key_style": "key",
+              "description": "Search history window",
+              "tip": "Open a window with search history, editable like a regular buffer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Operators & Changes",
+      "color": "orange",
+      "tip": "More ways to manipulate text and combine operations.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": "gu",
+              "key_style": "key",
+              "description": "Lowercase object",
+              "example": "guiw",
+              "tip": "Convert text object to lowercase"
+            },
+            {
+              "key": "gU",
+              "key_style": "key",
+              "description": "Uppercase object",
+              "example": "gUiw",
+              "tip": "Convert text object to uppercase"
+            },
+            {
+              "key": "g~",
+              "key_style": "key",
+              "description": "Toggle case object",
+              "example": "g~iw",
+              "tip": "Toggle case of text object"
+            },
+            {
+              "key": "gJ",
+              "key_style": "key",
+              "description": "Join lines without space",
+              "example": "3gJ",
+              "tip": "Join the line below to the current one without inserting spaces"
+            },
+            {
+              "key": ">>",
+              "key_style": "key",
+              "description": "Indent line",
+              "example": "3>>",
+              "tip": "Shift the current line right by one shiftwidth"
+            },
+            {
+              "key": "<<",
+              "key_style": "key",
+              "description": "Un-indent line",
+              "example": "3<<",
+              "tip": "Shift the current line left by one shiftwidth"
+            },
+            {
+              "key": "=",
+              "key_style": "key",
+              "description": "Auto-format (indent)",
+              "example": "=%",
+              "tip": "Re-indent the text object according to syntax rules"
+            },
+            {
+              "key": "gq",
+              "key_style": "key",
+              "description": "Format text (wrap)",
+              "example": "gqip",
+              "tip": "Format (wrap) the text object to fit textwidth"
+            },
+            {
+              "key": "Ctrl+a",
+              "key_style": "key",
+              "description": "Increment number",
+              "tip": "Add 1 to the next number on the current line"
+            },
+            {
+              "key": "Ctrl+x",
+              "key_style": "key",
+              "description": "Decrement number",
+              "tip": "Subtract 1 from the next number on the current line"
+            },
+            {
+              "key": "s",
+              "key_style": "key",
+              "description": "Substitute character",
+              "example": "3s",
+              "tip": "Delete character and enter Insert mode (synonym for cl)"
+            },
+            {
+              "key": "S",
+              "key_style": "key",
+              "description": "Substitute line",
+              "example": "3S",
+              "tip": "Delete line and enter Insert mode (synonym for cc)"
+            },
+            {
+              "key": "{count}",
+              "key_style": "key",
+              "description": "Repeat motion/operator",
+              "example": "3dd",
+              "tip": "Prefix any operator or motion with a number to repeat it"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Registers & Clipboard",
+      "color": "yellow",
+      "tip": "Registers let you store and retrieve multiple pieces of text. Use \" before a command to specify a register.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": "\"{reg}y",
+              "key_style": "key",
+              "description": "Yank into register",
+              "example": "\"ayiw",
+              "tip": "Yank the text object into a specific named register (a-z)"
+            },
+            {
+              "key": "\"{reg}p",
+              "key_style": "key",
+              "description": "Paste from register",
+              "example": "\"ap",
+              "tip": "Paste the contents of a specific named register"
+            },
+            {
+              "key": "\"+y",
+              "key_style": "key",
+              "description": "Yank to system clipboard",
+              "example": "\"+yiw",
+              "tip": "Copy text to the OS system clipboard"
+            },
+            {
+              "key": "\"_d",
+              "key_style": "key",
+              "description": "Delete without saving",
+              "example": "\"_dd",
+              "tip": "Delete text into the black hole register (doesn't overwrite unnamed register)"
+            },
+            {
+              "key": "\"0p",
+              "key_style": "key",
+              "description": "Paste last yank",
+              "example": "\"0P",
+              "tip": "Paste from register 0, which always contains the most recent yank"
+            },
+            {
+              "key": "Ctrl+r {reg}",
+              "key_style": "key",
+              "description": "Insert from register",
+              "example": "Ctrl+r a",
+              "tip": "Paste contents of a register while in Insert or Command mode",
+              "note": "Insert/Cmd"
+            },
+            {
+              "key": "@:",
+              "key_style": "key",
+              "description": "Repeat last Ex command",
+              "example": "3@:",
+              "tip": "Re-run the most recently executed command-line command"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Insert Mode Keys",
+      "color": "green",
+      "tip": "Shortcuts to edit, format, or complete text without leaving Insert mode.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": "Ctrl+w",
+              "key_style": "key",
+              "description": "Delete word before cursor",
+              "tip": "Delete the word immediately before the cursor in Insert mode",
+              "note": "Insert"
+            },
+            {
+              "key": "Ctrl+u",
+              "key_style": "key",
+              "description": "Delete to line start",
+              "tip": "Delete all characters before the cursor on the current line",
+              "note": "Insert"
+            },
+            {
+              "key": "Ctrl+t",
+              "key_style": "key",
+              "description": "Indent line",
+              "tip": "Insert one shiftwidth of indent at the start of the line",
+              "note": "Insert"
+            },
+            {
+              "key": "Ctrl+d",
+              "key_style": "key",
+              "description": "Un-indent line",
+              "tip": "Remove one shiftwidth of indent at the start of the line",
+              "note": "Insert"
+            },
+            {
+              "key": "Ctrl+o",
+              "key_style": "key",
+              "description": "Execute Normal command",
+              "example": "Ctrl+o zz",
+              "tip": "Leave Insert mode for one Normal mode command, then return",
+              "note": "Insert"
+            },
+            {
+              "key": "Ctrl+n",
+              "key_style": "key",
+              "description": "Autocomplete next",
+              "tip": "Trigger generic word completion searching forward",
+              "note": "Insert"
+            },
+            {
+              "key": "Ctrl+p",
+              "key_style": "key",
+              "description": "Autocomplete prev",
+              "tip": "Trigger generic word completion searching backward",
+              "note": "Insert"
+            },
+            {
+              "key": "Ctrl+x Ctrl+f",
+              "key_style": "key",
+              "description": "Autocomplete filename",
+              "tip": "Trigger completion for file and directory names",
+              "note": "Insert"
+            },
+            {
+              "key": "Ctrl+x Ctrl+l",
+              "key_style": "key",
+              "description": "Autocomplete line",
+              "tip": "Trigger completion for entire lines found in buffers",
+              "note": "Insert"
+            },
+            {
+              "key": "Ctrl+k",
+              "key_style": "key",
+              "description": "Insert digraph",
+              "example": "Ctrl+k 'e",
+              "tip": "Insert a special character via a two-letter digraph code",
+              "note": "Insert"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ex Commands & Ranges",
+      "color": "purple",
+      "tip": "Command-line mode operations to manipulate many lines at once.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": ":{start},{end}d",
+              "key_style": "key",
+              "description": "Delete line range",
+              "example": ":10,20d",
+              "tip": "Delete all lines from {start} to {end} inclusive"
+            },
+            {
+              "key": ":'<,'>",
+              "key_style": "key",
+              "description": "Command on visual range",
+              "example": ":'<,'>d",
+              "tip": "Applies the command to the last visually selected lines"
+            },
+            {
+              "key": ":g/{pat}/d",
+              "key_style": "key",
+              "description": "Delete matching lines",
+              "example": ":g/TODO/d",
+              "tip": "Delete every line in the file that contains the pattern"
+            },
+            {
+              "key": ":v/{pat}/d",
+              "key_style": "key",
+              "description": "Delete non-matching lines",
+              "example": ":v/keep/d",
+              "tip": "Delete every line that does NOT contain the pattern"
+            },
+            {
+              "key": ":g/{pat}/normal {cmd}",
+              "key_style": "key",
+              "description": "Run command on matches",
+              "example": ":g/foo/normal Abar",
+              "tip": "Execute a Normal mode command on every line matching the pattern"
+            },
+            {
+              "key": ":norm {cmd}",
+              "key_style": "key",
+              "description": "Run Normal command on range",
+              "example": ":%norm I#",
+              "tip": "Execute a Normal mode command on a range of lines"
+            },
+            {
+              "key": ":sort u",
+              "key_style": "key",
+              "description": "Sort and remove duplicates",
+              "example": ":%sort u",
+              "tip": "Sort lines and keep only unique ones (removes duplicates)"
+            },
+            {
+              "key": ":t {line}",
+              "key_style": "key",
+              "description": "Copy to line",
+              "example": ":.t $",
+              "tip": "Copy (transfer) the current line to below the specified {line}"
+            },
+            {
+              "key": ":m {line}",
+              "key_style": "key",
+              "description": "Move to line",
+              "example": ":.m 0",
+              "tip": "Move the current line to below the specified {line}"
+            },
+            {
+              "key": ":earlier",
+              "key_style": "key",
+              "description": "Undo backwards in time",
+              "example": ":earlier 10m",
+              "tip": "Revert buffer to its state a certain amount of time ago"
+            },
+            {
+              "key": ":later",
+              "key_style": "key",
+              "description": "Redo forwards in time",
+              "example": ":later 5m",
+              "tip": "Go forward in the time-based undo tree"
+            },
+            {
+              "key": ":e!",
+              "key_style": "key",
+              "description": "Reload file from disk",
+              "example": ":e! %",
+              "tip": "Discard all unsaved changes and reload the file from disk",
+              "danger": "Discards all unsaved changes"
+            },
+            {
+              "key": ":wa",
+              "key_style": "key",
+              "description": "Save all buffers",
+              "example": ":wa!",
+              "tip": "Write all modified buffers to disk"
+            },
+            {
+              "key": ":qa!",
+              "key_style": "key",
+              "description": "Force quit all",
+              "tip": "Quit Neovim entirely, discarding all unsaved changes everywhere",
+              "danger": "Discards all unsaved changes in all buffers"
+            },
+            {
+              "key": ":messages",
+              "key_style": "key",
+              "description": "Show message history",
+              "tip": "View past error and status messages"
+            },
+            {
+              "key": ":pwd",
+              "key_style": "key",
+              "description": "Print working directory",
+              "tip": "Show the current working directory"
+            },
+            {
+              "key": ":cd",
+              "key_style": "key",
+              "description": "Change directory",
+              "example": ":cd ~/.config/nvim",
+              "tip": "Change the global working directory for Neovim"
+            },
+            {
+              "key": ":lcd",
+              "key_style": "key",
+              "description": "Change window directory",
+              "example": ":lcd %:p:h",
+              "tip": "Change the working directory only for the current window"
+            },
+            {
+              "key": ":read {file}",
+              "key_style": "key",
+              "description": "Insert file contents",
+              "example": ":read data.txt",
+              "tip": "Read a file and insert its contents below the cursor"
+            },
+            {
+              "key": ":w >> {file}",
+              "key_style": "key",
+              "description": "Append to file",
+              "example": ":.w >> log.txt",
+              "tip": "Append the current line (or range) to an existing file"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Quickfix & Location List",
+      "color": "teal",
+      "tip": "The quickfix list holds global search results or compilation errors. The location list is tied to a specific window.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": ":vimgrep",
+              "key_style": "key",
+              "description": "Search into quickfix",
+              "example": ":vimgrep /foo/ **/*.lua",
+              "tip": "Search for a pattern across files and populate the quickfix list"
+            },
+            {
+              "key": ":grep",
+              "key_style": "key",
+              "description": "Run external grep",
+              "example": ":grep foo src/",
+              "tip": "Run the external grep command (or ripgrep) and populate quickfix"
+            },
+            {
+              "key": ":copen",
+              "key_style": "key",
+              "description": "Open quickfix window",
+              "example": ":copen 10",
+              "tip": "Open the quickfix window to view all search/error results"
+            },
+            {
+              "key": ":cclose",
+              "key_style": "key",
+              "description": "Close quickfix window",
+              "example": ":cclose | lclose",
+              "tip": "Close the quickfix window"
+            },
+            {
+              "key": ":cnext",
+              "key_style": "key",
+              "description": "Next quickfix item",
+              "example": ":cnext!",
+              "tip": "Jump to the next item in the quickfix list"
+            },
+            {
+              "key": ":cprev",
+              "key_style": "key",
+              "description": "Prev quickfix item",
+              "example": ":cprev!",
+              "tip": "Jump to the previous item in the quickfix list"
+            },
+            {
+              "key": "]q",
+              "key_style": "key",
+              "description": "Next quickfix jump",
+              "example": "3]q",
+              "tip": "Jump to next quickfix item using built-in Normal mode keys",
+              "note": "0.11+"
+            },
+            {
+              "key": "[q",
+              "key_style": "key",
+              "description": "Prev quickfix jump",
+              "example": "3[q",
+              "tip": "Jump to previous quickfix item using built-in Normal mode keys",
+              "note": "0.11+"
+            },
+            {
+              "key": ":cdo {cmd}",
+              "key_style": "key",
+              "description": "Command on each item",
+              "example": ":cdo s/foo/bar/g | update",
+              "tip": "Execute a command on every valid entry in the quickfix list"
+            },
+            {
+              "key": ":cfdo {cmd}",
+              "key_style": "key",
+              "description": "Command on each file",
+              "example": ":cfdo %s/foo/bar/g | update",
+              "tip": "Execute a command once for each file in the quickfix list"
+            },
+            {
+              "key": ":lopen",
+              "key_style": "key",
+              "description": "Open location list",
+              "example": ":lopen 5",
+              "tip": "Open the location list window (like quickfix, but local to the current window)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Undo Tree",
+      "color": "orange",
+      "tip": "Neovim maintains an undo tree, meaning you never lose edits even after branching undo history.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": "U",
+              "key_style": "key",
+              "description": "Undo line",
+              "tip": "Undo all recent changes made on the current line"
+            },
+            {
+              "key": "g-",
+              "key_style": "key",
+              "description": "Older text state",
+              "example": "10g-",
+              "tip": "Go to an older text state in the undo tree (chronological)"
+            },
+            {
+              "key": "g+",
+              "key_style": "key",
+              "description": "Newer text state",
+              "example": "5g+",
+              "tip": "Go to a newer text state in the undo tree (chronological)"
+            },
+            {
+              "key": ":undolist",
+              "key_style": "key",
+              "description": "List undo branches",
+              "tip": "Show the leaf nodes of the undo tree"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Diff Mode",
+      "color": "purple",
+      "tip": "Compare and merge text between buffers. Run `nvim -d` from the shell to start.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": "nvim -d",
+              "key_style": "cmd",
+              "description": "Open in diff mode",
+              "example": "nvim -d a.txt b.txt",
+              "tip": "Start Neovim with two files side-by-side highlighting their differences"
+            },
+            {
+              "key": ":diffthis",
+              "key_style": "key",
+              "description": "Diff current window",
+              "example": ":windo diffthis",
+              "tip": "Include the current window in the diff layout"
+            },
+            {
+              "key": ":diffoff",
+              "key_style": "key",
+              "description": "Disable diff mode",
+              "example": ":diffoff!",
+              "tip": "Turn off diff mode for the current window"
+            },
+            {
+              "key": "]c",
+              "key_style": "key",
+              "description": "Next diff",
+              "example": "3]c",
+              "tip": "Jump forward to the next difference block"
+            },
+            {
+              "key": "[c",
+              "key_style": "key",
+              "description": "Prev diff",
+              "example": "3[c",
+              "tip": "Jump backward to the previous difference block"
+            },
+            {
+              "key": "do",
+              "key_style": "key",
+              "description": "Diff obtain (get)",
+              "example": "3do",
+              "tip": "Pull the difference from the other window into the current window"
+            },
+            {
+              "key": "dp",
+              "key_style": "key",
+              "description": "Diff put (push)",
+              "example": "3dp",
+              "tip": "Push the difference from the current window to the other window"
+            },
+            {
+              "key": ":diffupdate",
+              "key_style": "key",
+              "description": "Update diffs",
+              "example": ":diffupdate!",
+              "tip": "Manually force a re-scan and update of the diff highlights"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Spell Checking",
+      "color": "yellow",
+      "tip": "Built-in spell checker. Enable with `:set spell`.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": "]s",
+              "key_style": "key",
+              "description": "Next misspelled word",
+              "example": "3]s",
+              "tip": "Jump to the next misspelled word"
+            },
+            {
+              "key": "[s",
+              "key_style": "key",
+              "description": "Prev misspelled word",
+              "example": "3[s",
+              "tip": "Jump backward to the previous misspelled word"
+            },
+            {
+              "key": "z=",
+              "key_style": "key",
+              "description": "Suggest corrections",
+              "example": "1z=",
+              "tip": "Open a list of suggested spelling corrections for the word under the cursor"
+            },
+            {
+              "key": "zg",
+              "key_style": "key",
+              "description": "Add word to dictionary",
+              "example": "2zg",
+              "tip": "Add the word under the cursor as a good word in the spellfile"
+            },
+            {
+              "key": "zw",
+              "key_style": "key",
+              "description": "Mark word as wrong",
+              "example": "3zw",
+              "tip": "Mark the word under the cursor as a wrong (misspelled) word"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Sessions & Views",
+      "color": "teal",
+      "tip": "Save your exact layout of splits, tabs, and folds to restore it later.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": ":mksession",
+              "key_style": "key",
+              "description": "Save session",
+              "example": ":mksession Session.vim",
+              "tip": "Save all open windows, tabs, and buffers to a session file"
+            },
+            {
+              "key": "nvim -S",
+              "key_style": "cmd",
+              "description": "Load session on startup",
+              "example": "nvim -S Session.vim",
+              "tip": "Start Neovim and immediately load the specified session file"
+            },
+            {
+              "key": ":mkview",
+              "key_style": "key",
+              "description": "Save window view",
+              "example": ":mkview 1",
+              "tip": "Save the current window's folds, cursor position, and options"
+            },
+            {
+              "key": ":loadview",
+              "key_style": "key",
+              "description": "Load window view",
+              "example": ":loadview 1",
+              "tip": "Restore the window view previously saved with :mkview"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Help Navigation",
+      "color": "green",
+      "tip": "Neovim has excellent built-in documentation. Use :help to read it.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": ":h {word}",
+              "key_style": "key",
+              "description": "Open help topic",
+              "example": ":h motion",
+              "tip": "Open the manual for a specific command, key, or topic"
+            },
+            {
+              "key": "Ctrl+]",
+              "key_style": "key",
+              "description": "Jump to help tag",
+              "tip": "Jump to the definition of the help tag under the cursor"
+            },
+            {
+              "key": ":helpgrep",
+              "key_style": "key",
+              "description": "Search in help files",
+              "example": ":helpgrep diagnostic",
+              "tip": "Search for a pattern across all installed help files (populates quickfix)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Startup Flags",
+      "color": "purple",
+      "tip": "Command-line arguments for launching Neovim.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": "nvim +{N}",
+              "key_style": "cmd",
+              "description": "Open at line N",
+              "example": "nvim +42 src.c",
+              "tip": "Start Neovim and jump directly to line N"
+            },
+            {
+              "key": "nvim +/{pat}",
+              "key_style": "cmd",
+              "description": "Open at pattern",
+              "example": "nvim +/main src.c",
+              "tip": "Start Neovim and jump to the first match of the pattern"
+            },
+            {
+              "key": "nvim -R",
+              "key_style": "cmd",
+              "description": "Read-only mode",
+              "example": "nvim -R file.txt",
+              "tip": "Start Neovim in read-only mode (viewing)"
+            },
+            {
+              "key": "nvim --clean",
+              "key_style": "cmd",
+              "description": "Skip config (clean)",
+              "example": "nvim --clean -u NONE",
+              "tip": "Start with default settings, skipping init.lua and plugins"
+            },
+            {
+              "key": "nvim -u NONE",
+              "key_style": "cmd",
+              "description": "Skip all initialization",
+              "example": "nvim -u NONE -i NONE",
+              "tip": "Start completely bare, even skipping standard plugins"
+            },
+            {
+              "key": "nvim -O",
+              "key_style": "cmd",
+              "description": "Vertical splits",
+              "example": "nvim -O a.txt b.txt",
+              "tip": "Open multiple files in vertical splits"
+            },
+            {
+              "key": "nvim -o",
+              "key_style": "cmd",
+              "description": "Horizontal splits",
+              "example": "nvim -o a.txt b.txt",
+              "tip": "Open multiple files in horizontal splits"
+            },
+            {
+              "key": "nvim --startuptime",
+              "key_style": "cmd",
+              "description": "Profile startup",
+              "example": "nvim --startuptime time.txt",
+              "tip": "Log detailed startup timing data to a file for profiling"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Lua Configuration API",
+      "color": "teal",
+      "tip": "Neovim's modern configuration is done in init.lua. These are the most common functions.",
+      "sections": [
+        {
+          "items": [
+            {
+              "key": "vim.opt.{opt} = {val}",
+              "key_style": "code",
+              "description": "Set standard option",
+              "example": "vim.opt.number = true",
+              "tip": "Set a global or local Neovim option"
+            },
+            {
+              "key": "vim.keymap.set()",
+              "key_style": "code",
+              "description": "Create keymap",
+              "example": "vim.keymap.set('n', '<leader>w', ':w<CR>')",
+              "tip": "Define a new key mapping in a specific mode"
+            },
+            {
+              "key": "vim.api.nvim_create_autocmd()",
+              "key_style": "code",
+              "description": "Create autocommand",
+              "example": "vim.api.nvim_create_autocmd('BufWritePre', { command = '...' })",
+              "tip": "Trigger a function or command on a specific event"
+            },
+            {
+              "key": "vim.api.nvim_create_user_command()",
+              "key_style": "code",
+              "description": "Create custom command",
+              "example": "vim.api.nvim_create_user_command('Hello', 'echo \"Hi\"', {})",
+              "tip": "Define a new Ex command starting with a capital letter"
+            },
+            {
+              "key": "vim.g.mapleader",
+              "key_style": "code",
+              "description": "Set leader key",
+              "example": "vim.g.mapleader = ' '",
+              "tip": "Set the global leader key (commonly mapped to space)"
+            },
+            {
+              "key": ":lua {expr}",
+              "key_style": "cmd",
+              "description": "Execute Lua code",
+              "example": ":lua print('Hello')",
+              "tip": "Run a snippet of Lua code from the command line"
+            },
+            {
+              "key": ":lua ={expr}",
+              "key_style": "cmd",
+              "description": "Evaluate and print",
+              "example": ":lua =vim.fn.stdpath('config')",
+              "tip": "Evaluate a Lua expression and print its result"
+            },
+            {
+              "key": ":source %",
+              "key_style": "cmd",
+              "description": "Source current file",
+              "tip": "Execute the contents of the current file (Vimscript or Lua) to apply config"
+            },
+            {
+              "key": "vim.cmd()",
+              "key_style": "code",
+              "description": "Run Vimscript in Lua",
+              "example": "vim.cmd('colorscheme desert')",
+              "tip": "Execute standard Vimscript Ex commands from within Lua"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

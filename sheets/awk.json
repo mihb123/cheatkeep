@@ -1,0 +1,808 @@
+{
+  "title": "AWK Cheatsheet",
+  "subtitle": "Text processing and data extraction tool",
+  "description": "Comprehensive guide to AWK scripting language, patterns, functions, and common one-liners.",
+  "source_url": "https://www.gnu.org/software/gawk/manual/",
+  "links": [
+    {
+      "label": "gawk manual",
+      "url": "https://www.gnu.org/software/gawk/manual/"
+    },
+    {
+      "label": "devhints.io/awk",
+      "url": "https://devhints.io/awk"
+    }
+  ],
+  "aliases": [
+    "gawk"
+  ],
+  "cards": [
+    {
+      "icon": "🚀",
+      "title": "Invocation & Options",
+      "layout": "grid",
+      "sections": [
+        {
+          "label": "Command Line",
+          "kind": "table",
+          "items": [
+            {
+              "key": "awk '<prog>' <file>",
+              "key_style": "cmd",
+              "description": "Run awk program on a file",
+              "example": "awk '{print $1}' data.txt"
+            },
+            {
+              "key": "awk -F '<sep>' '<prog>' <file>",
+              "key_style": "cmd",
+              "description": "Set input field separator",
+              "example": "awk -F ':' '{print $1}' /etc/passwd"
+            },
+            {
+              "key": "awk -v <var>=<val> '<prog>' <file>",
+              "key_style": "cmd",
+              "description": "Assign value to variable before execution",
+              "example": "awk -v max=100 '$1 > max' scores.txt"
+            },
+            {
+              "key": "awk -f <script.awk> <file>",
+              "key_style": "cmd",
+              "description": "Read program from file",
+              "example": "awk -f process.awk data.csv"
+            },
+            {
+              "key": "awk -i inplace '<prog>' <file>",
+              "key_style": "cmd",
+              "description": "Edit file in-place",
+              "example": "awk -i inplace '{print $1}' list.txt",
+              "note": "gawk",
+              "danger": "Overwrites the original file."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🏗️",
+      "title": "Program Structure",
+      "layout": "grid",
+      "sections": [
+        {
+          "label": "Blocks",
+          "kind": "table",
+          "items": [
+            {
+              "key": "BEGIN { <action> }",
+              "key_style": "code",
+              "description": "Executed once before reading any input",
+              "example": "awk 'BEGIN {print \"Starting...\"} {print}' data.txt"
+            },
+            {
+              "key": "<pattern> { <action> }",
+              "key_style": "code",
+              "description": "Executed for each record matching the pattern",
+              "example": "awk '/error/ {print $0}' app.log"
+            },
+            {
+              "key": "{ <action> }",
+              "key_style": "code",
+              "description": "Executed for every record (default pattern is true)",
+              "example": "awk '{print $1}' file.txt"
+            },
+            {
+              "key": "<pattern>",
+              "key_style": "code",
+              "description": "Match pattern and print record (default action)",
+              "example": "awk '/warning/' server.log"
+            },
+            {
+              "key": "END { <action> }",
+              "key_style": "code",
+              "description": "Executed once after all input is processed",
+              "example": "awk 'END {print \"Total: \" NR}' data.txt"
+            },
+            {
+              "key": "BEGINFILE { <action> }",
+              "key_style": "code",
+              "description": "Executed before reading each input file",
+              "example": "awk 'BEGINFILE {print \"Reading \" FILENAME}' a.txt b.txt",
+              "note": "gawk"
+            },
+            {
+              "key": "ENDFILE { <action> }",
+              "key_style": "code",
+              "description": "Executed after reading each input file",
+              "example": "awk 'ENDFILE {print \"Done with \" FILENAME}' a.txt b.txt",
+              "note": "gawk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "📄",
+      "title": "Fields & Records",
+      "layout": "grid",
+      "sections": [
+        {
+          "label": "Built-in Variables",
+          "kind": "table",
+          "items": [
+            {
+              "key": "$0",
+              "key_style": "code",
+              "description": "The entire current record (line)",
+              "example": "awk '{print $0}' data.txt"
+            },
+            {
+              "key": "$<N>",
+              "key_style": "code",
+              "description": "The N-th field of the current record",
+              "example": "awk '{print $1, $3}' data.txt"
+            },
+            {
+              "key": "$NF",
+              "key_style": "code",
+              "description": "The last field of the current record",
+              "example": "awk '{print $NF}' data.txt"
+            },
+            {
+              "key": "$(NF-1)",
+              "key_style": "code",
+              "description": "The second-to-last field",
+              "example": "awk '{print $(NF-1)}' data.txt"
+            },
+            {
+              "key": "NF",
+              "key_style": "code",
+              "description": "Number of fields in the current record",
+              "example": "awk '{print NF, $0}' data.txt"
+            },
+            {
+              "key": "NR",
+              "key_style": "code",
+              "description": "Total number of records processed so far",
+              "example": "awk '{print NR \": \" $0}' a.txt b.txt"
+            },
+            {
+              "key": "FNR",
+              "key_style": "code",
+              "description": "Record number in the current file",
+              "example": "awk '{print FNR \": \" $0}' a.txt b.txt"
+            },
+            {
+              "key": "FILENAME",
+              "key_style": "code",
+              "description": "Name of the current input file",
+              "example": "awk '{print FILENAME, $0}' a.txt b.txt"
+            },
+            {
+              "key": "FS",
+              "key_style": "code",
+              "description": "Input field separator",
+              "example": "awk 'BEGIN {FS=\":\"} {print $1}' /etc/passwd"
+            },
+            {
+              "key": "OFS",
+              "key_style": "code",
+              "description": "Output field separator",
+              "example": "awk 'BEGIN {OFS=\",\"} {print $1, $2}' data.txt"
+            },
+            {
+              "key": "RS",
+              "key_style": "code",
+              "description": "Input record separator",
+              "example": "awk 'BEGIN {RS=\"\"} {print $1}' paragraphs.txt"
+            },
+            {
+              "key": "ORS",
+              "key_style": "code",
+              "description": "Output record separator",
+              "example": "awk 'BEGIN {ORS=\"\\n\\n\"} {print $0}' data.txt"
+            },
+            {
+              "key": "FPAT",
+              "key_style": "code",
+              "description": "Regex defining field content",
+              "example": "awk 'BEGIN {FPAT=\"[^,]+|\\\"[^\\\"]+\\\"\"} {print $1}' csv.txt",
+              "note": "gawk"
+            },
+            {
+              "key": "$1=$1",
+              "key_style": "code",
+              "description": "Rebuild the record using OFS",
+              "example": "awk 'BEGIN {OFS=\",\"} {$1=$1; print}' data.txt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔍",
+      "title": "Patterns & Logic",
+      "layout": "grid",
+      "sections": [
+        {
+          "label": "Pattern Matching",
+          "kind": "table",
+          "items": [
+            {
+              "key": "/<regex>/",
+              "key_style": "code",
+              "description": "Matches records containing the regular expression",
+              "example": "awk '/ERROR|WARN/ {print}' log.txt"
+            },
+            {
+              "key": "$<N> ~ /<regex>/",
+              "key_style": "code",
+              "description": "Matches if field N contains regex",
+              "example": "awk '$2 ~ /^[0-9]+$/ {print}' data.txt"
+            },
+            {
+              "key": "$<N> !~ /<regex>/",
+              "key_style": "code",
+              "description": "Matches if field N does not contain regex",
+              "example": "awk '$1 !~ /root/ {print}' /etc/passwd"
+            },
+            {
+              "key": "<expr1> == <expr2>",
+              "key_style": "code",
+              "description": "Equality comparison",
+              "example": "awk '$3 == \"active\" {print}' users.txt"
+            },
+            {
+              "key": "<expr1> !=, >, <, >=, <=",
+              "key_style": "code",
+              "description": "Relational comparisons",
+              "example": "awk '$2 > 100 {print}' scores.txt"
+            },
+            {
+              "key": "&&, ||, !",
+              "key_style": "code",
+              "description": "Logical AND, OR, NOT",
+              "example": "awk '$1 > 10 && $2 < 50 {print}' data.txt"
+            },
+            {
+              "key": "/<pat1>/, /<pat2>/",
+              "key_style": "code",
+              "description": "Range pattern matching from pat1 to pat2 inclusively",
+              "example": "awk '/START/,/END/' data.txt"
+            },
+            {
+              "key": "NR==FNR",
+              "key_style": "code",
+              "description": "True only while reading the first file",
+              "example": "awk 'NR==FNR {a[$1]=$2; next} {print a[$1]}' f1.txt f2.txt"
+            },
+            {
+              "key": "IGNORECASE = 1",
+              "key_style": "code",
+              "description": "Make string matching case-insensitive",
+              "example": "awk 'BEGIN {IGNORECASE=1} /error/' log.txt",
+              "note": "gawk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🖨️",
+      "title": "Printing & Formatting",
+      "layout": "grid",
+      "sections": [
+        {
+          "label": "Output Generation",
+          "kind": "table",
+          "items": [
+            {
+              "key": "print",
+              "key_style": "code",
+              "description": "Print $0 followed by ORS",
+              "example": "awk '{print}' data.txt"
+            },
+            {
+              "key": "print <expr>, <expr>",
+              "key_style": "code",
+              "description": "Print arguments separated by OFS",
+              "example": "awk '{print $1, $2}' data.txt"
+            },
+            {
+              "key": "print <expr> <expr>",
+              "key_style": "code",
+              "description": "Print arguments concatenated (no separator)",
+              "example": "awk '{print $1 $2}' data.txt"
+            },
+            {
+              "key": "printf \"<fmt>\", <args>",
+              "key_style": "code",
+              "description": "Print formatted string without newline",
+              "example": "awk '{printf \"%-10s %5d\\n\", $1, $2}' data.txt"
+            },
+            {
+              "key": "%s, %d, %f",
+              "key_style": "code",
+              "description": "printf formats (string, integer, float)",
+              "example": "awk '{printf \"Name: %s, Age: %d\\n\", $1, $2}' data.txt"
+            },
+            {
+              "key": "%-10s, %05.2f",
+              "key_style": "code",
+              "description": "Left-align 10 chars, float 5 wide 2 decimals",
+              "example": "awk '{printf \"%-10s %05.2f\\n\", $1, $2}' data.txt"
+            },
+            {
+              "key": "print > \"<file>\"",
+              "key_style": "code",
+              "description": "Redirect output to a file",
+              "example": "awk '{print $1 > \"names.txt\"}' data.txt"
+            },
+            {
+              "key": "print | \"<cmd>\"",
+              "key_style": "code",
+              "description": "Pipe output to a shell command",
+              "example": "awk '{print $0 | \"sort -r\"}' data.txt"
+            },
+            {
+              "key": "print > \"/dev/stderr\"",
+              "key_style": "code",
+              "description": "Print to standard error",
+              "example": "awk '{print \"Error\" > \"/dev/stderr\"}' data.txt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🧮",
+      "title": "Variables & Arithmetic",
+      "layout": "grid",
+      "sections": [
+        {
+          "label": "Variables and Operations",
+          "kind": "table",
+          "items": [
+            {
+              "key": "<var> = <expr>",
+              "key_style": "code",
+              "description": "Variable assignment (auto-initialized to 0/\"\")",
+              "example": "awk '{sum = sum + $1} END {print sum}' data.txt"
+            },
+            {
+              "key": "+, -, *, /, %, **, ^",
+              "key_style": "code",
+              "description": "Arithmetic operators",
+              "example": "awk '{print $1 + $2 * $3}' data.txt"
+            },
+            {
+              "key": "++, --",
+              "key_style": "code",
+              "description": "Increment and decrement operators",
+              "example": "awk '{count++} END {print count}' data.txt"
+            },
+            {
+              "key": "<var1> <var2>",
+              "key_style": "code",
+              "description": "String concatenation via space separation",
+              "example": "awk '{full = $1 \" \" $2; print full}' data.txt"
+            },
+            {
+              "key": "+=, -=, *=, /=, %=, ^=",
+              "key_style": "code",
+              "description": "Assignment operators",
+              "example": "awk '{sum += $1}' data.txt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🚦",
+      "title": "Control Flow",
+      "layout": "grid",
+      "sections": [
+        {
+          "label": "Loops and Conditions",
+          "kind": "table",
+          "items": [
+            {
+              "key": "if (<cond>) { ... } else { ... }",
+              "key_style": "code",
+              "description": "Conditional execution block",
+              "example": "awk '{if ($1 > 50) print \"Pass\"; else print \"Fail\"}' data.txt"
+            },
+            {
+              "key": "while (<cond>) { ... }",
+              "key_style": "code",
+              "description": "Execute block while condition is true",
+              "example": "awk '{i=1; while(i<=NF) {print $i; i++}}' data.txt"
+            },
+            {
+              "key": "for (<init>; <cond>; <step>) { ... }",
+              "key_style": "code",
+              "description": "C-style for loop",
+              "example": "awk '{for (i=1; i<=NF; i++) print $i}' data.txt"
+            },
+            {
+              "key": "for (<var> in <array>) { ... }",
+              "key_style": "code",
+              "description": "Iterate over keys in an associative array",
+              "example": "awk 'END {for (k in a) print k, a[k]}' data.txt"
+            },
+            {
+              "key": "break, continue",
+              "key_style": "code",
+              "description": "Exit loop or skip to next iteration",
+              "example": "awk '{for(i=1;i<=NF;i++) {if($i==\"x\") break; print $i}}' data.txt"
+            },
+            {
+              "key": "next",
+              "key_style": "code",
+              "description": "Stop processing current record and move to next",
+              "example": "awk '/skip/ {next} {print}' data.txt"
+            },
+            {
+              "key": "nextfile",
+              "key_style": "code",
+              "description": "Stop processing current file and move to next file",
+              "example": "awk '/EOF/ {nextfile} {print}' a.txt b.txt"
+            },
+            {
+              "key": "exit [<code>]",
+              "key_style": "code",
+              "description": "Stop input processing and jump to END block",
+              "example": "awk '/fatal/ {exit 1}' data.txt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "📚",
+      "title": "Arrays",
+      "layout": "grid",
+      "sections": [
+        {
+          "label": "Associative Arrays",
+          "kind": "table",
+          "items": [
+            {
+              "key": "<array>[<key>] = <val>",
+              "key_style": "code",
+              "description": "Assign value to associative array",
+              "example": "awk '{count[$1]++}' data.txt"
+            },
+            {
+              "key": "<key> in <array>",
+              "key_style": "code",
+              "description": "Check if key exists in array",
+              "example": "awk '{if ($1 in count) print \"Seen\"}' data.txt"
+            },
+            {
+              "key": "delete <array>[<key>]",
+              "key_style": "code",
+              "description": "Delete a specific element from array",
+              "example": "awk '{delete a[$1]}' data.txt"
+            },
+            {
+              "key": "delete <array>",
+              "key_style": "code",
+              "description": "Delete all elements of an array",
+              "example": "awk '{delete a}' data.txt"
+            },
+            {
+              "key": "split(<str>, <array>, [<sep>])",
+              "key_style": "code",
+              "description": "Split string into array, returns length",
+              "example": "awk '{n=split($1, a, \":\"); print a[1], n}' data.txt"
+            },
+            {
+              "key": "SUBSEP",
+              "key_style": "code",
+              "description": "Separator for multi-dimensional array keys",
+              "example": "awk '{a[$1,$2]=1} END{for(k in a) print k}' data.txt"
+            },
+            {
+              "key": "asort(<src>, [<dest>])",
+              "key_style": "code",
+              "description": "Sort array by values",
+              "example": "awk 'END {asort(a); for(i in a) print a[i]}' data.txt",
+              "note": "gawk"
+            },
+            {
+              "key": "asorti(<src>, [<dest>])",
+              "key_style": "code",
+              "description": "Sort array by keys",
+              "example": "awk 'END {asorti(a, b); for(i in b) print b[i]}' data.txt",
+              "note": "gawk"
+            },
+            {
+              "key": "PROCINFO[\"sorted_in\"]",
+              "key_style": "code",
+              "description": "Control array traversal order for in loop",
+              "example": "awk 'BEGIN {PROCINFO[\"sorted_in\"]=\"@val_num_desc\"}' data.txt",
+              "note": "gawk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "📝",
+      "title": "String Functions",
+      "layout": "grid",
+      "sections": [
+        {
+          "label": "Text Manipulation",
+          "kind": "table",
+          "items": [
+            {
+              "key": "length(<str>)",
+              "key_style": "code",
+              "description": "Return length of string (or $0 if empty)",
+              "example": "awk '{print length($0)}' data.txt"
+            },
+            {
+              "key": "substr(<str>, <start>, [<len>])",
+              "key_style": "code",
+              "description": "Extract substring starting at 1-indexed position",
+              "example": "awk '{print substr($1, 1, 3)}' data.txt"
+            },
+            {
+              "key": "index(<str>, <find>)",
+              "key_style": "code",
+              "description": "Find index of substring (0 if not found)",
+              "example": "awk '{print index($1, \"@\")}' emails.txt"
+            },
+            {
+              "key": "sub(<regex>, <repl>, [<str>])",
+              "key_style": "code",
+              "description": "Replace first match of regex in string",
+              "example": "awk '{sub(/foo/, \"bar\"); print}' data.txt"
+            },
+            {
+              "key": "gsub(<regex>, <repl>, [<str>])",
+              "key_style": "code",
+              "description": "Replace all matches of regex globally",
+              "example": "awk '{gsub(/foo/, \"bar\"); print}' data.txt"
+            },
+            {
+              "key": "gensub(<regex>, <repl>, <how>, [<str>])",
+              "key_style": "code",
+              "description": "Return modified string, keeping original intact",
+              "example": "awk '{new = gensub(/(.+),(.+)/, \"\\\\2,\\\\1\", \"g\"); print new}' data.txt",
+              "note": "gawk"
+            },
+            {
+              "key": "match(<str>, <regex>)",
+              "key_style": "code",
+              "description": "Find regex in string, sets RSTART and RLENGTH",
+              "example": "awk '{if(match($0, /[0-9]+/)) print substr($0, RSTART, RLENGTH)}' data.txt"
+            },
+            {
+              "key": "sprintf(\"<fmt>\", <args>)",
+              "key_style": "code",
+              "description": "Return formatted string without printing",
+              "example": "awk '{msg = sprintf(\"%03d\", $1); print msg}' data.txt"
+            },
+            {
+              "key": "tolower(<str>)",
+              "key_style": "code",
+              "description": "Convert string to lowercase",
+              "example": "awk '{print tolower($1)}' data.txt"
+            },
+            {
+              "key": "toupper(<str>)",
+              "key_style": "code",
+              "description": "Convert string to uppercase",
+              "example": "awk '{print toupper($1)}' data.txt"
+            },
+            {
+              "key": "strtonum(<str>)",
+              "key_style": "code",
+              "description": "Convert string to number, handles 0x prefix",
+              "example": "awk '{print strtonum(\"0x\" $1)}' data.txt",
+              "note": "gawk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔢",
+      "title": "Math Functions",
+      "layout": "grid",
+      "sections": [
+        {
+          "label": "Calculations",
+          "kind": "table",
+          "items": [
+            {
+              "key": "int(<expr>)",
+              "key_style": "code",
+              "description": "Truncate float to integer",
+              "example": "awk '{print int($1)}' data.txt"
+            },
+            {
+              "key": "sqrt(<expr>)",
+              "key_style": "code",
+              "description": "Calculate square root",
+              "example": "awk '{print sqrt($1)}' data.txt"
+            },
+            {
+              "key": "rand()",
+              "key_style": "code",
+              "description": "Generate random float between 0 and 1",
+              "example": "awk 'BEGIN {print rand()}'"
+            },
+            {
+              "key": "srand([<expr>])",
+              "key_style": "code",
+              "description": "Set seed for rand()",
+              "example": "awk 'BEGIN {srand(); print rand()}'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⏱️",
+      "title": "I/O & Time Functions",
+      "layout": "grid",
+      "sections": [
+        {
+          "label": "Input, Output and System",
+          "kind": "table",
+          "items": [
+            {
+              "key": "getline",
+              "key_style": "code",
+              "description": "Read next record into $0, updating NF, NR, FNR",
+              "example": "awk '{getline; print}' data.txt"
+            },
+            {
+              "key": "getline <var>",
+              "key_style": "code",
+              "description": "Read next record into variable",
+              "example": "awk '{getline line; print line}' data.txt"
+            },
+            {
+              "key": "getline <var> < \"<file>\"",
+              "key_style": "code",
+              "description": "Read line from specific file into variable",
+              "example": "awk 'BEGIN {getline pswd < \"/etc/passwd\"; print pswd}'"
+            },
+            {
+              "key": "\"<cmd>\" | getline [<var>]",
+              "key_style": "code",
+              "description": "Read output from a shell command",
+              "example": "awk 'BEGIN {\"date\" | getline d; print d}'"
+            },
+            {
+              "key": "system(\"<cmd>\")",
+              "key_style": "code",
+              "description": "Execute shell command and return exit status",
+              "example": "awk 'BEGIN {system(\"clear\")}'"
+            },
+            {
+              "key": "close(\"<file_or_cmd>\")",
+              "key_style": "code",
+              "description": "Close file or pipe to free resources",
+              "example": "awk '{print > \"out.txt\"; close(\"out.txt\")}' data.txt"
+            },
+            {
+              "key": "systime()",
+              "key_style": "code",
+              "description": "Return current time in seconds since epoch",
+              "example": "awk 'BEGIN {print systime()}'",
+              "note": "gawk"
+            },
+            {
+              "key": "strftime(\"<fmt>\", [<timestamp>])",
+              "key_style": "code",
+              "description": "Format timestamp as string",
+              "example": "awk 'BEGIN {print strftime(\"%Y-%m-%d %H:%M:%S\", systime())}'",
+              "note": "gawk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "💡",
+      "title": "Classic One-Liners",
+      "layout": "grid",
+      "sections": [
+        {
+          "label": "Data Processing",
+          "kind": "table",
+          "items": [
+            {
+              "key": "awk '{s+=$1} END {print s}' <file>",
+              "key_style": "cmd",
+              "description": "Sum values in the first column",
+              "example": "awk '{s+=$1} END {print s}' data.txt"
+            },
+            {
+              "key": "awk '{s+=$1} END {print s/NR}' <file>",
+              "key_style": "cmd",
+              "description": "Calculate average of the first column",
+              "example": "awk '{s+=$1} END {print s/NR}' data.txt"
+            },
+            {
+              "key": "awk 'END {print NR}' <file>",
+              "key_style": "cmd",
+              "description": "Count total number of lines in a file",
+              "example": "awk 'END {print NR}' data.txt"
+            },
+            {
+              "key": "awk '{w+=NF} END {print w}' <file>",
+              "key_style": "cmd",
+              "description": "Count total number of words in a file",
+              "example": "awk '{w+=NF} END {print w}' data.txt"
+            },
+            {
+              "key": "awk '!seen[$0]++' <file>",
+              "key_style": "cmd",
+              "description": "Print only unique lines (remove duplicates)",
+              "example": "awk '!seen[$0]++' data.txt"
+            },
+            {
+              "key": "awk '{print $NF}' <file>",
+              "key_style": "cmd",
+              "description": "Print the last field of each line",
+              "example": "awk '{print $NF}' data.txt"
+            },
+            {
+              "key": "awk 'length($0) > <N>' <file>",
+              "key_style": "cmd",
+              "description": "Print lines longer than N characters",
+              "example": "awk 'length($0) > 80' data.txt"
+            },
+            {
+              "key": "awk '$<col> == \"<val>\"' <file>",
+              "key_style": "cmd",
+              "description": "Filter lines by specific column value",
+              "example": "awk '$2 == \"Error\"' log.txt"
+            },
+            {
+              "key": "awk '{t=$1; $1=$2; $2=t; print}' <file>",
+              "key_style": "cmd",
+              "description": "Swap the first and second columns",
+              "example": "awk '{t=$1; $1=$2; $2=t; print}' data.txt"
+            },
+            {
+              "key": "awk -v ORS=',' '1' <file>",
+              "key_style": "cmd",
+              "description": "Join all lines with a comma",
+              "example": "awk -v ORS=',' '1' data.txt"
+            },
+            {
+              "key": "awk '{c[$1]++} END {for(k in c) print k, c[k]}' <file>",
+              "key_style": "cmd",
+              "description": "Count occurrences per key in column 1",
+              "example": "awk '{c[$1]++} END {for(k in c) print k, c[k]}' data.txt"
+            },
+            {
+              "key": "awk 'NR==1 || $1>max {max=$1} END {print max}' <file>",
+              "key_style": "cmd",
+              "description": "Find maximum value in column 1",
+              "example": "awk 'NR==1 || $1>max {max=$1} END {print max}' data.txt"
+            },
+            {
+              "key": "awk 'NR>=<start> && NR<=<end>' <file>",
+              "key_style": "cmd",
+              "description": "Print lines between two line numbers",
+              "example": "awk 'NR>=10 && NR<=20' data.txt"
+            },
+            {
+              "key": "awk -F',' '{print $1, $2}' <file>",
+              "key_style": "cmd",
+              "description": "Parse basic CSV without quoted commas",
+              "example": "awk -F',' '{print $1, $2}' data.csv"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

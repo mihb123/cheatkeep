@@ -1,0 +1,1127 @@
+{
+  "title": "Atuin Cheatsheet",
+  "subtitle": "Magical shell history — SQLite, encrypted sync & fuzzy search",
+  "description": "Complete Atuin cheatsheet: CLI commands, keyboard shortcuts, filter modes, search modes, sync setup, and config.toml reference for the magical shell history tool.",
+  "source_url": "https://atuin.linuz.com/",
+  "badge": "v18+",
+  "logo": "atuin-logo-transp.png",
+  "links": [
+    {
+      "label": "docs.atuin.sh",
+      "url": "https://docs.atuin.sh"
+    },
+    {
+      "label": "github.com/atuinsh/atuin",
+      "url": "https://github.com/atuinsh/atuin"
+    }
+  ],
+  "cards": [
+    {
+      "title": "Install & Setup",
+      "icon": "⚡",
+      "title_accent": "Install",
+      "sections": [
+        {
+          "label": "Quick install",
+          "kind": "code",
+          "lang": "bash",
+          "content": "curl --proto '=https' --tlsv1.2 -LsSf \\\n  https://setup.atuin.sh | sh"
+        },
+        {
+          "label": "Shell init (add to rc file)",
+          "kind": "code",
+          "lang": "bash",
+          "copy_lines": true,
+          "content": "# bash\neval \"$(atuin init bash)\"\n\n# zsh\neval \"$(atuin init zsh)\"\n\n# fish\natuin init fish | source"
+        },
+        {
+          "label": "First-time setup",
+          "items": [
+            {
+              "key": "atuin register -u <user> -e <email>",
+              "key_style": "cmd",
+              "description": "Create sync account"
+            },
+            {
+              "key": "atuin import auto",
+              "key_style": "cmd",
+              "description": "Import existing history"
+            },
+            {
+              "key": "atuin sync",
+              "key_style": "cmd",
+              "description": "Initial sync"
+            }
+          ]
+        },
+        {
+          "label": "Disable bindings",
+          "items": [
+            {
+              "key": "atuin init zsh --disable-up-arrow",
+              "key_style": "cmd",
+              "description": "Disable up-arrow binding",
+              "example": "eval \"$(atuin init zsh --disable-up-arrow)\""
+            },
+            {
+              "key": "atuin init zsh --disable-ctrl-r",
+              "key_style": "cmd",
+              "description": "Disable Ctrl-R binding",
+              "example": "eval \"$(atuin init zsh --disable-ctrl-r)\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Keyboard Shortcuts",
+      "icon": "⌨️",
+      "title_accent": "Keyboard",
+      "sections": [
+        {
+          "label": "Navigation",
+          "items": [
+            {
+              "key": "↑ ↓ / K J",
+              "key_style": "keys",
+              "description": "Move through results"
+            },
+            {
+              "key": "← →",
+              "key_style": "keys",
+              "description": "Move cursor in query"
+            },
+            {
+              "key": "Alt+0–9",
+              "key_style": "keys",
+              "description": "Jump to result #N"
+            }
+          ]
+        },
+        {
+          "label": "Actions",
+          "items": [
+            {
+              "key": "Enter",
+              "key_style": "keys",
+              "description": "Execute selected command"
+            },
+            {
+              "key": "Tab",
+              "key_style": "keys",
+              "description": "Return to shell for editing"
+            },
+            {
+              "key": "Ctrl+O",
+              "key_style": "keys",
+              "description": "Open command inspector"
+            },
+            {
+              "key": "Ctrl+X",
+              "key_style": "keys",
+              "description": "Delete selected entry"
+            },
+            {
+              "key": "Ctrl+C / Ctrl+D",
+              "key_style": "keys",
+              "description": "Cancel search"
+            }
+          ]
+        },
+        {
+          "label": "Mode switching",
+          "items": [
+            {
+              "key": "Ctrl+R",
+              "key_style": "keys",
+              "description": "Cycle filter mode"
+            },
+            {
+              "key": "Ctrl+S",
+              "key_style": "keys",
+              "description": "Cycle search mode"
+            }
+          ]
+        },
+        {
+          "label": "Vim mode",
+          "items": [
+            {
+              "key": "Esc",
+              "key_style": "keys",
+              "description": "Enter vim-normal mode"
+            },
+            {
+              "key": "I",
+              "key_style": "keys",
+              "description": "Return to insert mode"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Filter Modes",
+      "icon": "🔍",
+      "title_accent": "Filter",
+      "title_note": "(Ctrl+R)",
+      "sections": [
+        {
+          "columns": [
+            "Mode",
+            "Searches"
+          ],
+          "items": [
+            {
+              "key": "global",
+              "key_style": "mode",
+              "description": "All history — every machine, session & directory",
+              "variant": "global"
+            },
+            {
+              "key": "host",
+              "key_style": "mode",
+              "description": "This machine only",
+              "variant": "host"
+            },
+            {
+              "key": "session",
+              "key_style": "mode",
+              "description": "Current shell session only",
+              "variant": "session"
+            },
+            {
+              "key": "session-preload",
+              "key_style": "mode",
+              "description": "Current session + global history from before session start",
+              "note": "/ SESSION+",
+              "variant": "session-preload"
+            },
+            {
+              "key": "directory",
+              "key_style": "mode",
+              "description": "Current working directory only",
+              "variant": "dir"
+            },
+            {
+              "key": "workspace",
+              "key_style": "mode",
+              "description": "Entire git repo tree (auto in git repos)",
+              "variant": "ws"
+            }
+          ]
+        },
+        {
+          "label": "Search Modes (Ctrl+S)",
+          "columns": [
+            "Mode",
+            "Behavior"
+          ],
+          "items": [
+            {
+              "key": "prefix",
+              "key_style": "mode",
+              "description": "Matches commands starting with your query (default)",
+              "variant": "prefix"
+            },
+            {
+              "key": "fulltext",
+              "key_style": "mode",
+              "description": "Matches anywhere in the command string",
+              "variant": "fulltext"
+            },
+            {
+              "key": "fuzzy",
+              "key_style": "mode",
+              "description": "Matches letters in any order",
+              "variant": "fuzzy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "History Commands",
+      "icon": "📜",
+      "title_accent": "History",
+      "sections": [
+        {
+          "label": "Browse & search",
+          "items": [
+            {
+              "key": "atuin history list",
+              "key_style": "cmd",
+              "description": "List all history"
+            },
+            {
+              "key": "atuin history list --cmd-only",
+              "key_style": "cmd",
+              "description": "List commands only (no metadata)"
+            },
+            {
+              "key": "atuin search <query>",
+              "key_style": "cmd",
+              "description": "Non-interactive search"
+            },
+            {
+              "key": "atuin search -i <query>",
+              "key_style": "cmd",
+              "description": "Interactive TUI search"
+            },
+            {
+              "key": "atuin search --human <query>",
+              "key_style": "cmd",
+              "description": "Search with human-readable timestamps"
+            }
+          ]
+        },
+        {
+          "label": "Search filters",
+          "items": [
+            {
+              "key": "--cwd <dir>",
+              "key_style": "code",
+              "description": "Filter by directory"
+            },
+            {
+              "key": "--exit <code>",
+              "key_style": "code",
+              "description": "Filter by exit code (0 = success)"
+            },
+            {
+              "key": "--after <time>",
+              "key_style": "code",
+              "description": "After a point in time"
+            },
+            {
+              "key": "--before <time>",
+              "key_style": "code",
+              "description": "Before a point in time"
+            },
+            {
+              "key": "--limit <n>",
+              "key_style": "code",
+              "description": "Limit result count"
+            },
+            {
+              "key": "--human",
+              "key_style": "code",
+              "description": "Human-readable timestamps"
+            },
+            {
+              "key": "--filter-mode <mode>",
+              "key_style": "code",
+              "description": "Set filter mode (e.g., global, host, session, directory, workspace)",
+              "example": "atuin search --filter-mode directory"
+            },
+            {
+              "key": "--search-mode <mode>",
+              "key_style": "code",
+              "description": "Set search mode (e.g., fuzzy, prefix, fulltext)",
+              "example": "atuin search --search-mode fuzzy"
+            },
+            {
+              "key": "--format <fmt>",
+              "key_style": "code",
+              "description": "Format output with {command} {time} {duration} {exit} {directory} {host} {user} {relativetime}",
+              "example": "atuin search --format \"{time} {command}\""
+            },
+            {
+              "key": "--offset <n>",
+              "key_style": "code",
+              "description": "Offset result count",
+              "example": "atuin search --offset 10"
+            },
+            {
+              "key": "--reverse",
+              "key_style": "code",
+              "description": "Reverse search results order",
+              "example": "atuin search --reverse --limit 10"
+            },
+            {
+              "key": "--cmd-only",
+              "key_style": "code",
+              "description": "Print only the command (no metadata)",
+              "example": "atuin search --cmd-only curl"
+            },
+            {
+              "key": "--exclude-exit <code>",
+              "key_style": "code",
+              "description": "Exclude commands with specific exit code",
+              "example": "atuin search --exclude-exit 1"
+            },
+            {
+              "key": "--exclude-cwd <dir>",
+              "key_style": "code",
+              "description": "Exclude commands from specific directory",
+              "example": "atuin search --exclude-cwd /tmp"
+            },
+            {
+              "key": "--inline-height <lines>",
+              "key_style": "code",
+              "description": "Set inline height for TUI search",
+              "example": "atuin search -i --inline-height 20"
+            }
+          ]
+        },
+        {
+          "label": "Delete & prune",
+          "items": [
+            {
+              "key": "atuin search --delete <query>",
+              "key_style": "cmd",
+              "description": "Delete matching entries"
+            },
+            {
+              "key": "atuin history prune --dry-run",
+              "key_style": "cmd",
+              "description": "Preview what prune removes"
+            },
+            {
+              "key": "atuin history prune",
+              "key_style": "cmd",
+              "description": "Remove filtered entries"
+            },
+            {
+              "key": "atuin history dedup",
+              "key_style": "cmd",
+              "description": "Remove exact duplicates"
+            },
+            {
+              "key": "atuin search --delete-it-all",
+              "key_style": "cmd",
+              "description": "Delete all history matching the query",
+              "example": "atuin search --delete-it-all curl",
+              "danger": "Irreversibly deletes all matching history"
+            }
+          ]
+        },
+        {
+          "label": "History List",
+          "items": [
+            {
+              "key": "atuin history list --cwd <dir>",
+              "key_style": "cmd",
+              "description": "List history for directory",
+              "example": "atuin history list --cwd /tmp"
+            },
+            {
+              "key": "atuin history list --session <id>",
+              "key_style": "cmd",
+              "description": "List history for session",
+              "example": "atuin history list --session 123"
+            },
+            {
+              "key": "atuin history list --human",
+              "key_style": "cmd",
+              "description": "Use human-readable time",
+              "example": "atuin history list --human --limit 5"
+            },
+            {
+              "key": "atuin history list --cmd-only",
+              "key_style": "cmd",
+              "description": "List only commands"
+            },
+            {
+              "key": "atuin history list --format <fmt>",
+              "key_style": "cmd",
+              "description": "Format output",
+              "example": "atuin history list --format \"{time} {command}\""
+            },
+            {
+              "key": "atuin history list --print0",
+              "key_style": "cmd",
+              "description": "End each line with a null byte",
+              "example": "atuin history list --print0 | xargs -0"
+            },
+            {
+              "key": "atuin history list --reverse",
+              "key_style": "cmd",
+              "description": "Reverse history order",
+              "example": "atuin history list --reverse --limit 10"
+            },
+            {
+              "key": "atuin history list --timezone <tz>",
+              "key_style": "cmd",
+              "description": "List history in specific timezone",
+              "example": "atuin history list --timezone UTC"
+            }
+          ]
+        },
+        {
+          "label": "History Prune & Dedup",
+          "items": [
+            {
+              "key": "atuin history prune --dry-run",
+              "key_style": "cmd",
+              "description": "Preview prune without deleting"
+            },
+            {
+              "key": "atuin history prune --before <time>",
+              "key_style": "cmd",
+              "description": "Prune history before time",
+              "example": "atuin history prune --before \"30 days ago\""
+            },
+            {
+              "key": "atuin history dedup",
+              "key_style": "cmd",
+              "description": "Deduplicate history",
+              "example": "atuin history dedup && atuin status"
+            },
+            {
+              "key": "atuin history dedup --dry-run",
+              "key_style": "cmd",
+              "description": "Preview deduplication",
+              "example": "atuin history dedup --dry-run | wc -l"
+            },
+            {
+              "key": "atuin history dedup --dupkeep <keep>",
+              "key_style": "cmd",
+              "description": "Keep first or last duplicate (first, last)",
+              "example": "atuin history dedup --dupkeep first"
+            }
+          ]
+        },
+        {
+          "label": "Store",
+          "items": [
+            {
+              "key": "atuin store status",
+              "key_style": "cmd",
+              "description": "Show store status"
+            },
+            {
+              "key": "atuin store rebuild <tag>",
+              "key_style": "cmd",
+              "description": "Rebuild a tag in the store (e.g. history)",
+              "example": "atuin store rebuild history"
+            },
+            {
+              "key": "atuin store rekey",
+              "key_style": "cmd",
+              "description": "Change encryption key",
+              "example": "atuin store rekey && atuin sync"
+            },
+            {
+              "key": "atuin store purge",
+              "key_style": "cmd",
+              "description": "Purge deleted items from the local store",
+              "example": "atuin store purge && atuin status"
+            },
+            {
+              "key": "atuin store verify",
+              "key_style": "cmd",
+              "description": "Verify integrity of the store"
+            },
+            {
+              "key": "atuin store push",
+              "key_style": "cmd",
+              "description": "Push store to server",
+              "example": "atuin store push && atuin sync"
+            },
+            {
+              "key": "atuin store pull",
+              "key_style": "cmd",
+              "description": "Pull store from server",
+              "example": "atuin store pull && atuin sync"
+            }
+          ]
+        },
+        {
+          "label": "Key-Value Store (kv)",
+          "items": [
+            {
+              "key": "atuin kv set <namespace> <key> <value>",
+              "key_style": "cmd",
+              "description": "Set a key-value pair",
+              "example": "atuin kv set myapp theme dark"
+            },
+            {
+              "key": "atuin kv get <namespace> <key>",
+              "key_style": "cmd",
+              "description": "Get a value by key",
+              "example": "atuin kv get myapp theme"
+            },
+            {
+              "key": "atuin kv list <namespace>",
+              "key_style": "cmd",
+              "description": "List keys in a namespace",
+              "example": "atuin kv list myapp"
+            }
+          ]
+        },
+        {
+          "label": "Dotfiles",
+          "items": [
+            {
+              "key": "atuin dotfiles alias set <name> <value>",
+              "key_style": "cmd",
+              "description": "Set a dotfiles alias",
+              "example": "atuin dotfiles alias set k kubectl"
+            },
+            {
+              "key": "atuin dotfiles alias delete <name>",
+              "key_style": "cmd",
+              "description": "Delete a dotfiles alias",
+              "example": "atuin dotfiles alias delete k"
+            },
+            {
+              "key": "atuin dotfiles alias list",
+              "key_style": "cmd",
+              "description": "List dotfiles aliases"
+            },
+            {
+              "key": "atuin dotfiles var set <name> <value>",
+              "key_style": "cmd",
+              "description": "Set a dotfiles variable",
+              "example": "atuin dotfiles var set EDITOR nvim"
+            },
+            {
+              "key": "atuin dotfiles var delete <name>",
+              "key_style": "cmd",
+              "description": "Delete a dotfiles variable",
+              "example": "atuin dotfiles var delete EDITOR"
+            },
+            {
+              "key": "atuin dotfiles var list",
+              "key_style": "cmd",
+              "description": "List dotfiles variables"
+            }
+          ]
+        },
+        {
+          "label": "Scripts",
+          "items": [
+            {
+              "key": "atuin scripts new <name>",
+              "key_style": "cmd",
+              "description": "Create a new script",
+              "example": "atuin scripts new build"
+            },
+            {
+              "key": "atuin scripts run <name>",
+              "key_style": "cmd",
+              "description": "Run a script",
+              "example": "atuin scripts run build"
+            },
+            {
+              "key": "atuin scripts list",
+              "key_style": "cmd",
+              "description": "List available scripts"
+            },
+            {
+              "key": "atuin scripts get <name>",
+              "key_style": "cmd",
+              "description": "View script content",
+              "example": "atuin scripts get build"
+            },
+            {
+              "key": "atuin scripts edit <name>",
+              "key_style": "cmd",
+              "description": "Edit a script",
+              "example": "atuin scripts edit build"
+            },
+            {
+              "key": "atuin scripts delete <name>",
+              "key_style": "cmd",
+              "description": "Delete a script",
+              "example": "atuin scripts delete build",
+              "danger": "Permanently deletes the script"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Sync & Account",
+      "icon": "☁️",
+      "title_accent": "Sync",
+      "sections": [
+        {
+          "label": "Sync",
+          "items": [
+            {
+              "key": "atuin sync",
+              "key_style": "cmd",
+              "description": "Sync with server (bidirectional)"
+            },
+            {
+              "key": "atuin sync --force",
+              "key_style": "cmd",
+              "description": "Force full re-sync"
+            },
+            {
+              "key": "atuin sync -f",
+              "key_style": "cmd",
+              "description": "Force a sync",
+              "example": "atuin sync -f && atuin status"
+            },
+            {
+              "key": "atuin status",
+              "key_style": "cmd",
+              "description": "Show sync status",
+              "example": "atuin status | grep 'Last sync'"
+            }
+          ]
+        },
+        {
+          "label": "Account",
+          "items": [
+            {
+              "key": "atuin register -u <u> -e <e>",
+              "key_style": "cmd",
+              "description": "Create account"
+            },
+            {
+              "key": "atuin login -u <user>",
+              "key_style": "cmd",
+              "description": "Login to sync server"
+            },
+            {
+              "key": "atuin logout",
+              "key_style": "cmd",
+              "description": "Logout"
+            },
+            {
+              "key": "atuin account delete",
+              "key_style": "cmd",
+              "description": "Permanently delete account"
+            },
+            {
+              "key": "atuin account change-password",
+              "key_style": "cmd",
+              "description": "Change account password"
+            }
+          ]
+        },
+        {
+          "label": "Key management",
+          "items": [
+            {
+              "key": "atuin key",
+              "key_style": "cmd",
+              "description": "Show encryption key (keep safe!)"
+            }
+          ]
+        },
+        {
+          "label": "Import",
+          "items": [
+            {
+              "key": "atuin import auto",
+              "key_style": "cmd",
+              "description": "Auto-detect shell & import"
+            },
+            {
+              "key": "atuin import bash",
+              "key_style": "cmd",
+              "description": "Import from bash history"
+            },
+            {
+              "key": "atuin import zsh",
+              "key_style": "cmd",
+              "description": "Import from zsh history"
+            },
+            {
+              "key": "atuin import fish",
+              "key_style": "cmd",
+              "description": "Import from fish history"
+            }
+          ]
+        },
+        {
+          "label": "Other",
+          "items": [
+            {
+              "key": "atuin stats",
+              "key_style": "cmd",
+              "description": "Show usage statistics"
+            },
+            {
+              "key": "atuin stats all",
+              "key_style": "cmd",
+              "description": "Show all-time usage statistics"
+            },
+            {
+              "key": "atuin doctor",
+              "key_style": "cmd",
+              "description": "Diagnose issues & dump system info"
+            },
+            {
+              "key": "atuin server start",
+              "key_style": "cmd",
+              "description": "Run self-hosted server"
+            },
+            {
+              "key": "atuin stats <period>",
+              "key_style": "cmd",
+              "description": "Show statistics for a specific period",
+              "example": "atuin stats \"last week\""
+            },
+            {
+              "key": "atuin stats --count <n>",
+              "key_style": "cmd",
+              "description": "Number of top commands to display",
+              "example": "atuin stats --count 10"
+            },
+            {
+              "key": "atuin stats --ngram-size <n>",
+              "key_style": "cmd",
+              "description": "Compute n-gram statistics of size",
+              "example": "atuin stats --ngram-size 2"
+            },
+            {
+              "key": "atuin info",
+              "key_style": "cmd",
+              "description": "Show system information",
+              "example": "atuin info | grep version"
+            },
+            {
+              "key": "atuin default-config",
+              "key_style": "cmd",
+              "description": "Print the default configuration",
+              "example": "atuin default-config > ~/.config/atuin/config.toml"
+            },
+            {
+              "key": "atuin daemon",
+              "key_style": "cmd",
+              "description": "Start the background daemon",
+              "example": "nohup atuin daemon &"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Useful Examples",
+      "icon": "💡",
+      "title_accent": "Useful",
+      "sections": [
+        {
+          "label": "Practical queries",
+          "kind": "code",
+          "lang": "bash",
+          "copy_lines": true,
+          "content": "# All failed commands in current dir\natuin search --exit 1 --cwd .\n\n# Successful git commits after yesterday 3pm\natuin search --exit 0 --after \"yesterday 3pm\" git commit\n\n# Commands run in the last hour\natuin search --after \"1 hour ago\"\n\n# Find and delete command-not-found entries\natuin search --delete --exit 127\n\n# Preview pruning without deleting\natuin history prune --dry-run\n\n# Stats for last 7 days\natuin stats \"7 days ago\"\n\n# Import from custom history file\nHISTFILE=~/.zsh_custom_history atuin import zsh"
+        },
+        {
+          "label": "Supported time formats",
+          "kind": "rows",
+          "items": [
+            {
+              "key": "Relative",
+              "description": "`\"2 hours ago\"`, `\"last week\"`"
+            },
+            {
+              "key": "Natural",
+              "description": "`\"yesterday 3pm\"`, `\"Monday\"`"
+            },
+            {
+              "key": "Absolute",
+              "description": "`\"2024-01-15\"`"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Config Reference",
+      "icon": "⚙️",
+      "title_accent": "Config",
+      "title_note": "~/.config/atuin/config.toml",
+      "layout": "wide",
+      "body_cols": 2,
+      "sections": [
+        {
+          "label": "Sync",
+          "items": [
+            {
+              "key": "sync_address",
+              "key_style": "code",
+              "description": "Server URL (default: api.atuin.sh)"
+            },
+            {
+              "key": "auto_sync",
+              "key_style": "code",
+              "description": "`true` / `false`"
+            },
+            {
+              "key": "sync_frequency",
+              "key_style": "code",
+              "description": "`\"10m\"`, `\"1h\"`, `\"0\"` (every cmd)"
+            },
+            {
+              "key": "network_timeout",
+              "key_style": "code",
+              "description": "Seconds (default: 30)"
+            }
+          ]
+        },
+        {
+          "label": "UI & Keymaps",
+          "items": [
+            {
+              "key": "theme",
+              "key_style": "code",
+              "description": "`\"default\"` · `\"autumn\"` · `\"marine\"`"
+            },
+            {
+              "key": "keymap_mode",
+              "key_style": "code",
+              "description": "`\"emacs\"` · `\"vim-insert\"`"
+            },
+            {
+              "key": "filter_mode",
+              "key_style": "code",
+              "description": "Default filter mode on open"
+            },
+            {
+              "key": "search_mode",
+              "key_style": "code",
+              "description": "Default search mode on open"
+            },
+            {
+              "key": "columns",
+              "key_style": "code",
+              "description": "Columns shown in TUI list"
+            }
+          ]
+        },
+        {
+          "label": "Filtering",
+          "items": [
+            {
+              "key": "history_filter",
+              "key_style": "code",
+              "description": "Regex list — skip matching cmds"
+            },
+            {
+              "key": "cwd_filter",
+              "key_style": "code",
+              "description": "Regex list — skip matching dirs"
+            }
+          ]
+        },
+        {
+          "label": "Stored metadata per command",
+          "kind": "tags",
+          "items": [
+            {
+              "key": "command"
+            },
+            {
+              "key": "exit_code"
+            },
+            {
+              "key": "duration"
+            },
+            {
+              "key": "cwd"
+            },
+            {
+              "key": "hostname"
+            },
+            {
+              "key": "session"
+            },
+            {
+              "key": "timestamp"
+            },
+            {
+              "key": "user"
+            },
+            {
+              "key": "shell"
+            }
+          ]
+        },
+        {
+          "label": "More Config Options",
+          "items": [
+            {
+              "key": "db_path",
+              "key_style": "code",
+              "description": "Path to database file",
+              "example": "db_path = \"~/.local/share/atuin/history.db\""
+            },
+            {
+              "key": "key_path",
+              "key_style": "code",
+              "description": "Path to encryption key file",
+              "example": "key_path = \"~/.local/share/atuin/key\""
+            },
+            {
+              "key": "update_check",
+              "key_style": "code",
+              "description": "`true` / `false` to check for updates",
+              "example": "update_check = true"
+            },
+            {
+              "key": "dialect",
+              "key_style": "code",
+              "description": "Date-parsing dialect for time args (`us` or `uk`)",
+              "example": "dialect = \"uk\""
+            },
+            {
+              "key": "timezone",
+              "key_style": "code",
+              "description": "Local / UTC",
+              "example": "timezone = \"local\""
+            },
+            {
+              "key": "style",
+              "key_style": "code",
+              "description": "UI style (`compact`, etc.)",
+              "example": "style = \"compact\""
+            },
+            {
+              "key": "inline_height",
+              "key_style": "code",
+              "description": "Height of inline search",
+              "example": "inline_height = 20"
+            },
+            {
+              "key": "invert",
+              "key_style": "code",
+              "description": "Invert UI layout (`true` / `false`)",
+              "example": "invert = true"
+            },
+            {
+              "key": "show_preview",
+              "key_style": "code",
+              "description": "Show command preview (`true` / `false`)",
+              "example": "show_preview = true"
+            },
+            {
+              "key": "max_preview_height",
+              "key_style": "code",
+              "description": "Maximum preview height in lines",
+              "example": "max_preview_height = 4"
+            },
+            {
+              "key": "show_help",
+              "key_style": "code",
+              "description": "Show help line (`true` / `false`)",
+              "example": "show_help = false"
+            },
+            {
+              "key": "show_tabs",
+              "key_style": "code",
+              "description": "Show filter tabs (`true` / `false`)",
+              "example": "show_tabs = true"
+            },
+            {
+              "key": "exit_mode",
+              "key_style": "code",
+              "description": "Return behavior on exit",
+              "example": "exit_mode = \"return-query\""
+            },
+            {
+              "key": "word_jump_mode",
+              "key_style": "code",
+              "description": "Word jump behavior (e.g. `emacs`)",
+              "example": "word_jump_mode = \"emacs\""
+            },
+            {
+              "key": "scroll_context_lines",
+              "key_style": "code",
+              "description": "Lines to keep above/below cursor",
+              "example": "scroll_context_lines = 2"
+            },
+            {
+              "key": "enter_accept",
+              "key_style": "code",
+              "description": "Accept search on enter (`true` / `false`)",
+              "example": "enter_accept = true"
+            },
+            {
+              "key": "keymap_cursor",
+              "key_style": "code",
+              "description": "Cursor style based on keymap (`true` / `false`)",
+              "example": "keymap_cursor = true"
+            },
+            {
+              "key": "secrets_filter",
+              "key_style": "code",
+              "description": "Skip saving commands that look like secrets (API keys, tokens) — `true` / `false`",
+              "example": "secrets_filter = true"
+            },
+            {
+              "key": "store_failed",
+              "key_style": "code",
+              "description": "Store failed commands (`true` / `false`)",
+              "example": "store_failed = false"
+            },
+            {
+              "key": "workspaces",
+              "key_style": "code",
+              "description": "Enable workspaces (`true` / `false`)",
+              "example": "workspaces = true"
+            },
+            {
+              "key": "filter_mode_shell_up_key_binding",
+              "key_style": "code",
+              "description": "Filter mode for up key binding",
+              "example": "filter_mode_shell_up_key_binding = \"session\""
+            },
+            {
+              "key": "[sync] records",
+              "key_style": "code",
+              "description": "Use the newer record-based sync (v18+) — `true` / `false`",
+              "example": "records = true"
+            },
+            {
+              "key": "[daemon] enabled",
+              "key_style": "code",
+              "description": "Enable daemon",
+              "example": "enabled = true"
+            },
+            {
+              "key": "[stats] common_subcommands",
+              "key_style": "code",
+              "description": "List of common subcommands",
+              "example": "common_subcommands = [\"cargo\", \"git\"]"
+            },
+            {
+              "key": "[stats] ignored_commands",
+              "key_style": "code",
+              "description": "List of commands to ignore in stats",
+              "example": "ignored_commands = [\"cd\", \"ls\"]"
+            },
+            {
+              "key": "[keys] scroll_exits",
+              "key_style": "code",
+              "description": "Exit on scroll past ends",
+              "example": "scroll_exits = false"
+            },
+            {
+              "key": "[preview] strategy",
+              "key_style": "code",
+              "description": "Preview display strategy",
+              "example": "strategy = \"auto\""
+            },
+            {
+              "key": "[dotfiles] enabled",
+              "key_style": "code",
+              "description": "Enable dotfiles support",
+              "example": "enabled = true"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Example config.toml",
+      "icon": "📄",
+      "title_accent": "Example",
+      "layout": "wide",
+      "sections": [
+        {
+          "kind": "code",
+          "lang": "toml",
+          "content": "## ~/.config/atuin/config.toml\n\n# Sync\nauto_sync        = true\nsync_frequency  = \"5m\"\nsync_address    = \"https://api.atuin.sh\"\n\n# UI\ntheme           = \"default\"\nkeymap_mode     = \"vim-insert\"\nfilter_mode     = \"global\"\nsearch_mode     = \"fuzzy\"\n\n# Columns shown in search TUI\ncolumns = [\"time\", \"duration\", \"exit_code\", \"command\"]\n\n# Exclude commands from history\nhistory_filter = [\n  \"^sudo -i$\",\n  \"^ .*\",        # leading space = private\n]\n\n# Exclude directories from recording\ncwd_filter = [\n  \"/tmp/.*\",\n  \"/private/.*\",\n]\n\n# Updates\ncheck_update             = true\nupdate_check_interval   = \"1d\""
+        }
+      ]
+    }
+  ]
+}

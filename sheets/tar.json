@@ -1,0 +1,544 @@
+{
+  "title": "tar Cheatsheet",
+  "subtitle": "Archive, compress, and extract files",
+  "description": "Comprehensive reference for tar, gzip, zip, and other compression utilities. Covers basic operations, file filtering, compression algorithms, and advanced tar recipes.",
+  "source_url": "https://www.gnu.org/software/tar/manual/tar.html",
+  "links": [
+    {
+      "label": "GNU tar manual",
+      "url": "https://www.gnu.org/software/tar/manual/tar.html"
+    }
+  ],
+  "aliases": [
+    "gzip",
+    "gunzip",
+    "zip",
+    "unzip"
+  ],
+  "cards": [
+    {
+      "icon": "📦",
+      "title": "Operation Modes",
+      "title_accent": "Operation",
+      "sections": [
+        {
+          "label": "Main Operations",
+          "kind": "table",
+          "columns": [
+            "Command",
+            "Description"
+          ],
+          "items": [
+            {
+              "key": "-c",
+              "key_style": "code",
+              "description": "Create a new archive",
+              "example": "tar -c -f archive.tar files/"
+            },
+            {
+              "key": "-x",
+              "key_style": "code",
+              "description": "Extract files from an archive",
+              "example": "tar -x -f archive.tar"
+            },
+            {
+              "key": "-t",
+              "key_style": "code",
+              "description": "List the contents of an archive",
+              "example": "tar -t -f archive.tar"
+            },
+            {
+              "key": "-r",
+              "key_style": "code",
+              "description": "Append files to the end of an archive",
+              "example": "tar -r -f archive.tar newfile.txt"
+            },
+            {
+              "key": "-u",
+              "key_style": "code",
+              "description": "Append only files newer than copy in archive",
+              "example": "tar -u -f archive.tar newfile.txt"
+            },
+            {
+              "key": "-d",
+              "key_style": "code",
+              "description": "Find differences between archive and file system",
+              "example": "tar -d -f archive.tar"
+            },
+            {
+              "key": "-A",
+              "key_style": "code",
+              "description": "Append tar files to an archive",
+              "example": "tar -A -f archive.tar other.tar"
+            },
+            {
+              "key": "--delete",
+              "key_style": "code",
+              "description": "Delete files from the archive",
+              "example": "tar --delete -f archive.tar file.txt",
+              "danger": "Do not use on magnetic tapes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⚙️",
+      "title": "Common Options",
+      "title_accent": "Common",
+      "sections": [
+        {
+          "label": "General",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-f <file>",
+              "key_style": "code",
+              "description": "Use archive file or device",
+              "example": "tar -cf archive.tar data/"
+            },
+            {
+              "key": "-v",
+              "key_style": "code",
+              "description": "Verbosely list files processed",
+              "example": "tar -cvf archive.tar data/"
+            },
+            {
+              "key": "-C <dir>",
+              "key_style": "code",
+              "description": "Change to directory before operation",
+              "example": "tar -xf archive.tar -C /tmp"
+            },
+            {
+              "key": "-a",
+              "key_style": "code",
+              "description": "Auto-detect compression from suffix",
+              "example": "tar -caf archive.tar.zst data/"
+            }
+          ]
+        },
+        {
+          "label": "Compression algorithms",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-z",
+              "key_style": "code",
+              "description": "Filter the archive through gzip",
+              "example": "tar -czf archive.tar.gz data/"
+            },
+            {
+              "key": "-j",
+              "key_style": "code",
+              "description": "Filter the archive through bzip2",
+              "example": "tar -cjf archive.tar.bz2 data/"
+            },
+            {
+              "key": "-J",
+              "key_style": "code",
+              "description": "Filter the archive through xz",
+              "example": "tar -cJf archive.tar.xz data/"
+            },
+            {
+              "key": "--zstd",
+              "key_style": "code",
+              "description": "Filter the archive through zstd",
+              "example": "tar -c --zstd -f archive.tar.zst data/"
+            }
+          ]
+        },
+        {
+          "label": "Permissions & Ownership",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-p",
+              "key_style": "code",
+              "description": "Preserve original file permissions",
+              "example": "tar -xpf archive.tar"
+            },
+            {
+              "key": "--same-owner",
+              "key_style": "code",
+              "description": "Extract with the same ownership as archive",
+              "example": "tar -xf archive.tar --same-owner",
+              "tip": "Requires root privileges."
+            },
+            {
+              "key": "--numeric-owner",
+              "key_style": "code",
+              "description": "Use numbers for user/group names",
+              "example": "tar -cf archive.tar --numeric-owner data/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🛡️",
+      "title": "Extraction Options",
+      "title_accent": "Extraction",
+      "sections": [
+        {
+          "label": "Overwrite Control",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-k",
+              "key_style": "code",
+              "description": "Keep old files, do not overwrite",
+              "example": "tar -xkf archive.tar"
+            },
+            {
+              "key": "--overwrite",
+              "key_style": "code",
+              "description": "Overwrite existing files when extracting",
+              "example": "tar -xf archive.tar --overwrite",
+              "danger": "Will blindly overwrite existing files."
+            },
+            {
+              "key": "--strip-components=<n>",
+              "key_style": "code",
+              "description": "Strip N leading directories on extract",
+              "example": "tar -xf archive.tar --strip-components=1"
+            },
+            {
+              "key": "-O",
+              "key_style": "code",
+              "description": "Extract files to standard output",
+              "example": "tar -xOf archive.tar file.txt > out.txt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔍",
+      "title": "Filters & Selection",
+      "title_accent": "Filters",
+      "sections": [
+        {
+          "label": "Exclusions",
+          "kind": "table",
+          "items": [
+            {
+              "key": "--exclude=<pattern>",
+              "key_style": "code",
+              "description": "Exclude files matching pattern",
+              "example": "tar -cf arch.tar --exclude='*.log' data/"
+            },
+            {
+              "key": "--exclude-vcs",
+              "key_style": "code",
+              "description": "Exclude version control directories (.git, etc.)",
+              "example": "tar -cf arch.tar --exclude-vcs data/"
+            },
+            {
+              "key": "-X <file>",
+              "key_style": "code",
+              "description": "Exclude patterns listed in file",
+              "example": "tar -cf arch.tar -X ignores.txt data/"
+            }
+          ]
+        },
+        {
+          "label": "Inclusions & Paths",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-T <file>",
+              "key_style": "code",
+              "description": "Get names to extract or create from file",
+              "example": "tar -cf arch.tar -T list.txt"
+            },
+            {
+              "key": "--wildcards",
+              "key_style": "code",
+              "description": "Use wildcards for extraction",
+              "example": "tar -xf arch.tar --wildcards '*.jpg'"
+            },
+            {
+              "key": "--no-recursion",
+              "key_style": "code",
+              "description": "Avoid descending automatically in directories",
+              "example": "tar -cf arch.tar --no-recursion dir/"
+            },
+            {
+              "key": "-P",
+              "key_style": "code",
+              "description": "Don't strip leading `/' from file names",
+              "example": "tar -cPf arch.tar /etc/"
+            },
+            {
+              "key": "-h",
+              "key_style": "code",
+              "description": "Follow symlinks and archive target files",
+              "example": "tar -chf arch.tar symlink_dir/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🛠️",
+      "title": "Advanced Tar",
+      "title_accent": "Advanced",
+      "sections": [
+        {
+          "label": "Transformation & Backup",
+          "kind": "table",
+          "items": [
+            {
+              "key": "--transform=<expr>",
+              "key_style": "code",
+              "description": "Use sed expression to transform file names",
+              "example": "tar -cf arch.tar --transform='s,^,prefix/,' data/"
+            },
+            {
+              "key": "--totals",
+              "key_style": "code",
+              "description": "Print total bytes after processing",
+              "example": "tar -cf arch.tar data/ --totals"
+            },
+            {
+              "key": "--checkpoint[=<n>]",
+              "key_style": "code",
+              "description": "Display progress messages every N records",
+              "example": "tar -cf arch.tar data/ --checkpoint=1000"
+            },
+            {
+              "key": "-W",
+              "key_style": "code",
+              "description": "Verify archive after writing",
+              "example": "tar -cWf arch.tar data/"
+            },
+            {
+              "key": "--listed-incremental=<file>",
+              "key_style": "code",
+              "description": "Handle GNU-format incremental backup",
+              "example": "tar -cf arch.tar -g backup.snar data/"
+            }
+          ]
+        },
+        {
+          "label": "Useful Recipes",
+          "kind": "table",
+          "items": [
+            {
+              "key": "tar -czf <file.tar.gz> <dir>",
+              "key_style": "cmd",
+              "description": "Create a gzipped tar archive of a directory",
+              "example": "tar -czf backup.tar.gz src/"
+            },
+            {
+              "key": "tar -xzf <file.tar.gz> -C <dir>",
+              "key_style": "cmd",
+              "description": "Extract a gzipped archive into a directory",
+              "example": "tar -xzf backup.tar.gz -C /tmp"
+            },
+            {
+              "key": "tar -tvf <file.tar>",
+              "key_style": "cmd",
+              "description": "List archive contents verbosely",
+              "example": "tar -tvf backup.tar"
+            },
+            {
+              "key": "tar -xf <file.tar> <path>",
+              "key_style": "cmd",
+              "description": "Extract a single file or directory",
+              "example": "tar -xf backup.tar src/main.c"
+            },
+            {
+              "key": "tar -xf <file.tar> --wildcards <pattern>",
+              "key_style": "cmd",
+              "description": "Extract files matching a wildcard",
+              "example": "tar -xf backup.tar --wildcards '*.png'"
+            },
+            {
+              "key": "tar -cf <file.tar> --exclude=node_modules <dir>",
+              "key_style": "cmd",
+              "description": "Archive directory, excluding node_modules",
+              "example": "tar -cf proj.tar --exclude=node_modules proj/"
+            },
+            {
+              "key": "tar -czf backup-$(date +%Y%m%d).tar.gz <dir>",
+              "key_style": "cmd",
+              "description": "Backup with date in filename",
+              "example": "tar -czf backup-$(date +%Y%m%d).tar.gz data/"
+            },
+            {
+              "key": "tar -cz <dir> | ssh <user>@<host> \"cat > <file>\"",
+              "key_style": "cmd",
+              "description": "Stream compressed archive over SSH",
+              "example": "tar -cz data/ | ssh usr@host \"cat > bk.tar.gz\""
+            },
+            {
+              "key": "tar -cvf - <dir> | split -b <size> - <prefix>",
+              "key_style": "cmd",
+              "description": "Create and split a large archive",
+              "example": "tar -cvf - src/ | split -b 1G - backup.tar."
+            },
+            {
+              "key": "tar -df <file.tar> <dir>",
+              "key_style": "cmd",
+              "description": "Compare archive contents to file system",
+              "example": "tar -df backup.tar src/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🗜️",
+      "title": "Other Compressors",
+      "title_accent": "Compressors",
+      "sections": [
+        {
+          "label": "gzip / gunzip / zcat",
+          "kind": "table",
+          "items": [
+            {
+              "key": "gzip -k <file>",
+              "key_style": "cmd",
+              "description": "Compress and keep original file",
+              "example": "gzip -k data.txt"
+            },
+            {
+              "key": "gzip -d <file>",
+              "key_style": "cmd",
+              "description": "Decompress a gzipped file",
+              "example": "gzip -d data.txt.gz"
+            },
+            {
+              "key": "gunzip <file.gz>",
+              "key_style": "cmd",
+              "description": "Decompress a gzipped file (alternative to gzip -d)",
+              "example": "gunzip data.txt.gz"
+            },
+            {
+              "key": "zcat <file.gz>",
+              "key_style": "cmd",
+              "description": "Decompress to stdout (alternative to gzip -dc)",
+              "example": "zcat data.txt.gz > data.txt"
+            },
+            {
+              "key": "gzip -c <file> > <file.gz>",
+              "key_style": "cmd",
+              "description": "Compress and write to stdout",
+              "example": "gzip -c data.txt > data.txt.gz"
+            },
+            {
+              "key": "gzip -9 <file>",
+              "key_style": "cmd",
+              "description": "Compress with highest ratio (slowest)",
+              "example": "gzip -9 data.txt"
+            },
+            {
+              "key": "gzip -l <file.gz>",
+              "key_style": "cmd",
+              "description": "List compressed file contents and ratio",
+              "example": "gzip -l data.txt.gz"
+            },
+            {
+              "key": "gzip -r <dir>",
+              "key_style": "cmd",
+              "description": "Recursively compress all files in directory",
+              "example": "gzip -r logs/"
+            },
+            {
+              "key": "gzip -t <file.gz>",
+              "key_style": "cmd",
+              "description": "Test compressed file integrity",
+              "example": "gzip -t data.txt.gz"
+            }
+          ]
+        },
+        {
+          "label": "zip / unzip",
+          "kind": "table",
+          "items": [
+            {
+              "key": "zip -r <archive.zip> <dir>",
+              "key_style": "cmd",
+              "description": "Recursively zip a directory",
+              "example": "zip -r backup.zip docs/"
+            },
+            {
+              "key": "zip -e <archive.zip> <file>",
+              "key_style": "cmd",
+              "description": "Encrypt zip archive with password",
+              "example": "zip -e secure.zip data.csv"
+            },
+            {
+              "key": "zip -r <archive.zip> <dir> -x <pattern>",
+              "key_style": "cmd",
+              "description": "Zip a directory, excluding pattern",
+              "example": "zip -r bk.zip src/ -x '*.o'"
+            },
+            {
+              "key": "zip -u <archive.zip> <file>",
+              "key_style": "cmd",
+              "description": "Update existing or add new files to zip",
+              "example": "zip -u backup.zip new.txt"
+            },
+            {
+              "key": "unzip -l <archive.zip>",
+              "key_style": "cmd",
+              "description": "List contents of a zip archive",
+              "example": "unzip -l backup.zip"
+            },
+            {
+              "key": "unzip <archive.zip> -d <dir>",
+              "key_style": "cmd",
+              "description": "Extract zip into a specific directory",
+              "example": "unzip backup.zip -d /tmp/ext"
+            },
+            {
+              "key": "unzip -o <archive.zip>",
+              "key_style": "cmd",
+              "description": "Extract and overwrite without prompting",
+              "example": "unzip -o backup.zip",
+              "danger": "Overwrites existing files silently."
+            },
+            {
+              "key": "unzip -q <archive.zip>",
+              "key_style": "cmd",
+              "description": "Extract quietly (no output)",
+              "example": "unzip -q backup.zip"
+            },
+            {
+              "key": "unzip <archive.zip> <file>",
+              "key_style": "cmd",
+              "description": "Extract a single file from zip",
+              "example": "unzip backup.zip doc.pdf"
+            }
+          ]
+        },
+        {
+          "label": "bzip2 / xz / zstd",
+          "kind": "table",
+          "items": [
+            {
+              "key": "bzip2 <file>",
+              "key_style": "cmd",
+              "description": "Compress using bzip2 (replaces original)",
+              "example": "bzip2 backup.tar"
+            },
+            {
+              "key": "xz <file>",
+              "key_style": "cmd",
+              "description": "Compress using xz (replaces original)",
+              "example": "xz backup.tar"
+            },
+            {
+              "key": "zstd <file>",
+              "key_style": "cmd",
+              "description": "Compress using zstd (keeps original)",
+              "example": "zstd backup.tar"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

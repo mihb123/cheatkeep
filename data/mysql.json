@@ -1,13 +1,16 @@
 {
-  "slug": "mysql",
   "description": "The one-page guide to MySQL: usage, examples, links, snippets, and more.",
   "source_url": "https://devhints.io/mysql",
-  "title": "MySQL Cheatsheet",
   "subtitle": "The one-page guide to MySQL: usage, examples, links, snippets, and more.",
   "badge": null,
   "logo": null,
   "links": [],
   "meta": {},
+  "aliases": [
+    "mysql"
+  ],
+  "title": "MySQL Cheatsheet",
+  "slug": "mysql",
   "layout": [
     {
       "title": "Browsing",
@@ -30,6 +33,11 @@
           "kind": "code",
           "lang": "sql",
           "copy_lines": true
+        },
+        {
+          "label": "Clauses & Filtering",
+          "kind": "table",
+          "copy_lines": false
         }
       ]
     },
@@ -42,6 +50,11 @@
           "kind": "code",
           "lang": "sql",
           "copy_lines": true
+        },
+        {
+          "label": "Advanced Joins",
+          "kind": "table",
+          "copy_lines": false
         }
       ]
     },
@@ -78,6 +91,11 @@
           "kind": "code",
           "lang": "bash",
           "copy_lines": true
+        },
+        {
+          "label": "Advanced Dumps",
+          "kind": "table",
+          "copy_lines": false
         }
       ]
     },
@@ -114,6 +132,11 @@
           "kind": "code",
           "lang": "sql",
           "copy_lines": true
+        },
+        {
+          "label": "Advanced Inserts",
+          "kind": "table",
+          "copy_lines": false
         }
       ]
     },
@@ -126,6 +149,11 @@
           "kind": "code",
           "lang": "sql",
           "copy_lines": true
+        },
+        {
+          "label": "Advanced Deletes",
+          "kind": "table",
+          "copy_lines": false
         }
       ]
     },
@@ -138,6 +166,11 @@
           "kind": "code",
           "lang": "sql",
           "copy_lines": true
+        },
+        {
+          "label": "Advanced Updates",
+          "kind": "table",
+          "copy_lines": false
         }
       ]
     },
@@ -189,6 +222,11 @@
           "kind": "code",
           "lang": "sql",
           "copy_lines": true
+        },
+        {
+          "label": "Constraints & Advanced",
+          "kind": "table",
+          "copy_lines": false
         }
       ]
     },
@@ -226,6 +264,11 @@
         },
         {
           "kind": "text",
+          "copy_lines": false
+        },
+        {
+          "label": "Roles & Advanced Security",
+          "kind": "table",
           "copy_lines": false
         }
       ]
@@ -276,6 +319,10 @@
           "kind": "code",
           "lang": "sql",
           "copy_lines": true
+        },
+        {
+          "kind": "table",
+          "copy_lines": false
         }
       ]
     },
@@ -306,6 +353,171 @@
         },
         {
           "kind": "text",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "title": "Client Options",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "table",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "title": "Indexes",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "table",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "title": "Aggregations & Grouping",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "table",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "title": "Subqueries & CTEs",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "table",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "title": "Window Functions",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "table",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "title": "Set Operations",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "table",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "title": "String Functions",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "table",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "title": "Date & Time Functions",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "table",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "title": "Numeric & Conditional Functions",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "table",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "title": "JSON Functions",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "table",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "title": "Transactions & Locking",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "table",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "title": "Views, Routines & Triggers",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "table",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "title": "Performance & Diagnostics",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "table",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "title": "Import & Export",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "table",
+          "copy_lines": false
+        }
+      ]
+    },
+    {
+      "title": "Replication (MySQL 8.4+)",
+      "layout": "grid",
+      "body_cols": 1,
+      "sections": [
+        {
+          "kind": "table",
           "copy_lines": false
         }
       ]
@@ -688,6 +900,160 @@
     },
     {
       "details": null,
+      "example": "SELECT * FROM users WHERE name LIKE 'A%_';",
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 2,
+      "card": "Select",
+      "section": "Clauses & Filtering",
+      "lang": null,
+      "kind": "option",
+      "command": "LIKE '%<val>_'",
+      "description": "Pattern matching (% for any chars, _ for one char)",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Select › Clauses & Filtering\nLIKE '%<val>_'\nPattern matching (% for any chars, _ for one char)",
+      "content_hash": "c435359abd38c8d118eefbb0381c7ba41c18d82552d297d95b3db6f092e1af86",
+      "description_vi": "Khớp mẫu chuỗi (% thay nhiều ký tự, _ thay một ký tự).",
+      "embed_text_vi": "MySQL › Select › Clauses & Filtering\nLIKE '%<val>_'\nKhớp mẫu chuỗi (% thay nhiều ký tự, _ thay một ký tự).\ntìm kiếm chuỗi theo mẫu ký tự đại diện\nlọc chuỗi gần đúng với wildcard\nso khớp mẫu ký tự trong trường",
+      "content_hash_vi": "4c64ad24c2628e6012c0fd325dc1575a0dc5b92e13ed2c2b0f30d756f8a66802"
+    },
+    {
+      "details": null,
+      "example": "SELECT * FROM users WHERE name REGEXP '^A';",
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 2,
+      "card": "Select",
+      "section": "Clauses & Filtering",
+      "lang": null,
+      "kind": "option",
+      "command": "REGEXP '<pattern>'",
+      "description": "Filter by regular expression",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Select › Clauses & Filtering\nREGEXP '<pattern>'\nFilter by regular expression",
+      "content_hash": "b37ad9d74db191fbe04115706bc1aedc51213dcd0a78c88e42e61f6e6c531bb5",
+      "description_vi": "Lọc dữ liệu bằng biểu thức chính quy (regex).",
+      "embed_text_vi": "MySQL › Select › Clauses & Filtering\nREGEXP '<pattern>'\nLọc dữ liệu bằng biểu thức chính quy (regex).\ntìm kiếm theo biểu thức chính quy\nlọc chuỗi bằng regex\nso khớp dữ liệu với regular expression",
+      "content_hash_vi": "967c79e71ad3e69fd66db3c717a8ca12876c798ffa57a20b522b61db62dfd59f"
+    },
+    {
+      "details": null,
+      "example": "SELECT * FROM users WHERE status IN ('active', 'pending');",
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 2,
+      "card": "Select",
+      "section": "Clauses & Filtering",
+      "lang": null,
+      "kind": "option",
+      "command": "IN (<v1>, <v2>)",
+      "description": "Match against a list of values",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Select › Clauses & Filtering\nIN (<v1>, <v2>)\nMatch against a list of values",
+      "content_hash": "1e25918c9d9fdf8048887c312dc01682b1eb088a2b90879910e08ae547a047af",
+      "description_vi": "Kiểm tra giá trị có nằm trong danh sách chỉ định.",
+      "embed_text_vi": "MySQL › Select › Clauses & Filtering\nIN (<v1>, <v2>)\nKiểm tra giá trị có nằm trong danh sách chỉ định.\nlọc giá trị thuộc một danh sách\nso khớp dữ liệu trong tập hợp\ntìm bản ghi có giá trị trong mảng",
+      "content_hash_vi": "810af824bb4e54fd8065ae9d9d91046ba1734ba6c66ef6251661f231ed5fa379"
+    },
+    {
+      "details": null,
+      "example": "SELECT * FROM users WHERE age BETWEEN 18 AND 30;",
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 2,
+      "card": "Select",
+      "section": "Clauses & Filtering",
+      "lang": null,
+      "kind": "option",
+      "command": "BETWEEN <min> AND <max>",
+      "description": "Match values within a range inclusive",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Select › Clauses & Filtering\nBETWEEN <min> AND <max>\nMatch values within a range inclusive",
+      "content_hash": "063eb37b0a007952ab068eaaa591efc43a425cb61e6b6ff9ff92c893286b66f9",
+      "description_vi": "Lọc giá trị nằm trong khoảng (bao gồm cận hai đầu).",
+      "embed_text_vi": "MySQL › Select › Clauses & Filtering\nBETWEEN <min> AND <max>\nLọc giá trị nằm trong khoảng (bao gồm cận hai đầu).\nlọc dữ liệu nằm trong khoảng\ntìm giá trị trong phạm vi min max\nso sánh giá trị giữa hai ngưỡng",
+      "content_hash_vi": "55ade91c9c2955e54bd5a985fd238b2103d557777dedfe53b80525f965ef6020"
+    },
+    {
+      "details": null,
+      "example": "SELECT * FROM users ORDER BY age DESC, name ASC;",
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 2,
+      "card": "Select",
+      "section": "Clauses & Filtering",
+      "lang": null,
+      "kind": "command",
+      "command": "ORDER BY <c1> ASC, <c2> DESC",
+      "description": "Sort by multiple columns in different directions",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Select › Clauses & Filtering\nORDER BY <c1> ASC, <c2> DESC\nSort by multiple columns in different directions",
+      "content_hash": "58410a154a4ca67d2aa31891f9999bdc6eba37de70ff11a9e3f366755a0c7bfc",
+      "description_vi": "Sắp xếp kết quả theo nhiều cột với thứ tự khác nhau.",
+      "embed_text_vi": "MySQL › Select › Clauses & Filtering\nORDER BY <c1> ASC, <c2> DESC\nSắp xếp kết quả theo nhiều cột với thứ tự khác nhau.\nsắp xếp kết quả theo nhiều cột\nsort dữ liệu tăng giảm kết hợp\nphân loại thứ tự theo nhiều trường",
+      "content_hash_vi": "ba8e56a6fd51112c169313db5a752541ed55a6486d026ef6d52d3a6d722ce166"
+    },
+    {
+      "details": null,
+      "example": "SELECT * FROM users LIMIT 20, 10;",
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 2,
+      "card": "Select",
+      "section": "Clauses & Filtering",
+      "lang": null,
+      "kind": "command",
+      "command": "LIMIT <offset>, <count>",
+      "description": "Skip rows and limit results (pagination)",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 6,
+      "embed_text": "MySQL › Select › Clauses & Filtering\nLIMIT <offset>, <count>\nSkip rows and limit results (pagination)",
+      "content_hash": "9ac8b9725b1b6b5e58ef1d8e59d072b21565d640ea9a8db413fccd6c385ecec1",
+      "description_vi": "Bỏ qua số dòng đầu và giới hạn kết quả (phân trang).",
+      "embed_text_vi": "MySQL › Select › Clauses & Filtering\nLIMIT <offset>, <count>\nBỏ qua số dòng đầu và giới hạn kết quả (phân trang).\nphân trang dữ liệu với offset và limit\nbỏ qua số dòng đầu và giới hạn kết quả\nlấy giới hạn số bản ghi từ vị trí chỉ định",
+      "content_hash_vi": "a166a5cfde1e5386eecfd6dccce7c37786539db244ffff1308e7c8f24a6492e8"
+    },
+    {
+      "details": null,
+      "example": "SELECT first_name AS fname FROM users u;",
+      "danger": null,
+      "card_pos": 2,
+      "section_pos": 2,
+      "card": "Select",
+      "section": "Clauses & Filtering",
+      "lang": null,
+      "kind": "option",
+      "command": "AS <alias>",
+      "description": "Alias a column or table",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 7,
+      "embed_text": "MySQL › Select › Clauses & Filtering\nAS <alias>\nAlias a column or table",
+      "content_hash": "0e12fe5a171f7d48c4a60f771ce2297bc41611029406acbd5b0d3e20145ab57f",
+      "description_vi": "Đặt bí danh (alias) cho cột hoặc bảng.",
+      "embed_text_vi": "MySQL › Select › Clauses & Filtering\nAS <alias>\nĐặt bí danh (alias) cho cột hoặc bảng.\nđặt bí danh cho cột\nđổi tên hiển thị cột bằng alias\ngán alias tên giả cho bảng",
+      "content_hash_vi": "5ab34f5b57516f1725253e34d6fe2d81ce24a4ee8c28b88069d07c80fb86e650"
+    },
+    {
+      "details": null,
       "example": null,
       "danger": null,
       "card_pos": 3,
@@ -751,6 +1117,116 @@
       "description_vi": "Nối nhiều bảng lồng nhau theo các điều kiện khoá",
       "embed_text_vi": "MySQL › Select - Join\nSELECT ... FROM t1 JOIN (t2 JOIN t3 ON ...) ON ...\nNối nhiều bảng lồng nhau theo các điều kiện khoá\nnối nhiều bảng lồng nhau\nkết hợp ba table bằng join lồng\ntruy vấn join lồng giữa t1 t2 t3",
       "content_hash_vi": "043d32086fc387fe4142154d4c44b2f33a4417253d7606bc3ae9425ff10ae901"
+    },
+    {
+      "details": null,
+      "example": "SELECT * FROM a INNER JOIN b ON a.id = b.a_id;",
+      "danger": null,
+      "card_pos": 3,
+      "section_pos": 2,
+      "card": "Select - Join",
+      "section": "Advanced Joins",
+      "lang": null,
+      "kind": "option",
+      "command": "INNER JOIN",
+      "description": "Rows that have matching values in both tables",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Select - Join › Advanced Joins\nINNER JOIN\nRows that have matching values in both tables",
+      "content_hash": "469e79404ecfd4d656ab93c4caf9c9701866d047f6e906ec69d84266545cfb67",
+      "description_vi": "Lấy các dòng có giá trị khớp ở cả hai bảng.",
+      "embed_text_vi": "MySQL › Select - Join › Advanced Joins\nINNER JOIN\nLấy các dòng có giá trị khớp ở cả hai bảng.\nkết nối hai bảng lấy phần chung\ninner join nối bảng có dữ liệu khớp\ngộp dữ liệu trùng khớp giữa 2 bảng",
+      "content_hash_vi": "6d5a7119ca318c7588f97f19395a526134f32c331b55b5f80eb98a8e48e1acb8"
+    },
+    {
+      "details": null,
+      "example": "SELECT * FROM a RIGHT JOIN b ON a.id = b.a_id;",
+      "danger": null,
+      "card_pos": 3,
+      "section_pos": 2,
+      "card": "Select - Join",
+      "section": "Advanced Joins",
+      "lang": null,
+      "kind": "option",
+      "command": "RIGHT JOIN",
+      "description": "All rows from right table, matched rows from left",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Select - Join › Advanced Joins\nRIGHT JOIN\nAll rows from right table, matched rows from left",
+      "content_hash": "cb8799d23a8bb835600a3cf93655fabd700f9b43ba2044f94d0c98631a2fe63a",
+      "description_vi": "Lấy toàn bộ dòng bảng phải và các dòng khớp từ bảng trái.",
+      "embed_text_vi": "MySQL › Select - Join › Advanced Joins\nRIGHT JOIN\nLấy toàn bộ dòng bảng phải và các dòng khớp từ bảng trái.\nnối bảng lấy toàn bộ bên phải\nright join giữ trọn vẹn bảng phải\nliên kết ưu tiên toàn bộ dòng bảng bên phải",
+      "content_hash_vi": "1cdb459d151a19f254461d2a5baca3b557b838f8f641dc4b88d363d172fc0249"
+    },
+    {
+      "details": null,
+      "example": "SELECT * FROM a CROSS JOIN b;",
+      "danger": null,
+      "card_pos": 3,
+      "section_pos": 2,
+      "card": "Select - Join",
+      "section": "Advanced Joins",
+      "lang": null,
+      "kind": "option",
+      "command": "CROSS JOIN",
+      "description": "Cartesian product of both tables",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Select - Join › Advanced Joins\nCROSS JOIN\nCartesian product of both tables",
+      "content_hash": "b31d6d6f32c42be45cd9f36a7025c5277fc367bbde91f4e4fe6d20b1ce9c6a84",
+      "description_vi": "Tạo tích Descartes kết hợp từng dòng giữa hai bảng.",
+      "embed_text_vi": "MySQL › Select - Join › Advanced Joins\nCROSS JOIN\nTạo tích Descartes kết hợp từng dòng giữa hai bảng.\ntích descartes giữa hai bảng\ncross join kết hợp chéo mọi dòng\nghép cặp tất cả các dòng của 2 bảng",
+      "content_hash_vi": "406cee644303c8b29d569f1450e204b97ec86f8870ad2002d2eb3c73ff23455e"
+    },
+    {
+      "details": null,
+      "example": "SELECT * FROM a JOIN b USING (user_id);",
+      "danger": null,
+      "card_pos": 3,
+      "section_pos": 2,
+      "card": "Select - Join",
+      "section": "Advanced Joins",
+      "lang": null,
+      "kind": "option",
+      "command": "USING (<col>)",
+      "description": "Join tables sharing the exact same column name",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Select - Join › Advanced Joins\nUSING (<col>)\nJoin tables sharing the exact same column name",
+      "content_hash": "301727ddca0c7f5765546a9909af5bffb8c12f389220c69ed0aa645d7ea58f4e",
+      "description_vi": "Nối các bảng có chung tên cột liên kết.",
+      "embed_text_vi": "MySQL › Select - Join › Advanced Joins\nUSING (<col>)\nNối các bảng có chung tên cột liên kết.\nnối bảng theo cột trùng tên\njoin bảng dùng chung tên trường khóa\nliên kết bảng bằng mệnh đề using",
+      "content_hash_vi": "a06eca7d89440f6e85a5cd479a5ea5e599fadaf9ffa06e3b8f012c3530fdcf51"
+    },
+    {
+      "details": null,
+      "example": "SELECT a.name, b.name FROM emp a JOIN emp b ON a.mgr_id = b.id;",
+      "danger": null,
+      "card_pos": 3,
+      "section_pos": 2,
+      "card": "Select - Join",
+      "section": "Advanced Joins",
+      "lang": null,
+      "kind": "option",
+      "command": "Self Join",
+      "description": "Join a table to itself using aliases",
+      "display": {
+        "key_style": "plain"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Select - Join › Advanced Joins\nSelf Join\nJoin a table to itself using aliases",
+      "content_hash": "c8cc445c5e7905240a008e15920ed1f409deffab81f151b9bfbecc293da5bb9d",
+      "description_vi": "Tự nối bảng với chính nó bằng bí danh (alias).",
+      "embed_text_vi": "MySQL › Select - Join › Advanced Joins\nSelf Join\nTự nối bảng với chính nó bằng bí danh (alias).\ntự nối bảng với chính nó\nself join liên kết phân cấp cùng bảng\ngộp một bảng với chính nó qua alias",
+      "content_hash_vi": "a649a6c408fc102b833870ab56d18c64bc91e767365277bc60d9a07c743d9a0e"
     },
     {
       "details": null,
@@ -1084,6 +1560,116 @@
     },
     {
       "details": null,
+      "example": "mysqldump --single-transaction -u root -p mydb > dump.sql",
+      "danger": null,
+      "card_pos": 6,
+      "section_pos": 2,
+      "card": "Backup Database to SQL File",
+      "section": "Advanced Dumps",
+      "lang": null,
+      "kind": "command",
+      "command": "mysqldump --single-transaction",
+      "description": "Consistent dump without locking InnoDB tables",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Backup Database to SQL File › Advanced Dumps\nmysqldump --single-transaction\nConsistent dump without locking InnoDB tables",
+      "content_hash": "c5054c84ca94d65ff7c02d14eb9c921b789f7cc5db1844c32ecd348dad1a90cd",
+      "description_vi": "Sao lưu nhất quán dữ liệu mà không khoá bảng InnoDB.",
+      "embed_text_vi": "MySQL › Backup Database to SQL File › Advanced Dumps\nmysqldump --single-transaction\nSao lưu nhất quán dữ liệu mà không khoá bảng InnoDB.\nsao lưu không khoá bảng innoDB\ndump database nhất quán không lock table\nbackup dữ liệu giao dịch an toàn không gián đoạn",
+      "content_hash_vi": "bf9cc4972a9ba7380263d84cff2835b0900bbc69959ff5b94b69d08d9b2e348d"
+    },
+    {
+      "details": null,
+      "example": "mysqldump --routines -u root -p mydb > dump.sql",
+      "danger": null,
+      "card_pos": 6,
+      "section_pos": 2,
+      "card": "Backup Database to SQL File",
+      "section": "Advanced Dumps",
+      "lang": null,
+      "kind": "command",
+      "command": "mysqldump --routines",
+      "description": "Include stored procedures and functions in dump",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Backup Database to SQL File › Advanced Dumps\nmysqldump --routines\nInclude stored procedures and functions in dump",
+      "content_hash": "f9d9832b8328b113960bf009b1431d31169726af6f266b2f5b34d59af23ba09e",
+      "description_vi": "Sao lưu kèm theo các stored procedure và function.",
+      "embed_text_vi": "MySQL › Backup Database to SQL File › Advanced Dumps\nmysqldump --routines\nSao lưu kèm theo các stored procedure và function.\nsao lưu kèm stored procedure và hàm\ndump dữ liệu bao gồm cả function và thủ tục\nexport thủ tục lưu trữ và hàm tự định nghĩa",
+      "content_hash_vi": "aea9e639a5e94cb99f30c7668193da03f09340f65aabf7a8704c0769f2312965"
+    },
+    {
+      "details": null,
+      "example": "mysqldump --no-data -u root -p mydb > schema.sql",
+      "danger": null,
+      "card_pos": 6,
+      "section_pos": 2,
+      "card": "Backup Database to SQL File",
+      "section": "Advanced Dumps",
+      "lang": null,
+      "kind": "command",
+      "command": "mysqldump --no-data",
+      "description": "Dump schema only, without row data",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Backup Database to SQL File › Advanced Dumps\nmysqldump --no-data\nDump schema only, without row data",
+      "content_hash": "5e63e439f49a88eb4b94a24d327282d4b5402f61f87ab52e3fe5baceb14c3bf0",
+      "description_vi": "Chỉ sao lưu cấu trúc (schema), không xuất dữ liệu dòng.",
+      "embed_text_vi": "MySQL › Backup Database to SQL File › Advanced Dumps\nmysqldump --no-data\nChỉ sao lưu cấu trúc (schema), không xuất dữ liệu dòng.\nchỉ xuất cấu trúc bảng không lấy dữ liệu\nsao lưu schema database không kèm data\ndump định nghĩa bảng rỗng",
+      "content_hash_vi": "5c40bf21c761a922d61b464632592a2085661f40dd695ae81d13ddb8bcbeae3b"
+    },
+    {
+      "details": null,
+      "example": "mysqldump --where=\"id > 100\" -u root -p mydb users > users.sql",
+      "danger": null,
+      "card_pos": 6,
+      "section_pos": 2,
+      "card": "Backup Database to SQL File",
+      "section": "Advanced Dumps",
+      "lang": null,
+      "kind": "command",
+      "command": "mysqldump --where=\"<cond>\"",
+      "description": "Dump only specific rows matching a condition",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Backup Database to SQL File › Advanced Dumps\nmysqldump --where=\"<cond>\"\nDump only specific rows matching a condition",
+      "content_hash": "e8af36a20f203fc70d82f98f1f271e4bbdf34cad7779bafadd3ed078e8c79da3",
+      "description_vi": "Chỉ sao lưu các dòng thoả mãn điều kiện lọc.",
+      "embed_text_vi": "MySQL › Backup Database to SQL File › Advanced Dumps\nmysqldump --where=\"<cond>\"\nChỉ sao lưu các dòng thoả mãn điều kiện lọc.\nsao lưu các dòng theo điều kiện lọc\ndump dữ liệu có điều kiện where\nxuất bản ghi thỏa mãn tiêu chí chỉ định",
+      "content_hash_vi": "74fc170193337c2fa5fcca3e0b6c86efe7057cd640ebf940b9a9e8dc7b429c3c"
+    },
+    {
+      "details": null,
+      "example": "mysqldump -u root -p mydb | gzip > dump.sql.gz",
+      "danger": null,
+      "card_pos": 6,
+      "section_pos": 2,
+      "card": "Backup Database to SQL File",
+      "section": "Advanced Dumps",
+      "lang": null,
+      "kind": "command",
+      "command": "mysqldump ... | gzip > <file.gz>",
+      "description": "Compress dump output directly",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Backup Database to SQL File › Advanced Dumps\nmysqldump ... | gzip > <file.gz>\nCompress dump output directly",
+      "content_hash": "14cd3c2d6d8d04048e1ffc1e2e7cf936004c05ff183c8c8c54064d198fc3ce22",
+      "description_vi": "Nén trực tiếp dữ liệu sao lưu bằng gzip qua pipe.",
+      "embed_text_vi": "MySQL › Backup Database to SQL File › Advanced Dumps\nmysqldump ... | gzip > <file.gz>\nNén trực tiếp dữ liệu sao lưu bằng gzip qua pipe.\nnén trực tiếp file dump qua pipe gzip\nnén dữ liệu sao lưu ra file gz\nxuất backup nén thẳng bằng gzip",
+      "content_hash_vi": "e75a440ba74ecd640602cfb536e8e666428a112f41b54cd96f9ce57e1f5ea8d1"
+    },
+    {
+      "details": null,
       "example": null,
       "danger": null,
       "card_pos": 7,
@@ -1172,6 +1758,116 @@
     },
     {
       "details": null,
+      "example": "INSERT INTO users (name) VALUES ('Alice'), ('Bob');",
+      "danger": null,
+      "card_pos": 9,
+      "section_pos": 2,
+      "card": "Insert",
+      "section": "Advanced Inserts",
+      "lang": null,
+      "kind": "command",
+      "command": "INSERT ... VALUES (...), (...)",
+      "description": "Insert multiple rows in a single query",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Insert › Advanced Inserts\nINSERT ... VALUES (...), (...)\nInsert multiple rows in a single query",
+      "content_hash": "36ba2538a038de53342643feec07af57ecda555d5b54e9374c13c9925330110b",
+      "description_vi": "Thêm nhiều dòng dữ liệu trong một truy vấn duy nhất.",
+      "embed_text_vi": "MySQL › Insert › Advanced Inserts\nINSERT ... VALUES (...), (...)\nThêm nhiều dòng dữ liệu trong một truy vấn duy nhất.\nchèn nhiều dòng trong một lần\nthêm nhiều bản ghi cùng lúc\ninsert hàng loạt bản ghi một thao tác",
+      "content_hash_vi": "82e2f23e7baed54ba8789c1e0e4eaed72bfa65d1d24451ff18ca3b480b9db862"
+    },
+    {
+      "details": null,
+      "example": "INSERT INTO archive SELECT * FROM logs WHERE date < '2023-01-01';",
+      "danger": null,
+      "card_pos": 9,
+      "section_pos": 2,
+      "card": "Insert",
+      "section": "Advanced Inserts",
+      "lang": null,
+      "kind": "command",
+      "command": "INSERT INTO <t> SELECT ...",
+      "description": "Insert rows derived from a SELECT query",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Insert › Advanced Inserts\nINSERT INTO <t> SELECT ...\nInsert rows derived from a SELECT query",
+      "content_hash": "26c2cc136522b876fc2c5ff166146348916ae9d4ac42f28dbdf2193b7fd06f56",
+      "description_vi": "Thêm dữ liệu lấy từ kết quả truy vấn SELECT vào bảng.",
+      "embed_text_vi": "MySQL › Insert › Advanced Inserts\nINSERT INTO <t> SELECT ...\nThêm dữ liệu lấy từ kết quả truy vấn SELECT vào bảng.\nchèn dữ liệu từ kết quả select sang bảng khác\nsao chép bản ghi từ câu truy vấn sang bảng mới\nnạp dữ liệu từ truy vấn tìm kiếm vào bảng",
+      "content_hash_vi": "1bc13a8bd07e7f7bcef5e6067b231bd466e25bbbb387dd1fb434e42ad06b310f"
+    },
+    {
+      "details": null,
+      "example": "INSERT IGNORE INTO users (email) VALUES ('test@test.com');",
+      "danger": null,
+      "card_pos": 9,
+      "section_pos": 2,
+      "card": "Insert",
+      "section": "Advanced Inserts",
+      "lang": null,
+      "kind": "command",
+      "command": "INSERT IGNORE INTO ...",
+      "description": "Insert rows, ignoring duplicate key errors",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Insert › Advanced Inserts\nINSERT IGNORE INTO ...\nInsert rows, ignoring duplicate key errors",
+      "content_hash": "b149d8419e33ab1dca6f7338ef16b575cf403798a5b82417ce08ff18da0655d1",
+      "description_vi": "Thêm dữ liệu và bỏ qua lỗi trùng khóa (duplicate key).",
+      "embed_text_vi": "MySQL › Insert › Advanced Inserts\nINSERT IGNORE INTO ...\nThêm dữ liệu và bỏ qua lỗi trùng khóa (duplicate key).\nthêm dữ liệu bỏ qua lỗi trùng khóa\nchèn bản ghi không báo lỗi trùng lặp\ninsert ignore bỏ qua duplicate key",
+      "content_hash_vi": "0f885d214d4d7ed03d184718c13cb94b09c79fd03b7ce48cec5927815417f4ac"
+    },
+    {
+      "details": null,
+      "example": "INSERT INTO views (url, count) VALUES ('/home', 1) ON DUPLICATE KEY UPDATE count = count + 1;",
+      "danger": null,
+      "card_pos": 9,
+      "section_pos": 2,
+      "card": "Insert",
+      "section": "Advanced Inserts",
+      "lang": null,
+      "kind": "command",
+      "command": "ON DUPLICATE KEY UPDATE <col>=<val>",
+      "description": "Upsert: update row if unique key exists",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Insert › Advanced Inserts\nON DUPLICATE KEY UPDATE <col>=<val>\nUpsert: update row if unique key exists",
+      "content_hash": "23df321423e8871e954931a362ac9127f33336d05ed53a3722ab45539767712e",
+      "description_vi": "Cập nhật dòng nếu khóa duy nhất đã tồn tại (upsert).",
+      "embed_text_vi": "MySQL › Insert › Advanced Inserts\nON DUPLICATE KEY UPDATE <col>=<val>\nCập nhật dòng nếu khóa duy nhất đã tồn tại (upsert).\ncập nhật khi trùng khóa chính hoặc unique\ntự động update nếu bản ghi đã tồn tại\nupsert dữ liệu khi trùng lặp khóa",
+      "content_hash_vi": "d1f504c5284cbb15d0d6fbbe2ae81b21c7c26921e72734047a2de59aaa08ad60"
+    },
+    {
+      "details": null,
+      "example": "REPLACE INTO config (key, value) VALUES ('theme', 'dark');",
+      "danger": "Deletes the original row and re-inserts it.",
+      "card_pos": 9,
+      "section_pos": 2,
+      "card": "Insert",
+      "section": "Advanced Inserts",
+      "lang": null,
+      "kind": "command",
+      "command": "REPLACE INTO <t> ...",
+      "description": "Delete old row and insert new if unique key matches",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Insert › Advanced Inserts\nREPLACE INTO <t> ...\nDelete old row and insert new if unique key matches",
+      "content_hash": "530c12ebe2e95bd03f5dbc04fea6366bf7cf32931ef9c857a6e63d60e7a1fc52",
+      "description_vi": "Xoá dòng cũ và chèn dòng mới nếu trùng khóa duy nhất.",
+      "embed_text_vi": "MySQL › Insert › Advanced Inserts\nREPLACE INTO <t> ...\nXoá dòng cũ và chèn dòng mới nếu trùng khóa duy nhất.\nxoá dòng cũ và chèn mới khi trùng khóa\nghi đè bản ghi khi trùng unique key\nthay thế bản ghi cũ bằng bản ghi mới",
+      "content_hash_vi": "76523a02884990300c62db7f99dc8172c777a983f20a6e1d35794ed2e1e4deb8"
+    },
+    {
+      "details": null,
       "example": null,
       "danger": null,
       "card_pos": 10,
@@ -1238,6 +1934,50 @@
     },
     {
       "details": null,
+      "example": "DELETE u FROM users u JOIN logs l ON u.id = l.user_id;",
+      "danger": null,
+      "card_pos": 10,
+      "section_pos": 2,
+      "card": "Delete",
+      "section": "Advanced Deletes",
+      "lang": null,
+      "kind": "command",
+      "command": "DELETE <t1> FROM <t1> JOIN <t2> ...",
+      "description": "Delete using a JOIN condition",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Delete › Advanced Deletes\nDELETE <t1> FROM <t1> JOIN <t2> ...\nDelete using a JOIN condition",
+      "content_hash": "73ac3e2a47e1f81c95d490d06405d4bcbd715072c9bec3105f7baae63c4c0739",
+      "description_vi": "Xoá dữ liệu bảng dựa trên điều kiện JOIN bảng khác.",
+      "embed_text_vi": "MySQL › Delete › Advanced Deletes\nDELETE <t1> FROM <t1> JOIN <t2> ...\nXoá dữ liệu bảng dựa trên điều kiện JOIN bảng khác.\nxoá dữ liệu theo điều kiện liên kết bảng\ndelete nhiều bảng qua join\ngỡ bỏ bản ghi dựa trên kết quả nối bảng",
+      "content_hash_vi": "9c7260adc08e7263951b52a4a1193803b1fa4b37522f28ded60a77f7105e51d9"
+    },
+    {
+      "details": null,
+      "example": "DELETE FROM logs WHERE level = 'DEBUG' LIMIT 100;",
+      "danger": null,
+      "card_pos": 10,
+      "section_pos": 2,
+      "card": "Delete",
+      "section": "Advanced Deletes",
+      "lang": null,
+      "kind": "command",
+      "command": "DELETE FROM <t> LIMIT <n>",
+      "description": "Limit the number of deleted rows",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Delete › Advanced Deletes\nDELETE FROM <t> LIMIT <n>\nLimit the number of deleted rows",
+      "content_hash": "60cb0e5307e168b7af115961f1def2a2491ded8a6dd9efd125e76d24c5149bf5",
+      "description_vi": "Giới hạn số lượng dòng bị xoá.",
+      "embed_text_vi": "MySQL › Delete › Advanced Deletes\nDELETE FROM <t> LIMIT <n>\nGiới hạn số lượng dòng bị xoá.\ngiới hạn số bản ghi bị xoá\nxoá số lượng dòng cố định\nxóa từng phần dữ liệu với limit",
+      "content_hash_vi": "b192a8d704d0e56df4468771e5686a50cd0c06af357e75d4b118c1b7a0b49c09"
+    },
+    {
+      "details": null,
       "example": null,
       "danger": null,
       "card_pos": 11,
@@ -1279,6 +2019,50 @@
       "description_vi": "Cập nhật dữ liệu trên nhiều bảng đồng thời có kết nối",
       "embed_text_vi": "MySQL › Update\nUPDATE table1, table2 SET field1=new_value1, field2=new_value2, ... WHERE\n  table1.id1 = table2.id2 AND condition;\nCập nhật dữ liệu trên nhiều bảng đồng thời có kết nối\ncập nhật dữ liệu nhiều bảng cùng lúc\nupdate nhiều bảng theo điều kiện join\nsửa giá trị cột trên 2 bảng liên kết",
       "content_hash_vi": "4daba9dbc26d2ee4d67ed525a9fe2e1e5507b4087938f3c64b7d0fecdf578a36"
+    },
+    {
+      "details": null,
+      "example": "UPDATE users u JOIN orders o ON u.id = o.user_id SET u.has_orders = 1;",
+      "danger": null,
+      "card_pos": 11,
+      "section_pos": 2,
+      "card": "Update",
+      "section": "Advanced Updates",
+      "lang": null,
+      "kind": "command",
+      "command": "UPDATE <t1> JOIN <t2> SET ...",
+      "description": "Update using a JOIN condition",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Update › Advanced Updates\nUPDATE <t1> JOIN <t2> SET ...\nUpdate using a JOIN condition",
+      "content_hash": "ed031ee346cefae0ca224188e48a7629987da0a96750946f58e1fde5172a1621",
+      "description_vi": "Cập nhật dữ liệu bằng điều kiện liên kết (JOIN) giữa các bảng.",
+      "embed_text_vi": "MySQL › Update › Advanced Updates\nUPDATE <t1> JOIN <t2> SET ...\nCập nhật dữ liệu bằng điều kiện liên kết (JOIN) giữa các bảng.\ncập nhật dữ liệu qua liên kết bảng\nupdate dữ liệu bằng mệnh đề join\nsửa giá trị cột dựa trên bảng liên kết",
+      "content_hash_vi": "62d8ed679d95861f9b1a97c9c9bf970520e863d589983fb69bb3836ee8c06228"
+    },
+    {
+      "details": null,
+      "example": "UPDATE queue SET status = 'processing' WHERE status = 'pending' LIMIT 10;",
+      "danger": null,
+      "card_pos": 11,
+      "section_pos": 2,
+      "card": "Update",
+      "section": "Advanced Updates",
+      "lang": null,
+      "kind": "command",
+      "command": "UPDATE <t> SET ... LIMIT <n>",
+      "description": "Limit the number of updated rows",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Update › Advanced Updates\nUPDATE <t> SET ... LIMIT <n>\nLimit the number of updated rows",
+      "content_hash": "685b7300096271e96c9ac699fdb26d60d6aa9de4127b7e328b5f0db91f898f59",
+      "description_vi": "Giới hạn số lượng dòng được cập nhật.",
+      "embed_text_vi": "MySQL › Update › Advanced Updates\nUPDATE <t> SET ... LIMIT <n>\nGiới hạn số lượng dòng được cập nhật.\ngiới hạn số bản ghi được cập nhật\nupdate số dòng tối đa chỉ định\nsửa dữ liệu từng đợt theo limit",
+      "content_hash_vi": "8fcb6d25fc65bdff4089163fed7d5df0cc95d746723fdc7dd975d5a88698c4a8"
     },
     {
       "details": null,
@@ -1854,6 +2638,204 @@
     },
     {
       "details": null,
+      "example": "id INT AUTO_INCREMENT PRIMARY KEY",
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 9,
+      "card": "Create / Delete / Modify Table",
+      "section": "Constraints & Advanced",
+      "lang": null,
+      "kind": "option",
+      "command": "AUTO_INCREMENT",
+      "description": "Automatically generate sequential numbers",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Constraints & Advanced\nAUTO_INCREMENT\nAutomatically generate sequential numbers",
+      "content_hash": "775de9b650a7c5aa4f582f9eb0993e23f512d00ed4840395ffb6978e66005fe4",
+      "description_vi": "Tự động tạo dãy số tăng dần liên tiếp cho cột.",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Constraints & Advanced\nAUTO_INCREMENT\nTự động tạo dãy số tăng dần liên tiếp cho cột.\ntạo mã số tự tăng cho cột\ncấu hình tự động tăng giá trị số\nthiết lập cột số thứ tự tự tăng",
+      "content_hash_vi": "2005a93556fd22b645f1f1ea83ce3f3afd7da85acef217015967e8712d5de1bf"
+    },
+    {
+      "details": null,
+      "example": "email VARCHAR(255) UNIQUE",
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 9,
+      "card": "Create / Delete / Modify Table",
+      "section": "Constraints & Advanced",
+      "lang": null,
+      "kind": "option",
+      "command": "UNIQUE",
+      "description": "Ensure all values in a column are distinct",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Constraints & Advanced\nUNIQUE\nEnsure all values in a column are distinct",
+      "content_hash": "230d86711772c89d4e138248e876a8ba8eb9b3d506c46afbdd866a3211d88716",
+      "description_vi": "Đảm bảo tất cả giá trị trong cột là duy nhất, không trùng.",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Constraints & Advanced\nUNIQUE\nĐảm bảo tất cả giá trị trong cột là duy nhất, không trùng.\nràng buộc giá trị cột không được trùng\nthiết lập giá trị duy nhất cho cột\ntạo cột có dữ liệu độc nhất",
+      "content_hash_vi": "f09760399f937a7e443c13c34a88ea9f9e6db1c381a54c9f53c1884d4231a7bf"
+    },
+    {
+      "details": null,
+      "example": "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP",
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 9,
+      "card": "Create / Delete / Modify Table",
+      "section": "Constraints & Advanced",
+      "lang": null,
+      "kind": "option",
+      "command": "DEFAULT CURRENT_TIMESTAMP",
+      "description": "Set default value to current date and time",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Constraints & Advanced\nDEFAULT CURRENT_TIMESTAMP\nSet default value to current date and time",
+      "content_hash": "501e61347d922b82bd1ad4e3702b132bd00308ae72be5a1ef699147194fed249",
+      "description_vi": "Đặt giá trị mặc định là ngày giờ hiện tại",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Constraints & Advanced\nDEFAULT CURRENT_TIMESTAMP\nĐặt giá trị mặc định là ngày giờ hiện tại\nđặt giá trị mặc định thời gian hiện tại\ntự gán ngày giờ tạo bản ghi\nmặc định thời gian hiện tại khi thêm dòng",
+      "content_hash_vi": "ce2cba40b80e1061704650479c18ec5d133d11e96693b7744c24aff9de1cc984"
+    },
+    {
+      "details": null,
+      "example": "updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP",
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 9,
+      "card": "Create / Delete / Modify Table",
+      "section": "Constraints & Advanced",
+      "lang": null,
+      "kind": "option",
+      "command": "ON UPDATE CURRENT_TIMESTAMP",
+      "description": "Auto-update timestamp when row is modified",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Constraints & Advanced\nON UPDATE CURRENT_TIMESTAMP\nAuto-update timestamp when row is modified",
+      "content_hash": "1b50169227641cfab19a0f201a1083e9da16e68b70ea46b674f280398e11181d",
+      "description_vi": "Tự động cập nhật ngày giờ khi bản ghi bị sửa đổi",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Constraints & Advanced\nON UPDATE CURRENT_TIMESTAMP\nTự động cập nhật ngày giờ khi bản ghi bị sửa đổi\ntự động cập nhật thời gian khi sửa bản ghi\ntự đổi ngày giờ khi cập nhật dòng\ncập nhật thời gian chỉnh sửa mới nhất",
+      "content_hash_vi": "eb010f0b0e455666ee30e090e15482ce67c0aa4f5e778227b0dcf5d2723d2679"
+    },
+    {
+      "details": null,
+      "example": "FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE",
+      "danger": "Deletes dependent rows silently.",
+      "card_pos": 12,
+      "section_pos": 9,
+      "card": "Create / Delete / Modify Table",
+      "section": "Constraints & Advanced",
+      "lang": null,
+      "kind": "option",
+      "command": "ON DELETE CASCADE",
+      "description": "Delete child rows when parent is deleted",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Constraints & Advanced\nON DELETE CASCADE\nDelete child rows when parent is deleted",
+      "content_hash": "67c091aed8bbebe43d9b0bd65f7313618ef64cdb410b411f59f2cce812d5b74b",
+      "description_vi": "Tự động xoá các dòng con khi dòng cha bị xoá",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Constraints & Advanced\nON DELETE CASCADE\nTự động xoá các dòng con khi dòng cha bị xoá\ntự động xoá dòng con khi xoá cha\nxoá liên hoàn khoá ngoại cascade\ngỡ bỏ bản ghi liên quan khi xoá cha",
+      "content_hash_vi": "ce321ccc5e30274dadf8857996b68c6109945bacecf92c4b70af43417833150c"
+    },
+    {
+      "details": null,
+      "example": "CHECK (age >= 18)",
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 9,
+      "card": "Create / Delete / Modify Table",
+      "section": "Constraints & Advanced",
+      "lang": null,
+      "kind": "option",
+      "command": "CHECK (<expr>)",
+      "description": "Enforce a condition on inserted values",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 6,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Constraints & Advanced\nCHECK (<expr>)\nEnforce a condition on inserted values",
+      "content_hash": "0ff185c9dd39438ceeb67d6eefeae9530500b398a044e508e2d4c60942012f3f",
+      "description_vi": "Ràng buộc điều kiện kiểm tra hợp lệ cho dữ liệu cột",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Constraints & Advanced\nCHECK (<expr>)\nRàng buộc điều kiện kiểm tra hợp lệ cho dữ liệu cột\nràng buộc điều kiện kiểm tra check\ngiới hạn giá trị cột theo biểu thức điều kiện\nkiểm tra tính hợp lệ dữ liệu nhập vào",
+      "content_hash_vi": "ba75c68a04e8f2bdfbcea9b884bbcd6d5cac0fe0bee8a3e8de9726ba79c94d12"
+    },
+    {
+      "details": null,
+      "example": "CREATE TABLE t (id INT) ENGINE=InnoDB CHARSET=utf8mb4;",
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 9,
+      "card": "Create / Delete / Modify Table",
+      "section": "Constraints & Advanced",
+      "lang": null,
+      "kind": "option",
+      "command": "ENGINE=InnoDB CHARSET=utf8mb4",
+      "description": "Specify table engine and unicode character set",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 7,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Constraints & Advanced\nENGINE=InnoDB CHARSET=utf8mb4\nSpecify table engine and unicode character set",
+      "content_hash": "bf85f773b39af578ff3a6d1fc09c0208017bd801c91238b04fcd780cca196ad7",
+      "description_vi": "Chỉ định storage engine và bảng mã ký tự utf8mb4 cho bảng",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Constraints & Advanced\nENGINE=InnoDB CHARSET=utf8mb4\nChỉ định storage engine và bảng mã ký tự utf8mb4 cho bảng\nchọn storage engine và charset cho bảng\nthiết lập innodb bảng mã utf8mb4\ncấu hình bảng hỗ trợ tiếng việt utf8mb4",
+      "content_hash_vi": "0b94986839ac9ca925b20232fef550d12b13a9c4704506e14c3ce5fff9997499"
+    },
+    {
+      "details": null,
+      "example": "ALTER TABLE users RENAME COLUMN fname TO first_name;",
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 9,
+      "card": "Create / Delete / Modify Table",
+      "section": "Constraints & Advanced",
+      "lang": null,
+      "kind": "command",
+      "command": "ALTER TABLE <t> RENAME COLUMN <old> TO <new>",
+      "description": "Rename an existing column",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 8,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Constraints & Advanced\nALTER TABLE <t> RENAME COLUMN <old> TO <new>\nRename an existing column",
+      "content_hash": "12b5013b1dfe881b381f6c722be8b8b1efaaca3ea3f3dd1917f2c2ba5faf0c9a",
+      "description_vi": "Đổi tên một cột trong bảng",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Constraints & Advanced\nALTER TABLE <t> RENAME COLUMN <old> TO <new>\nĐổi tên một cột trong bảng\nđổi tên cột trong bảng\nthay tên trường field của bảng\nrename column bảng dữ liệu",
+      "content_hash_vi": "65ee293df05d87391b8e060f248f2889efb2149a836cc166a49ac6c6a4be1eec"
+    },
+    {
+      "details": null,
+      "example": "RENAME TABLE old_users TO users;",
+      "danger": null,
+      "card_pos": 12,
+      "section_pos": 9,
+      "card": "Create / Delete / Modify Table",
+      "section": "Constraints & Advanced",
+      "lang": null,
+      "kind": "command",
+      "command": "RENAME TABLE <old> TO <new>",
+      "description": "Rename an existing table",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 9,
+      "embed_text": "MySQL › Create / Delete / Modify Table › Constraints & Advanced\nRENAME TABLE <old> TO <new>\nRename an existing table",
+      "content_hash": "931a4b962958e73a904260b30f8565aa7d8f03b20926c8d1ba9e7434f41ae3b1",
+      "description_vi": "Đổi tên bảng thành tên mới",
+      "embed_text_vi": "MySQL › Create / Delete / Modify Table › Constraints & Advanced\nRENAME TABLE <old> TO <new>\nĐổi tên bảng thành tên mới\nđổi tên bảng dữ liệu\nrename table bảng cũ sang mới\nthay tên bảng hiện có",
+      "content_hash_vi": "eac696b1e18dd104f8e25d25f9d61967a695b68251c4a22de43cccd5730789e7"
+    },
+    {
+      "details": null,
       "example": null,
       "danger": null,
       "card_pos": 13,
@@ -2157,6 +3139,116 @@
       "description_vi": "Ký tự '%' biểu thị cho phép kết nối từ bất kỳ host nào.",
       "embed_text_vi": "MySQL › Users and Privileges\nKý tự '%' biểu thị cho phép kết nối từ bất kỳ host nào.\ný nghĩa ký tự phần trăm trong host\ncho phép user kết nối mọi host\nký hiệu đại diện all host người dùng",
       "content_hash_vi": "99dcdebcda1cba05cf5397da1c7b8fa9b5c7cef36e67de77d8008efa338e2623"
+    },
+    {
+      "details": null,
+      "example": "CREATE USER 'app'@'localhost' IDENTIFIED BY 'secret';",
+      "danger": null,
+      "card_pos": 14,
+      "section_pos": 5,
+      "card": "Users and Privileges",
+      "section": "Roles & Advanced Security",
+      "lang": null,
+      "kind": "command",
+      "command": "CREATE USER '<user>'@'<host>' IDENTIFIED BY '<pass>'",
+      "description": "Create a new database user",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Users and Privileges › Roles & Advanced Security\nCREATE USER '<user>'@'<host>' IDENTIFIED BY '<pass>'\nCreate a new database user",
+      "content_hash": "75c6e91ed17815dd80be939a60b15d85abca8e09a162ae564aa1094ca8871ecd",
+      "description_vi": "Tạo tài khoản người dùng (user) mới kèm mật khẩu và host",
+      "embed_text_vi": "MySQL › Users and Privileges › Roles & Advanced Security\nCREATE USER '<user>'@'<host>' IDENTIFIED BY '<pass>'\nTạo tài khoản người dùng (user) mới kèm mật khẩu và host\ntạo tài khoản người dùng mới kèm mật khẩu\nthêm user mới với host và password\nkhởi tạo người dùng database cấp mật khẩu",
+      "content_hash_vi": "c337f5b10c42c59179d63c47b4369b8db764ee0a3f259294932cca89cf40833e"
+    },
+    {
+      "details": null,
+      "example": "ALTER USER 'app'@'localhost' IDENTIFIED BY 'newsecret';",
+      "danger": null,
+      "card_pos": 14,
+      "section_pos": 5,
+      "card": "Users and Privileges",
+      "section": "Roles & Advanced Security",
+      "lang": null,
+      "kind": "command",
+      "command": "ALTER USER '<user>'@'<host>' IDENTIFIED BY '<pass>'",
+      "description": "Change password for a user",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Users and Privileges › Roles & Advanced Security\nALTER USER '<user>'@'<host>' IDENTIFIED BY '<pass>'\nChange password for a user",
+      "content_hash": "e9e1abe87b6c5a42c8af65c239da6cca73750fd649a19ea0098d32a814279bf0",
+      "description_vi": "Đổi mật khẩu cho người dùng (user)",
+      "embed_text_vi": "MySQL › Users and Privileges › Roles & Advanced Security\nALTER USER '<user>'@'<host>' IDENTIFIED BY '<pass>'\nĐổi mật khẩu cho người dùng (user)\nđổi mật khẩu cho user\nthay đổi password người dùng\ncập nhật mật khẩu tài khoản",
+      "content_hash_vi": "cecdba03ecb07b482bddc9fa3c234a1fe3f623db9dbf3b0fb6d0e0c245030d56"
+    },
+    {
+      "details": null,
+      "example": "SHOW GRANTS FOR 'app'@'localhost';",
+      "danger": null,
+      "card_pos": 14,
+      "section_pos": 5,
+      "card": "Users and Privileges",
+      "section": "Roles & Advanced Security",
+      "lang": null,
+      "kind": "command",
+      "command": "SHOW GRANTS FOR '<user>'@'<host>'",
+      "description": "List permissions granted to a user",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Users and Privileges › Roles & Advanced Security\nSHOW GRANTS FOR '<user>'@'<host>'\nList permissions granted to a user",
+      "content_hash": "aa00facb224a6ff9ccc24bd3e14833575eea47281bbe5ebd0cebb04cc40997ea",
+      "description_vi": "Xem danh sách các quyền hạn đã cấp cho user",
+      "embed_text_vi": "MySQL › Users and Privileges › Roles & Advanced Security\nSHOW GRANTS FOR '<user>'@'<host>'\nXem danh sách các quyền hạn đã cấp cho user\nxem quyền hạn đã cấp cho user\nkiểm tra quyền của người dùng\nliệt kê permission tài khoản đang có",
+      "content_hash_vi": "dc6ec4c48ab4d5d56dd5b9b579b334d0b102d005624582dd2bd6537da149720a"
+    },
+    {
+      "details": null,
+      "example": "CREATE ROLE 'readonly';",
+      "danger": null,
+      "card_pos": 14,
+      "section_pos": 5,
+      "card": "Users and Privileges",
+      "section": "Roles & Advanced Security",
+      "lang": null,
+      "kind": "command",
+      "command": "CREATE ROLE '<role>'",
+      "description": "Create a new role",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Users and Privileges › Roles & Advanced Security\nCREATE ROLE '<role>'\nCreate a new role",
+      "content_hash": "0cd104c53cbabec4d4e7af4bb5d6849dbf5619b609110216678cc8a494b5bb58",
+      "description_vi": "Tạo một vai trò (role) phân quyền mới",
+      "embed_text_vi": "MySQL › Users and Privileges › Roles & Advanced Security\nCREATE ROLE '<role>'\nTạo một vai trò (role) phân quyền mới\ntạo role phân quyền mới\nthêm vai trò role cho hệ thống\nkhởi tạo role nhóm quyền",
+      "content_hash_vi": "d5eb9dfb75b8b94dbdd5af07e9a693f446c66f9d66e0b33b1b5ed80b127ea873"
+    },
+    {
+      "details": null,
+      "example": "GRANT 'readonly' TO 'app'@'localhost';",
+      "danger": null,
+      "card_pos": 14,
+      "section_pos": 5,
+      "card": "Users and Privileges",
+      "section": "Roles & Advanced Security",
+      "lang": null,
+      "kind": "command",
+      "command": "GRANT '<role>' TO '<user>'@'<host>'",
+      "description": "Assign a role to a user",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Users and Privileges › Roles & Advanced Security\nGRANT '<role>' TO '<user>'@'<host>'\nAssign a role to a user",
+      "content_hash": "165dd894f589320b8dcd25952a505c941627dd8e79a9b872fcc3e1487675c330",
+      "description_vi": "Gán một vai trò (role) cho user",
+      "embed_text_vi": "MySQL › Users and Privileges › Roles & Advanced Security\nGRANT '<role>' TO '<user>'@'<host>'\nGán một vai trò (role) cho user\ngán role cho user\ncấp vai trò role cho người dùng\nphân quyền role cho tài khoản",
+      "content_hash_vi": "2274a077ee04487c7065aea83356fa53c71ab51cb1cbf88a26afe520feb8ca65"
     },
     {
       "details": null,
@@ -2616,6 +3708,204 @@
     },
     {
       "details": null,
+      "example": "CREATE TABLE t (id INT UNSIGNED);",
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 10,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "INT UNSIGNED",
+      "description": "Positive integer only, doubles max value",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Main Data Types\nINT UNSIGNED\nPositive integer only, doubles max value",
+      "content_hash": "f41c7787c9d58b70c441df71f645b4836e4345c788556823050baca223a8cea0",
+      "description_vi": "Kiểu số nguyên 4 byte không dấu, gấp đôi giá trị dương tối đa",
+      "embed_text_vi": "MySQL › Main Data Types\nINT UNSIGNED\nKiểu số nguyên 4 byte không dấu, gấp đôi giá trị dương tối đa\nkiểu số nguyên 4 byte không dấu\nkhai báo cột int unsigned dương\nkiểu dữ liệu số nguyên không âm",
+      "content_hash_vi": "7e46ffd38e3c2198a7b63b9c3b3322c766cfc984ca5e0f67b8278bd965732b23"
+    },
+    {
+      "details": null,
+      "example": "CREATE TABLE t (id BIGINT UNSIGNED);",
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 10,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "BIGINT UNSIGNED",
+      "description": "Very large positive integer",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Main Data Types\nBIGINT UNSIGNED\nVery large positive integer",
+      "content_hash": "0f934345d91a959defad609c761c1a8fe7f47637f2fdf4860480aa63eae8e899",
+      "description_vi": "Kiểu số nguyên 8 byte cực lớn không dấu",
+      "embed_text_vi": "MySQL › Main Data Types\nBIGINT UNSIGNED\nKiểu số nguyên 8 byte cực lớn không dấu\nkiểu số nguyên 8 byte cực lớn không dấu\nkhai báo cột bigint unsigned số nguyên lớn\nkiểu dữ liệu số nguyên siêu lớn không âm",
+      "content_hash_vi": "b1153ebbcf65ddcd893b1c09308afd6db554cb80b46948c971f5a000c49bb114"
+    },
+    {
+      "details": null,
+      "example": "price DECIMAL(10,2)",
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 10,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "DECIMAL(p,s)",
+      "description": "Exact fixed-point number for currency",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Main Data Types\nDECIMAL(p,s)\nExact fixed-point number for currency",
+      "content_hash": "f2ede5ed340d49635d1834228945ff1096b8544e4302a81cc435683f3002ed7f",
+      "description_vi": "Kiểu số thực có độ chính xác cố định cho tiền tệ",
+      "embed_text_vi": "MySQL › Main Data Types\nDECIMAL(p,s)\nKiểu số thực có độ chính xác cố định cho tiền tệ\nkiểu số tiền tệ chính xác tuyệt đối\nkhai báo cột lưu giá tiền decimal\nkiểu số thập phân cố định độ chính xác",
+      "content_hash_vi": "6d1afc541bc999f1a76ef61fd1b7f0ca84df9d378a9a34b9d4cb99bbeec062f8"
+    },
+    {
+      "details": null,
+      "example": "name VARCHAR(255)",
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 10,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "VARCHAR(n)",
+      "description": "Variable-length string up to n characters",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Main Data Types\nVARCHAR(n)\nVariable-length string up to n characters",
+      "content_hash": "8d81896ef78c2d9a8e11311bd29de5a7c2c2b4bd2e96e58abee5b9fb648cb5d4",
+      "description_vi": "Chuỗi ký tự độ dài thay đổi tối đa n ký tự",
+      "embed_text_vi": "MySQL › Main Data Types\nVARCHAR(n)\nChuỗi ký tự độ dài thay đổi tối đa n ký tự\nkiểu chuỗi văn bản giới hạn n ký tự\nkhai báo cột chuỗi độ dài thay đổi\nkiểu dữ liệu varchar độ dài biến đổi",
+      "content_hash_vi": "afa4fa9fae313fdd6f36277f4df2f53bfb558b5198d0bee377460840d5cfa327"
+    },
+    {
+      "details": null,
+      "example": "description TEXT",
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 10,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "TEXT",
+      "description": "Variable-length string for long text",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Main Data Types\nTEXT\nVariable-length string for long text",
+      "content_hash": "983c439df067eab27f955181c2a5377aad33f37a5d7412add5d534e5972db2dd",
+      "description_vi": "Kiểu chuỗi văn bản dài cho nội dung bài viết, mô tả",
+      "embed_text_vi": "MySQL › Main Data Types\nTEXT\nKiểu chuỗi văn bản dài cho nội dung bài viết, mô tả\nkiểu lưu văn bản dài bài viết\nkhai báo cột text chứa nội dung lớn\nkiểu dữ liệu chuỗi ký tự dung lượng lớn",
+      "content_hash_vi": "7e956d3ad3066297827b8d60cb4c614536d7ec204e288307faf512cb7f19d7ea"
+    },
+    {
+      "details": null,
+      "example": "created_at DATETIME",
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 10,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "DATETIME",
+      "description": "Date and time (no timezone conversion)",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 6,
+      "embed_text": "MySQL › Main Data Types\nDATETIME\nDate and time (no timezone conversion)",
+      "content_hash": "7a0544b746fbd6e68d232458efef4ae6411d7089b224a95b55c16887bd90c5d9",
+      "description_vi": "Kiểu lưu ngày giờ cố định không chuyển đổi múi giờ",
+      "embed_text_vi": "MySQL › Main Data Types\nDATETIME\nKiểu lưu ngày giờ cố định không chuyển đổi múi giờ\nkiểu lưu ngày giờ không đổi múi giờ\nkhai báo cột datetime giữ nguyên giờ\nkiểu ngày và thời gian không timezone",
+      "content_hash_vi": "19b84a914804c5ef1397549a3a1cda89c14c7a8aa5c01a9504538cd41d4d0bea"
+    },
+    {
+      "details": null,
+      "example": "updated_at TIMESTAMP",
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 10,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "TIMESTAMP",
+      "description": "Date and time (converted to UTC on storage)",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 7,
+      "embed_text": "MySQL › Main Data Types\nTIMESTAMP\nDate and time (converted to UTC on storage)",
+      "content_hash": "2b47a7d9768d4a84f104027a37642305b12b4802587e15bb741c3cc94d10c8e7",
+      "description_vi": "Kiểu ngày giờ tự động quy đổi về UTC khi lưu",
+      "embed_text_vi": "MySQL › Main Data Types\nTIMESTAMP\nKiểu ngày giờ tự động quy đổi về UTC khi lưu\nkiểu ngày giờ tự chuyển về múi giờ utc\nkhai báo cột timestamp tự đổi timezone\nkiểu thời gian quy đổi utc khi lưu trữ",
+      "content_hash_vi": "2d35f460ba7cccb891968ca21c37f569404c1e162e5874c80c0b33fef16bb0e2"
+    },
+    {
+      "details": null,
+      "example": "metadata JSON",
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 10,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "JSON",
+      "description": "Native JSON document storage",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 8,
+      "embed_text": "MySQL › Main Data Types\nJSON\nNative JSON document storage",
+      "content_hash": "c12bb40b3f3b9d65d682a12bcdc64f491ae257717c746529a902125d30dd85e8",
+      "description_vi": "Kiểu dữ liệu lưu trữ tài liệu JSON nguyên bản",
+      "embed_text_vi": "MySQL › Main Data Types\nJSON\nKiểu dữ liệu lưu trữ tài liệu JSON nguyên bản\nkiểu dữ liệu lưu cấu trúc json nguyên bản\nkhai báo cột chứa document json\nlưu trữ object json trực tiếp trong cột",
+      "content_hash_vi": "f309e717225eba0810f28a9104ecb1552eadb662f53698c957105520d6e7af35"
+    },
+    {
+      "details": null,
+      "example": "is_active BOOLEAN",
+      "danger": null,
+      "card_pos": 15,
+      "section_pos": 10,
+      "card": "Main Data Types",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "BOOLEAN",
+      "description": "Synonym for TINYINT(1)",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 9,
+      "embed_text": "MySQL › Main Data Types\nBOOLEAN\nSynonym for TINYINT(1)",
+      "content_hash": "8b850a8e4c4b7336f7e7cfd2a478ed9a722df71e83ed7a4434a5e1a9fcf008a9",
+      "description_vi": "Kiểu luận lý đúng/sai, tương đương với TINYINT(1)",
+      "embed_text_vi": "MySQL › Main Data Types\nBOOLEAN\nKiểu luận lý đúng/sai, tương đương với TINYINT(1)\nkiểu đúng sai boolean\nkhai báo cột kiểu true false\nkiểu luận lý tương đương tinyint 1",
+      "content_hash_vi": "3831e98c970ee5cb3815ce91f9b44ab0856c0722ef52d66978a9fabc34dc972b"
+    },
+    {
+      "details": null,
       "example": null,
       "danger": null,
       "card_pos": 16,
@@ -2748,9 +4038,2272 @@
       "description_vi": "Lưu ý các lệnh có thể khác nhau tùy thuộc vào hệ điều hành.",
       "embed_text_vi": "MySQL › Reset Root Password\nLưu ý các lệnh có thể khác nhau tùy thuộc vào hệ điều hành.\nlưu ý cú pháp khác biệt theo hệ điều hành\nkhác biệt thao tác theo từng os\nsự phụ thuộc vào từng hệ điều hành",
       "content_hash_vi": "70d603c3250d0752c35696911128118c71185c5ffe42167ccbbf08268a10b167"
+    },
+    {
+      "details": null,
+      "example": "mysql -u root -p",
+      "danger": null,
+      "card_pos": 17,
+      "section_pos": 1,
+      "card": "Client Options",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "mysql -u <user> -p",
+      "description": "Connect prompting for password",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Client Options\nmysql -u <user> -p\nConnect prompting for password",
+      "content_hash": "9b4b95b30ffc69d0601215ffec68e8944f56c416ee703d64f240c825df5f8916",
+      "description_vi": "Kết nối vào database bằng user và nhắc nhập mật khẩu",
+      "embed_text_vi": "MySQL › Client Options\nmysql -u <user> -p\nKết nối vào database bằng user và nhắc nhập mật khẩu\nđăng nhập user có nhắc điền password\nkết nối tài khoản và yêu cầu nhập mật khẩu\nvào database bằng user nhắc nhập pass",
+      "content_hash_vi": "525ca76b8242de79a02b9090330cb266aa0a580f8208c0163b46f4c50401c854"
+    },
+    {
+      "details": null,
+      "example": "mysql -h 127.0.0.1 -P 3306 -u root -p",
+      "danger": null,
+      "card_pos": 17,
+      "section_pos": 1,
+      "card": "Client Options",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "mysql -h <host> -P <port>",
+      "description": "Connect to a specific host and port",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Client Options\nmysql -h <host> -P <port>\nConnect to a specific host and port",
+      "content_hash": "dae72676d87678b1d2b6235ad573dc34bfd1e7a822a772e3e3cfd4bd7048792c",
+      "description_vi": "Kết nối tới máy chủ qua địa chỉ host và port chỉ định",
+      "embed_text_vi": "MySQL › Client Options\nmysql -h <host> -P <port>\nKết nối tới máy chủ qua địa chỉ host và port chỉ định\nkết nối máy chủ từ xa qua host và port\nđăng nhập vào host và cổng cụ thể\nchỉ định địa chỉ ip và port để kết nối",
+      "content_hash_vi": "8eda748e7edfa5b05a713b62d63bf0f7d556374ce7990975bfda5b790e910b38"
+    },
+    {
+      "details": null,
+      "example": "mysql -D myapp -u root -p",
+      "danger": null,
+      "card_pos": 17,
+      "section_pos": 1,
+      "card": "Client Options",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "mysql -D <db>",
+      "description": "Connect directly to a database",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Client Options\nmysql -D <db>\nConnect directly to a database",
+      "content_hash": "f76e2386c3d321d0c3bc498647237c35f73841f6b06729cb2ce46a8706171970",
+      "description_vi": "Kết nối và chọn làm việc trực tiếp trên một database",
+      "embed_text_vi": "MySQL › Client Options\nmysql -D <db>\nKết nối và chọn làm việc trực tiếp trên một database\nkết nối và vào thẳng database cụ thể\nchọn sẵn cơ sở dữ liệu khi đăng nhập\nchỉ định database làm việc ngay khi mở kết nối",
+      "content_hash_vi": "d74576acd10c95c175fdf195611be0ce596e9aec3f2e0e4f8b547be33980b1b0"
+    },
+    {
+      "details": null,
+      "example": "mysql -e \"SELECT VERSION();\"",
+      "danger": null,
+      "card_pos": 17,
+      "section_pos": 1,
+      "card": "Client Options",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "mysql -e \"<query>\"",
+      "description": "Execute a query and quit",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Client Options\nmysql -e \"<query>\"\nExecute a query and quit",
+      "content_hash": "eb7ff44bbfed1705658c63925dcd73aa2c6200b0369436c75ef8dcf04efcb5a2",
+      "description_vi": "Thực thi câu truy vấn SQL từ terminal rồi thoát ngay",
+      "embed_text_vi": "MySQL › Client Options\nmysql -e \"<query>\"\nThực thi câu truy vấn SQL từ terminal rồi thoát ngay\nchạy câu query từ dòng lệnh rồi thoát\nthực thi sql trực tiếp từ terminal\ntruy vấn dữ liệu từ bash không cần vào client",
+      "content_hash_vi": "52e039f8963f3cfe59a0d67644ab8442ceb6e08ee1fdefb72093dc9ac117770f"
+    },
+    {
+      "details": null,
+      "example": "mysql --batch --skip-column-names -e \"SELECT id FROM users\"",
+      "danger": null,
+      "card_pos": 17,
+      "section_pos": 1,
+      "card": "Client Options",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "mysql --batch --skip-column-names",
+      "description": "Raw tab-separated output without headers",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Client Options\nmysql --batch --skip-column-names\nRaw tab-separated output without headers",
+      "content_hash": "ac57f03163c91dfa08c14c446f5e8495b26599aa7a0059a182f0e391550b1403",
+      "description_vi": "Xuất kết quả phân cách bằng tab, ẩn tiêu đề cột",
+      "embed_text_vi": "MySQL › Client Options\nmysql --batch --skip-column-names\nXuất kết quả phân cách bằng tab, ẩn tiêu đề cột\nxuất dữ liệu thô phân cách bằng tab không header\nẩn tiêu đề cột khi xuất kết quả truy vấn\nchạy query trả về dạng tsv không tên cột",
+      "content_hash_vi": "39ddc0e825027265ff252654e99fc25b7e47cd20e9eb6c48170c7f9af59b3cd5"
+    },
+    {
+      "details": null,
+      "example": "mysql -t -e \"SELECT * FROM users LIMIT 3\"",
+      "danger": null,
+      "card_pos": 17,
+      "section_pos": 1,
+      "card": "Client Options",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "mysql -t",
+      "description": "Output in table format (useful with -e)",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 6,
+      "embed_text": "MySQL › Client Options\nmysql -t\nOutput in table format (useful with -e)",
+      "content_hash": "639498058bbe03671eb4c57d0cb265359a21304041826ddea0861bcbeaa013a2",
+      "description_vi": "Hiển thị kết quả truy vấn dưới dạng khung bảng ASCII",
+      "embed_text_vi": "MySQL › Client Options\nmysql -t\nHiển thị kết quả truy vấn dưới dạng khung bảng ASCII\nhiển thị kết quả dạng bảng kẻ khung\nin kết quả truy vấn kiểu table ascii\nđịnh dạng output câu truy vấn thành bảng",
+      "content_hash_vi": "97fac8d80c8bd1a95c02f80e90e9ee75867a599b4bd0b2143c564060cd16246d"
+    },
+    {
+      "details": null,
+      "example": "mysql_config_editor set --login-path=local --host=localhost --user=root --password",
+      "danger": null,
+      "card_pos": 17,
+      "section_pos": 1,
+      "card": "Client Options",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "mysql_config_editor set --login-path=<name>",
+      "description": "Save credentials securely",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 7,
+      "embed_text": "MySQL › Client Options\nmysql_config_editor set --login-path=<name>\nSave credentials securely",
+      "content_hash": "11adbd2f851032a7eb99a4b5521a5ea38d68fd11937fc81c00f9701e834c4a3f",
+      "description_vi": "Lưu thông tin đăng nhập đã mã hoá an toàn vào login-path",
+      "embed_text_vi": "MySQL › Client Options\nmysql_config_editor set --login-path=<name>\nLưu thông tin đăng nhập đã mã hoá an toàn vào login-path\nlưu thông tin đăng nhập an toàn bằng login path\nghi nhớ mật khẩu tài khoản bảo mật bằng config editor\ntạo login-path lưu trữ credentials mã hoá",
+      "content_hash_vi": "ae0b4f97464ee503d25b2013714b00726069e0318a6a4f62d69a609ebf6248ae"
+    },
+    {
+      "details": null,
+      "example": "mysql --login-path=local",
+      "danger": null,
+      "card_pos": 17,
+      "section_pos": 1,
+      "card": "Client Options",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "mysql --login-path=<name>",
+      "description": "Connect using saved credentials",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 8,
+      "embed_text": "MySQL › Client Options\nmysql --login-path=<name>\nConnect using saved credentials",
+      "content_hash": "47edf5286cf1c3c47ea0e2ed958515ec0d448b357f15953bb3812d784d9a0a88",
+      "description_vi": "Kết nối bằng thông tin đăng nhập đã lưu trong login-path",
+      "embed_text_vi": "MySQL › Client Options\nmysql --login-path=<name>\nKết nối bằng thông tin đăng nhập đã lưu trong login-path\nkết nối bằng login-path đã lưu\nđăng nhập không cần gõ mật khẩu qua login path\ndùng credentials đã lưu để kết nối",
+      "content_hash_vi": "d1816f1fe2edb40c6b167ae4f9fd09a73a6fbb7ba953d635c0261d70184d8d2e"
+    },
+    {
+      "details": null,
+      "example": "source /tmp/dump.sql;",
+      "danger": null,
+      "card_pos": 17,
+      "section_pos": 1,
+      "card": "Client Options",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "source <file.sql>",
+      "description": "Execute SQL commands from a file in interactive mode",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 9,
+      "embed_text": "MySQL › Client Options\nsource <file.sql>\nExecute SQL commands from a file in interactive mode",
+      "content_hash": "9669ff31200c4e83132f4cf05b81d84e62da923c7224c71a83dc15a3b5ed313c",
+      "description_vi": "Thực thi các lệnh SQL từ file trong chế độ tương tác",
+      "embed_text_vi": "MySQL › Client Options\nsource <file.sql>\nThực thi các lệnh SQL từ file trong chế độ tương tác\nchạy file script sql trong console\nthực thi file dump sql trực tiếp\nnạp dữ liệu từ file sql bằng source",
+      "content_hash_vi": "6f0ad8be9cbd7429bd49dfb1a126fd3eb3af51b22daf0f491175db39d2c26fca"
+    },
+    {
+      "details": null,
+      "example": "SELECT * FROM users LIMIT 1 \\G",
+      "danger": null,
+      "card_pos": 17,
+      "section_pos": 1,
+      "card": "Client Options",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "\\G",
+      "description": "Display query results vertically",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 10,
+      "embed_text": "MySQL › Client Options\n\\G\nDisplay query results vertically",
+      "content_hash": "f11f346878c843c4f39160c71d16c154f01af0e7e5fc559fa9a30e5e3c8314cc",
+      "description_vi": "Hiển thị từng trường của kết quả truy vấn theo hàng dọc",
+      "embed_text_vi": "MySQL › Client Options\n\\G\nHiển thị từng trường của kết quả truy vấn theo hàng dọc\nhiển thị kết quả truy vấn theo chiều dọc\nxem bản ghi dạng danh sách dọc thay vì ngang\nin kết quả query xoay dọc từng dòng",
+      "content_hash_vi": "4cdd887fa70c766757998e453883dbe56c554960a44d032abb76b5bf76932f02"
+    },
+    {
+      "details": null,
+      "example": "pager less -S;",
+      "danger": null,
+      "card_pos": 17,
+      "section_pos": 1,
+      "card": "Client Options",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "pager <command>",
+      "description": "Pipe output to a pager program",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 11,
+      "embed_text": "MySQL › Client Options\npager <command>\nPipe output to a pager program",
+      "content_hash": "10b3db597e2c34bf8665f36756883999de2679d7f822f8969ca86d5a64e695ca",
+      "description_vi": "Chuyển hướng kết quả hiển thị sang công cụ phân trang terminal",
+      "embed_text_vi": "MySQL › Client Options\npager <command>\nChuyển hướng kết quả hiển thị sang công cụ phân trang terminal\nchuyển kết quả sang less để cuộn trang\ndùng pager cuộn màn hình kết quả dài\npipe output sang trình phân trang terminal",
+      "content_hash_vi": "349400e3f9be2015519899d185c402e48d4c8f65bbb22d734fb0400267ce695f"
+    },
+    {
+      "details": null,
+      "example": "tee /tmp/mysql-session.log;",
+      "danger": null,
+      "card_pos": 17,
+      "section_pos": 1,
+      "card": "Client Options",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "tee <file>",
+      "description": "Log all session output to a file",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 12,
+      "embed_text": "MySQL › Client Options\ntee <file>\nLog all session output to a file",
+      "content_hash": "bba0f07020d10fffc6e2ea92d23a226621aa4f36512e36e4b1cff10e94002bce",
+      "description_vi": "Ghi lại toàn bộ nhật ký phiên làm việc ra file",
+      "embed_text_vi": "MySQL › Client Options\ntee <file>\nGhi lại toàn bộ nhật ký phiên làm việc ra file\nghi log toàn bộ phiên làm việc ra file\nlưu lịch sử màn hình tương tác vào file\nxuất output phiên console ra file nhật ký",
+      "content_hash_vi": "9c478936a1089691f23e8c7c3106ada9956e4b66d4237b0a8dc1e774cb927d39"
+    },
+    {
+      "details": null,
+      "example": "CREATE INDEX idx_name ON users(last_name);",
+      "danger": null,
+      "card_pos": 18,
+      "section_pos": 1,
+      "card": "Indexes",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "CREATE INDEX <name> ON <t> (<col>)",
+      "description": "Create a standard index",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Indexes\nCREATE INDEX <name> ON <t> (<col>)\nCreate a standard index",
+      "content_hash": "2695cb5a62a04926cea0fae55c622a0935f1d5a000bd0da6252d1c1437d39e9b",
+      "description_vi": "Tạo chỉ mục (index) thông thường trên một cột của bảng",
+      "embed_text_vi": "MySQL › Indexes\nCREATE INDEX <name> ON <t> (<col>)\nTạo chỉ mục (index) thông thường trên một cột của bảng\ntạo chỉ mục index cho một cột\nđánh index đơn cột để tăng tốc truy vấn\nthêm chỉ mục thông thường cho bảng",
+      "content_hash_vi": "bb1f95bca39f9898d83cca2399c955f8e837d1343e0bf447787821f45e0f6e18"
+    },
+    {
+      "details": null,
+      "example": "CREATE UNIQUE INDEX idx_email ON users(email);",
+      "danger": null,
+      "card_pos": 18,
+      "section_pos": 1,
+      "card": "Indexes",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "CREATE UNIQUE INDEX <name> ON <t> (<col>)",
+      "description": "Create an index that enforces unique values",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Indexes\nCREATE UNIQUE INDEX <name> ON <t> (<col>)\nCreate an index that enforces unique values",
+      "content_hash": "e5f9233680c0f1aba067d10fd5ffb71d395e33e0e1527848e2178ed74480a02d",
+      "description_vi": "Tạo chỉ mục duy nhất (unique index) chống trùng lặp giá trị",
+      "embed_text_vi": "MySQL › Indexes\nCREATE UNIQUE INDEX <name> ON <t> (<col>)\nTạo chỉ mục duy nhất (unique index) chống trùng lặp giá trị\ntạo chỉ mục duy nhất không trùng lặp\nđánh unique index ngăn trùng giá trị cột\nthêm ràng buộc duy nhất bằng unique index",
+      "content_hash_vi": "dbfbcebd3b77b2d8dadaa3b35dd1d7f63ae8f9f0dc4be7668d4c6ac8c57c702c"
+    },
+    {
+      "details": null,
+      "example": "CREATE INDEX idx_status_date ON orders(status, created_at);",
+      "danger": null,
+      "card_pos": 18,
+      "section_pos": 1,
+      "card": "Indexes",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "CREATE INDEX <name> ON <t> (<col1>, <col2>)",
+      "description": "Create a composite index on multiple columns",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Indexes\nCREATE INDEX <name> ON <t> (<col1>, <col2>)\nCreate a composite index on multiple columns",
+      "content_hash": "ae545cc62f9047fe2efcf2d785237a69e5ccd5552c315cb8a90f0e5f956e7e4a",
+      "description_vi": "Tạo chỉ mục tổng hợp (composite index) trên nhiều cột",
+      "embed_text_vi": "MySQL › Indexes\nCREATE INDEX <name> ON <t> (<col1>, <col2>)\nTạo chỉ mục tổng hợp (composite index) trên nhiều cột\ntạo chỉ mục nhiều cột kết hợp\nđánh composite index trên hai hoặc nhiều trường\ntạo index phối hợp nhiều cột",
+      "content_hash_vi": "9ad024594a38b6b6623ba95d222ff7f83a77310619c4ca0a786fdbc540c7fc35"
+    },
+    {
+      "details": null,
+      "example": "CREATE FULLTEXT INDEX idx_content ON articles(content);",
+      "danger": null,
+      "card_pos": 18,
+      "section_pos": 1,
+      "card": "Indexes",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "CREATE FULLTEXT INDEX <name> ON <t> (<col>)",
+      "description": "Create index for full-text search",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Indexes\nCREATE FULLTEXT INDEX <name> ON <t> (<col>)\nCreate index for full-text search",
+      "content_hash": "67111e8f55d411334505a825e9ed058817fac11a62adcff042a1bce89dd4758d",
+      "description_vi": "Tạo chỉ mục toàn văn (full-text index) hỗ trợ tìm kiếm bài viết",
+      "embed_text_vi": "MySQL › Indexes\nCREATE FULLTEXT INDEX <name> ON <t> (<col>)\nTạo chỉ mục toàn văn (full-text index) hỗ trợ tìm kiếm bài viết\ntạo chỉ mục tìm kiếm toàn văn full-text\nđánh fulltext index cho cột văn bản\nkhởi tạo index tìm kiếm từ khoá bài viết",
+      "content_hash_vi": "a8d2d87c2852991f45d5e4f9c3c12a81080f6658addb458a5471760d52fd9921"
+    },
+    {
+      "details": null,
+      "example": "SELECT * FROM articles WHERE MATCH (content) AGAINST ('database');",
+      "danger": null,
+      "card_pos": 18,
+      "section_pos": 1,
+      "card": "Indexes",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "MATCH (<col>) AGAINST ('<val>')",
+      "description": "Perform a full-text search",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Indexes\nMATCH (<col>) AGAINST ('<val>')\nPerform a full-text search",
+      "content_hash": "9f23aab40dcf128f1d8686e901e05df732caf6dc567ca58c3f6c78abd57c41cc",
+      "description_vi": "Tìm kiếm toàn văn (full-text search) theo từ khoá trên cột index",
+      "embed_text_vi": "MySQL › Indexes\nMATCH (<col>) AGAINST ('<val>')\nTìm kiếm toàn văn (full-text search) theo từ khoá trên cột index\ntìm kiếm toàn văn fulltext theo từ khoá\ntruy vấn tìm kiếm nội dung bằng match against\ntìm cụm từ trong văn bản full-text search",
+      "content_hash_vi": "17fc6a1bcad003cd6e685108df84a242729e8e48809c63d803cb170a1883428a"
+    },
+    {
+      "details": null,
+      "example": "SHOW INDEX FROM users;",
+      "danger": null,
+      "card_pos": 18,
+      "section_pos": 1,
+      "card": "Indexes",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "SHOW INDEX FROM <t>",
+      "description": "List all indexes on a table",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 6,
+      "embed_text": "MySQL › Indexes\nSHOW INDEX FROM <t>\nList all indexes on a table",
+      "content_hash": "3985f6657e760fe19f16bae38e2cbf01baad63f57949f9ac827ec468dfc387c6",
+      "description_vi": "Xem danh sách toàn bộ chỉ mục (index) có trong bảng",
+      "embed_text_vi": "MySQL › Indexes\nSHOW INDEX FROM <t>\nXem danh sách toàn bộ chỉ mục (index) có trong bảng\nxem danh sách các index trong bảng\nkiểm tra bảng có những chỉ mục nào\nliệt kê tất cả index của bảng",
+      "content_hash_vi": "40a379f0a3a4c06e6b5d71a12dca302d805960e64fc5a503229dcbc88b214b56"
+    },
+    {
+      "details": null,
+      "example": "DROP INDEX idx_name ON users;",
+      "danger": null,
+      "card_pos": 18,
+      "section_pos": 1,
+      "card": "Indexes",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "DROP INDEX <name> ON <t>",
+      "description": "Remove an index",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 7,
+      "embed_text": "MySQL › Indexes\nDROP INDEX <name> ON <t>\nRemove an index",
+      "content_hash": "c50a22be4d2a844b2f64d5fbb2abbc4b86e88deb817d315285dffe3bf16187e9",
+      "description_vi": "Xoá bỏ một chỉ mục (index) khỏi bảng",
+      "embed_text_vi": "MySQL › Indexes\nDROP INDEX <name> ON <t>\nXoá bỏ một chỉ mục (index) khỏi bảng\nxoá chỉ mục index khỏi bảng\ngỡ bỏ index không còn dùng\nhuỷ chỉ mục của một bảng",
+      "content_hash_vi": "4a70441ff9dcc6e5f6261d45e76a5a4d704df1d9384e751b75a961ac76789658"
+    },
+    {
+      "details": null,
+      "example": "ALTER TABLE users ALTER INDEX idx_name INVISIBLE;",
+      "danger": null,
+      "card_pos": 18,
+      "section_pos": 1,
+      "card": "Indexes",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "ALTER TABLE <t> ALTER INDEX <name> INVISIBLE",
+      "description": "Make index invisible to optimizer (MySQL 8+)",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 8,
+      "embed_text": "MySQL › Indexes\nALTER TABLE <t> ALTER INDEX <name> INVISIBLE\nMake index invisible to optimizer (MySQL 8+)",
+      "content_hash": "18fcbd42350df2164839ec8a6e1346a6e0042f08d9a808b00b14c625e7475308",
+      "description_vi": "Ẩn index với bộ tối ưu hóa (optimizer)",
+      "embed_text_vi": "MySQL › Indexes\nALTER TABLE <t> ALTER INDEX <name> INVISIBLE\nẨn index với bộ tối ưu hóa (optimizer)\nẩn index tránh optimizer sử dụng\ntắt index tạm thời không cần drop\ninvisible index bỏ qua khi thực thi query",
+      "content_hash_vi": "a6553acf7227bf65debfedc719e7c9f81e3ed9e94e0714190744be4c5d543522"
+    },
+    {
+      "details": null,
+      "example": "SELECT COUNT(*) FROM users;",
+      "danger": null,
+      "card_pos": 19,
+      "section_pos": 1,
+      "card": "Aggregations & Grouping",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "COUNT(<col>)",
+      "description": "Count non-null rows (or all with *)",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Aggregations & Grouping\nCOUNT(<col>)\nCount non-null rows (or all with *)",
+      "content_hash": "c2d630d2e58a66288fc0563be1dcc8b484817b9d2a7b4b6ba6d75f34ac860ce9",
+      "description_vi": "Đếm số dòng khác null hoặc tất cả dòng",
+      "embed_text_vi": "MySQL › Aggregations & Grouping\nCOUNT(<col>)\nĐếm số dòng khác null hoặc tất cả dòng\nđếm số dòng dữ liệu\ntính tổng số lượng bản ghi\ncount số hàng không null",
+      "content_hash_vi": "89e3d3cf36f0423a2e22869c4a4d2e26bf73874f55ee741b9d9697cb78d79fbe"
+    },
+    {
+      "details": null,
+      "example": "SELECT SUM(price) FROM orders;",
+      "danger": null,
+      "card_pos": 19,
+      "section_pos": 1,
+      "card": "Aggregations & Grouping",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "SUM(<col>)",
+      "description": "Sum of column values",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Aggregations & Grouping\nSUM(<col>)\nSum of column values",
+      "content_hash": "50d99489a8e6e8c7806a698c1514301501b872273be8589beaffac497d8a23b7",
+      "description_vi": "Tính tổng giá trị của một cột",
+      "embed_text_vi": "MySQL › Aggregations & Grouping\nSUM(<col>)\nTính tổng giá trị của một cột\ntính tổng giá trị cột\ncộng dồn giá trị số\nsum dữ liệu một trường",
+      "content_hash_vi": "f758232e84e240f2bcf03acdf0f77471d6f09ec840ae07408c6858d70310b618"
+    },
+    {
+      "details": null,
+      "example": "SELECT AVG(age) FROM users;",
+      "danger": null,
+      "card_pos": 19,
+      "section_pos": 1,
+      "card": "Aggregations & Grouping",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "AVG(<col>)",
+      "description": "Average of column values",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Aggregations & Grouping\nAVG(<col>)\nAverage of column values",
+      "content_hash": "4323a523d1811b75d00129cbc020fe62c179ec4e573680a90f2c9ad03ad4730f",
+      "description_vi": "Tính giá trị trung bình của một cột",
+      "embed_text_vi": "MySQL › Aggregations & Grouping\nAVG(<col>)\nTính giá trị trung bình của một cột\ntính giá trị trung bình cột\nđiểm trung bình các dòng\naverage của một trường",
+      "content_hash_vi": "0c2bb8762006c0f5b4ab5fc84076b5a9dc39da7537f89f33d3e7d64e22224c6f"
+    },
+    {
+      "details": null,
+      "example": "SELECT MIN(price), MAX(price) FROM products;",
+      "danger": null,
+      "card_pos": 19,
+      "section_pos": 1,
+      "card": "Aggregations & Grouping",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "MIN(<col>), MAX(<col>)",
+      "description": "Minimum and maximum values",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Aggregations & Grouping\nMIN(<col>), MAX(<col>)\nMinimum and maximum values",
+      "content_hash": "3705c2cbfd5bbb9a527c611bbbd9b0bc93fc13862989f14083879715ef8c630a",
+      "description_vi": "Tìm giá trị nhỏ nhất và lớn nhất",
+      "embed_text_vi": "MySQL › Aggregations & Grouping\nMIN(<col>), MAX(<col>)\nTìm giá trị nhỏ nhất và lớn nhất\ntìm giá trị lớn nhất và nhỏ nhất\nlấy số cao nhất thấp nhất cột\ngiá trị min max trong bảng",
+      "content_hash_vi": "270294514ea23eb081486d3f72dfe58ab0a0572c769ce7f32a30e0658f24b116"
+    },
+    {
+      "details": null,
+      "example": "SELECT role, GROUP_CONCAT(name) FROM users GROUP BY role;",
+      "danger": null,
+      "card_pos": 19,
+      "section_pos": 1,
+      "card": "Aggregations & Grouping",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "GROUP_CONCAT(<col>)",
+      "description": "Concatenate column values from a group into a string",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Aggregations & Grouping\nGROUP_CONCAT(<col>)\nConcatenate column values from a group into a string",
+      "content_hash": "9ce4ab7ec5f8a5e6c7a237c6fc74f15c82082226caa17ac96701f040f0843e5c",
+      "description_vi": "Nối các giá trị trong nhóm thành một chuỗi",
+      "embed_text_vi": "MySQL › Aggregations & Grouping\nGROUP_CONCAT(<col>)\nNối các giá trị trong nhóm thành một chuỗi\nnối giá trị các dòng thành chuỗi\ngom nhóm gộp text cách nhau\nghép dữ liệu nhiều dòng thành một",
+      "content_hash_vi": "a7b32c328282851a9ebd6228a3b4410e904585c98211ee28f21f221020a41183"
+    },
+    {
+      "details": null,
+      "example": "SELECT role, COUNT(*) FROM users GROUP BY role WITH ROLLUP;",
+      "danger": null,
+      "card_pos": 19,
+      "section_pos": 1,
+      "card": "Aggregations & Grouping",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "WITH ROLLUP",
+      "description": "Add summary rows for aggregated totals",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 6,
+      "embed_text": "MySQL › Aggregations & Grouping\nWITH ROLLUP\nAdd summary rows for aggregated totals",
+      "content_hash": "d71efcbc40c9db52884cf7e3a0520922bba2edccb1e65321bfa27dfddcf3e728",
+      "description_vi": "Thêm các dòng tổng kết (subtotal/grand total) khi gom nhóm",
+      "embed_text_vi": "MySQL › Aggregations & Grouping\nWITH ROLLUP\nThêm các dòng tổng kết (subtotal/grand total) khi gom nhóm\nthêm dòng tổng cộng vào group by\ntính subtotal và grand total gom nhóm\nrollup tổng kết các cấp phân nhóm",
+      "content_hash_vi": "bc935107c4c7f0e35adef399bddee4ccc619fc4e64d70fff22e65940df2acb9d"
+    },
+    {
+      "details": null,
+      "example": "SELECT * FROM users WHERE id IN (SELECT user_id FROM orders);",
+      "danger": null,
+      "card_pos": 20,
+      "section_pos": 1,
+      "card": "Subqueries & CTEs",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "WHERE <col> IN (SELECT ...)",
+      "description": "Filter based on a list from a subquery",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Subqueries & CTEs\nWHERE <col> IN (SELECT ...)\nFilter based on a list from a subquery",
+      "content_hash": "b1d33a3010bdc010999ba2fe445a899efa516720abe2e5fb9a6f372e431dc5fa",
+      "description_vi": "Lọc dữ liệu theo danh sách trả về từ subquery",
+      "embed_text_vi": "MySQL › Subqueries & CTEs\nWHERE <col> IN (SELECT ...)\nLọc dữ liệu theo danh sách trả về từ subquery\nlọc điều kiện nằm trong subquery\nkiểm tra giá trị thuộc kết quả truy vấn con\nin danh sách từ câu select lồng",
+      "content_hash_vi": "14f0dc33d5667589a65438f7374d9e869546d0a97e5eefe7d3708b7a6b390157"
+    },
+    {
+      "details": null,
+      "example": "SELECT * FROM users u WHERE EXISTS (SELECT 1 FROM orders o WHERE o.user_id = u.id);",
+      "danger": null,
+      "card_pos": 20,
+      "section_pos": 1,
+      "card": "Subqueries & CTEs",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "WHERE EXISTS (SELECT ...)",
+      "description": "Filter based on subquery returning any rows",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Subqueries & CTEs\nWHERE EXISTS (SELECT ...)\nFilter based on subquery returning any rows",
+      "content_hash": "852892a1e020c8c2f5de6822925be0ad33bd164c406e5d73288be15129f36ed7",
+      "description_vi": "Lọc dữ liệu nếu subquery trả về kết quả",
+      "embed_text_vi": "MySQL › Subqueries & CTEs\nWHERE EXISTS (SELECT ...)\nLọc dữ liệu nếu subquery trả về kết quả\nkiểm tra tồn tại bản ghi trong subquery\nlọc dữ liệu theo điều kiện exists\nsubquery trả về ít nhất một dòng",
+      "content_hash_vi": "701df5cc0266b813f5f9d2d008fa74767c6ee0b80ce778732fabf5fede088844"
+    },
+    {
+      "details": null,
+      "example": "SELECT temp.id FROM (SELECT id FROM users) AS temp;",
+      "danger": null,
+      "card_pos": 20,
+      "section_pos": 1,
+      "card": "Subqueries & CTEs",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "FROM (SELECT ...) AS <alias>",
+      "description": "Use a subquery as a derived table in FROM clause",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Subqueries & CTEs\nFROM (SELECT ...) AS <alias>\nUse a subquery as a derived table in FROM clause",
+      "content_hash": "b7dc2742b3365a6b96266f387e2ab01731b7b777c4638fe53e34ff7ce779a0f8",
+      "description_vi": "Dùng subquery làm bảng tạm (derived table) trong FROM",
+      "embed_text_vi": "MySQL › Subqueries & CTEs\nFROM (SELECT ...) AS <alias>\nDùng subquery làm bảng tạm (derived table) trong FROM\nbảng tạm từ subquery trong from\nderived table từ câu select con\nlồng subquery vào mệnh đề from",
+      "content_hash_vi": "1f4ac05373a99c1fe6c5a4aa78affe27f0716e4826928eefb540d48bc05b963e"
+    },
+    {
+      "details": null,
+      "example": "WITH active AS (SELECT * FROM users WHERE status='active') SELECT * FROM active;",
+      "danger": null,
+      "card_pos": 20,
+      "section_pos": 1,
+      "card": "Subqueries & CTEs",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "WITH <name> AS (SELECT ...)",
+      "description": "Common Table Expression (CTE) for readable subqueries",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Subqueries & CTEs\nWITH <name> AS (SELECT ...)\nCommon Table Expression (CTE) for readable subqueries",
+      "content_hash": "0e6bb1da65995bbee066beced64ee01bec0366a66891bd97bb77956d4746bb54",
+      "description_vi": "Tạo bảng tạm CTE giúp truy vấn dễ đọc hơn",
+      "embed_text_vi": "MySQL › Subqueries & CTEs\nWITH <name> AS (SELECT ...)\nTạo bảng tạm CTE giúp truy vấn dễ đọc hơn\ntạo cte bảng tạm tái sử dụng\nwith as đặt tên truy vấn con\nkhai báo common table expression",
+      "content_hash_vi": "6334566c32482c6a5d6c99e395e3cda136f4f518722dc3a0a983538f5d5aaed5"
+    },
+    {
+      "details": null,
+      "example": "WITH RECURSIVE cnt(n) AS (SELECT 1 UNION ALL SELECT n+1 FROM cnt WHERE n<5) SELECT * FROM cnt;",
+      "danger": null,
+      "card_pos": 20,
+      "section_pos": 1,
+      "card": "Subqueries & CTEs",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "WITH RECURSIVE <name> AS (...)",
+      "description": "Recursive CTE for hierarchical data",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Subqueries & CTEs\nWITH RECURSIVE <name> AS (...)\nRecursive CTE for hierarchical data",
+      "content_hash": "c32d6dcc435b92c3a38e655207e25bab8a98f5dcc6d87dbd379ee2e64c75b425",
+      "description_vi": "Tạo CTE đệ quy để xử lý dữ liệu phân cấp",
+      "embed_text_vi": "MySQL › Subqueries & CTEs\nWITH RECURSIVE <name> AS (...)\nTạo CTE đệ quy để xử lý dữ liệu phân cấp\ncte đệ quy truy vấn cây phân cấp\nwith recursive duyệt dữ liệu cha con\ntruy vấn dữ liệu đa cấp lặp lại",
+      "content_hash_vi": "a2ac36a2eeaa0ccabb7324a756be09e1b111a6b9be40d0256c2288cf81b3c8ad"
+    },
+    {
+      "details": null,
+      "example": "SELECT ROW_NUMBER() OVER (PARTITION BY dept ORDER BY salary) FROM emp;",
+      "danger": null,
+      "card_pos": 21,
+      "section_pos": 1,
+      "card": "Window Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "ROW_NUMBER() OVER (...)",
+      "description": "Assign sequential integer to each row in partition",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Window Functions\nROW_NUMBER() OVER (...)\nAssign sequential integer to each row in partition",
+      "content_hash": "c6b06b826b30b20e04914849282f74b807d403a44f58068ee9c8e8c9aba89770",
+      "description_vi": "Đánh số thứ tự tăng dần liên tục cho từng dòng",
+      "embed_text_vi": "MySQL › Window Functions\nROW_NUMBER() OVER (...)\nĐánh số thứ tự tăng dần liên tục cho từng dòng\nđánh số thứ tự liên tục từng dòng\nrow number phân vùng sắp xếp\ngán số dòng tự tăng trong nhóm",
+      "content_hash_vi": "806d7435216c2163b1213895501a5d7197a565e2a62f30f562eb85d59db3130f"
+    },
+    {
+      "details": null,
+      "example": "SELECT RANK() OVER (ORDER BY score DESC) FROM scores;",
+      "danger": null,
+      "card_pos": 21,
+      "section_pos": 1,
+      "card": "Window Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "RANK() OVER (...)",
+      "description": "Rank rows, with gaps for ties",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Window Functions\nRANK() OVER (...)\nRank rows, with gaps for ties",
+      "content_hash": "b0d4e3daad20bdc21a383f9575f905e545cade3e33e659f842082b4dd258f270",
+      "description_vi": "Xếp hạng có nhảy bậc (bỏ cách số) khi trùng hạng",
+      "embed_text_vi": "MySQL › Window Functions\nRANK() OVER (...)\nXếp hạng có nhảy bậc (bỏ cách số) khi trùng hạng\nxếp hạng có nhảy số khi đồng hạng\nxếp thứ hạng có khoảng cách\nrank thứ tự nhảy bậc giá trị bằng nhau",
+      "content_hash_vi": "ba2ce07edbdde33bdcd1f938877c6532d538c6e638ca2ab86c0295b69974d959"
+    },
+    {
+      "details": null,
+      "example": "SELECT DENSE_RANK() OVER (ORDER BY score DESC) FROM scores;",
+      "danger": null,
+      "card_pos": 21,
+      "section_pos": 1,
+      "card": "Window Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "DENSE_RANK() OVER (...)",
+      "description": "Rank rows, without gaps for ties",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Window Functions\nDENSE_RANK() OVER (...)\nRank rows, without gaps for ties",
+      "content_hash": "73ae8a0d3185f5039bd0b209ce30024fc576e1f9840ab46e1214171d92f45dae",
+      "description_vi": "Xếp hạng liên tục không nhảy bậc khi trùng hạng",
+      "embed_text_vi": "MySQL › Window Functions\nDENSE_RANK() OVER (...)\nXếp hạng liên tục không nhảy bậc khi trùng hạng\nxếp hạng không nhảy số khi trùng\nthứ hạng liên tục không bỏ cách\ndense rank thứ tự đồng hạng liên tiếp",
+      "content_hash_vi": "878498301b62957d70332d29c7029220b63b3c062a0eaa9ad6a30e29551bc644"
+    },
+    {
+      "details": null,
+      "example": "SELECT LAG(price) OVER (ORDER BY date) FROM sales;",
+      "danger": null,
+      "card_pos": 21,
+      "section_pos": 1,
+      "card": "Window Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "LAG(<col>) OVER (...)",
+      "description": "Access value from a previous row",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Window Functions\nLAG(<col>) OVER (...)\nAccess value from a previous row",
+      "content_hash": "8ba375711416c4084c183e9b56fb2f1c6b0651d396aae863adcf271636665768",
+      "description_vi": "Lấy giá trị của dòng phía trước",
+      "embed_text_vi": "MySQL › Window Functions\nLAG(<col>) OVER (...)\nLấy giá trị của dòng phía trước\nlấy giá trị dòng liền trước\ntruy xuất dữ liệu hàng phía trước\nlag giá trị kỳ trước so sánh",
+      "content_hash_vi": "62b0f4c86c2e7b54fdd97f3eb25a906aba1dd786aaa4854b342a60f1b6154011"
+    },
+    {
+      "details": null,
+      "example": "SELECT LEAD(price) OVER (ORDER BY date) FROM sales;",
+      "danger": null,
+      "card_pos": 21,
+      "section_pos": 1,
+      "card": "Window Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "LEAD(<col>) OVER (...)",
+      "description": "Access value from a subsequent row",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Window Functions\nLEAD(<col>) OVER (...)\nAccess value from a subsequent row",
+      "content_hash": "093584dc3bdf497bcf2e6b2a702729acbbcdb52bbaafdc95e6362bbeb95b63d3",
+      "description_vi": "Lấy giá trị của dòng kế tiếp",
+      "embed_text_vi": "MySQL › Window Functions\nLEAD(<col>) OVER (...)\nLấy giá trị của dòng kế tiếp\nlấy giá trị dòng tiếp theo\ntruy xuất dữ liệu hàng phía sau\nlead giá trị kỳ kế tiếp",
+      "content_hash_vi": "f918bf8f0d61dee88a49884b0f9e0905f6a502eade3be5284dfaf3ef8d92cec9"
+    },
+    {
+      "details": null,
+      "example": "SELECT SUM(sales) OVER (PARTITION BY store_id) FROM orders;",
+      "danger": null,
+      "card_pos": 21,
+      "section_pos": 1,
+      "card": "Window Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "SUM(<col>) OVER (PARTITION BY ...)",
+      "description": "Calculate running total or partition sum",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 6,
+      "embed_text": "MySQL › Window Functions\nSUM(<col>) OVER (PARTITION BY ...)\nCalculate running total or partition sum",
+      "content_hash": "3e5f21fc6f641b77190fc62963a4ab7540c794ce3e2168e677de499daa5eff4e",
+      "description_vi": "Tính tổng cộng dồn (running total) hoặc tổng theo nhóm",
+      "embed_text_vi": "MySQL › Window Functions\nSUM(<col>) OVER (PARTITION BY ...)\nTính tổng cộng dồn (running total) hoặc tổng theo nhóm\ntính tổng cộng dồn running total\ntổng phân vùng không gom nhóm dòng\nsum over partition by tính lũy kế",
+      "content_hash_vi": "f1a65f562e0bab8392d729e44b389a52761ff76eab55135bc414b8857d8e2cef"
+    },
+    {
+      "details": null,
+      "example": "SELECT name FROM a UNION SELECT name FROM b;",
+      "danger": null,
+      "card_pos": 22,
+      "section_pos": 1,
+      "card": "Set Operations",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "UNION",
+      "description": "Combine results from queries, removing duplicates",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Set Operations\nUNION\nCombine results from queries, removing duplicates",
+      "content_hash": "f7afefe26f8cb2cc93719ebbe5f2d6ea5d7653ae6e40ac0ddaf15109dd28264f",
+      "description_vi": "Hợp kết quả nhiều truy vấn và loại bỏ bản ghi trùng",
+      "embed_text_vi": "MySQL › Set Operations\nUNION\nHợp kết quả nhiều truy vấn và loại bỏ bản ghi trùng\ngộp kết quả loại bỏ trùng lặp\nhợp nhiều câu select lọc trùng\nunion các bảng bỏ bản ghi giống nhau",
+      "content_hash_vi": "775e19b6f45bdd2496cd25b6adf5453b4bade2752311d463a0398ce29374b658"
+    },
+    {
+      "details": null,
+      "example": "SELECT name FROM a UNION ALL SELECT name FROM b;",
+      "danger": null,
+      "card_pos": 22,
+      "section_pos": 1,
+      "card": "Set Operations",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "UNION ALL",
+      "description": "Combine results from queries, keeping duplicates",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Set Operations\nUNION ALL\nCombine results from queries, keeping duplicates",
+      "content_hash": "7d11879f5f4d48066a9d412a00f19bc89bc7fbc1d329248fca78cb7bee6c80b0",
+      "description_vi": "Hợp kết quả nhiều truy vấn và giữ nguyên bản ghi trùng",
+      "embed_text_vi": "MySQL › Set Operations\nUNION ALL\nHợp kết quả nhiều truy vấn và giữ nguyên bản ghi trùng\ngộp kết quả giữ nguyên bản ghi trùng\nhợp nhiều câu select không lọc trùng\nunion all nối kết quả lấy tất cả",
+      "content_hash_vi": "558effe74569e9aacc58328e329707b1f54af1972cbada3f7e7df11b1b744ca9"
+    },
+    {
+      "details": null,
+      "example": "SELECT CONCAT(first_name, ' ', last_name) FROM users;",
+      "danger": null,
+      "card_pos": 23,
+      "section_pos": 1,
+      "card": "String Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "CONCAT(<s1>, <s2>)",
+      "description": "Concatenate multiple strings",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 1,
+      "embed_text": "MySQL › String Functions\nCONCAT(<s1>, <s2>)\nConcatenate multiple strings",
+      "content_hash": "418938fed2fd23735d01ad67d358fca0fc6058c313fe87c37fddcabe58d9f38d",
+      "description_vi": "Nối hai hoặc nhiều chuỗi ký tự lại với nhau",
+      "embed_text_vi": "MySQL › String Functions\nCONCAT(<s1>, <s2>)\nNối hai hoặc nhiều chuỗi ký tự lại với nhau\nnối nhiều chuỗi ký tự\nghép các đoạn text lại với nhau\nkết hợp nhiều chuỗi thành một",
+      "content_hash_vi": "731b0ee93a35053e953be5ae1d7516b06caee02b72c8cc7f469c0f6fb9d5c81f"
+    },
+    {
+      "details": null,
+      "example": "SELECT CONCAT_WS(',', address, city, state) FROM users;",
+      "danger": null,
+      "card_pos": 23,
+      "section_pos": 1,
+      "card": "String Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "CONCAT_WS('<sep>', <s1>, <s2>)",
+      "description": "Concatenate strings with a separator",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 2,
+      "embed_text": "MySQL › String Functions\nCONCAT_WS('<sep>', <s1>, <s2>)\nConcatenate strings with a separator",
+      "content_hash": "f737e23203cec0b192b7cc2b175dfebe7c6b40cb3aaae5b27e19f8dd32c04ffc",
+      "description_vi": "Nối các chuỗi với ký tự phân tách (separator)",
+      "embed_text_vi": "MySQL › String Functions\nCONCAT_WS('<sep>', <s1>, <s2>)\nNối các chuỗi với ký tự phân tách (separator)\nnối chuỗi có dấu phân cách\nghép các trường bằng ký tự ngăn cách\nconcat kèm separator giữa các chuỗi",
+      "content_hash_vi": "113fe70e37ddba16c7efc10f1d66d1aa631e659094f30bda426407eb9a03a10c"
+    },
+    {
+      "details": null,
+      "example": "SELECT SUBSTRING(phone, 1, 3) FROM users;",
+      "danger": null,
+      "card_pos": 23,
+      "section_pos": 1,
+      "card": "String Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "SUBSTRING(<s>, <pos>, <len>)",
+      "description": "Extract a substring",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 3,
+      "embed_text": "MySQL › String Functions\nSUBSTRING(<s>, <pos>, <len>)\nExtract a substring",
+      "content_hash": "2cdddb459d195342be02c713c42e92066f5c1c71bb9a8cd33d56dc68710ee565",
+      "description_vi": "Cắt lấy một chuỗi con theo vị trí và độ dài",
+      "embed_text_vi": "MySQL › String Functions\nSUBSTRING(<s>, <pos>, <len>)\nCắt lấy một chuỗi con theo vị trí và độ dài\ncắt chuỗi con theo vị trí độ dài\ntrích xuất một phần chuỗi ký tự\nlấy chuỗi từ vị trí chỉ định",
+      "content_hash_vi": "341008f9f97a9ddd91862e69642e575b35c3938e727b300459ed4dad66de29f6"
+    },
+    {
+      "details": null,
+      "example": "SELECT SUBSTRING_INDEX('a.b.c', '.', 2); -- returns 'a.b'",
+      "danger": null,
+      "card_pos": 23,
+      "section_pos": 1,
+      "card": "String Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "SUBSTRING_INDEX(<s>, '<delim>', <count>)",
+      "description": "Substring before/after a delimiter count",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 4,
+      "embed_text": "MySQL › String Functions\nSUBSTRING_INDEX(<s>, '<delim>', <count>)\nSubstring before/after a delimiter count",
+      "content_hash": "26d5c0bae5b0ee29bb8088ecce207027049da2eb84d3816dd9eae8c51851b5fc",
+      "description_vi": "Cắt chuỗi theo số lần xuất hiện của ký tự phân tách",
+      "embed_text_vi": "MySQL › String Functions\nSUBSTRING_INDEX(<s>, '<delim>', <count>)\nCắt chuỗi theo số lần xuất hiện của ký tự phân tách\ncắt chuỗi theo ký tự phân cách xuất hiện\ntách chuỗi trước dấu phân tách n lần\nlấy chuỗi con dựa vào delimiter",
+      "content_hash_vi": "f3a1330933613f934542a4029fbe31c4b4c1c1702f1c92820674327f3a0d64bd"
+    },
+    {
+      "details": null,
+      "example": "SELECT REPLACE(url, 'http://', 'https://') FROM links;",
+      "danger": null,
+      "card_pos": 23,
+      "section_pos": 1,
+      "card": "String Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "REPLACE(<s>, '<old>', '<new>')",
+      "description": "Replace occurrences of a substring",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 5,
+      "embed_text": "MySQL › String Functions\nREPLACE(<s>, '<old>', '<new>')\nReplace occurrences of a substring",
+      "content_hash": "5264d2cae42a26de2092b6709a666ce41bd829c4e40ba64c5dd5831fb6e12b12",
+      "description_vi": "Thay thế tất cả chuỗi con cũ bằng chuỗi mới",
+      "embed_text_vi": "MySQL › String Functions\nREPLACE(<s>, '<old>', '<new>')\nThay thế tất cả chuỗi con cũ bằng chuỗi mới\nthay thế chuỗi con bằng chuỗi mới\nđổi text cũ thành text mới\ntìm và thay thế ký tự trong chuỗi",
+      "content_hash_vi": "1ed18a3ae28d917a2d90407e83554f4284ae47c93486e22e2ba7a14e1679e0f4"
+    },
+    {
+      "details": null,
+      "example": "SELECT TRIM(username) FROM users;",
+      "danger": null,
+      "card_pos": 23,
+      "section_pos": 1,
+      "card": "String Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "TRIM(<s>)",
+      "description": "Remove leading and trailing spaces",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 6,
+      "embed_text": "MySQL › String Functions\nTRIM(<s>)\nRemove leading and trailing spaces",
+      "content_hash": "d5abd56f7431344f895ebbb3ac35a3e642943148008467f8d67c04538382245d",
+      "description_vi": "Xóa khoảng trắng ở đầu và cuối chuỗi",
+      "embed_text_vi": "MySQL › String Functions\nTRIM(<s>)\nXóa khoảng trắng ở đầu và cuối chuỗi\nxóa khoảng trắng đầu cuối chuỗi\nloại bỏ khoảng trống hai đầu text\ntrim khoảng trắng thừa trong chuỗi",
+      "content_hash_vi": "9da2a9ddd55b7d984bc62c0835861583899117c531cbbc134350859104c0c1da"
+    },
+    {
+      "details": null,
+      "example": "SELECT LENGTH('text') FROM dual;",
+      "danger": null,
+      "card_pos": 23,
+      "section_pos": 1,
+      "card": "String Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "LENGTH(<s>)",
+      "description": "Length of a string in bytes",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 7,
+      "embed_text": "MySQL › String Functions\nLENGTH(<s>)\nLength of a string in bytes",
+      "content_hash": "9b8f39015ffeb4c336a48954f326905d3ce92e16f83e1afa708763204fb862a7",
+      "description_vi": "Lấy độ dài của chuỗi tính theo số byte",
+      "embed_text_vi": "MySQL › String Functions\nLENGTH(<s>)\nLấy độ dài của chuỗi tính theo số byte\ntính độ dài chuỗi theo byte\nđo kích thước chuỗi bằng byte\nđếm số byte của chuỗi ký tự",
+      "content_hash_vi": "02e44a7b361977c9092aab4b4b56256813130630d76125192d3737d28ad124a1"
+    },
+    {
+      "details": null,
+      "example": "SELECT CHAR_LENGTH('text') FROM dual;",
+      "danger": null,
+      "card_pos": 23,
+      "section_pos": 1,
+      "card": "String Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "CHAR_LENGTH(<s>)",
+      "description": "Length of a string in characters",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 8,
+      "embed_text": "MySQL › String Functions\nCHAR_LENGTH(<s>)\nLength of a string in characters",
+      "content_hash": "b4ab5e07633cbb30ac2fd8bd6f2d006bcc688e7d5a0afe8a8bd772753308e2fa",
+      "description_vi": "Lấy số lượng ký tự thực tế của chuỗi",
+      "embed_text_vi": "MySQL › String Functions\nCHAR_LENGTH(<s>)\nLấy số lượng ký tự thực tế của chuỗi\nđếm số lượng ký tự trong chuỗi\nđộ dài chuỗi theo số ký tự\ntính số ký tự chuỗi unicode",
+      "content_hash_vi": "fd2541b97864f0ceee649a0168d7ff9d6b5fb2b7837f4d598733ab81e591c7b8"
+    },
+    {
+      "details": null,
+      "example": "SELECT UPPER(name) FROM users;",
+      "danger": null,
+      "card_pos": 23,
+      "section_pos": 1,
+      "card": "String Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "LOWER(<s>), UPPER(<s>)",
+      "description": "Convert string case",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 9,
+      "embed_text": "MySQL › String Functions\nLOWER(<s>), UPPER(<s>)\nConvert string case",
+      "content_hash": "0b7fef7e5a52d90581c1fde6b28a52f995ebbfb2f4682376a928af3bec40be62",
+      "description_vi": "Chuyển chuỗi thành chữ thường hoặc chữ hoa",
+      "embed_text_vi": "MySQL › String Functions\nLOWER(<s>), UPPER(<s>)\nChuyển chuỗi thành chữ thường hoặc chữ hoa\nchuyển chữ hoa chữ thường\nđổi chuỗi sang in hoa in thường\nviết hoa viết thường chuỗi ký tự",
+      "content_hash_vi": "bc648ebde32d0a7908867f3acd5552681f196397baab757fda0bac6cddfd1acd"
+    },
+    {
+      "details": null,
+      "example": "SELECT LPAD(id, 5, '0') FROM users;",
+      "danger": null,
+      "card_pos": 23,
+      "section_pos": 1,
+      "card": "String Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "LPAD(<s>, <len>, '<pad>')",
+      "description": "Left-pad a string to a specific length",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 10,
+      "embed_text": "MySQL › String Functions\nLPAD(<s>, <len>, '<pad>')\nLeft-pad a string to a specific length",
+      "content_hash": "ed35701964f354cab9abe524555918fa3dd2d94a847cc2b7a1e2b986d7306df1",
+      "description_vi": "Chèn thêm ký tự vào bên trái cho đủ độ dài",
+      "embed_text_vi": "MySQL › String Functions\nLPAD(<s>, <len>, '<pad>')\nChèn thêm ký tự vào bên trái cho đủ độ dài\nthêm ký tự vào bên trái chuỗi\nđệm số 0 vào đầu cho đủ độ dài\nchèn ký tự phía trước chuỗi lpad",
+      "content_hash_vi": "ad28d414ab376a1746896e604c2cce4f3b3df8a093cd3a2b604d066ced9e6ded"
+    },
+    {
+      "details": null,
+      "example": "SELECT NOW();",
+      "danger": null,
+      "card_pos": 24,
+      "section_pos": 1,
+      "card": "Date & Time Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "NOW()",
+      "description": "Current date and time",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Date & Time Functions\nNOW()\nCurrent date and time",
+      "content_hash": "bcaf41cfb6f57cebb236256b49bf00b4606dac2d074eabf469f4154e5af68e70",
+      "description_vi": "Lấy ngày và giờ hiện tại của hệ thống",
+      "embed_text_vi": "MySQL › Date & Time Functions\nNOW()\nLấy ngày và giờ hiện tại của hệ thống\nlấy ngày giờ hiện tại\nthời gian thời điểm hiện tại hệ thống\nxuất timestamp ngày và giờ bây giờ",
+      "content_hash_vi": "968f2ab911fa44352fd6f66e6150336fbccd21b6cbacb89323c3593505f62226"
+    },
+    {
+      "details": null,
+      "example": "SELECT CURDATE();",
+      "danger": null,
+      "card_pos": 24,
+      "section_pos": 1,
+      "card": "Date & Time Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "CURDATE()",
+      "description": "Current date without time",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Date & Time Functions\nCURDATE()\nCurrent date without time",
+      "content_hash": "e20900edcbdb7f0f5eb059bf2516deb8af63b326dc0b8dd8400cbf56966e4b28",
+      "description_vi": "Lấy ngày hiện tại không bao gồm giờ",
+      "embed_text_vi": "MySQL › Date & Time Functions\nCURDATE()\nLấy ngày hiện tại không bao gồm giờ\nlấy ngày hiện tại không có giờ\nchỉ lấy ngày tháng năm hôm nay\ncurdate ngày hiện hành hệ thống",
+      "content_hash_vi": "ac9926a32b05263db30c43f23be0fd5e3a9422ce73721a091a1bf0d3bed52be7"
+    },
+    {
+      "details": null,
+      "example": "SELECT DATE_FORMAT(NOW(), '%Y-%m-%d');",
+      "danger": null,
+      "card_pos": 24,
+      "section_pos": 1,
+      "card": "Date & Time Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "DATE_FORMAT(<date>, '<fmt>')",
+      "description": "Format a date as a string",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Date & Time Functions\nDATE_FORMAT(<date>, '<fmt>')\nFormat a date as a string",
+      "content_hash": "97e29214637f37d43c75f959e60c5d4b3ba4bb9ffefa7d5bb80009c3beef8697",
+      "description_vi": "Định dạng ngày giờ thành chuỗi theo mẫu chỉ định",
+      "embed_text_vi": "MySQL › Date & Time Functions\nDATE_FORMAT(<date>, '<fmt>')\nĐịnh dạng ngày giờ thành chuỗi theo mẫu chỉ định\nđịnh dạng ngày tháng năm thành chuỗi\nformat date theo mẫu hiển thị\nchuyển ngày giờ sang dạng text tùy chỉnh",
+      "content_hash_vi": "45a9cf1e030f2f389e9ae7c46712af21fd8f54e71d1c2dd26139c5a9b3504f88"
+    },
+    {
+      "details": null,
+      "example": "SELECT DATE_ADD(NOW(), INTERVAL 1 DAY);",
+      "danger": null,
+      "card_pos": 24,
+      "section_pos": 1,
+      "card": "Date & Time Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "DATE_ADD(<d>, INTERVAL <n> <unit>)",
+      "description": "Add time interval to a date",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Date & Time Functions\nDATE_ADD(<d>, INTERVAL <n> <unit>)\nAdd time interval to a date",
+      "content_hash": "79ede264a5ca0ec5b18b5e883f87cdb1c349f355c4752ab740c00a5cab8c252e",
+      "description_vi": "Cộng thêm một khoảng thời gian vào ngày",
+      "embed_text_vi": "MySQL › Date & Time Functions\nDATE_ADD(<d>, INTERVAL <n> <unit>)\nCộng thêm một khoảng thời gian vào ngày\ncộng thêm ngày tháng năm vào date\ntăng thêm khoảng thời gian vào ngày\ndate add thêm ngày giờ",
+      "content_hash_vi": "4de984db8c14ab7db1716561c5ac9ea2f4c5f0bd9b1ce6d60458cba7d4f27771"
+    },
+    {
+      "details": null,
+      "example": "SELECT DATE_SUB(NOW(), INTERVAL 1 MONTH);",
+      "danger": null,
+      "card_pos": 24,
+      "section_pos": 1,
+      "card": "Date & Time Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "DATE_SUB(<d>, INTERVAL <n> <unit>)",
+      "description": "Subtract time interval from a date",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Date & Time Functions\nDATE_SUB(<d>, INTERVAL <n> <unit>)\nSubtract time interval from a date",
+      "content_hash": "93f21298f51fcef50d783d69036f0b22b2c6d876127751792f2bce3c7e81411c",
+      "description_vi": "Trừ bớt một khoảng thời gian khỏi ngày",
+      "embed_text_vi": "MySQL › Date & Time Functions\nDATE_SUB(<d>, INTERVAL <n> <unit>)\nTrừ bớt một khoảng thời gian khỏi ngày\ntrừ bớt ngày tháng năm khỏi date\ngiảm khoảng thời gian khỏi ngày\ndate sub lùi ngày về trước",
+      "content_hash_vi": "0087c6d97e06126fc5736fb2cb3829ec275ecb62ce6f4111f317e0430e615bb7"
+    },
+    {
+      "details": null,
+      "example": "SELECT DATEDIFF('2023-12-31', NOW());",
+      "danger": null,
+      "card_pos": 24,
+      "section_pos": 1,
+      "card": "Date & Time Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "DATEDIFF(<d1>, <d2>)",
+      "description": "Days between two dates",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 6,
+      "embed_text": "MySQL › Date & Time Functions\nDATEDIFF(<d1>, <d2>)\nDays between two dates",
+      "content_hash": "21e6d295bcdc23fb87666e0931ccd3db814057f51e5cae4b10417feb08af6469",
+      "description_vi": "Tính số ngày chênh lệch giữa hai mốc ngày",
+      "embed_text_vi": "MySQL › Date & Time Functions\nDATEDIFF(<d1>, <d2>)\nTính số ngày chênh lệch giữa hai mốc ngày\ntính số ngày giữa hai mốc thời gian\nkhoảng cách số ngày giữa hai ngày\nchênh lệch số ngày datediff",
+      "content_hash_vi": "31fcbd341e84faf065b6c0eda2381e298c83c49f2b96825176ce1ba252c1e0e2"
+    },
+    {
+      "details": null,
+      "example": "SELECT TIMESTAMPDIFF(YEAR, birth_date, NOW()) FROM users;",
+      "danger": null,
+      "card_pos": 24,
+      "section_pos": 1,
+      "card": "Date & Time Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "TIMESTAMPDIFF(<unit>, <d1>, <d2>)",
+      "description": "Difference in specific units (e.g., MONTH, YEAR)",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 7,
+      "embed_text": "MySQL › Date & Time Functions\nTIMESTAMPDIFF(<unit>, <d1>, <d2>)\nDifference in specific units (e.g., MONTH, YEAR)",
+      "content_hash": "52fb4fe83d5cf53bc9e43fe648626ea93c6d07e33dd57f404c07e30fc89586d1",
+      "description_vi": "Tính khoảng cách thời gian theo đơn vị chỉ định",
+      "embed_text_vi": "MySQL › Date & Time Functions\nTIMESTAMPDIFF(<unit>, <d1>, <d2>)\nTính khoảng cách thời gian theo đơn vị chỉ định\ntính chênh lệch thời gian theo tháng năm\ntính tuổi hoặc khoảng cách theo đơn vị\nkhoảng chênh lệch giữa hai thời điểm timestampdiff",
+      "content_hash_vi": "ec87287d25be5d624e76551d2d043f92fed8c0ff8bbdfe1ba9b622bff7d31207"
+    },
+    {
+      "details": null,
+      "example": "SELECT STR_TO_DATE('31-12-2023', '%d-%m-%Y');",
+      "danger": null,
+      "card_pos": 24,
+      "section_pos": 1,
+      "card": "Date & Time Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "STR_TO_DATE(<s>, '<fmt>')",
+      "description": "Parse a string into a date",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 8,
+      "embed_text": "MySQL › Date & Time Functions\nSTR_TO_DATE(<s>, '<fmt>')\nParse a string into a date",
+      "content_hash": "98b2426bcf3abd250e6ec3e31780da07da91f3df530b3d1fd3ab4103edf8a6da",
+      "description_vi": "Chuyển đổi chuỗi văn bản thành dữ liệu ngày tháng",
+      "embed_text_vi": "MySQL › Date & Time Functions\nSTR_TO_DATE(<s>, '<fmt>')\nChuyển đổi chuỗi văn bản thành dữ liệu ngày tháng\nchuyển chuỗi text thành ngày tháng\nparse string sang date theo format\nép kiểu chuỗi thành kiểu ngày",
+      "content_hash_vi": "676cad2b2eb975f99e9ae5062f63b26074115eb7274a52e174726a12494cce5d"
+    },
+    {
+      "details": null,
+      "example": "SELECT UNIX_TIMESTAMP();",
+      "danger": null,
+      "card_pos": 24,
+      "section_pos": 1,
+      "card": "Date & Time Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "UNIX_TIMESTAMP()",
+      "description": "Current Unix timestamp in seconds",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 9,
+      "embed_text": "MySQL › Date & Time Functions\nUNIX_TIMESTAMP()\nCurrent Unix timestamp in seconds",
+      "content_hash": "085b1ddf1cf3b797e55b20033e8147a3c2789b0b4affb17ad7cdf06ca6e9b78a",
+      "description_vi": "Lấy timestamp Unix hiện tại tính bằng giây",
+      "embed_text_vi": "MySQL › Date & Time Functions\nUNIX_TIMESTAMP()\nLấy timestamp Unix hiện tại tính bằng giây\nlấy unix timestamp hiện tại\nthời gian tính bằng giây epoch hiện hành\nđổi ngày giờ hiện tại ra giây unix",
+      "content_hash_vi": "4e3bfa8f1113da825ec5b33a807435d197436f6ba9bdeb8d32c9b8852f3a6128"
+    },
+    {
+      "details": null,
+      "example": "SELECT FROM_UNIXTIME(1700000000);",
+      "danger": null,
+      "card_pos": 24,
+      "section_pos": 1,
+      "card": "Date & Time Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "FROM_UNIXTIME(<ts>)",
+      "description": "Convert Unix timestamp to a datetime string",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 10,
+      "embed_text": "MySQL › Date & Time Functions\nFROM_UNIXTIME(<ts>)\nConvert Unix timestamp to a datetime string",
+      "content_hash": "b1a14d817c0920c38d27880fb607c1d15129db7257d84e6e82042273a4615bf4",
+      "description_vi": "Chuyển đổi Unix timestamp dạng giây sang ngày giờ",
+      "embed_text_vi": "MySQL › Date & Time Functions\nFROM_UNIXTIME(<ts>)\nChuyển đổi Unix timestamp dạng giây sang ngày giờ\nchuyển unix timestamp sang ngày giờ\nđổi số giây epoch thành date time\nđọc unix timestamp ra thời gian chuẩn",
+      "content_hash_vi": "16288c34f254e5a319d8f67636eb5e05c91f571698731c4e33728054862848a9"
+    },
+    {
+      "details": null,
+      "example": "SELECT ROUND(123.456, 2);",
+      "danger": null,
+      "card_pos": 25,
+      "section_pos": 1,
+      "card": "Numeric & Conditional Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "ROUND(<num>, <dec>)",
+      "description": "Round a number to specified decimals",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Numeric & Conditional Functions\nROUND(<num>, <dec>)\nRound a number to specified decimals",
+      "content_hash": "95f4e1bb60cfc47aeaffd6709dc9114d84a0ccabd49b607ca0631752bdc7d278",
+      "description_vi": "Làm tròn số theo số chữ số thập phân chỉ định.",
+      "embed_text_vi": "MySQL › Numeric & Conditional Functions\nROUND(<num>, <dec>)\nLàm tròn số theo số chữ số thập phân chỉ định.\nlàm tròn số thập phân\nquy tròn số sau dấu phẩy\nrút gọn số chữ số thập phân",
+      "content_hash_vi": "107a59a42280f4ae4732073efa036ff874da1f4187f89e54d0215c62e8d501e3"
+    },
+    {
+      "details": null,
+      "example": "SELECT CEIL(4.2), FLOOR(4.8);",
+      "danger": null,
+      "card_pos": 25,
+      "section_pos": 1,
+      "card": "Numeric & Conditional Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "CEIL(<num>), FLOOR(<num>)",
+      "description": "Round up (CEIL) or round down (FLOOR)",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Numeric & Conditional Functions\nCEIL(<num>), FLOOR(<num>)\nRound up (CEIL) or round down (FLOOR)",
+      "content_hash": "b140040f16852a23d0dd80ee862a89144abaca0c1c7396cbcfbe702bea825d8d",
+      "description_vi": "Làm tròn số lên số nguyên gần nhất (CEIL) hoặc làm tròn xuống (FLOOR).",
+      "embed_text_vi": "MySQL › Numeric & Conditional Functions\nCEIL(<num>), FLOOR(<num>)\nLàm tròn số lên số nguyên gần nhất (CEIL) hoặc làm tròn xuống (FLOOR).\nlàm tròn lên hoặc làm tròn xuống\nlấy số nguyên trần sàn\nquy tròn lên xuống số nguyên",
+      "content_hash_vi": "c2cce626cb32c7c3a047fd25e736e420952a230c1e473a580873a5ec7076c780"
+    },
+    {
+      "details": null,
+      "example": "SELECT IF(score >= 50, 'Pass', 'Fail') FROM exams;",
+      "danger": null,
+      "card_pos": 25,
+      "section_pos": 1,
+      "card": "Numeric & Conditional Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "IF(<expr>, <true_val>, <false_val>)",
+      "description": "Return values based on a boolean condition",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Numeric & Conditional Functions\nIF(<expr>, <true_val>, <false_val>)\nReturn values based on a boolean condition",
+      "content_hash": "299658798ff57326c0a6566c47d0e20dd0a397273e536013bba46f224b5de6da",
+      "description_vi": "Trả về giá trị theo điều kiện đúng hoặc sai.",
+      "embed_text_vi": "MySQL › Numeric & Conditional Functions\nIF(<expr>, <true_val>, <false_val>)\nTrả về giá trị theo điều kiện đúng hoặc sai.\nrẽ nhánh điều kiện if đúng sai\ntrả kết quả theo biểu thức điều kiện\nhàm điều kiện toán tử ba ngôi",
+      "content_hash_vi": "9d5e1a0d22717c790f094d7ac307d3784cc3536476c8f745f38f911dfd1b89ac"
+    },
+    {
+      "details": null,
+      "example": "SELECT IFNULL(phone, 'N/A') FROM users;",
+      "danger": null,
+      "card_pos": 25,
+      "section_pos": 1,
+      "card": "Numeric & Conditional Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "IFNULL(<expr>, <null_val>)",
+      "description": "Return alternative value if expression is NULL",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Numeric & Conditional Functions\nIFNULL(<expr>, <null_val>)\nReturn alternative value if expression is NULL",
+      "content_hash": "b6ddf6d4aa99121764a048f4c2463a401a25801af173265d7ee715a7181772db",
+      "description_vi": "Trả về giá trị thay thế nếu biểu thức là NULL.",
+      "embed_text_vi": "MySQL › Numeric & Conditional Functions\nIFNULL(<expr>, <null_val>)\nTrả về giá trị thay thế nếu biểu thức là NULL.\nthay thế giá trị null\ngán giá trị mặc định khi null\nkiểm tra null trả giá trị dự phòng",
+      "content_hash_vi": "3d76bb4c76e5c25a0c945ff385b25439c7cc9d653d1f8c4b37279663cebec912"
+    },
+    {
+      "details": null,
+      "example": "SELECT COALESCE(mobile, work_phone, 'None') FROM contacts;",
+      "danger": null,
+      "card_pos": 25,
+      "section_pos": 1,
+      "card": "Numeric & Conditional Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "COALESCE(<v1>, <v2>, ...)",
+      "description": "Return the first non-NULL value",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Numeric & Conditional Functions\nCOALESCE(<v1>, <v2>, ...)\nReturn the first non-NULL value",
+      "content_hash": "3267c81d31b0d7ea04500b8ca9ef9f646200f0681846a019082322211c10700a",
+      "description_vi": "Trả về giá trị đầu tiên khác NULL trong danh sách đối số.",
+      "embed_text_vi": "MySQL › Numeric & Conditional Functions\nCOALESCE(<v1>, <v2>, ...)\nTrả về giá trị đầu tiên khác NULL trong danh sách đối số.\nlấy giá trị đầu tiên khác null\ntìm phần tử không null đầu tiên\nchọn giá trị hợp lệ đầu tiên bỏ qua null",
+      "content_hash_vi": "54f530b14ddc79f1d9200cd928910a93f6fb350dbf3b80029733834337527690"
+    },
+    {
+      "details": null,
+      "example": "SELECT NULLIF(score, 0) FROM exams;",
+      "danger": null,
+      "card_pos": 25,
+      "section_pos": 1,
+      "card": "Numeric & Conditional Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "NULLIF(<v1>, <v2>)",
+      "description": "Return NULL if arguments are equal",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 6,
+      "embed_text": "MySQL › Numeric & Conditional Functions\nNULLIF(<v1>, <v2>)\nReturn NULL if arguments are equal",
+      "content_hash": "cc9cc456d9fec7ce6bac586a6ea4b94a936abe7553bf195959bde99af78e29bf",
+      "description_vi": "Trả về NULL nếu hai đối số bằng nhau, ngược lại trả về đối số đầu.",
+      "embed_text_vi": "MySQL › Numeric & Conditional Functions\nNULLIF(<v1>, <v2>)\nTrả về NULL nếu hai đối số bằng nhau, ngược lại trả về đối số đầu.\ntrả về null nếu hai giá trị bằng nhau\nso sánh hai giá trị bằng nhau ra null\nchuyển giá trị trùng khớp thành null",
+      "content_hash_vi": "9acfd4f73b6eba6ef1c594bd7341f075ae9672c5c4a1e7f90737f083efec7bac"
+    },
+    {
+      "details": null,
+      "example": "SELECT CASE WHEN age < 18 THEN 'Minor' ELSE 'Adult' END FROM users;",
+      "danger": null,
+      "card_pos": 25,
+      "section_pos": 1,
+      "card": "Numeric & Conditional Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "CASE WHEN <expr> THEN <v> END",
+      "description": "Complex conditional logic",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 7,
+      "embed_text": "MySQL › Numeric & Conditional Functions\nCASE WHEN <expr> THEN <v> END\nComplex conditional logic",
+      "content_hash": "7f414f3a2c589d21abc6094da88bc2a6eea34eceea5edf39f6fd8393bc0fc5ff",
+      "description_vi": "Xử lý logic rẽ nhánh điều kiện phức tạp nhiều trường hợp.",
+      "embed_text_vi": "MySQL › Numeric & Conditional Functions\nCASE WHEN <expr> THEN <v> END\nXử lý logic rẽ nhánh điều kiện phức tạp nhiều trường hợp.\nrẽ nhánh nhiều điều kiện case when\nphân loại giá trị theo nhiều trường hợp\nchuyển đổi dữ liệu theo điều kiện switch case",
+      "content_hash_vi": "0b4213e87d4076e32825ef05a6b344045e0bdb10e091f17ae33b88d4e249d5f6"
+    },
+    {
+      "details": null,
+      "example": "SELECT JSON_EXTRACT(data, '$.name') FROM metadata;",
+      "danger": null,
+      "card_pos": 26,
+      "section_pos": 1,
+      "card": "JSON Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "JSON_EXTRACT(<doc>, '<path>')",
+      "description": "Extract data from a JSON document",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 1,
+      "embed_text": "MySQL › JSON Functions\nJSON_EXTRACT(<doc>, '<path>')\nExtract data from a JSON document",
+      "content_hash": "00c9aa37b967b6694740a7f290c718f27a3b010b4b5a5e4b3c1a546b117dba80",
+      "description_vi": "Trích xuất dữ liệu từ tài liệu JSON theo đường dẫn path.",
+      "embed_text_vi": "MySQL › JSON Functions\nJSON_EXTRACT(<doc>, '<path>')\nTrích xuất dữ liệu từ tài liệu JSON theo đường dẫn path.\ntrích xuất dữ liệu json theo path\nlấy giá trị trong chuỗi json\nđọc thuộc tính json theo đường dẫn",
+      "content_hash_vi": "3ff2b50c2588a15ed10e51bfaa6f2f46ec2e5ff9ec6394025da294a2c611820d"
+    },
+    {
+      "details": null,
+      "example": "SELECT data->'$.name' FROM metadata;",
+      "danger": null,
+      "card_pos": 26,
+      "section_pos": 1,
+      "card": "JSON Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "<doc>->'<path>'",
+      "description": "Shorthand for JSON_EXTRACT",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 2,
+      "embed_text": "MySQL › JSON Functions\n<doc>->'<path>'\nShorthand for JSON_EXTRACT",
+      "content_hash": "7e2634fb8170e91d64e3f512ef02e40f165ce3f9dce444df899222e39b7e7e53",
+      "description_vi": "Cú pháp viết tắt trích xuất dữ liệu JSON theo đường dẫn.",
+      "embed_text_vi": "MySQL › JSON Functions\n<doc>->'<path>'\nCú pháp viết tắt trích xuất dữ liệu JSON theo đường dẫn.\ncú pháp viết tắt json extract mũi tên\ntoán tử trích xuất json nhanh\nlấy trường json bằng toán tử mũi tên",
+      "content_hash_vi": "f2fba814ebb9e7007b3b4133498614b14026048e96a2ee11607f58fc40151153"
+    },
+    {
+      "details": null,
+      "example": "SELECT data->>'$.name' FROM metadata;",
+      "danger": null,
+      "card_pos": 26,
+      "section_pos": 1,
+      "card": "JSON Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "<doc>->>'<path>'",
+      "description": "Extract and unquote a JSON value",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 3,
+      "embed_text": "MySQL › JSON Functions\n<doc>->>'<path>'\nExtract and unquote a JSON value",
+      "content_hash": "2cc05b120095dfbddf2a5f9020c196268d9f6180755e0c2cc4666b78d479cddd",
+      "description_vi": "Trích xuất và bỏ dấu ngoặc kép của giá trị JSON.",
+      "embed_text_vi": "MySQL › JSON Functions\n<doc>->>'<path>'\nTrích xuất và bỏ dấu ngoặc kép của giá trị JSON.\ntrích xuất json bỏ dấu ngoặc kép\ntoán tử lấy chuỗi json unquote\nlấy giá trị json dạng plain text",
+      "content_hash_vi": "80613115afb1e9c42db395750ff0aebab64cb3b6de0b1c5e1d00dfabfaea25d1"
+    },
+    {
+      "details": null,
+      "example": "SELECT JSON_OBJECT('id', 1, 'name', 'Alice');",
+      "danger": null,
+      "card_pos": 26,
+      "section_pos": 1,
+      "card": "JSON Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "JSON_OBJECT(<k1>, <v1>)",
+      "description": "Create a JSON object",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 4,
+      "embed_text": "MySQL › JSON Functions\nJSON_OBJECT(<k1>, <v1>)\nCreate a JSON object",
+      "content_hash": "d07227a717b57e18790849b8e4a1d1dba403f82c963555dbce9fa00b60639cd3",
+      "description_vi": "Tạo một đối tượng (object) JSON từ các cặp key-value.",
+      "embed_text_vi": "MySQL › JSON Functions\nJSON_OBJECT(<k1>, <v1>)\nTạo một đối tượng (object) JSON từ các cặp key-value.\ntạo json object từ các cặp khóa giá trị\nkhởi tạo đối tượng json\ngom key value thành json",
+      "content_hash_vi": "8f4111df4bbec2149aad4907cd0e2a8cb8a55d07b24a610fdda071d36c0b7596"
+    },
+    {
+      "details": null,
+      "example": "SELECT JSON_ARRAYAGG(name) FROM users;",
+      "danger": null,
+      "card_pos": 26,
+      "section_pos": 1,
+      "card": "JSON Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "JSON_ARRAYAGG(<col>)",
+      "description": "Aggregate result set into a JSON array",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 5,
+      "embed_text": "MySQL › JSON Functions\nJSON_ARRAYAGG(<col>)\nAggregate result set into a JSON array",
+      "content_hash": "6a3bdf9c537cc9e85d6db624bbd9d58124a70c0cad902b7e03df8b0fee659527",
+      "description_vi": "Gom tập kết quả của một cột thành một mảng (array) JSON.",
+      "embed_text_vi": "MySQL › JSON Functions\nJSON_ARRAYAGG(<col>)\nGom tập kết quả của một cột thành một mảng (array) JSON.\ngom cột thành mảng json\naggregate kết quả sang json array\ntập hợp dữ liệu nhiều dòng thành mảng json",
+      "content_hash_vi": "1db3a9ee5bb9225a7b442ffae3b99094f8965d13db580a72996537424144f6b2"
+    },
+    {
+      "details": null,
+      "example": "SELECT JSON_SET(data, '$.age', 30) FROM metadata;",
+      "danger": null,
+      "card_pos": 26,
+      "section_pos": 1,
+      "card": "JSON Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "JSON_SET(<doc>, '<path>', <val>)",
+      "description": "Insert or update data in a JSON document",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 6,
+      "embed_text": "MySQL › JSON Functions\nJSON_SET(<doc>, '<path>', <val>)\nInsert or update data in a JSON document",
+      "content_hash": "2bc13d44cdd62e24b5635269f70782246da9b38e2d6335fb8ea906798172deec",
+      "description_vi": "Thêm mới hoặc cập nhật dữ liệu tại đường dẫn trong JSON.",
+      "embed_text_vi": "MySQL › JSON Functions\nJSON_SET(<doc>, '<path>', <val>)\nThêm mới hoặc cập nhật dữ liệu tại đường dẫn trong JSON.\ncập nhật hoặc thêm trường trong json\nsửa giá trị path json\nchèn cập nhật dữ liệu json document",
+      "content_hash_vi": "a29b856f72a80057332efe3623ce9a39255284575f375d5e279f3e8aedf07075"
+    },
+    {
+      "details": null,
+      "example": "SELECT * FROM metadata WHERE JSON_CONTAINS(data, '\"admin\"', '$.roles');",
+      "danger": null,
+      "card_pos": 26,
+      "section_pos": 1,
+      "card": "JSON Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "JSON_CONTAINS(<doc>, <val>, '<path>')",
+      "description": "Check if a JSON document contains a value",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 7,
+      "embed_text": "MySQL › JSON Functions\nJSON_CONTAINS(<doc>, <val>, '<path>')\nCheck if a JSON document contains a value",
+      "content_hash": "fdc413214a5d68637ad473efced6bb517cf2c8ab0e25cd70fef70f4791f7b3c5",
+      "description_vi": "Kiểm tra tài liệu JSON có chứa giá trị chỉ định hay không.",
+      "embed_text_vi": "MySQL › JSON Functions\nJSON_CONTAINS(<doc>, <val>, '<path>')\nKiểm tra tài liệu JSON có chứa giá trị chỉ định hay không.\nkiểm tra json có chứa giá trị\ntìm kiếm phần tử tồn tại trong json\nxác thực giá trị xuất hiện trong json path",
+      "content_hash_vi": "3feadaa8e69521e2a9a26a28f7d12bc678f8ffa70cc902138d39364ffc73c307"
+    },
+    {
+      "details": null,
+      "example": "SELECT * FROM JSON_TABLE('[{\"a\": 1}]', '$[*]' COLUMNS(a INT PATH '$.a')) t;",
+      "danger": null,
+      "card_pos": 26,
+      "section_pos": 1,
+      "card": "JSON Functions",
+      "section": null,
+      "lang": null,
+      "kind": "option",
+      "command": "JSON_TABLE(<doc>, '<path>' COLUMNS(...))",
+      "description": "Convert JSON data into a relational table format",
+      "display": {
+        "key_style": "code"
+      },
+      "position": 8,
+      "embed_text": "MySQL › JSON Functions\nJSON_TABLE(<doc>, '<path>' COLUMNS(...))\nConvert JSON data into a relational table format",
+      "content_hash": "d55dd16c1d877d2233b8e0b8e7d47f682ba0f606ed288c96b848821a019b8b3c",
+      "description_vi": "Chuyển đổi dữ liệu JSON thành bảng quan hệ (relational table).",
+      "embed_text_vi": "MySQL › JSON Functions\nJSON_TABLE(<doc>, '<path>' COLUMNS(...))\nChuyển đổi dữ liệu JSON thành bảng quan hệ (relational table).\nchuyển json thành bảng quan hệ\nparse dữ liệu json thành các cột dòng\nbiến đổi json array sang định dạng table",
+      "content_hash_vi": "7c7d9524899a6688fe7191e3ea160e860fb8b88396733eed3fbe6acfe7793d16"
+    },
+    {
+      "details": null,
+      "example": "START TRANSACTION;",
+      "danger": null,
+      "card_pos": 27,
+      "section_pos": 1,
+      "card": "Transactions & Locking",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "START TRANSACTION",
+      "description": "Begin a new transaction",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Transactions & Locking\nSTART TRANSACTION\nBegin a new transaction",
+      "content_hash": "7070170961d0a291fb127a2e908f3fe54ef8a5ce924bddf5fa2a88efcd1964bc",
+      "description_vi": "Bắt đầu một giao dịch (transaction) mới.",
+      "embed_text_vi": "MySQL › Transactions & Locking\nSTART TRANSACTION\nBắt đầu một giao dịch (transaction) mới.\nbắt đầu transaction mới\nmở phiên giao dịch\nkhởi tạo khối transaction",
+      "content_hash_vi": "f3f1ef2b74d75c1b23fbe72e1ed8d9bd237f1e2066fecee5f6050fc50f69bbca"
+    },
+    {
+      "details": null,
+      "example": "COMMIT;",
+      "danger": null,
+      "card_pos": 27,
+      "section_pos": 1,
+      "card": "Transactions & Locking",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "COMMIT",
+      "description": "Save transaction changes",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Transactions & Locking\nCOMMIT\nSave transaction changes",
+      "content_hash": "3cab1b4136fdfeb67f065c264bae898eef7bce2c53884152fe1179208037d88e",
+      "description_vi": "Xác nhận và lưu các thay đổi của transaction vào database.",
+      "embed_text_vi": "MySQL › Transactions & Locking\nCOMMIT\nXác nhận và lưu các thay đổi của transaction vào database.\nxác nhận thay đổi transaction\nlưu dữ liệu commit giao dịch\nchốt thay đổi transaction vào database",
+      "content_hash_vi": "4edd4cd3ce0a15465124f7c29f1a2901e287ad90a227da1bb60120eb7fa86c35"
+    },
+    {
+      "details": null,
+      "example": "ROLLBACK;",
+      "danger": null,
+      "card_pos": 27,
+      "section_pos": 1,
+      "card": "Transactions & Locking",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "ROLLBACK",
+      "description": "Undo transaction changes",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Transactions & Locking\nROLLBACK\nUndo transaction changes",
+      "content_hash": "ad8978312edd549e97d7d36b96c1867d4de5da9fa632900a3166cbe33506e7c1",
+      "description_vi": "Hoàn tác và huỷ bỏ tất cả thay đổi trong transaction hiện tại.",
+      "embed_text_vi": "MySQL › Transactions & Locking\nROLLBACK\nHoàn tác và huỷ bỏ tất cả thay đổi trong transaction hiện tại.\nhoàn tác thay đổi transaction\nhuỷ bỏ giao dịch quay về ban đầu\nkhôi phục dữ liệu chưa commit",
+      "content_hash_vi": "42b9e5d6b2e7f0f3b32fe6d09845a5920b6030e9fc4562a5f4a04df64efd58d4"
+    },
+    {
+      "details": null,
+      "example": "SAVEPOINT sp1;",
+      "danger": null,
+      "card_pos": 27,
+      "section_pos": 1,
+      "card": "Transactions & Locking",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "SAVEPOINT <name>",
+      "description": "Set a savepoint within a transaction",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Transactions & Locking\nSAVEPOINT <name>\nSet a savepoint within a transaction",
+      "content_hash": "47f33393714f62edddb4138119bcc9039e29ba7dcd865968200251c78a7c7e36",
+      "description_vi": "Đặt điểm lưu (savepoint) tạm thời bên trong một transaction.",
+      "embed_text_vi": "MySQL › Transactions & Locking\nSAVEPOINT <name>\nĐặt điểm lưu (savepoint) tạm thời bên trong một transaction.\nđặt điểm lưu tạm trong transaction\ntạo savepoint giao dịch\nđánh dấu mốc rollback trong transaction",
+      "content_hash_vi": "1a1e0347ea18ebcc0f6081673cace7db0ae18ae8a538f26cc257a94bf077e506"
+    },
+    {
+      "details": null,
+      "example": "SELECT balance FROM accounts WHERE id=1 FOR UPDATE;",
+      "danger": null,
+      "card_pos": 27,
+      "section_pos": 1,
+      "card": "Transactions & Locking",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "SELECT ... FOR UPDATE",
+      "description": "Lock selected rows for writing",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Transactions & Locking\nSELECT ... FOR UPDATE\nLock selected rows for writing",
+      "content_hash": "8f0950f6d7ffe57c03c422d10f1eaee6f11dbf351089c6c5e073ec72375fb9f9",
+      "description_vi": "Khóa các dòng đã chọn để chờ cập nhật hoặc ghi.",
+      "embed_text_vi": "MySQL › Transactions & Locking\nSELECT ... FOR UPDATE\nKhóa các dòng đã chọn để chờ cập nhật hoặc ghi.\nkhóa dòng để ghi cập nhật\nlock dữ liệu đọc tránh xung đột ghi\nselect chặn chỉnh sửa đồng thời",
+      "content_hash_vi": "a4cbadabc7187160d4ea169f339eeeb82e5d6a39049fadce7c624562424fa036"
+    },
+    {
+      "details": null,
+      "example": "SET TRANSACTION ISOLATION LEVEL READ COMMITTED;",
+      "danger": null,
+      "card_pos": 27,
+      "section_pos": 1,
+      "card": "Transactions & Locking",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "SET TRANSACTION ISOLATION LEVEL <level>",
+      "description": "Set transaction isolation level",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 6,
+      "embed_text": "MySQL › Transactions & Locking\nSET TRANSACTION ISOLATION LEVEL <level>\nSet transaction isolation level",
+      "content_hash": "93d3015625c97d8c5e89a337ea9c1bc579ddb5c23b0e391bfcb9cf40ef1c2bf9",
+      "description_vi": "Thiết lập mức độ cô lập (isolation level) cho transaction.",
+      "embed_text_vi": "MySQL › Transactions & Locking\nSET TRANSACTION ISOLATION LEVEL <level>\nThiết lập mức độ cô lập (isolation level) cho transaction.\nthiết lập mức độ cô lập transaction\nđặt transaction isolation level\ncấu hình cấp độ cách ly giao dịch",
+      "content_hash_vi": "87b1bb68eb65e2a5c71c36809a92b66aeb54d9de5e893f2b7dfded7ffc97a9df"
+    },
+    {
+      "details": null,
+      "example": "LOCK TABLES users WRITE;",
+      "danger": null,
+      "card_pos": 27,
+      "section_pos": 1,
+      "card": "Transactions & Locking",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "LOCK TABLES <t> READ|WRITE",
+      "description": "Lock tables for the current session",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 7,
+      "embed_text": "MySQL › Transactions & Locking\nLOCK TABLES <t> READ|WRITE\nLock tables for the current session",
+      "content_hash": "1e93dd7c606ed2a444a4b4c59bcaa48972b0766d09b3cb35891d30564e7881fe",
+      "description_vi": "Khóa bảng ở chế độ đọc (READ) hoặc ghi (WRITE) cho session hiện tại.",
+      "embed_text_vi": "MySQL › Transactions & Locking\nLOCK TABLES <t> READ|WRITE\nKhóa bảng ở chế độ đọc (READ) hoặc ghi (WRITE) cho session hiện tại.\nkhóa bảng chế độ đọc hoặc ghi\nlock table cho session hiện tại\nchặn truy cập bảng đồng thời",
+      "content_hash_vi": "7c0fd3592bd019341e1e263287f401789363ad91e5549f64a46a9e56efcf1eb3"
+    },
+    {
+      "details": null,
+      "example": "CREATE VIEW active_users AS SELECT * FROM users WHERE status='active';",
+      "danger": null,
+      "card_pos": 28,
+      "section_pos": 1,
+      "card": "Views, Routines & Triggers",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "CREATE VIEW <name> AS <query>",
+      "description": "Create a virtual table from a query",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Views, Routines & Triggers\nCREATE VIEW <name> AS <query>\nCreate a virtual table from a query",
+      "content_hash": "fff7a99239e90df5110a1a75e6b44e33d662b2e78db6ddf65011a745be4b0bc6",
+      "description_vi": "Tạo bảng ảo (view) từ một câu truy vấn query.",
+      "embed_text_vi": "MySQL › Views, Routines & Triggers\nCREATE VIEW <name> AS <query>\nTạo bảng ảo (view) từ một câu truy vấn query.\ntạo bảng ảo view từ truy vấn\nkhởi tạo view lưu trữ câu query\nđịnh nghĩa view mới",
+      "content_hash_vi": "1ab2b8cdff12f42fb3008609e4f38929ec81126e2f5b115f735e31b3fad1e634"
+    },
+    {
+      "details": null,
+      "example": "DROP VIEW active_users;",
+      "danger": null,
+      "card_pos": 28,
+      "section_pos": 1,
+      "card": "Views, Routines & Triggers",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "DROP VIEW <name>",
+      "description": "Remove a view",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Views, Routines & Triggers\nDROP VIEW <name>\nRemove a view",
+      "content_hash": "23214c9284688f0e14e4955f8d659f47ea92c39eefa7c0f6501047e72e839f70",
+      "description_vi": "Xóa bỏ một bảng ảo (view) khỏi database.",
+      "embed_text_vi": "MySQL › Views, Routines & Triggers\nDROP VIEW <name>\nXóa bỏ một bảng ảo (view) khỏi database.\nxóa bảng ảo view\ngỡ bỏ view khỏi database\nloại bỏ view đã tạo",
+      "content_hash_vi": "76acb45444ec8f8430d261cd42c9507e5737f3e23fb95bddde7d7610db266b60"
+    },
+    {
+      "details": null,
+      "example": "DELIMITER //",
+      "danger": null,
+      "card_pos": 28,
+      "section_pos": 1,
+      "card": "Views, Routines & Triggers",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "DELIMITER <chars>",
+      "description": "Change statement delimiter (useful for defining routines)",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Views, Routines & Triggers\nDELIMITER <chars>\nChange statement delimiter (useful for defining routines)",
+      "content_hash": "9d890317b8aeffca4e3a83a2405d50d9dec8e7f328bc60c907a4af41e8b04cf5",
+      "description_vi": "Đổi ký tự kết thúc câu lệnh (delimiter) khi định nghĩa routine.",
+      "embed_text_vi": "MySQL › Views, Routines & Triggers\nDELIMITER <chars>\nĐổi ký tự kết thúc câu lệnh (delimiter) khi định nghĩa routine.\nđổi ký tự kết thúc câu lệnh\nthay đổi delimiter định nghĩa procedure\nchỉnh ký hiệu ngắt lệnh",
+      "content_hash_vi": "f57ded9c33b19fd1b15b8a79936183c69cbf450f0256f25ae4ff53a0bcbff42e"
+    },
+    {
+      "details": null,
+      "example": "CREATE PROCEDURE GetAll() BEGIN SELECT * FROM users; END //",
+      "danger": null,
+      "card_pos": 28,
+      "section_pos": 1,
+      "card": "Views, Routines & Triggers",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "CREATE PROCEDURE <name>()",
+      "description": "Define a stored procedure",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Views, Routines & Triggers\nCREATE PROCEDURE <name>()\nDefine a stored procedure",
+      "content_hash": "35ed4274eb0aa29f9818e7a2c9e669a188cf66e683ab6cece521eac83398f28e",
+      "description_vi": "Định nghĩa và tạo một thủ tục lưu trữ (stored procedure) mới.",
+      "embed_text_vi": "MySQL › Views, Routines & Triggers\nCREATE PROCEDURE <name>()\nĐịnh nghĩa và tạo một thủ tục lưu trữ (stored procedure) mới.\ntạo stored procedure mới\nđịnh nghĩa thủ tục lưu trữ\nkhởi tạo thủ tục procedure",
+      "content_hash_vi": "b4da72281cee4b502d6d45914d29941e89b187445277082fa05723e005861de1"
+    },
+    {
+      "details": null,
+      "example": "CALL GetAll();",
+      "danger": null,
+      "card_pos": 28,
+      "section_pos": 1,
+      "card": "Views, Routines & Triggers",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "CALL <name>()",
+      "description": "Execute a stored procedure",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Views, Routines & Triggers\nCALL <name>()\nExecute a stored procedure",
+      "content_hash": "5a7f5931af5df5c4462c252d177c57f25ffde2b418b0cb296db52295e4abf3af",
+      "description_vi": "Thực thi gọi một thủ tục lưu trữ (stored procedure).",
+      "embed_text_vi": "MySQL › Views, Routines & Triggers\nCALL <name>()\nThực thi gọi một thủ tục lưu trữ (stored procedure).\ngọi thực thi stored procedure\nchạy thủ tục lưu trữ\nthực hiện procedure đã tạo",
+      "content_hash_vi": "a0ea8acab8dbe27a0936b7c9c2a085c8147b106e0cbbf314100cf5d387bc7643"
+    },
+    {
+      "details": null,
+      "example": "CREATE FUNCTION GetTotal() RETURNS INT BEGIN RETURN 10; END //",
+      "danger": null,
+      "card_pos": 28,
+      "section_pos": 1,
+      "card": "Views, Routines & Triggers",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "CREATE FUNCTION <name>()",
+      "description": "Define a user-defined function",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 6,
+      "embed_text": "MySQL › Views, Routines & Triggers\nCREATE FUNCTION <name>()\nDefine a user-defined function",
+      "content_hash": "0ed0e2e424f3975b1eab9a8b17a0b3f5980fa647d6551215f80230392f10ab2a",
+      "description_vi": "Định nghĩa và tạo một hàm tự tạo (user-defined function).",
+      "embed_text_vi": "MySQL › Views, Routines & Triggers\nCREATE FUNCTION <name>()\nĐịnh nghĩa và tạo một hàm tự tạo (user-defined function).\ntạo hàm tự định nghĩa function\nkhởi tạo user defined function\nviết hàm tính toán trả về giá trị",
+      "content_hash_vi": "59653d2305ed1142bb6582ae3df9ad4e411466fd1d0e70ebdc5efff2836de81e"
+    },
+    {
+      "details": null,
+      "example": "CREATE TRIGGER before_insert BEFORE INSERT ON users FOR EACH ROW SET NEW.id = UUID();",
+      "danger": null,
+      "card_pos": 28,
+      "section_pos": 1,
+      "card": "Views, Routines & Triggers",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "CREATE TRIGGER <name> <time> <event> ON <t>",
+      "description": "Define a trigger for insert/update/delete",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 7,
+      "embed_text": "MySQL › Views, Routines & Triggers\nCREATE TRIGGER <name> <time> <event> ON <t>\nDefine a trigger for insert/update/delete",
+      "content_hash": "cbc66b2d396945c21d98a70b13d5937918c1c668e89e9f26b73d80285a2df3fc",
+      "description_vi": "Tạo trigger tự động kích hoạt khi insert, update hoặc delete.",
+      "embed_text_vi": "MySQL › Views, Routines & Triggers\nCREATE TRIGGER <name> <time> <event> ON <t>\nTạo trigger tự động kích hoạt khi insert, update hoặc delete.\ntạo trigger tự động khi sửa bảng\nđịnh nghĩa trigger trước sau insert update delete\nkích hoạt sự kiện tự động trên bảng",
+      "content_hash_vi": "b90e32d8a7b18df701fa15fdfede6192867d52cb6b134e6d648b8d87a5c3fdb6"
+    },
+    {
+      "details": null,
+      "example": "CREATE EVENT cleanup ON SCHEDULE EVERY 1 DAY DO DELETE FROM logs;",
+      "danger": null,
+      "card_pos": 28,
+      "section_pos": 1,
+      "card": "Views, Routines & Triggers",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "CREATE EVENT <name> ON SCHEDULE <sched>",
+      "description": "Create a scheduled task",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 8,
+      "embed_text": "MySQL › Views, Routines & Triggers\nCREATE EVENT <name> ON SCHEDULE <sched>\nCreate a scheduled task",
+      "content_hash": "21584edca49ce0ccaf1e06f8a5f8787ba0d81f172b28b35d98a0248852c677a3",
+      "description_vi": "Tạo tác vụ định kỳ tự động chạy theo lịch biểu (event schedule).",
+      "embed_text_vi": "MySQL › Views, Routines & Triggers\nCREATE EVENT <name> ON SCHEDULE <sched>\nTạo tác vụ định kỳ tự động chạy theo lịch biểu (event schedule).\ntạo tác vụ định kỳ theo lịch\nlên lịch chạy tự động event scheduler\nkhởi tạo job định kỳ trên database",
+      "content_hash_vi": "f2518510a814284f576e947fddd6bc4c935708d7f19b2ec4fc3317560ccae6cd"
+    },
+    {
+      "details": null,
+      "example": "EXPLAIN SELECT * FROM users WHERE status = 'active';",
+      "danger": null,
+      "card_pos": 29,
+      "section_pos": 1,
+      "card": "Performance & Diagnostics",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "EXPLAIN <query>",
+      "description": "Show execution plan for a query",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Performance & Diagnostics\nEXPLAIN <query>\nShow execution plan for a query",
+      "content_hash": "e1dc7064e4c49257fbf700ddb87847a2ba583529b5596e7d9228f913ad24fb84",
+      "description_vi": "Hiển thị kế hoạch thực thi (execution plan) của câu truy vấn.",
+      "embed_text_vi": "MySQL › Performance & Diagnostics\nEXPLAIN <query>\nHiển thị kế hoạch thực thi (execution plan) của câu truy vấn.\nxem kế hoạch thực thi câu truy vấn\nkiểm tra execution plan của query\nphân tích cách chạy truy vấn",
+      "content_hash_vi": "c4727f515f0cca11a3b37f64751cb21c3880b8632cf0867d7a3bae72194aaf9e"
+    },
+    {
+      "details": null,
+      "example": "EXPLAIN ANALYZE SELECT * FROM users WHERE status = 'active';",
+      "danger": null,
+      "card_pos": 29,
+      "section_pos": 1,
+      "card": "Performance & Diagnostics",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "EXPLAIN ANALYZE <query>",
+      "description": "Execute query and show actual timing and plan (MySQL 8+)",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Performance & Diagnostics\nEXPLAIN ANALYZE <query>\nExecute query and show actual timing and plan (MySQL 8+)",
+      "content_hash": "1d7e762af4103e848a6995708745251f9888d4403bb86f1e29a3e4a4a7f586c5",
+      "description_vi": "Chạy truy vấn thực tế và hiển thị thời gian cùng kế hoạch chi tiết.",
+      "embed_text_vi": "MySQL › Performance & Diagnostics\nEXPLAIN ANALYZE <query>\nChạy truy vấn thực tế và hiển thị thời gian cùng kế hoạch chi tiết.\nđo thời gian thực tế và kế hoạch chạy query\nphân tích hiệu năng truy vấn thực tế\nchạy thử query xem timing và execution plan",
+      "content_hash_vi": "4b070fb405a24fecf54b084a574dd3baee2486e0a4a739e32c6e58a33cfe8d90"
+    },
+    {
+      "details": null,
+      "example": "SET GLOBAL slow_query_log = 1;",
+      "danger": null,
+      "card_pos": 29,
+      "section_pos": 1,
+      "card": "Performance & Diagnostics",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "SET GLOBAL slow_query_log = 1",
+      "description": "Enable the slow query log",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 3,
+      "embed_text": "MySQL › Performance & Diagnostics\nSET GLOBAL slow_query_log = 1\nEnable the slow query log",
+      "content_hash": "f4c4979b3eb92b3c2c375a4bc72c47b41d1321bf28508e1257e224303eb65760",
+      "description_vi": "Bật tính năng ghi log các truy vấn chạy chậm (slow query log).",
+      "embed_text_vi": "MySQL › Performance & Diagnostics\nSET GLOBAL slow_query_log = 1\nBật tính năng ghi log các truy vấn chạy chậm (slow query log).\nbật log truy vấn chạy chậm\nkích hoạt slow query log\nghi vết câu query chậm trên server",
+      "content_hash_vi": "5bfce656bad31509d590c847a747e16c29351b44af8142079cf36b4121bef7d5"
+    },
+    {
+      "details": null,
+      "example": "ANALYZE TABLE users;",
+      "danger": null,
+      "card_pos": 29,
+      "section_pos": 1,
+      "card": "Performance & Diagnostics",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "ANALYZE TABLE <t>",
+      "description": "Update index statistics",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 4,
+      "embed_text": "MySQL › Performance & Diagnostics\nANALYZE TABLE <t>\nUpdate index statistics",
+      "content_hash": "31c09c66a43ddbec07e783a8963286e18d2f2de5e34ebc399a6284ee1725a477",
+      "description_vi": "Phân tích và cập nhật thống kê chỉ mục (index statistics) của bảng.",
+      "embed_text_vi": "MySQL › Performance & Diagnostics\nANALYZE TABLE <t>\nPhân tích và cập nhật thống kê chỉ mục (index statistics) của bảng.\ncập nhật thống kê chỉ mục bảng\nphân tích làm mới thống kê index\ntính lại thống kê khóa index cho bảng",
+      "content_hash_vi": "77b37c1e6929ef940d08158462c1a3bc91c2e5334646233968c9d0d8789e753c"
+    },
+    {
+      "details": null,
+      "example": "OPTIMIZE TABLE users;",
+      "danger": null,
+      "card_pos": 29,
+      "section_pos": 1,
+      "card": "Performance & Diagnostics",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "OPTIMIZE TABLE <t>",
+      "description": "Rebuild table to reclaim space",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 5,
+      "embed_text": "MySQL › Performance & Diagnostics\nOPTIMIZE TABLE <t>\nRebuild table to reclaim space",
+      "content_hash": "d37354c3917b4cf10a242e9eb44ddf3f2dd324a39401aa2d2f1bb1e918d51922",
+      "description_vi": "Xây dựng lại bảng để giải phóng dung lượng đĩa và chống phân mảnh.",
+      "embed_text_vi": "MySQL › Performance & Diagnostics\nOPTIMIZE TABLE <t>\nXây dựng lại bảng để giải phóng dung lượng đĩa và chống phân mảnh.\ntối ưu giải phóng dung lượng đĩa của bảng\nchống phân mảnh và thu hồi bộ nhớ bảng\nrebuild bảng thu hồi dung lượng lưu trữ",
+      "content_hash_vi": "4dc59c042e3363e313d200f275a3a321da710f85c8efd4d0a218d966fcc2ee20"
+    },
+    {
+      "details": null,
+      "example": "SHOW FULL PROCESSLIST;",
+      "danger": null,
+      "card_pos": 29,
+      "section_pos": 1,
+      "card": "Performance & Diagnostics",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "SHOW FULL PROCESSLIST",
+      "description": "List all active connections and queries",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 6,
+      "embed_text": "MySQL › Performance & Diagnostics\nSHOW FULL PROCESSLIST\nList all active connections and queries",
+      "content_hash": "46e8ed04578086563d421b3662a526f40b600682d498bd5baf7aea4e12e10ac0",
+      "description_vi": "Liệt kê toàn bộ kết nối và truy vấn đang chạy trên server.",
+      "embed_text_vi": "MySQL › Performance & Diagnostics\nSHOW FULL PROCESSLIST\nLiệt kê toàn bộ kết nối và truy vấn đang chạy trên server.\nxem danh sách truy vấn và tiến trình đang chạy\nkiểm tra các kết nối đang hoạt động\nliệt kê processlist chi tiết",
+      "content_hash_vi": "303d2e4b038bd6cd887507e9d57d6d08ed19e0a2c3e377aa3b45fc974417f69d"
+    },
+    {
+      "details": null,
+      "example": "SHOW VARIABLES LIKE 'max_connections';",
+      "danger": null,
+      "card_pos": 29,
+      "section_pos": 1,
+      "card": "Performance & Diagnostics",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "SHOW VARIABLES LIKE '<name>'",
+      "description": "View server configuration variables",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 7,
+      "embed_text": "MySQL › Performance & Diagnostics\nSHOW VARIABLES LIKE '<name>'\nView server configuration variables",
+      "content_hash": "8cf0894355c1554c54b0b6cb7285e30483ca54caf27d60f46569b6018c7349c6",
+      "description_vi": "Xem giá trị của các biến cấu hình hệ thống trên server.",
+      "embed_text_vi": "MySQL › Performance & Diagnostics\nSHOW VARIABLES LIKE '<name>'\nXem giá trị của các biến cấu hình hệ thống trên server.\nxem biến cấu hình server\nkiểm tra giá trị biến hệ thống\ntra cứu system variable theo tên",
+      "content_hash_vi": "1df74b0844d3f56c71fc99474bad208bbc4a3d7a087b9ba3cd52988eabb86722"
+    },
+    {
+      "details": null,
+      "example": "SHOW STATUS LIKE 'Threads_connected';",
+      "danger": null,
+      "card_pos": 29,
+      "section_pos": 1,
+      "card": "Performance & Diagnostics",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "SHOW STATUS",
+      "description": "View server performance statistics",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 8,
+      "embed_text": "MySQL › Performance & Diagnostics\nSHOW STATUS\nView server performance statistics",
+      "content_hash": "b01d5d5d12d84cc8bb4f88f60ca37b8fb7c6cc02a2ee64d83d3592dace9ea931",
+      "description_vi": "Xem các thông số thống kê hiệu năng và trạng thái server.",
+      "embed_text_vi": "MySQL › Performance & Diagnostics\nSHOW STATUS\nXem các thông số thống kê hiệu năng và trạng thái server.\nxem thống kê hiệu năng server\nkiểm tra trạng thái hoạt động hệ thống\ntra cứu chỉ số vận hành server status",
+      "content_hash_vi": "f23f96caace833b723560d2f9bd2fcef54ab75e419edde72339675f5632f2836"
+    },
+    {
+      "details": null,
+      "example": "SHOW ENGINE INNODB STATUS;",
+      "danger": null,
+      "card_pos": 29,
+      "section_pos": 1,
+      "card": "Performance & Diagnostics",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "SHOW ENGINE INNODB STATUS",
+      "description": "Detailed InnoDB engine information and deadlocks",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 9,
+      "embed_text": "MySQL › Performance & Diagnostics\nSHOW ENGINE INNODB STATUS\nDetailed InnoDB engine information and deadlocks",
+      "content_hash": "3732e59efe50df49534532b9c134a96cd86a526fa3ba240e466e796f6b95f4e2",
+      "description_vi": "Xem thông tin chi tiết động cơ InnoDB, bộ nhớ và lỗi deadlock.",
+      "embed_text_vi": "MySQL › Performance & Diagnostics\nSHOW ENGINE INNODB STATUS\nXem thông tin chi tiết động cơ InnoDB, bộ nhớ và lỗi deadlock.\nxem chi tiết trạng thái innodb và deadlock\nkiểm tra thông tin deadlock gần nhất\nsoát tình trạng bộ nhớ và khoá innodb",
+      "content_hash_vi": "dc26bd60809c5d03dfb107acc0972d553ffdae73c19b2556e3393ef496128a42"
+    },
+    {
+      "details": null,
+      "example": "SELECT table_name, data_length FROM information_schema.tables WHERE table_schema='mydb';",
+      "danger": null,
+      "card_pos": 29,
+      "section_pos": 1,
+      "card": "Performance & Diagnostics",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "SELECT ... FROM information_schema.tables",
+      "description": "Query metadata like table sizes",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 10,
+      "embed_text": "MySQL › Performance & Diagnostics\nSELECT ... FROM information_schema.tables\nQuery metadata like table sizes",
+      "content_hash": "2bc1920ccbb9e48dec55c9a9ab2640520c8e96b88ce04555c04a129a13094986",
+      "description_vi": "Truy vấn thông tin siêu dữ liệu (metadata) kích thước bảng.",
+      "embed_text_vi": "MySQL › Performance & Diagnostics\nSELECT ... FROM information_schema.tables\nTruy vấn thông tin siêu dữ liệu (metadata) kích thước bảng.\ntruy vấn kích thước dung lượng các bảng\ntra cứu metadata thông tin bảng hệ thống\nxem dung lượng lưu trữ bảng từ information_schema",
+      "content_hash_vi": "9860ebfd2fc340aa85ae88327e7f5e829c231de1a305923665e11a98c22eaf21"
+    },
+    {
+      "details": null,
+      "example": "LOAD DATA INFILE '/tmp/data.csv' INTO TABLE users FIELDS TERMINATED BY ',';",
+      "danger": null,
+      "card_pos": 30,
+      "section_pos": 1,
+      "card": "Import & Export",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "LOAD DATA INFILE '<file>' INTO TABLE <t>",
+      "description": "Bulk import data from a CSV/text file",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Import & Export\nLOAD DATA INFILE '<file>' INTO TABLE <t>\nBulk import data from a CSV/text file",
+      "content_hash": "1c4dcfba63d0c35e74cae84c6553839b572d90c1436b517b80126672e3771459",
+      "description_vi": "Nhập (import) hàng loạt dữ liệu từ file CSV/text vào bảng <t>",
+      "embed_text_vi": "MySQL › Import & Export\nLOAD DATA INFILE '<file>' INTO TABLE <t>\nNhập (import) hàng loạt dữ liệu từ file CSV/text vào bảng <t>\nimport file csv vào table\nnhập dữ liệu hàng loạt từ file văn bản\nnạp dữ liệu từ file csv vào bảng",
+      "content_hash_vi": "5074d22ad4f3b88acbc01cf0fffbd0568296e2d2da1439a91e0be64e8498128e"
+    },
+    {
+      "details": null,
+      "example": "SELECT * INTO OUTFILE '/tmp/data.csv' FIELDS TERMINATED BY ',' FROM users;",
+      "danger": null,
+      "card_pos": 30,
+      "section_pos": 1,
+      "card": "Import & Export",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "SELECT ... INTO OUTFILE '<file>'",
+      "description": "Export query results to a file",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Import & Export\nSELECT ... INTO OUTFILE '<file>'\nExport query results to a file",
+      "content_hash": "8be25affe82e8a9328be338b2509d420cc5d12111d87456bfd3e42a3d30a8655",
+      "description_vi": "Xuất (export) kết quả truy vấn ra file ngoài",
+      "embed_text_vi": "MySQL › Import & Export\nSELECT ... INTO OUTFILE '<file>'\nXuất (export) kết quả truy vấn ra file ngoài\nexport kết quả truy vấn ra file\nxuất dữ liệu select ra file csv\nlưu kết quả câu query vào file",
+      "content_hash_vi": "d9cf88d1913d3952e03b8883fd318f79aed3f4e1b9e9240fa03bc1288406c06b"
+    },
+    {
+      "details": null,
+      "example": "SHOW REPLICA STATUS \\G",
+      "danger": null,
+      "card_pos": 31,
+      "section_pos": 1,
+      "card": "Replication (MySQL 8.4+)",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "SHOW REPLICA STATUS",
+      "description": "View replication status on replica (replaces SHOW SLAVE STATUS)",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 1,
+      "embed_text": "MySQL › Replication (MySQL 8.4+)\nSHOW REPLICA STATUS\nView replication status on replica (replaces SHOW SLAVE STATUS)",
+      "content_hash": "081dfcbfb560d9b3fe17a6830cab084b760ec45530a52e34942f4f6a99951d7b",
+      "description_vi": "Xem trạng thái đồng bộ replication trên replica",
+      "embed_text_vi": "MySQL › Replication (MySQL 8.4+)\nSHOW REPLICA STATUS\nXem trạng thái đồng bộ replication trên replica\nkiểm tra trạng thái replication replica\nxem tiến trình đồng bộ dữ liệu replica\nhiển thị trạng thái sao chép replication",
+      "content_hash_vi": "e39efc34888facb1c2ef993830b1445ebab7d72c8db62c0489908f78c367dac7"
+    },
+    {
+      "details": null,
+      "example": "CHANGE REPLICATION SOURCE TO SOURCE_HOST='10.0.0.1', SOURCE_USER='repl';",
+      "danger": null,
+      "card_pos": 31,
+      "section_pos": 1,
+      "card": "Replication (MySQL 8.4+)",
+      "section": null,
+      "lang": null,
+      "kind": "command",
+      "command": "CHANGE REPLICATION SOURCE TO",
+      "description": "Configure replication source (replaces CHANGE MASTER TO)",
+      "display": {
+        "key_style": "cmd"
+      },
+      "position": 2,
+      "embed_text": "MySQL › Replication (MySQL 8.4+)\nCHANGE REPLICATION SOURCE TO\nConfigure replication source (replaces CHANGE MASTER TO)",
+      "content_hash": "7a967cc6a4b8c9fa9d6c0e4baa32b77da4c4d823de7365d05a4e57eb1336e1b8",
+      "description_vi": "Cấu hình nguồn replication cho replica",
+      "embed_text_vi": "MySQL › Replication (MySQL 8.4+)\nCHANGE REPLICATION SOURCE TO\nCấu hình nguồn replication cho replica\ncấu hình máy chủ nguồn replication\nthay đổi thông tin replication source\nthiết lập địa chỉ nguồn sao chép replication",
+      "content_hash_vi": "27fa944fa783d47bbbd9421eccc0bc68389dae12d20074faf7645a76d2dbfc82"
     }
-  ],
-  "aliases": [
-    "mysql"
   ]
 }

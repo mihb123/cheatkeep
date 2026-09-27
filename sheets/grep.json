@@ -1,0 +1,593 @@
+{
+  "title": "grep Cheatsheet",
+  "subtitle": "Global Regular Expression Print",
+  "description": "Search text and files using regular expressions.",
+  "source_url": "https://www.gnu.org/software/grep/manual/grep.html",
+  "links": [
+    {
+      "label": "GNU grep manual",
+      "url": "https://www.gnu.org/software/grep/manual/grep.html"
+    }
+  ],
+  "aliases": [
+    "egrep"
+  ],
+  "cards": [
+    {
+      "icon": "🔍",
+      "title": "Basic Usage & Matching",
+      "layout": "grid",
+      "sections": [
+        {
+          "label": "Basic Usage",
+          "kind": "table",
+          "items": [
+            {
+              "key": "grep <pattern> <file>",
+              "key_style": "cmd",
+              "description": "Search for a pattern in a specific file",
+              "example": "grep \"error\" app.log"
+            },
+            {
+              "key": "grep <pattern> <file1> <file2>",
+              "key_style": "cmd",
+              "description": "Search for a pattern in multiple files",
+              "example": "grep \"error\" app.log db.log"
+            },
+            {
+              "key": "cat <file> | grep <pattern>",
+              "key_style": "cmd",
+              "description": "Search from standard input (via pipe)",
+              "example": "cat app.log | grep \"error\""
+            }
+          ]
+        },
+        {
+          "label": "Matching Control",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-i",
+              "key_style": "code",
+              "description": "Ignore case distinctions in patterns and input data",
+              "example": "grep -i \"error\" app.log"
+            },
+            {
+              "key": "-v",
+              "key_style": "code",
+              "description": "Select non-matching lines (invert the match)",
+              "example": "grep -v \"debug\" app.log"
+            },
+            {
+              "key": "-w",
+              "key_style": "code",
+              "description": "Match only whole words",
+              "example": "grep -w \"is\" text.txt"
+            },
+            {
+              "key": "-x",
+              "key_style": "code",
+              "description": "Match only whole lines exactly",
+              "example": "grep -x \"exact line\" text.txt"
+            },
+            {
+              "key": "-e <pattern>",
+              "key_style": "code",
+              "description": "Specify multiple patterns to match any of them",
+              "example": "grep -e \"error\" -e \"warn\" app.log"
+            },
+            {
+              "key": "-f <file>",
+              "key_style": "code",
+              "description": "Obtain patterns from a file, one per line",
+              "example": "grep -f patterns.txt app.log"
+            },
+            {
+              "key": "-E",
+              "key_style": "code",
+              "description": "Interpret pattern as an extended regular expression (ERE)",
+              "example": "grep -E \"error|warn\" app.log"
+            },
+            {
+              "key": "-F",
+              "key_style": "code",
+              "description": "Interpret pattern as fixed strings, not regular expressions",
+              "example": "grep -F \"user*name\" app.log"
+            },
+            {
+              "key": "-G",
+              "key_style": "code",
+              "description": "Interpret pattern as a basic regular expression (default)",
+              "example": "grep -G \"error\" app.log"
+            },
+            {
+              "key": "-P",
+              "key_style": "code",
+              "description": "Interpret pattern as a Perl-compatible regular expression (PCRE)",
+              "example": "grep -P \"\\d+\" app.log"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "👁️",
+      "title": "Output Control",
+      "layout": "grid",
+      "sections": [
+        {
+          "label": "Formatting & Output",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-c",
+              "key_style": "code",
+              "description": "Print only a count of matching lines per file",
+              "example": "grep -c \"error\" app.log"
+            },
+            {
+              "key": "-n",
+              "key_style": "code",
+              "description": "Prefix each line of output with the 1-based line number",
+              "example": "grep -n \"error\" app.log"
+            },
+            {
+              "key": "-b",
+              "key_style": "code",
+              "description": "Print the 0-based byte offset before each matching line",
+              "example": "grep -b \"error\" app.log"
+            },
+            {
+              "key": "-H",
+              "key_style": "code",
+              "description": "Print the file name for each match",
+              "example": "grep -H \"error\" app.log"
+            },
+            {
+              "key": "-h",
+              "key_style": "code",
+              "description": "Suppress the prefixing of file names on output",
+              "example": "grep -h \"error\" *.log"
+            },
+            {
+              "key": "-l",
+              "key_style": "code",
+              "description": "Print only names of files containing matches",
+              "example": "grep -l \"error\" *.log"
+            },
+            {
+              "key": "-L",
+              "key_style": "code",
+              "description": "Print only names of files containing no matches",
+              "example": "grep -L \"error\" *.log"
+            },
+            {
+              "key": "-o",
+              "key_style": "code",
+              "description": "Show only the part of a line matching the pattern",
+              "example": "grep -o \"[0-9]\\+\" app.log"
+            },
+            {
+              "key": "-q",
+              "key_style": "code",
+              "description": "Quiet mode; do not write anything to standard output",
+              "example": "grep -q \"error\" app.log && echo \"found\""
+            },
+            {
+              "key": "-s",
+              "key_style": "code",
+              "description": "Suppress error messages about nonexistent or unreadable files",
+              "example": "grep -s \"error\" missing.log"
+            },
+            {
+              "key": "-m <num>",
+              "key_style": "code",
+              "description": "Stop reading a file after num matching lines",
+              "example": "grep -m 1 \"error\" app.log"
+            },
+            {
+              "key": "--color=always",
+              "key_style": "code",
+              "description": "Surround matched strings with escape sequences to show color",
+              "example": "grep --color=always \"error\" app.log"
+            },
+            {
+              "key": "--label=<name>",
+              "key_style": "code",
+              "description": "Provide a fake filename for standard input output",
+              "example": "cat file | grep --label=file.txt -H \"error\""
+            },
+            {
+              "key": "-Z",
+              "key_style": "code",
+              "description": "Output a zero byte after filename, useful with xargs -0",
+              "example": "grep -lZ \"error\" *.txt | xargs -0 rm"
+            },
+            {
+              "key": "--line-buffered",
+              "key_style": "code",
+              "description": "Use line buffering on output, good for piping",
+              "example": "tail -f app.log | grep --line-buffered \"error\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "📁",
+      "title": "Context & File Selection",
+      "layout": "grid",
+      "sections": [
+        {
+          "label": "Context Control",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-A <num>",
+              "key_style": "code",
+              "description": "Print num lines of trailing context after matches",
+              "example": "grep -A 3 \"error\" app.log"
+            },
+            {
+              "key": "-B <num>",
+              "key_style": "code",
+              "description": "Print num lines of leading context before matches",
+              "example": "grep -B 2 \"error\" app.log"
+            },
+            {
+              "key": "-C <num>",
+              "key_style": "code",
+              "description": "Print num lines of output context around matches",
+              "example": "grep -C 2 \"error\" app.log"
+            },
+            {
+              "key": "--group-separator=<str>",
+              "key_style": "code",
+              "description": "Use a string to separate groups of context lines",
+              "example": "grep -A 1 --group-separator=\"---\" \"error\" app.log"
+            }
+          ]
+        },
+        {
+          "label": "Directory & File Selection",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-r",
+              "key_style": "code",
+              "description": "Read all files under directories recursively",
+              "example": "grep -r \"error\" /var/log/"
+            },
+            {
+              "key": "-R",
+              "key_style": "code",
+              "description": "Read all files recursively, following all symlinks",
+              "example": "grep -R \"error\" /var/log/"
+            },
+            {
+              "key": "--include=<glob>",
+              "key_style": "code",
+              "description": "Search only files whose base name matches the glob",
+              "example": "grep -r --include=\"*.txt\" \"error\" src/"
+            },
+            {
+              "key": "--exclude=<glob>",
+              "key_style": "code",
+              "description": "Skip files whose base name matches the glob",
+              "example": "grep -r --exclude=\"*.log\" \"error\" src/"
+            },
+            {
+              "key": "--exclude-dir=<glob>",
+              "key_style": "code",
+              "description": "Skip directories whose base name matches the glob",
+              "example": "grep -r --exclude-dir=\".git\" \"error\" src/"
+            },
+            {
+              "key": "-a",
+              "key_style": "code",
+              "description": "Process a binary file as if it were text",
+              "example": "grep -a \"error\" binary_file.bin"
+            },
+            {
+              "key": "-I",
+              "key_style": "code",
+              "description": "Process a binary file as if it did not contain matching data",
+              "example": "grep -I \"error\" src/"
+            },
+            {
+              "key": "--binary-files=<type>",
+              "key_style": "code",
+              "description": "Assume data type: binary, text, or without-match",
+              "example": "grep --binary-files=without-match \"error\" file.bin"
+            },
+            {
+              "key": "-D <action>",
+              "key_style": "code",
+              "description": "Action for devices, FIFOs, and sockets (read or skip)",
+              "example": "grep -D skip \"error\" /dev/"
+            },
+            {
+              "key": "-d <action>",
+              "key_style": "code",
+              "description": "Action for directories (read, recurse, or skip)",
+              "example": "grep -d skip \"error\" ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🧩",
+      "title": "Regular Expression Reference",
+      "layout": "grid",
+      "sections": [
+        {
+          "label": "Character Classes & Anchors",
+          "kind": "table",
+          "items": [
+            {
+              "key": "^",
+              "key_style": "code",
+              "description": "Match the empty string at the beginning of a line",
+              "example": "grep \"^start\" app.log"
+            },
+            {
+              "key": "$",
+              "key_style": "code",
+              "description": "Match the empty string at the end of a line",
+              "example": "grep \"end$\" app.log"
+            },
+            {
+              "key": ".",
+              "key_style": "code",
+              "description": "Match any single character",
+              "example": "grep \"a.c\" text.txt"
+            },
+            {
+              "key": "[<chars>]",
+              "key_style": "code",
+              "description": "Match any single character in the bracket expression",
+              "example": "grep \"[a-z]\" text.txt"
+            },
+            {
+              "key": "[^<chars>]",
+              "key_style": "code",
+              "description": "Match any single character not in the bracket expression",
+              "example": "grep \"[^0-9]\" text.txt"
+            },
+            {
+              "key": "[[:digit:]]",
+              "key_style": "code",
+              "description": "Match any digit character, equivalent to [0-9]",
+              "example": "grep \"[[:digit:]]\" text.txt"
+            },
+            {
+              "key": "[[:alpha:]]",
+              "key_style": "code",
+              "description": "Match any alphabetic character",
+              "example": "grep \"[[:alpha:]]\" text.txt"
+            },
+            {
+              "key": "[[:space:]]",
+              "key_style": "code",
+              "description": "Match any whitespace character",
+              "example": "grep \"[[:space:]]\" text.txt"
+            },
+            {
+              "key": "\\b",
+              "key_style": "code",
+              "description": "Match the empty string at the edge of a word",
+              "example": "grep \"\\berror\\b\" app.log"
+            },
+            {
+              "key": "\\w",
+              "key_style": "code",
+              "description": "Match a word constituent character (alphanumeric or underscore)",
+              "example": "grep \"\\w\\+\" app.log"
+            }
+          ]
+        },
+        {
+          "label": "Quantifiers & Groups (BRE / ERE / PCRE)",
+          "kind": "table",
+          "items": [
+            {
+              "key": "*",
+              "key_style": "code",
+              "description": "Match the preceding item zero or more times",
+              "example": "grep \"ab*c\" text.txt"
+            },
+            {
+              "key": "+",
+              "key_style": "code",
+              "description": "Match the preceding item one or more times (ERE only)",
+              "example": "grep -E \"ab+c\" text.txt"
+            },
+            {
+              "key": "\\+",
+              "key_style": "code",
+              "description": "Match the preceding item one or more times (BRE)",
+              "example": "grep \"ab\\+c\" text.txt"
+            },
+            {
+              "key": "?",
+              "key_style": "code",
+              "description": "Match the preceding item zero or one time (ERE only)",
+              "example": "grep -E \"ab?c\" text.txt"
+            },
+            {
+              "key": "\\?",
+              "key_style": "code",
+              "description": "Match the preceding item zero or one time (BRE)",
+              "example": "grep \"ab\\?c\" text.txt"
+            },
+            {
+              "key": "{<n>,<m>}",
+              "key_style": "code",
+              "description": "Match the preceding item between n and m times (ERE only)",
+              "example": "grep -E \"a{2,4}\" text.txt"
+            },
+            {
+              "key": "\\{<n>,<m>\\}",
+              "key_style": "code",
+              "description": "Match the preceding item between n and m times (BRE)",
+              "example": "grep \"a\\{2,4\\}\" text.txt"
+            },
+            {
+              "key": "<p1>|<p2>",
+              "key_style": "code",
+              "description": "Match either pattern p1 or p2 (ERE only)",
+              "example": "grep -E \"error|warn\" app.log"
+            },
+            {
+              "key": "<p1>\\|<p2>",
+              "key_style": "code",
+              "description": "Match either pattern p1 or p2 (BRE)",
+              "example": "grep \"error\\|warn\" app.log"
+            },
+            {
+              "key": "(<pattern>)",
+              "key_style": "code",
+              "description": "Group expressions together (ERE only)",
+              "example": "grep -E \"(ab)+\" text.txt"
+            },
+            {
+              "key": "\\(<pattern>\\)",
+              "key_style": "code",
+              "description": "Group expressions together (BRE)",
+              "example": "grep \"\\(ab\\)\\+\" text.txt"
+            },
+            {
+              "key": "\\<n>",
+              "key_style": "code",
+              "description": "Backreference: match the text matched by the nth captured group",
+              "example": "grep \"\\([a-z]\\)\\1\" text.txt"
+            },
+            {
+              "key": "\\d",
+              "key_style": "code",
+              "description": "Match any decimal digit (PCRE only)",
+              "example": "grep -P \"\\d+\" text.txt"
+            },
+            {
+              "key": "(?=<pattern>)",
+              "key_style": "code",
+              "description": "Positive lookahead: match if followed by pattern (PCRE only)",
+              "example": "grep -P \"foo(?=bar)\" text.txt"
+            },
+            {
+              "key": "\\K",
+              "key_style": "code",
+              "description": "Reset the start of the match, keeping only what follows (PCRE only)",
+              "example": "grep -P \"User: \\K\\w+\" app.log"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "ℹ️",
+      "title": "Return Status & zgrep",
+      "layout": "grid",
+      "sections": [
+        {
+          "label": "Exit Status",
+          "kind": "rows",
+          "items": [
+            {
+              "key": "0",
+              "key_style": "plain",
+              "description": "One or more lines were selected",
+              "example": "grep \"error\" app.log; echo $?"
+            },
+            {
+              "key": "1",
+              "key_style": "plain",
+              "description": "No lines were selected",
+              "example": "grep \"missing\" app.log; echo $?"
+            },
+            {
+              "key": "2",
+              "key_style": "plain",
+              "description": "An error occurred (e.g., file not found)",
+              "example": "grep \"error\" nonexistent.txt; echo $?"
+            }
+          ]
+        },
+        {
+          "label": "Compressed Files (zgrep)",
+          "kind": "table",
+          "items": [
+            {
+              "key": "zgrep <pattern> <file.gz>",
+              "key_style": "cmd",
+              "description": "Search compressed files without explicitly uncompressing",
+              "example": "zgrep \"error\" app.log.gz"
+            },
+            {
+              "key": "zcat <file.gz> | grep <pattern>",
+              "key_style": "cmd",
+              "description": "Alternative way to search compressed files via pipe",
+              "example": "zcat app.log.gz | grep \"error\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "💡",
+      "title": "Practical Examples",
+      "layout": "grid",
+      "sections": [
+        {
+          "label": "Common Use Cases",
+          "kind": "table",
+          "items": [
+            {
+              "key": "grep -r --include=\"*.<ext>\" \"<pattern>\" <dir>",
+              "key_style": "cmd",
+              "description": "Find a pattern recursively in files matching an extension",
+              "example": "grep -r --include=\"*.py\" \"TODO\" ."
+            },
+            {
+              "key": "grep -c \"<pattern>\" *.<ext>",
+              "key_style": "cmd",
+              "description": "Count the number of matches in each matching file",
+              "example": "grep -c \"error\" *.log"
+            },
+            {
+              "key": "grep -L \"<pattern>\" <dir>/*.<ext>",
+              "key_style": "cmd",
+              "description": "List files that do NOT contain a specific string",
+              "example": "grep -L \"deprecated\" src/*.c"
+            },
+            {
+              "key": "zgrep \"<pattern>\" <file.gz>",
+              "key_style": "cmd",
+              "description": "Search for a pattern across compressed files",
+              "example": "zgrep \"Exception\" /var/log/syslog*.gz"
+            },
+            {
+              "key": "grep -oE \"<regex>\" <file>",
+              "key_style": "cmd",
+              "description": "Extract only matches using an extended regular expression",
+              "example": "grep -oE \"[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+\" access.log"
+            },
+            {
+              "key": "ps aux | grep \"[<char>]<rest>\"",
+              "key_style": "cmd",
+              "description": "Grep process list without matching the grep command itself",
+              "example": "ps aux | grep \"[n]ginx\""
+            },
+            {
+              "key": "find <dir> -name \"*.<ext>\" -print0 | xargs -0 grep \"<pattern>\"",
+              "key_style": "cmd",
+              "description": "Combine find with xargs for safe filename handling",
+              "example": "find . -name \"*.txt\" -print0 | xargs -0 grep \"error\""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

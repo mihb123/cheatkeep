@@ -1,0 +1,1178 @@
+{
+  "title": "MongoDB Cheatsheet",
+  "subtitle": "mongosh client, query language & database tools",
+  "description": "Comprehensive MongoDB cheatsheet covering mongosh connection, shell helpers, CRUD operations, query & update operators, aggregation pipeline, indexes, and database tools.",
+  "source_url": "https://www.mongodb.com/docs/manual/",
+  "links": [
+    {
+      "label": "mongodb.com/docs/shell",
+      "url": "https://www.mongodb.com/docs/mongodb-shell/"
+    },
+    {
+      "label": "mongodb.com/docs/manual",
+      "url": "https://www.mongodb.com/docs/manual/reference/operator/"
+    },
+    {
+      "label": "mongodb.com/docs/tools",
+      "url": "https://www.mongodb.com/docs/database-tools/"
+    }
+  ],
+  "aliases": [
+    "mongo",
+    "mongosh"
+  ],
+  "cards": [
+    {
+      "title": "Connect & Helpers",
+      "icon": "🔌",
+      "title_accent": "Connect",
+      "sections": [
+        {
+          "label": "Connection (mongosh)",
+          "kind": "table",
+          "items": [
+            {
+              "key": "mongosh \"mongodb://<host>:<port>\"",
+              "key_style": "cmd",
+              "description": "Connect to a MongoDB server using a URI connection string",
+              "example": "mongosh \"mongodb://localhost:27017\""
+            },
+            {
+              "key": "\"?replicaSet=<rs>&authSource=admin\"",
+              "key_style": "code",
+              "description": "Common connection string options for replica set and auth",
+              "example": "mongosh \"mongodb://host1,host2/?replicaSet=rs0&authSource=admin\""
+            },
+            {
+              "key": "mongosh --host <host> --port <port> -u <user> -p",
+              "key_style": "cmd",
+              "description": "Connect specifying host, port, and prompt for password",
+              "example": "mongosh --host db.example.com --port 27017 -u admin -p"
+            },
+            {
+              "key": "--authenticationDatabase <db>",
+              "key_style": "code",
+              "description": "Specify the database where the user is created",
+              "example": "mongosh -u alice -p --authenticationDatabase admin"
+            },
+            {
+              "key": "mongosh --eval \"<code>\"",
+              "key_style": "cmd",
+              "description": "Evaluate a JavaScript expression and exit",
+              "example": "mongosh mydb --eval \"printjson(db.getCollectionNames())\""
+            },
+            {
+              "key": "mongosh --file <file.js>",
+              "key_style": "cmd",
+              "description": "Execute a JavaScript file and exit",
+              "example": "mongosh mydb --file setup.js"
+            },
+            {
+              "key": "mongosh --nodb",
+              "key_style": "cmd",
+              "description": "Start the shell without connecting to a database",
+              "example": "mongosh --nodb --quiet"
+            }
+          ]
+        },
+        {
+          "label": "Shell Helpers",
+          "kind": "table",
+          "items": [
+            {
+              "key": "show dbs",
+              "key_style": "cmd",
+              "description": "List all databases on the server",
+              "example": "show dbs; use shop"
+            },
+            {
+              "key": "use <db>",
+              "key_style": "cmd",
+              "description": "Switch the current database context",
+              "example": "use shop"
+            },
+            {
+              "key": "show collections",
+              "key_style": "cmd",
+              "description": "List all collections in the current database",
+              "example": "use shop; show collections"
+            },
+            {
+              "key": "db.getName()",
+              "key_style": "cmd",
+              "description": "Return the name of the current database",
+              "example": "print(\"Current DB: \" + db.getName())"
+            },
+            {
+              "key": "help",
+              "key_style": "cmd",
+              "description": "Show general mongosh help",
+              "example": "db.help()"
+            },
+            {
+              "key": "it",
+              "key_style": "cmd",
+              "description": "Iterate to show the next batch of query results",
+              "example": "db.users.find(); it"
+            },
+            {
+              "key": "load(\"<script.js>\")",
+              "key_style": "cmd",
+              "description": "Load and run a JavaScript file in the current shell session",
+              "example": "load(\"scripts/setup.js\")"
+            },
+            {
+              "key": "exit",
+              "key_style": "cmd",
+              "description": "Quit the mongosh session",
+              "example": "quit()"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Databases & Collections",
+      "icon": "🗄️",
+      "title_accent": "Databases",
+      "sections": [
+        {
+          "label": "Management",
+          "kind": "table",
+          "items": [
+            {
+              "key": "db.createCollection(\"<name>\")",
+              "key_style": "cmd",
+              "description": "Create a new collection explicitly",
+              "example": "db.createCollection(\"users\")"
+            },
+            {
+              "key": "db.createCollection(\"<name>\", { <options> })",
+              "key_style": "cmd",
+              "description": "Create a collection with specific options like validation or capped size",
+              "example": "db.createCollection(\"log\", { capped: true, size: 5242880 })"
+            },
+            {
+              "key": "db.<collection>.renameCollection(\"<newName>\")",
+              "key_style": "cmd",
+              "description": "Rename an existing collection",
+              "example": "db.users.renameCollection(\"customers\")"
+            },
+            {
+              "key": "db.<collection>.drop()",
+              "key_style": "cmd",
+              "description": "Drop a collection and all its documents",
+              "example": "db.tempData.drop()",
+              "danger": "Deletes the collection and its indexes permanently."
+            },
+            {
+              "key": "db.dropDatabase()",
+              "key_style": "cmd",
+              "description": "Drop the current database",
+              "example": "use testDb; db.dropDatabase()",
+              "danger": "Deletes the database, all collections, and indexes permanently."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "CRUD: Create, Update, Delete",
+      "icon": "📝",
+      "title_accent": "CRUD",
+      "sections": [
+        {
+          "label": "Insert",
+          "kind": "table",
+          "items": [
+            {
+              "key": "db.<coll>.insertOne({ <doc> })",
+              "key_style": "cmd",
+              "description": "Insert a single document into a collection",
+              "example": "db.users.insertOne({ name: \"Alice\", age: 28 })"
+            },
+            {
+              "key": "db.<coll>.insertMany([{ <doc> }, ...])",
+              "key_style": "cmd",
+              "description": "Insert multiple documents at once",
+              "example": "db.users.insertMany([{ name: \"Bob\" }, { name: \"Charlie\" }])"
+            },
+            {
+              "key": "db.<coll>.bulkWrite([ <ops> ])",
+              "key_style": "cmd",
+              "description": "Execute a mix of insert, update, replace, and delete operations",
+              "example": "db.users.bulkWrite([{ insertOne: { document: { _id: 1 } } }])"
+            }
+          ]
+        },
+        {
+          "label": "Update & Replace",
+          "kind": "table",
+          "items": [
+            {
+              "key": "db.<coll>.updateOne({ <filter> }, { <update> })",
+              "key_style": "cmd",
+              "description": "Update the first document that matches the filter",
+              "example": "db.users.updateOne({ _id: 1 }, { $set: { status: \"active\" } })"
+            },
+            {
+              "key": "db.<coll>.updateMany({ <filter> }, { <update> })",
+              "key_style": "cmd",
+              "description": "Update all documents that match the filter",
+              "example": "db.users.updateMany({ age: { $lt: 18 } }, { $set: { minor: true } })"
+            },
+            {
+              "key": "db.<coll>.replaceOne({ <filter> }, { <doc> })",
+              "key_style": "cmd",
+              "description": "Replace entirely the first matching document",
+              "example": "db.users.replaceOne({ _id: 1 }, { name: \"Alice\", age: 29 })"
+            },
+            {
+              "key": "upsert: true",
+              "key_style": "code",
+              "description": "Insert a new document if no documents match the filter",
+              "example": "db.users.updateOne({ _id: 2 }, { $set: { name: \"Bob\" } }, { upsert: true })"
+            },
+            {
+              "key": "db.<coll>.findOneAndUpdate({ <filter> }, { <update> }, { returnDocument: \"after\" })",
+              "key_style": "cmd",
+              "description": "Update a document and return its modified version",
+              "example": "db.seq.findOneAndUpdate({ _id: \"uid\" }, { $inc: { val: 1 } }, { returnDocument: \"after\" })"
+            }
+          ]
+        },
+        {
+          "label": "Delete",
+          "kind": "table",
+          "items": [
+            {
+              "key": "db.<coll>.deleteOne({ <filter> })",
+              "key_style": "cmd",
+              "description": "Delete the first document that matches the filter",
+              "example": "db.users.deleteOne({ status: \"rejected\" })",
+              "danger": "Permanently deletes the matched document."
+            },
+            {
+              "key": "db.<coll>.deleteMany({ <filter> })",
+              "key_style": "cmd",
+              "description": "Delete all documents that match the filter",
+              "example": "db.users.deleteMany({ status: \"inactive\" })",
+              "danger": "Permanently deletes all matched documents."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Queries & Cursors",
+      "icon": "🔍",
+      "title_accent": "Queries",
+      "sections": [
+        {
+          "label": "Find & Read Methods",
+          "kind": "table",
+          "items": [
+            {
+              "key": "db.<coll>.find({ <filter> })",
+              "key_style": "cmd",
+              "description": "Find documents matching the filter",
+              "example": "db.users.find({ age: { $gte: 21 } })"
+            },
+            {
+              "key": "db.<coll>.findOne({ <filter> })",
+              "key_style": "cmd",
+              "description": "Find and return the first document matching the filter",
+              "example": "db.users.findOne({ email: \"alice@example.com\" })"
+            },
+            {
+              "key": "db.<coll>.find({ <filter> }, { <field>: 1, <other>: 0 })",
+              "key_style": "cmd",
+              "description": "Find with projection: include (1) or exclude (0) fields",
+              "example": "db.users.find({ status: \"A\" }, { name: 1, email: 1, _id: 0 })"
+            }
+          ]
+        },
+        {
+          "label": "Projection Array Operators",
+          "kind": "table",
+          "items": [
+            {
+              "key": "\"field.$\"",
+              "key_style": "code",
+              "description": "Projects the first element in an array that matches the query condition",
+              "example": "db.users.find({ grades: { $gt: 85 } }, { \"grades.$\": 1 })"
+            },
+            {
+              "key": "$elemMatch (projection)",
+              "key_style": "code",
+              "description": "Projects the first element in an array that matches the specified $elemMatch condition",
+              "example": "db.schools.find({ zipcode: \"63109\" }, { students: { $elemMatch: { school: 102 } } })"
+            },
+            {
+              "key": "$slice",
+              "key_style": "code",
+              "description": "Limits the number of elements projected from an array",
+              "example": "db.posts.find({}, { comments: { $slice: 5 } })"
+            }
+          ]
+        },
+        {
+          "label": "Cursor Options",
+          "kind": "table",
+          "items": [
+            {
+              "key": "db.<coll>.find().sort({ <field>: 1 })",
+              "key_style": "cmd",
+              "description": "Sort query results ascending (1) or descending (-1)",
+              "example": "db.users.find().sort({ age: -1, name: 1 })"
+            },
+            {
+              "key": "db.<coll>.find().limit(<n>)",
+              "key_style": "cmd",
+              "description": "Limit the maximum number of documents returned",
+              "example": "db.users.find().limit(10)"
+            },
+            {
+              "key": "db.<coll>.find().skip(<n>)",
+              "key_style": "cmd",
+              "description": "Skip a specified number of documents (useful for pagination)",
+              "example": "db.users.find().skip(20).limit(10)"
+            },
+            {
+              "key": "db.<coll>.find().collation({ locale: \"en\", strength: 2 })",
+              "key_style": "cmd",
+              "description": "Specify language-specific string comparison rules (e.g., case-insensitive)",
+              "example": "db.users.find({ name: \"alice\" }).collation({ locale: \"en\", strength: 2 })"
+            }
+          ]
+        },
+        {
+          "label": "Counting & Distinct",
+          "kind": "table",
+          "items": [
+            {
+              "key": "db.<coll>.countDocuments({ <filter> })",
+              "key_style": "cmd",
+              "description": "Count documents matching a query filter",
+              "example": "db.users.countDocuments({ status: \"active\" })"
+            },
+            {
+              "key": "db.<coll>.estimatedDocumentCount()",
+              "key_style": "cmd",
+              "description": "Fast estimate of total documents using collection metadata",
+              "example": "print(db.users.estimatedDocumentCount())"
+            },
+            {
+              "key": "db.<coll>.distinct(\"<field>\")",
+              "key_style": "cmd",
+              "description": "Return an array of unique values for a field",
+              "example": "db.users.distinct(\"category\")"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Query Operators",
+      "icon": "❓",
+      "title_accent": "Query",
+      "layout": "wide",
+      "sections": [
+        {
+          "label": "Comparison & Logical",
+          "kind": "table",
+          "items": [
+            {
+              "key": "$eq",
+              "key_style": "code",
+              "description": "Matches values that are equal to a specified value",
+              "example": "db.users.find({ age: { $eq: 25 } })"
+            },
+            {
+              "key": "$ne",
+              "key_style": "code",
+              "description": "Matches all values that are not equal to a specified value",
+              "example": "db.users.find({ status: { $ne: \"deleted\" } })"
+            },
+            {
+              "key": "$gt",
+              "key_style": "code",
+              "description": "Matches values that are greater than a specified value",
+              "example": "db.users.find({ age: { $gt: 18 } })"
+            },
+            {
+              "key": "$gte",
+              "key_style": "code",
+              "description": "Matches values greater than or equal to a specified value",
+              "example": "db.users.find({ price: { $gte: 100 } })"
+            },
+            {
+              "key": "$lt",
+              "key_style": "code",
+              "description": "Matches values that are less than a specified value",
+              "example": "db.users.find({ age: { $lt: 65 } })"
+            },
+            {
+              "key": "$lte",
+              "key_style": "code",
+              "description": "Matches values less than or equal to a specified value",
+              "example": "db.users.find({ price: { $lte: 50 } })"
+            },
+            {
+              "key": "$in",
+              "key_style": "code",
+              "description": "Matches any of the values specified in an array",
+              "example": "db.users.find({ role: { $in: [\"admin\", \"mod\"] } })"
+            },
+            {
+              "key": "$nin",
+              "key_style": "code",
+              "description": "Matches none of the values specified in an array",
+              "example": "db.users.find({ status: { $nin: [\"banned\", \"suspended\"] } })"
+            },
+            {
+              "key": "$and",
+              "key_style": "code",
+              "description": "Joins query clauses with a logical AND",
+              "example": "db.users.find({ $and: [{ age: { $gt: 18 } }, { status: \"active\" }] })"
+            },
+            {
+              "key": "$or",
+              "key_style": "code",
+              "description": "Joins query clauses with a logical OR",
+              "example": "db.users.find({ $or: [{ status: \"A\" }, { age: 50 }] })"
+            },
+            {
+              "key": "$not",
+              "key_style": "code",
+              "description": "Inverts the effect of a query expression",
+              "example": "db.users.find({ age: { $not: { $lt: 18 } } })"
+            },
+            {
+              "key": "$nor",
+              "key_style": "code",
+              "description": "Joins query clauses with a logical NOR",
+              "example": "db.users.find({ $nor: [{ price: 1.99 }, { sale: true }] })"
+            }
+          ]
+        },
+        {
+          "label": "Element, Array & Evaluation",
+          "kind": "table",
+          "items": [
+            {
+              "key": "$exists",
+              "key_style": "code",
+              "description": "Matches documents that have the specified field",
+              "example": "db.users.find({ phone: { $exists: true } })"
+            },
+            {
+              "key": "$type",
+              "key_style": "code",
+              "description": "Selects documents if a field is of the specified BSON type",
+              "example": "db.users.find({ zipCode: { $type: \"string\" } })"
+            },
+            {
+              "key": "$regex",
+              "key_style": "code",
+              "description": "Selects documents where values match a specified regular expression",
+              "example": "db.users.find({ name: { $regex: \"^Al\", $options: \"i\" } })"
+            },
+            {
+              "key": "$expr",
+              "key_style": "code",
+              "description": "Allows the use of aggregation expressions within the query language",
+              "example": "db.sales.find({ $expr: { $gt: [\"$spent\", \"$budget\"] } })"
+            },
+            {
+              "key": "\"field.subfield\"",
+              "key_style": "code",
+              "description": "Dot notation to access fields in embedded documents or arrays",
+              "example": "db.users.find({ \"address.city\": \"New York\" })"
+            },
+            {
+              "key": "$elemMatch",
+              "key_style": "code",
+              "description": "Matches array elements that satisfy all specified conditions",
+              "example": "db.users.find({ scores: { $elemMatch: { $gt: 80, $lt: 90 } } })"
+            },
+            {
+              "key": "$size",
+              "key_style": "code",
+              "description": "Selects documents if the array field is a specified size",
+              "example": "db.users.find({ tags: { $size: 3 } })"
+            },
+            {
+              "key": "$all",
+              "key_style": "code",
+              "description": "Matches arrays that contain all elements specified in the query",
+              "example": "db.users.find({ tags: { $all: [\"appliance\", \"school\"] } })"
+            }
+          ]
+        },
+        {
+          "label": "Geospatial",
+          "kind": "table",
+          "items": [
+            {
+              "key": "$near",
+              "key_style": "code",
+              "description": "Returns geospatial objects in proximity to a point",
+              "example": "db.places.find({ location: { $near: { $geometry: { type: \"Point\", coordinates: [-73.96, 40.78] } } } })"
+            },
+            {
+              "key": "$geoWithin",
+              "key_style": "code",
+              "description": "Selects geometries within a bounding GeoJSON geometry",
+              "example": "db.places.find({ location: { $geoWithin: { $geometry: { type: \"Polygon\", coordinates: [[[0,0], [3,6], [6,1], [0,0]]] } } } })"
+            },
+            {
+              "key": "$nearSphere",
+              "key_style": "code",
+              "description": "Returns geospatial objects in proximity to a point on a sphere",
+              "example": "db.places.find({ loc: { $nearSphere: [-73.96, 40.78], $maxDistance: 10 } })"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Update Operators",
+      "icon": "🔄",
+      "title_accent": "Update",
+      "layout": "wide",
+      "sections": [
+        {
+          "label": "Fields",
+          "kind": "table",
+          "items": [
+            {
+              "key": "$set",
+              "key_style": "code",
+              "description": "Sets the value of a field in a document",
+              "example": "db.users.updateOne({ _id: 1 }, { $set: { status: \"active\" } })"
+            },
+            {
+              "key": "$unset",
+              "key_style": "code",
+              "description": "Removes the specified field from a document",
+              "example": "db.users.updateOne({ _id: 1 }, { $unset: { oldField: \"\" } })"
+            },
+            {
+              "key": "$inc",
+              "key_style": "code",
+              "description": "Increments the value of the field by the specified amount",
+              "example": "db.metrics.updateOne({ _id: 1 }, { $inc: { views: 1 } })"
+            },
+            {
+              "key": "$mul",
+              "key_style": "code",
+              "description": "Multiplies the value of the field by the specified amount",
+              "example": "db.products.updateOne({ _id: 1 }, { $mul: { price: 1.25 } })"
+            },
+            {
+              "key": "$rename",
+              "key_style": "code",
+              "description": "Renames a field",
+              "example": "db.users.updateOne({}, { $rename: { \"oldName\": \"newName\" } })"
+            },
+            {
+              "key": "$min",
+              "key_style": "code",
+              "description": "Updates the field if the specified value is less than the current value",
+              "example": "db.scores.updateOne({ _id: 1 }, { $min: { lowScore: 50 } })"
+            },
+            {
+              "key": "$max",
+              "key_style": "code",
+              "description": "Updates the field if the specified value is greater than the current value",
+              "example": "db.scores.updateOne({ _id: 1 }, { $max: { highScore: 95 } })"
+            },
+            {
+              "key": "$currentDate",
+              "key_style": "code",
+              "description": "Sets the value of a field to current date, as a Date or Timestamp",
+              "example": "db.users.updateOne({ _id: 1 }, { $currentDate: { lastModified: true } })"
+            }
+          ]
+        },
+        {
+          "label": "Arrays",
+          "kind": "table",
+          "items": [
+            {
+              "key": "$push",
+              "key_style": "code",
+              "description": "Appends a specified value to an array",
+              "example": "db.users.updateOne({ _id: 1 }, { $push: { scores: 89 } })"
+            },
+            {
+              "key": "$each",
+              "key_style": "code",
+              "description": "Modifies $push or $addToSet to append multiple items",
+              "example": "db.users.updateOne({ _id: 1 }, { $push: { scores: { $each: [90, 92] } } })"
+            },
+            {
+              "key": "$sort",
+              "key_style": "code",
+              "description": "Modifies $push to reorder array elements",
+              "example": "db.users.updateOne({ _id: 1 }, { $push: { quizzes: { $each: [{ score: 80 }], $sort: { score: -1 } } } })"
+            },
+            {
+              "key": "$slice",
+              "key_style": "code",
+              "description": "Modifies $push to limit the size of updated arrays",
+              "example": "db.users.updateOne({ _id: 1 }, { $push: { scores: { $each: [95], $slice: -5 } } })"
+            },
+            {
+              "key": "$pull",
+              "key_style": "code",
+              "description": "Removes all array elements that match a specified query",
+              "example": "db.users.updateOne({ _id: 1 }, { $pull: { tags: \"outdated\" } })"
+            },
+            {
+              "key": "$addToSet",
+              "key_style": "code",
+              "description": "Adds elements to an array only if they do not already exist",
+              "example": "db.users.updateOne({ _id: 1 }, { $addToSet: { tags: \"new\" } })"
+            },
+            {
+              "key": "$pop",
+              "key_style": "code",
+              "description": "Removes the first (-1) or last (1) item of an array",
+              "example": "db.users.updateOne({ _id: 1 }, { $pop: { scores: 1 } })"
+            },
+            {
+              "key": "$",
+              "key_style": "code",
+              "description": "Positional operator that identifies the first matched array element",
+              "example": "db.users.updateOne({ grades: 80 }, { $set: { \"grades.$\": 82 } })"
+            },
+            {
+              "key": "$[]",
+              "key_style": "code",
+              "description": "All positional operator that updates all elements in an array",
+              "example": "db.users.updateOne({}, { $inc: { \"grades.$[]\": 5 } })"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Aggregation Pipeline",
+      "icon": "📊",
+      "title_accent": "Aggregation",
+      "layout": "wide",
+      "sections": [
+        {
+          "label": "Core Stages",
+          "kind": "table",
+          "items": [
+            {
+              "key": "db.<coll>.aggregate([ { <stage1> }, { <stage2> } ])",
+              "key_style": "cmd",
+              "description": "Execute an aggregation pipeline",
+              "example": "db.orders.aggregate([{ $match: { status: \"A\" } }, { $group: { _id: \"$cust_id\", total: { $sum: \"$amount\" } } }])"
+            },
+            {
+              "key": "$match",
+              "key_style": "code",
+              "description": "Filters documents to pass only those matching conditions",
+              "example": "{ $match: { status: \"active\" } }"
+            },
+            {
+              "key": "$group",
+              "key_style": "code",
+              "description": "Groups documents by a specified identifier and applies accumulators",
+              "example": "{ $group: { _id: \"$department\", avgSalary: { $avg: \"$salary\" } } }"
+            },
+            {
+              "key": "$project",
+              "key_style": "code",
+              "description": "Passes along documents with requested fields to the next stage",
+              "example": "{ $project: { title: 1, author: 1, _id: 0 } }"
+            },
+            {
+              "key": "$addFields",
+              "key_style": "code",
+              "description": "Adds new fields to documents (similar to $set)",
+              "example": "{ $addFields: { totalCost: { $sum: [\"$price\", \"$tax\"] } } }"
+            },
+            {
+              "key": "$set",
+              "key_style": "code",
+              "description": "Alias for $addFields, adds or overwrites fields",
+              "example": "{ $set: { isAdult: { $gte: [\"$age\", 18] } } }"
+            },
+            {
+              "key": "$unset",
+              "key_style": "code",
+              "description": "Removes fields from documents",
+              "example": "{ $unset: [\"password\", \"ssn\"] }"
+            },
+            {
+              "key": "$sort",
+              "key_style": "code",
+              "description": "Sorts incoming documents",
+              "example": "{ $sort: { age: -1, posts: 1 } }"
+            },
+            {
+              "key": "$limit",
+              "key_style": "code",
+              "description": "Limits the number of documents passed to the next stage",
+              "example": "{ $limit: 5 }"
+            },
+            {
+              "key": "$skip",
+              "key_style": "code",
+              "description": "Skips a specified number of documents",
+              "example": "{ $skip: 10 }"
+            },
+            {
+              "key": "$count",
+              "key_style": "code",
+              "description": "Returns a count of the number of documents passed to this stage",
+              "example": "{ $count: \"totalActiveUsers\" }"
+            }
+          ]
+        },
+        {
+          "label": "Advanced Stages",
+          "kind": "table",
+          "items": [
+            {
+              "key": "$unwind",
+              "key_style": "code",
+              "description": "Deconstructs an array field to output a document for each element",
+              "example": "{ $unwind: \"$tags\" }"
+            },
+            {
+              "key": "$lookup",
+              "key_style": "code",
+              "description": "Performs a left outer join to an unsharded collection",
+              "example": "{ $lookup: { from: \"inventory\", localField: \"item\", foreignField: \"sku\", as: \"details\" } }"
+            },
+            {
+              "key": "$facet",
+              "key_style": "code",
+              "description": "Processes multiple aggregation pipelines within a single stage",
+              "example": "{ $facet: { byAge: [ { $bucket: { groupBy: \"$age\", boundaries: [0, 18, 65] } } ] } }"
+            },
+            {
+              "key": "$bucket",
+              "key_style": "code",
+              "description": "Categorizes incoming documents into groups (buckets) based on boundaries",
+              "example": "{ $bucket: { groupBy: \"$price\", boundaries: [0, 100, 200] } }"
+            },
+            {
+              "key": "$out",
+              "key_style": "code",
+              "description": "Writes the resulting documents to a collection, replacing it",
+              "example": "{ $out: \"authors_stats\" }"
+            },
+            {
+              "key": "$merge",
+              "key_style": "code",
+              "description": "Writes results to a collection, merging into existing documents",
+              "example": "{ $merge: { into: \"monthly_stats\", whenMatched: \"replace\" } }"
+            }
+          ]
+        },
+        {
+          "label": "Accumulators & Expressions",
+          "kind": "table",
+          "items": [
+            {
+              "key": "$sum",
+              "key_style": "code",
+              "description": "Returns the sum of numeric values",
+              "example": "{ $group: { _id: null, totalQty: { $sum: \"$qty\" } } }"
+            },
+            {
+              "key": "$avg",
+              "key_style": "code",
+              "description": "Returns the average of numeric values",
+              "example": "{ $group: { _id: \"$store\", avgPrice: { $avg: \"$price\" } } }"
+            },
+            {
+              "key": "$max",
+              "key_style": "code",
+              "description": "Returns the highest value that results from applying an expression",
+              "example": "{ $group: { _id: null, highestScore: { $max: \"$score\" } } }"
+            },
+            {
+              "key": "$push",
+              "key_style": "code",
+              "description": "Returns an array of all values that result from applying an expression",
+              "example": "{ $group: { _id: \"$class\", students: { $push: \"$name\" } } }"
+            },
+            {
+              "key": "$addToSet",
+              "key_style": "code",
+              "description": "Returns an array of all unique values",
+              "example": "{ $group: { _id: \"$department\", tags: { $addToSet: \"$tag\" } } }"
+            },
+            {
+              "key": "$concat",
+              "key_style": "code",
+              "description": "Concatenates strings and returns the concatenated string",
+              "example": "{ $project: { fullName: { $concat: [\"$firstName\", \" \", \"$lastName\"] } } }"
+            },
+            {
+              "key": "$dateToString",
+              "key_style": "code",
+              "description": "Returns a date converted to a string in specified format",
+              "example": "{ $project: { date: { $dateToString: { format: \"%Y-%m-%d\", date: \"$date\" } } } }"
+            },
+            {
+              "key": "$cond",
+              "key_style": "code",
+              "description": "Evaluates a boolean expression to return one of two expressions",
+              "example": "{ $project: { discount: { $cond: { if: { $gte: [\"$qty\", 100] }, then: 20, else: 5 } } } }"
+            },
+            {
+              "key": "$ifNull",
+              "key_style": "code",
+              "description": "Evaluates an expression and returns its value or a replacement value if null",
+              "example": "{ $project: { description: { $ifNull: [\"$desc\", \"No description\"] } } }"
+            },
+            {
+              "key": "$toLower",
+              "key_style": "code",
+              "description": "Converts a string to lowercase",
+              "example": "{ $project: { item: { $toLower: \"$item\" } } }"
+            },
+            {
+              "key": "$toUpper",
+              "key_style": "code",
+              "description": "Converts a string to uppercase",
+              "example": "{ $project: { item: { $toUpper: \"$item\" } } }"
+            },
+            {
+              "key": "$split",
+              "key_style": "code",
+              "description": "Splits a string into an array of substrings based on a delimiter",
+              "example": "{ $project: { words: { $split: [\"$description\", \" \"] } } }"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Indexes & Performance",
+      "icon": "⚡",
+      "title_accent": "Indexes",
+      "sections": [
+        {
+          "label": "Index Management",
+          "kind": "table",
+          "items": [
+            {
+              "key": "db.<coll>.createIndex({ <field>: 1 })",
+              "key_style": "cmd",
+              "description": "Create a single field ascending index",
+              "example": "db.users.createIndex({ username: 1 })"
+            },
+            {
+              "key": "db.<coll>.createIndex({ <field1>: 1, <field2>: -1 })",
+              "key_style": "cmd",
+              "description": "Create a compound index across multiple fields",
+              "example": "db.orders.createIndex({ customer_id: 1, date: -1 })"
+            },
+            {
+              "key": "unique: true",
+              "key_style": "code",
+              "description": "Create a unique index rejecting duplicate values",
+              "example": "db.users.createIndex({ email: 1 }, { unique: true })"
+            },
+            {
+              "key": "partialFilterExpression",
+              "key_style": "code",
+              "description": "Create a partial index indexing only matching documents",
+              "example": "db.users.createIndex({ email: 1 }, { partialFilterExpression: { status: \"active\" } })"
+            },
+            {
+              "key": "expireAfterSeconds: <seconds>",
+              "key_style": "code",
+              "description": "Create a TTL (Time-To-Live) index to auto-delete documents",
+              "example": "db.sessions.createIndex({ createdAt: 1 }, { expireAfterSeconds: 3600 })"
+            },
+            {
+              "key": "db.<coll>.getIndexes()",
+              "key_style": "cmd",
+              "description": "List all indexes on a collection",
+              "example": "db.users.getIndexes()"
+            },
+            {
+              "key": "db.<coll>.dropIndex(\"<index_name>\")",
+              "key_style": "cmd",
+              "description": "Drop an index by name",
+              "example": "db.users.dropIndex(\"email_1\")"
+            }
+          ]
+        },
+        {
+          "label": "Text & Wildcard Indexes",
+          "kind": "table",
+          "items": [
+            {
+              "key": "db.<coll>.createIndex({ <field>: \"text\" })",
+              "key_style": "cmd",
+              "description": "Create a text index for full-text search",
+              "example": "db.articles.createIndex({ content: \"text\" })"
+            },
+            {
+              "key": "db.<coll>.createIndex({ \"$**\": 1 })",
+              "key_style": "cmd",
+              "description": "Create a wildcard index to support queries against unknown fields",
+              "example": "db.users.createIndex({ \"userMetadata.$**\": 1 })"
+            },
+            {
+              "key": "db.<coll>.find({ $text: { $search: \"<string>\" } })",
+              "key_style": "cmd",
+              "description": "Perform a text search on the collection's text index",
+              "example": "db.articles.find({ $text: { $search: \"database performance\" } })"
+            }
+          ]
+        },
+        {
+          "label": "Query Diagnostics",
+          "kind": "table",
+          "items": [
+            {
+              "key": "db.<coll>.find().hint({ <field>: 1 })",
+              "key_style": "cmd",
+              "description": "Force the query optimizer to use a specific index",
+              "example": "db.users.find({ age: 25 }).hint({ age: 1 })"
+            },
+            {
+              "key": "db.<coll>.find().explain(\"executionStats\")",
+              "key_style": "cmd",
+              "description": "Return detailed execution stats showing index usage and time",
+              "example": "db.users.find({ status: \"A\" }).explain(\"executionStats\")"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Admin, Auth & Diagnostics",
+      "icon": "🛠️",
+      "title_accent": "Admin",
+      "sections": [
+        {
+          "label": "Schema & Transactions",
+          "kind": "table",
+          "items": [
+            {
+              "key": "validator: { $jsonSchema: { ... } }",
+              "key_style": "code",
+              "description": "Enforce schema validation rules on a collection",
+              "example": "db.createCollection(\"contacts\", { validator: { $jsonSchema: { required: [\"phone\"] } } })"
+            },
+            {
+              "key": "session.startTransaction()",
+              "key_style": "cmd",
+              "description": "Start a multi-document transaction",
+              "example": "session = db.getMongo().startSession(); session.startTransaction()"
+            },
+            {
+              "key": "session.commitTransaction()",
+              "key_style": "cmd",
+              "description": "Commit an open transaction",
+              "example": "session.commitTransaction(); session.endSession()"
+            },
+            {
+              "key": "session.abortTransaction()",
+              "key_style": "cmd",
+              "description": "Abort an open transaction rolling back changes",
+              "example": "session.abortTransaction(); session.endSession()"
+            }
+          ]
+        },
+        {
+          "label": "Users & Roles",
+          "kind": "table",
+          "items": [
+            {
+              "key": "db.createUser({ user: \"<name>\", pwd: \"<pass>\", roles: [ \"<role>\" ] })",
+              "key_style": "cmd",
+              "description": "Create a new user with specific roles in the current database",
+              "example": "db.createUser({ user: \"app_user\", pwd: \"secret\", roles: [\"readWrite\"] })"
+            },
+            {
+              "key": "db.grantRolesToUser(\"<user>\", [ \"<role>\" ])",
+              "key_style": "cmd",
+              "description": "Grant additional roles to an existing user",
+              "example": "db.grantRolesToUser(\"app_user\", [\"dbAdmin\"])"
+            },
+            {
+              "key": "db.auth(\"<user>\", \"<pass>\")",
+              "key_style": "cmd",
+              "description": "Authenticate to a database as a specific user",
+              "example": "db.auth(\"admin\", \"password123\")"
+            }
+          ]
+        },
+        {
+          "label": "Diagnostics & Server",
+          "kind": "table",
+          "items": [
+            {
+              "key": "db.stats()",
+              "key_style": "cmd",
+              "description": "Returns statistics about the current database",
+              "example": "db.stats({ scale: 1024 })"
+            },
+            {
+              "key": "db.<coll>.stats()",
+              "key_style": "cmd",
+              "description": "Returns statistics about a specific collection",
+              "example": "db.users.stats({ scale: 1024 })"
+            },
+            {
+              "key": "db.currentOp()",
+              "key_style": "cmd",
+              "description": "Returns a document with information on in-progress operations",
+              "example": "db.currentOp({ \"active\": true })"
+            },
+            {
+              "key": "db.killOp(<opid>)",
+              "key_style": "cmd",
+              "description": "Terminates a specific running operation by its ID",
+              "example": "db.killOp(123456)"
+            },
+            {
+              "key": "db.serverStatus()",
+              "key_style": "cmd",
+              "description": "Returns a document that provides an overview of the database process state",
+              "example": "db.serverStatus().connections"
+            },
+            {
+              "key": "rs.status()",
+              "key_style": "cmd",
+              "description": "Returns the replica set status from the perspective of the current node",
+              "example": "rs.status().members"
+            },
+            {
+              "key": "rs.initiate()",
+              "key_style": "cmd",
+              "description": "Initiates a replica set",
+              "example": "rs.initiate({ _id: \"rs0\", members: [{ _id: 0, host: \"localhost:27017\" }] })"
+            },
+            {
+              "key": "db.adminCommand({ <cmd>: 1 })",
+              "key_style": "cmd",
+              "description": "Run an administrative command against the admin database",
+              "example": "db.adminCommand({ listDatabases: 1 })"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Database Tools",
+      "icon": "🧰",
+      "title_accent": "Tools",
+      "layout": "wide",
+      "sections": [
+        {
+          "label": "Export & Import Data",
+          "kind": "table",
+          "items": [
+            {
+              "key": "mongodump --uri=\"<uri>\" --archive=<file.gz> --gzip",
+              "key_style": "cmd",
+              "description": "Backup data from a MongoDB instance to a compressed archive",
+              "example": "mongodump --uri=\"mongodb://localhost:27017\" --archive=dump.gz --gzip"
+            },
+            {
+              "key": "mongorestore --uri=\"<uri>\" --archive=<file.gz> --gzip --drop",
+              "key_style": "cmd",
+              "description": "Restore data from a compressed archive, dropping collections first",
+              "example": "mongorestore --uri=\"mongodb://localhost:27017\" --archive=dump.gz --gzip --drop"
+            },
+            {
+              "key": "mongoexport --uri=\"<uri>\" -c <collection> --out <file.json> --jsonArray",
+              "key_style": "cmd",
+              "description": "Export data from a collection to a JSON array file",
+              "example": "mongoexport --uri=\"mongodb://localhost/shop\" -c users --out users.json --jsonArray"
+            },
+            {
+              "key": "mongoimport --uri=\"<uri>\" -c <collection> --file <file.json> --jsonArray",
+              "key_style": "cmd",
+              "description": "Import data from a JSON array file into a collection",
+              "example": "mongoimport --uri=\"mongodb://localhost/shop\" -c users --file users.json --jsonArray"
+            }
+          ]
+        },
+        {
+          "label": "Common Tool Flags",
+          "kind": "table",
+          "items": [
+            {
+              "key": "--uri=\"<uri>\"",
+              "key_style": "code",
+              "description": "Specify the MongoDB connection string",
+              "example": "mongodump --uri=\"mongodb://user:pass@host:27017/db\""
+            },
+            {
+              "key": "--db <db>",
+              "key_style": "code",
+              "description": "Specify the database name",
+              "example": "mongoexport --db shop --collection users --out users.json"
+            },
+            {
+              "key": "--collection <coll>",
+              "key_style": "code",
+              "description": "Specify the collection name",
+              "example": "mongoexport -d shop -c users --out users.json"
+            },
+            {
+              "key": "--out <file>",
+              "key_style": "code",
+              "description": "Specify the output file path",
+              "example": "mongoexport -d shop -c users --out users.json"
+            },
+            {
+              "key": "--gzip",
+              "key_style": "code",
+              "description": "Compress the output or decompress the input with gzip",
+              "example": "mongodump --db shop --gzip --out dump/"
+            },
+            {
+              "key": "--archive=<file>",
+              "key_style": "code",
+              "description": "Write backup to or restore from a single archive file",
+              "example": "mongodump --db shop --archive=shop.archive"
+            },
+            {
+              "key": "--drop",
+              "key_style": "code",
+              "description": "Drop collections in target database before restoring or importing",
+              "example": "mongorestore --db shop --drop dump/shop/"
+            },
+            {
+              "key": "--jsonArray",
+              "key_style": "code",
+              "description": "Read or write data as a single JSON array",
+              "example": "mongoexport -c users --jsonArray --out users.json"
+            },
+            {
+              "key": "--type csv",
+              "key_style": "code",
+              "description": "Specify the data format (csv, tsv, or json)",
+              "example": "mongoexport -c users --type csv --fields name,age --out users.csv"
+            },
+            {
+              "key": "--headerline",
+              "key_style": "code",
+              "description": "Use the first line of CSV/TSV input file as field names",
+              "example": "mongoimport -c users --type csv --headerline --file users.csv"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

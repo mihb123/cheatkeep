@@ -1,0 +1,769 @@
+{
+  "title": "sed Cheatsheet",
+  "subtitle": "Stream Editor for filtering and transforming text",
+  "description": "Comprehensive cheatsheet for sed, covering command line options, addresses, substitution, advanced commands, hold space, and classic one-liners.",
+  "source_url": "https://www.gnu.org/software/sed/manual/sed.html",
+  "links": [
+    {
+      "label": "GNU sed manual",
+      "url": "https://www.gnu.org/software/sed/manual/sed.html"
+    },
+    {
+      "label": "sed man page",
+      "url": "https://linux.die.net/man/1/sed"
+    }
+  ],
+  "cards": [
+    {
+      "title": "Invocation & Options",
+      "icon": "🚀",
+      "title_accent": "Invocation",
+      "sections": [
+        {
+          "label": "Basic options",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-n",
+              "key_style": "code",
+              "description": "Suppress automatic printing of pattern space",
+              "example": "sed -n 'p' file.txt"
+            },
+            {
+              "key": "-e <script>",
+              "key_style": "code",
+              "description": "Add script to the commands to be executed",
+              "example": "sed -e 's/a/b/' -e 's/c/d/' file.txt"
+            },
+            {
+              "key": "-f <file>",
+              "key_style": "code",
+              "description": "Add contents of script file to commands",
+              "example": "sed -f script.sed file.txt"
+            },
+            {
+              "key": "-i",
+              "key_style": "code",
+              "description": "Edit files in-place (overwrite)",
+              "example": "sed -i 's/foo/bar/g' file.txt",
+              "danger": "Overwrites original file"
+            },
+            {
+              "key": "-i.bak",
+              "key_style": "code",
+              "description": "Edit in-place with a backup file",
+              "example": "sed -i.bak 's/foo/bar/g' file.txt"
+            },
+            {
+              "key": "-E / -r",
+              "key_style": "code",
+              "description": "Use Extended Regular Expressions (ERE)",
+              "example": "sed -E 's/(foo|bar)/baz/' file.txt"
+            },
+            {
+              "key": "-s",
+              "key_style": "code",
+              "description": "Treat files as separate rather than a single continuous stream",
+              "example": "sed -s '=' file1 file2",
+              "note": "GNU"
+            },
+            {
+              "key": "-z",
+              "key_style": "code",
+              "description": "Separate lines by NUL characters (for find -print0)",
+              "example": "find . -print0 | sed -z 's/a/b/'",
+              "note": "GNU"
+            },
+            {
+              "key": "--debug",
+              "key_style": "code",
+              "description": "Annotate program execution",
+              "example": "sed --debug 's/a/b/' file.txt",
+              "note": "GNU"
+            },
+            {
+              "key": "-u",
+              "key_style": "code",
+              "description": "Unbuffered I/O (good for tail -f)",
+              "example": "tail -f log | sed -u 's/error/ERROR/'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Addresses & Ranges",
+      "icon": "📍",
+      "title_accent": "Addresses",
+      "sections": [
+        {
+          "label": "Addresses",
+          "kind": "table",
+          "items": [
+            {
+              "key": "<N>",
+              "key_style": "code",
+              "description": "Match specific line number",
+              "example": "sed '5d' file.txt"
+            },
+            {
+              "key": "$",
+              "key_style": "code",
+              "description": "Match the last line",
+              "example": "sed '$d' file.txt"
+            },
+            {
+              "key": "/<re>/",
+              "key_style": "code",
+              "description": "Match lines containing a regular expression",
+              "example": "sed '/error/p' file.txt"
+            },
+            {
+              "key": "\\%<re>%",
+              "key_style": "code",
+              "description": "Match regex with custom delimiter (%)",
+              "example": "sed '\\%usr/bin%p' file.txt"
+            },
+            {
+              "key": "<N>,<M>",
+              "key_style": "code",
+              "description": "Range from line N to line M (inclusive)",
+              "example": "sed '2,5d' file.txt"
+            },
+            {
+              "key": "<N>,+<K>",
+              "key_style": "code",
+              "description": "Line N and the following K lines",
+              "example": "sed '2,+3d' file.txt",
+              "note": "GNU"
+            },
+            {
+              "key": "<first>~<step>",
+              "key_style": "code",
+              "description": "Match every step'th line starting with first",
+              "example": "sed '1~2d' file.txt",
+              "note": "GNU"
+            },
+            {
+              "key": "0,/<re>/",
+              "key_style": "code",
+              "description": "From start to the first regex match",
+              "example": "sed '0,/end/d' file.txt",
+              "note": "GNU"
+            },
+            {
+              "key": "<addr>!",
+              "key_style": "code",
+              "description": "Negation: apply command to lines NOT matching address",
+              "example": "sed '/error/!d' file.txt"
+            },
+            {
+              "key": "/<re>/I",
+              "key_style": "code",
+              "description": "Case-insensitive regex match",
+              "example": "sed '/error/Id' file.txt",
+              "note": "GNU"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Substitute Command (s)",
+      "icon": "🔄",
+      "title_accent": "Substitute",
+      "sections": [
+        {
+          "label": "Basic syntax",
+          "kind": "table",
+          "items": [
+            {
+              "key": "s/<a>/<b>/",
+              "key_style": "code",
+              "description": "Replace first occurrence of <a> with <b>",
+              "example": "sed 's/foo/bar/' file.txt"
+            },
+            {
+              "key": "s|<a>|<b>|",
+              "key_style": "code",
+              "description": "Use alternate delimiter (e.g., |) to avoid escaping /",
+              "example": "sed 's|/usr/local|/usr|' file.txt"
+            },
+            {
+              "key": "&",
+              "key_style": "code",
+              "description": "Reference the entire matched portion",
+              "example": "sed 's/foo/[&]/' file.txt"
+            },
+            {
+              "key": "\\1..\\9",
+              "key_style": "code",
+              "description": "Reference captured groups (from \\( \\) or ( ))",
+              "example": "sed 's/\\(foo\\) \\(bar\\)/\\2 \\1/' file.txt"
+            },
+            {
+              "key": "\\n",
+              "key_style": "code",
+              "description": "Insert a newline in the replacement string",
+              "example": "sed 's/ /\\n/g' file.txt"
+            }
+          ]
+        },
+        {
+          "label": "Flags",
+          "kind": "table",
+          "items": [
+            {
+              "key": "g",
+              "key_style": "code",
+              "description": "Replace all occurrences on the line (global)",
+              "example": "sed 's/foo/bar/g' file.txt"
+            },
+            {
+              "key": "<N>",
+              "key_style": "code",
+              "description": "Replace only the Nth occurrence",
+              "example": "sed 's/foo/bar/2' file.txt"
+            },
+            {
+              "key": "p",
+              "key_style": "code",
+              "description": "Print the line if a substitution was made",
+              "example": "sed -n 's/foo/bar/p' file.txt"
+            },
+            {
+              "key": "w <file>",
+              "key_style": "code",
+              "description": "Write line to file if substitution made",
+              "example": "sed 's/foo/bar/w out.txt' file.txt"
+            },
+            {
+              "key": "I / i",
+              "key_style": "code",
+              "description": "Case-insensitive substitution match",
+              "example": "sed 's/foo/bar/I' file.txt",
+              "note": "GNU"
+            },
+            {
+              "key": "m / M",
+              "key_style": "code",
+              "description": "Multi-line mode (^ and $ match internal newlines)",
+              "example": "sed -z 's/^foo/bar/gm' file.txt",
+              "note": "GNU"
+            },
+            {
+              "key": "e",
+              "key_style": "code",
+              "description": "Execute the result of substitution as a shell command",
+              "example": "sed 's/^/echo /e' file.txt",
+              "note": "GNU"
+            }
+          ]
+        },
+        {
+          "label": "Case conversion (GNU)",
+          "kind": "table",
+          "items": [
+            {
+              "key": "\\U",
+              "key_style": "code",
+              "description": "Uppercase the replacement up to \\E",
+              "example": "sed 's/a/\\U&/' file.txt"
+            },
+            {
+              "key": "\\L",
+              "key_style": "code",
+              "description": "Lowercase the replacement up to \\E",
+              "example": "sed 's/A/\\L&/' file.txt"
+            },
+            {
+              "key": "\\u",
+              "key_style": "code",
+              "description": "Uppercase only the next character",
+              "example": "sed 's/a/\\u&/' file.txt"
+            },
+            {
+              "key": "\\l",
+              "key_style": "code",
+              "description": "Lowercase only the next character",
+              "example": "sed 's/A/\\l&/' file.txt"
+            },
+            {
+              "key": "\\E",
+              "key_style": "code",
+              "description": "End case conversion from \\U or \\L",
+              "example": "sed 's/foo/\\U&\\Ebar/' file.txt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Basic Commands",
+      "icon": "🛠️",
+      "title_accent": "Commands",
+      "sections": [
+        {
+          "label": "Printing & Deleting",
+          "kind": "table",
+          "items": [
+            {
+              "key": "p",
+              "key_style": "code",
+              "description": "Print current pattern space",
+              "example": "sed -n '2p' file.txt"
+            },
+            {
+              "key": "d",
+              "key_style": "code",
+              "description": "Delete pattern space and start next cycle",
+              "example": "sed '3d' file.txt"
+            },
+            {
+              "key": "q",
+              "key_style": "code",
+              "description": "Quit immediately (prints pattern space)",
+              "example": "sed '10q' file.txt"
+            },
+            {
+              "key": "Q",
+              "key_style": "code",
+              "description": "Quit immediately (without printing)",
+              "example": "sed '/error/Q' file.txt",
+              "note": "GNU"
+            },
+            {
+              "key": "=",
+              "key_style": "code",
+              "description": "Print current line number",
+              "example": "sed '=' file.txt"
+            },
+            {
+              "key": "l",
+              "key_style": "code",
+              "description": "Print line visually (showing hidden chars)",
+              "example": "sed -n 'l' file.txt"
+            }
+          ]
+        },
+        {
+          "label": "Inserting & Changing",
+          "kind": "table",
+          "items": [
+            {
+              "key": "a \\<text>",
+              "key_style": "code",
+              "description": "Append text after the current line",
+              "example": "sed '/match/a \\new line' file.txt"
+            },
+            {
+              "key": "i \\<text>",
+              "key_style": "code",
+              "description": "Insert text before the current line",
+              "example": "sed '1i \\header' file.txt"
+            },
+            {
+              "key": "c \\<text>",
+              "key_style": "code",
+              "description": "Change (replace) current line with text",
+              "example": "sed '/error/c \\fixed' file.txt"
+            },
+            {
+              "key": "y/<a>/<b>/",
+              "key_style": "code",
+              "description": "Transliterate characters in <a> to <b>",
+              "example": "sed 'y/abc/ABC/' file.txt"
+            }
+          ]
+        },
+        {
+          "label": "File I/O",
+          "kind": "table",
+          "items": [
+            {
+              "key": "r <file>",
+              "key_style": "code",
+              "description": "Read contents of file and append",
+              "example": "sed '/marker/r extra.txt' file.txt"
+            },
+            {
+              "key": "w <file>",
+              "key_style": "code",
+              "description": "Write pattern space to file",
+              "example": "sed -n '/error/w errors.log' file.txt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Advanced Commands",
+      "icon": "🧠",
+      "title_accent": "Advanced",
+      "sections": [
+        {
+          "label": "Multi-line pattern space",
+          "kind": "table",
+          "items": [
+            {
+              "key": "n",
+              "key_style": "code",
+              "description": "Print space, read next line into pattern space",
+              "example": "sed 'n;d' file.txt"
+            },
+            {
+              "key": "N",
+              "key_style": "code",
+              "description": "Append newline and next line to pattern space",
+              "example": "sed 'N;s/\\n/ /' file.txt"
+            },
+            {
+              "key": "P",
+              "key_style": "code",
+              "description": "Print up to the first embedded newline",
+              "example": "sed -n 'N;P' file.txt"
+            },
+            {
+              "key": "D",
+              "key_style": "code",
+              "description": "Delete up to first newline, resume cycle without reading",
+              "example": "sed 'N;D' file.txt"
+            }
+          ]
+        },
+        {
+          "label": "Hold space",
+          "kind": "table",
+          "items": [
+            {
+              "key": "h",
+              "key_style": "code",
+              "description": "Copy pattern space to hold space",
+              "example": "sed -n 'h;n;p;x;p' file.txt"
+            },
+            {
+              "key": "H",
+              "key_style": "code",
+              "description": "Append pattern space to hold space",
+              "example": "sed 'H;d' file.txt"
+            },
+            {
+              "key": "g",
+              "key_style": "code",
+              "description": "Copy hold space to pattern space",
+              "example": "sed 'g' file.txt"
+            },
+            {
+              "key": "G",
+              "key_style": "code",
+              "description": "Append hold space to pattern space",
+              "example": "sed 'G' file.txt"
+            },
+            {
+              "key": "x",
+              "key_style": "code",
+              "description": "Exchange pattern space and hold space",
+              "example": "sed -n 'x;p' file.txt"
+            }
+          ]
+        },
+        {
+          "label": "Hold space classics",
+          "kind": "table",
+          "items": [
+            {
+              "key": "Reverse lines (tac)",
+              "key_style": "plain",
+              "description": "Reverse order of lines in file",
+              "example": "sed '1!G;h;$!d' file.txt"
+            },
+            {
+              "key": "Join lines",
+              "key_style": "plain",
+              "description": "Append lines to hold space to join them",
+              "example": "sed 'H;$!d;x;s/\\n/ /g' file.txt"
+            }
+          ]
+        },
+        {
+          "label": "GNU extensions",
+          "kind": "table",
+          "items": [
+            {
+              "key": "e <cmd>",
+              "key_style": "code",
+              "description": "Execute command and replace space with output",
+              "example": "sed 'e date' file.txt",
+              "note": "GNU"
+            },
+            {
+              "key": "F",
+              "key_style": "code",
+              "description": "Print current input file name",
+              "example": "sed -n 'F' file.txt",
+              "note": "GNU"
+            },
+            {
+              "key": "z",
+              "key_style": "code",
+              "description": "Clear pattern space (zap)",
+              "example": "sed 'z' file.txt",
+              "note": "GNU"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Flow Control & Scripts",
+      "icon": "🔀",
+      "title_accent": "Flow",
+      "sections": [
+        {
+          "label": "Branching",
+          "kind": "table",
+          "items": [
+            {
+              "key": ":<label>",
+              "key_style": "code",
+              "description": "Define a label for branch target",
+              "example": "sed ':loop; s/a/b/; t loop' file.txt"
+            },
+            {
+              "key": "b <label>",
+              "key_style": "code",
+              "description": "Branch (jump) unconditionally to label (or end of script)",
+              "example": "sed '/error/b skip; s/a/b/; :skip' file.txt"
+            },
+            {
+              "key": "t <label>",
+              "key_style": "code",
+              "description": "Branch to label if a successful substitution happened",
+              "example": "sed ':a; s/foo/bar/; t a' file.txt"
+            },
+            {
+              "key": "T <label>",
+              "key_style": "code",
+              "description": "Branch to label if NO successful substitution happened",
+              "example": "sed 's/foo/bar/; T; s/$/ [changed]/' file.txt",
+              "note": "GNU"
+            }
+          ]
+        },
+        {
+          "label": "Scripts",
+          "kind": "table",
+          "items": [
+            {
+              "key": "{ cmd; cmd; }",
+              "key_style": "code",
+              "description": "Group commands to execute on a matched address",
+              "example": "sed '/match/{ s/a/b/; p; }' file.txt"
+            },
+            {
+              "key": "cmd1; cmd2",
+              "key_style": "code",
+              "description": "Execute multiple commands separated by semicolon",
+              "example": "sed 's/a/b/; s/c/d/' file.txt"
+            },
+            {
+              "key": "-e 'cmd1' -e 'cmd2'",
+              "key_style": "code",
+              "description": "Pass multiple scripts via arguments",
+              "example": "sed -e 's/a/b/' -e 's/c/d/' file.txt"
+            }
+          ]
+        },
+        {
+          "label": "In-place across files",
+          "kind": "table",
+          "items": [
+            {
+              "key": "find & sed",
+              "key_style": "plain",
+              "description": "Edit many files by piping find to xargs sed",
+              "example": "find . -name '*.txt' | xargs sed -i 's/a/b/g'"
+            },
+            {
+              "key": "In-place backup",
+              "key_style": "plain",
+              "description": "Modify files safely leaving .bak copies",
+              "example": "sed -i.bak 's/foo/bar/g' *.txt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Regex & Patterns",
+      "icon": "🧩",
+      "title_accent": "Regex",
+      "sections": [
+        {
+          "label": "BRE vs ERE",
+          "kind": "table",
+          "items": [
+            {
+              "key": "BRE (default)",
+              "key_style": "plain",
+              "description": "Basic Regex: requires escaping for ( ) { } + ?",
+              "example": "sed 's/\\(a\\|b\\)/c/' file.txt"
+            },
+            {
+              "key": "ERE (-E)",
+              "key_style": "plain",
+              "description": "Extended Regex: meta-characters don't need escaping",
+              "example": "sed -E 's/(a|b)/c/' file.txt"
+            },
+            {
+              "key": "[[:space:]]",
+              "key_style": "code",
+              "description": "POSIX class for whitespace (spaces, tabs)",
+              "example": "sed 's/[[:space:]][[:space:]]*/ /g' file.txt"
+            },
+            {
+              "key": "\\< \\>",
+              "key_style": "code",
+              "description": "Word boundaries in GNU sed",
+              "example": "sed 's/\\<foo\\>/bar/g' file.txt",
+              "note": "GNU"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Classic One-Liners",
+      "icon": "✨",
+      "title_accent": "One-Liners",
+      "sections": [
+        {
+          "label": "Text manipulation",
+          "kind": "table",
+          "items": [
+            {
+              "key": "Trim leading whitespace",
+              "key_style": "plain",
+              "description": "Remove spaces/tabs from start of line",
+              "example": "sed 's/^[ \\t]*//' file.txt"
+            },
+            {
+              "key": "Trim trailing whitespace",
+              "key_style": "plain",
+              "description": "Remove spaces/tabs from end of line",
+              "example": "sed 's/[ \\t]*$//' file.txt"
+            },
+            {
+              "key": "Delete blank lines",
+              "key_style": "plain",
+              "description": "Remove empty lines or lines with only spaces",
+              "example": "sed '/^[ \\t]*$/d' file.txt"
+            },
+            {
+              "key": "Delete comment lines",
+              "key_style": "plain",
+              "description": "Remove lines starting with #",
+              "example": "sed '/^[ \\t]*#/d' file.txt"
+            },
+            {
+              "key": "Remove trailing CR",
+              "key_style": "plain",
+              "description": "Convert DOS CRLF to UNIX LF",
+              "example": "sed 's/\\r$//' file.txt"
+            },
+            {
+              "key": "Convert case",
+              "key_style": "plain",
+              "description": "Uppercase all text (GNU)",
+              "example": "sed 's/.*/\\U&/' file.txt"
+            }
+          ]
+        },
+        {
+          "label": "Extract & Print",
+          "kind": "table",
+          "items": [
+            {
+              "key": "Print line N",
+              "key_style": "plain",
+              "description": "Print only the 5th line",
+              "example": "sed -n '5p' file.txt"
+            },
+            {
+              "key": "Print line range",
+              "key_style": "plain",
+              "description": "Print lines 5 through 10",
+              "example": "sed -n '5,10p' file.txt"
+            },
+            {
+              "key": "Print last line",
+              "key_style": "plain",
+              "description": "Print only the last line of the file",
+              "example": "sed -n '$p' file.txt"
+            },
+            {
+              "key": "Delete first/last line",
+              "key_style": "plain",
+              "description": "Delete line 1 and the last line",
+              "example": "sed '1d; $d' file.txt"
+            },
+            {
+              "key": "Number lines",
+              "key_style": "plain",
+              "description": "Number each line, mimicking cat -n",
+              "example": "sed '=' file.txt | sed 'N;s/\\n/\\t/'"
+            },
+            {
+              "key": "Extract between markers",
+              "key_style": "plain",
+              "description": "Print text between 'start' and 'end' lines",
+              "example": "sed -n '/start/,/end/p' file.txt"
+            }
+          ]
+        },
+        {
+          "label": "Specific Replacements",
+          "kind": "table",
+          "items": [
+            {
+              "key": "Replace only on matching lines",
+              "key_style": "plain",
+              "description": "Apply substitution only to matched lines",
+              "example": "sed '/match/s/foo/bar/g' file.txt"
+            },
+            {
+              "key": "Insert line before match",
+              "key_style": "plain",
+              "description": "Add 'header' before lines containing 'error'",
+              "example": "sed '/error/i header' file.txt"
+            },
+            {
+              "key": "Insert line after match",
+              "key_style": "plain",
+              "description": "Add 'footer' after lines containing 'error'",
+              "example": "sed '/error/a footer' file.txt"
+            },
+            {
+              "key": "Replace Nth occurrence",
+              "key_style": "plain",
+              "description": "Replace only the 2nd instance on each line",
+              "example": "sed 's/foo/bar/2' file.txt"
+            },
+            {
+              "key": "Join all lines",
+              "key_style": "plain",
+              "description": "Join all lines into a single line",
+              "example": "sed ':a; N; $!ba; s/\\n/ /g' file.txt"
+            },
+            {
+              "key": "Double-space a file",
+              "key_style": "plain",
+              "description": "Add a blank line after every line",
+              "example": "sed 'G' file.txt"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

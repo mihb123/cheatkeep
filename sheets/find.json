@@ -1,0 +1,705 @@
+{
+  "title": "find Cheatsheet",
+  "subtitle": "Search for files in a directory hierarchy",
+  "description": "Comprehensive guide to GNU find, the standard Unix command for locating and acting on files based on names, types, sizes, times, and permissions.",
+  "source_url": "https://www.gnu.org/software/findutils/manual/html_mono/find.html",
+  "links": [
+    {
+      "label": "GNU findutils manual",
+      "url": "https://www.gnu.org/software/findutils/manual/html_mono/find.html"
+    }
+  ],
+  "cards": [
+    {
+      "icon": "🔎",
+      "title": "Basic Syntax & Directory Options",
+      "title_accent": "Basic",
+      "sections": [
+        {
+          "label": "Basic Syntax",
+          "kind": "table",
+          "items": [
+            {
+              "key": "find <path> <expression>",
+              "key_style": "cmd",
+              "description": "Find files in path evaluating expression",
+              "example": "find /var/log -name '*.log'"
+            },
+            {
+              "key": "find",
+              "key_style": "cmd",
+              "description": "Find all files in current directory (default path . and default action -print)",
+              "example": "find | wc -l"
+            }
+          ]
+        },
+        {
+          "label": "Traversal Options (must precede expression)",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-maxdepth <levels>",
+              "key_style": "code",
+              "description": "Descend at most N levels of directories",
+              "example": "find /etc -maxdepth 1 -name '*.conf'"
+            },
+            {
+              "key": "-mindepth <levels>",
+              "key_style": "code",
+              "description": "Do not apply tests or actions at levels less than N",
+              "example": "find . -mindepth 2 -type f"
+            },
+            {
+              "key": "-L",
+              "key_style": "code",
+              "description": "Follow symbolic links",
+              "example": "find -L /var/www -name 'index.html'"
+            },
+            {
+              "key": "-P",
+              "key_style": "code",
+              "description": "Never follow symbolic links (default behavior)",
+              "example": "find -P . -type l"
+            },
+            {
+              "key": "-H",
+              "key_style": "code",
+              "description": "Do not follow symbolic links, except while processing the command line arguments",
+              "example": "find -H /tmp/link_to_dir -name '*.txt'"
+            },
+            {
+              "key": "-mount",
+              "key_style": "code",
+              "description": "Don't descend directories on other filesystems (same as -xdev)",
+              "example": "find / -mount -name 'core'"
+            },
+            {
+              "key": "-xdev",
+              "key_style": "code",
+              "description": "Don't descend directories on other filesystems",
+              "example": "find / -xdev -size +1G"
+            },
+            {
+              "key": "-depth",
+              "key_style": "code",
+              "description": "Process each directory's contents before the directory itself",
+              "example": "find . -depth -name '*.tmp' -delete"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔤",
+      "title": "Name & Path Tests",
+      "title_accent": "Name",
+      "sections": [
+        {
+          "label": "Name Matching",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-name <pattern>",
+              "key_style": "code",
+              "description": "Base of file name matches shell pattern",
+              "example": "find . -name '*.txt'"
+            },
+            {
+              "key": "-iname <pattern>",
+              "key_style": "code",
+              "description": "Case-insensitive version of -name",
+              "example": "find . -iname '*.jpg'"
+            },
+            {
+              "key": "-path <pattern>",
+              "key_style": "code",
+              "description": "Full path matches shell pattern",
+              "example": "find . -path './src/*/*.js'"
+            },
+            {
+              "key": "-ipath <pattern>",
+              "key_style": "code",
+              "description": "Case-insensitive version of -path",
+              "example": "find . -ipath '*lib*/*.so'"
+            },
+            {
+              "key": "-lname <pattern>",
+              "key_style": "code",
+              "description": "File is a symbolic link whose contents match pattern",
+              "example": "find /usr/bin -lname '*python*'"
+            }
+          ]
+        },
+        {
+          "label": "Regular Expressions",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-regex <pattern>",
+              "key_style": "code",
+              "description": "Full path matches regular expression",
+              "example": "find . -regex '.*\\.\\(js\\|ts\\)'"
+            },
+            {
+              "key": "-iregex <pattern>",
+              "key_style": "code",
+              "description": "Case-insensitive version of -regex",
+              "example": "find . -iregex '.*img[0-9]+\\.jpe?g'"
+            },
+            {
+              "key": "-regextype <type>",
+              "key_style": "code",
+              "description": "Set regex syntax (e.g. posix-extended, egrep, awk)",
+              "example": "find . -regextype posix-extended -regex '.*\\.(c|h)'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⚖️",
+      "title": "Type & Size Tests",
+      "title_accent": "Type",
+      "sections": [
+        {
+          "label": "File Types",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-type f",
+              "key_style": "code",
+              "description": "File is of type regular file",
+              "example": "find . -type f -name '*.sh'"
+            },
+            {
+              "key": "-type d",
+              "key_style": "code",
+              "description": "File is of type directory",
+              "example": "find /var/log -type d"
+            },
+            {
+              "key": "-type l",
+              "key_style": "code",
+              "description": "File is of type symbolic link",
+              "example": "find /etc -type l"
+            },
+            {
+              "key": "-type s",
+              "key_style": "code",
+              "description": "File is of type socket",
+              "example": "find /var/run -type s"
+            },
+            {
+              "key": "-type p",
+              "key_style": "code",
+              "description": "File is of type named pipe (FIFO)",
+              "example": "find /tmp -type p"
+            },
+            {
+              "key": "-xtype <type>",
+              "key_style": "code",
+              "description": "Check type of file the symlink points to (or symlink if -L is used)",
+              "example": "find . -xtype d"
+            }
+          ]
+        },
+        {
+          "label": "Size Constraints",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-size +<N>",
+              "key_style": "code",
+              "description": "File size is strictly greater than N",
+              "example": "find . -size +100M"
+            },
+            {
+              "key": "-size -<N>",
+              "key_style": "code",
+              "description": "File size is strictly less than N",
+              "example": "find . -size -1k"
+            },
+            {
+              "key": "-size <N>",
+              "key_style": "code",
+              "description": "File size is exactly N (rounded up to the given unit)",
+              "example": "find . -size 512c"
+            },
+            {
+              "key": "-empty",
+              "key_style": "code",
+              "description": "File is empty and is either a regular file or a directory",
+              "example": "find . -empty -type d"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⏳",
+      "title": "Time Tests",
+      "title_accent": "Time",
+      "sections": [
+        {
+          "label": "Time Mechanics (N interpretation)",
+          "kind": "text",
+          "content": "For numeric time arguments: `+N` means strictly greater than N, `-N` means strictly less than N, `N` means exactly N. For days (time), fractional parts are ignored. Use minutes (min) for finer granularity."
+        },
+        {
+          "label": "Modification Time (Data changed)",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-mtime +<N>",
+              "key_style": "code",
+              "description": "File's data was last modified strictly more than N*24 hours ago",
+              "example": "find . -mtime +7"
+            },
+            {
+              "key": "-mtime -<N>",
+              "key_style": "code",
+              "description": "File's data was last modified strictly less than N*24 hours ago",
+              "example": "find . -mtime -3"
+            },
+            {
+              "key": "-mmin <N>",
+              "key_style": "code",
+              "description": "File's data was last modified N minutes ago",
+              "example": "find . -mmin -60"
+            }
+          ]
+        },
+        {
+          "label": "Access & Change Time",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-atime <N>",
+              "key_style": "code",
+              "description": "File was last accessed N*24 hours ago",
+              "example": "find /tmp -atime +30"
+            },
+            {
+              "key": "-amin <N>",
+              "key_style": "code",
+              "description": "File was last accessed N minutes ago",
+              "example": "find . -amin -10"
+            },
+            {
+              "key": "-ctime <N>",
+              "key_style": "code",
+              "description": "File's status (metadata) was last changed N*24 hours ago",
+              "example": "find /etc -ctime -1"
+            },
+            {
+              "key": "-cmin <N>",
+              "key_style": "code",
+              "description": "File's status was last changed N minutes ago",
+              "example": "find . -cmin -5"
+            }
+          ]
+        },
+        {
+          "label": "Relative & Absolute Time",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-newer <file>",
+              "key_style": "code",
+              "description": "File was modified more recently than <file>",
+              "example": "find . -newer build.stamp"
+            },
+            {
+              "key": "-newermt <date>",
+              "key_style": "code",
+              "description": "File was modified more recently than the given date/time",
+              "example": "find . -newermt '2024-01-01'"
+            },
+            {
+              "key": "-daystart",
+              "key_style": "code",
+              "description": "Measure times from the beginning of today rather than 24 hours ago",
+              "example": "find . -daystart -mtime 0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔐",
+      "title": "Permissions & Ownership",
+      "title_accent": "Permissions",
+      "sections": [
+        {
+          "label": "Permissions Matching",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-perm <mode>",
+              "key_style": "code",
+              "description": "File's permission bits are exactly mode (octal or symbolic)",
+              "example": "find . -perm 644"
+            },
+            {
+              "key": "-perm -<mode>",
+              "key_style": "code",
+              "description": "All of the permission bits mode are set for the file",
+              "example": "find . -perm -222"
+            },
+            {
+              "key": "-perm /<mode>",
+              "key_style": "code",
+              "description": "Any of the permission bits mode are set for the file",
+              "example": "find . -perm /u+x"
+            },
+            {
+              "key": "-readable",
+              "key_style": "code",
+              "description": "Matches files which are readable by current user",
+              "example": "find /etc -readable"
+            },
+            {
+              "key": "-writable",
+              "key_style": "code",
+              "description": "Matches files which are writable by current user",
+              "example": "find . -type d -writable"
+            },
+            {
+              "key": "-executable",
+              "key_style": "code",
+              "description": "Matches files which are executable and directories which are searchable by current user",
+              "example": "find /usr/local/bin -executable"
+            }
+          ]
+        },
+        {
+          "label": "Ownership",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-user <name>",
+              "key_style": "code",
+              "description": "File is owned by user",
+              "example": "find /var -user www-data"
+            },
+            {
+              "key": "-group <name>",
+              "key_style": "code",
+              "description": "File belongs to group",
+              "example": "find /opt -group developers"
+            },
+            {
+              "key": "-uid <N>",
+              "key_style": "code",
+              "description": "File's numeric user ID is N",
+              "example": "find / -uid 1000"
+            },
+            {
+              "key": "-nouser",
+              "key_style": "code",
+              "description": "No user corresponds to file's numeric user ID (orphaned file)",
+              "example": "find / -nouser"
+            },
+            {
+              "key": "-nogroup",
+              "key_style": "code",
+              "description": "No group corresponds to file's numeric group ID",
+              "example": "find / -nogroup"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔀",
+      "title": "Operators & Logic",
+      "title_accent": "Operators",
+      "tip": "Operators connect tests. By default, expressions are ANDed.",
+      "sections": [
+        {
+          "label": "Logical Operators (Decreasing precedence)",
+          "kind": "table",
+          "items": [
+            {
+              "key": "\\( <expr> \\)",
+              "key_style": "code",
+              "description": "Force precedence (parentheses must be escaped from the shell)",
+              "example": "find . \\( -name '*.jpg' -o -name '*.png' \\) -print"
+            },
+            {
+              "key": "! <expr>",
+              "key_style": "code",
+              "description": "True if expr is false",
+              "example": "find . ! -name '*.html'"
+            },
+            {
+              "key": "-not <expr>",
+              "key_style": "code",
+              "description": "True if expr is false (POSIX alternative to !)",
+              "example": "find . -not -type d"
+            },
+            {
+              "key": "-a",
+              "key_style": "code",
+              "description": "Logical AND (implied if no operator is given)",
+              "example": "find . -type f -a -name '*.md'"
+            },
+            {
+              "key": "-o",
+              "key_style": "code",
+              "description": "Logical OR",
+              "example": "find . -type d -o -type l"
+            },
+            {
+              "key": ",",
+              "key_style": "code",
+              "description": "List operator; both expressions evaluated, value of first is discarded",
+              "example": "find . -type f -name '*.tmp' -delete , -print"
+            }
+          ]
+        },
+        {
+          "label": "Precedence Gotcha",
+          "kind": "table",
+          "items": [
+            {
+              "key": "<expr1> -o <expr2> -print",
+              "key_style": "code",
+              "description": "AND has higher precedence than OR. Action only applies to expr2!",
+              "example": "find . -name '*.txt' -o -name '*.md' -print",
+              "tip": "Without parens, this prints .md files but NOT .txt files!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🚀",
+      "title": "Actions",
+      "title_accent": "Actions",
+      "layout": "wide",
+      "sections": [
+        {
+          "label": "Output Actions",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-print",
+              "key_style": "code",
+              "description": "Print full file name, followed by a newline (default action)",
+              "example": "find . -type d -print"
+            },
+            {
+              "key": "-print0",
+              "key_style": "code",
+              "description": "Print full file name, followed by a null character (safe for spaces/newlines)",
+              "example": "find . -name '*.txt' -print0 | xargs -0 rm"
+            },
+            {
+              "key": "-printf <format>",
+              "key_style": "code",
+              "description": "Print format on standard output. Does not add a newline automatically",
+              "example": "find . -printf '%p - %s bytes\\n'"
+            },
+            {
+              "key": "-ls",
+              "key_style": "code",
+              "description": "List current file in `ls -dils` format on standard output",
+              "example": "find . -type f -size +1G -ls"
+            },
+            {
+              "key": "-fprint <file>",
+              "key_style": "code",
+              "description": "Print full file name into file",
+              "example": "find . -type f -fprint files.txt"
+            }
+          ]
+        },
+        {
+          "label": "-printf Format Codes",
+          "kind": "table",
+          "items": [
+            {
+              "key": "%p",
+              "key_style": "code",
+              "description": "File's name",
+              "example": "find . -printf '%p\\n'"
+            },
+            {
+              "key": "%f",
+              "key_style": "code",
+              "description": "File's name with any leading directories removed (only the last element)",
+              "example": "find . -printf '%f\\n'"
+            },
+            {
+              "key": "%s",
+              "key_style": "code",
+              "description": "File's size in bytes",
+              "example": "find . -printf '%p %s\\n'"
+            },
+            {
+              "key": "%TY-%Tm-%Td",
+              "key_style": "code",
+              "description": "File's last modification time in YYYY-MM-DD format",
+              "example": "find . -printf '%TY-%Tm-%Td %p\\n'"
+            },
+            {
+              "key": "%u",
+              "key_style": "code",
+              "description": "File's user name, or numeric user ID if the user has no name",
+              "example": "find . -printf '%u %p\\n'"
+            }
+          ]
+        },
+        {
+          "label": "Execution Actions",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-exec <cmd> {} \\;",
+              "key_style": "code",
+              "description": "Execute command on each file individually. {} is replaced by the file name",
+              "example": "find . -type f -name '*.bak' -exec rm {} \\;"
+            },
+            {
+              "key": "-exec <cmd> {} +",
+              "key_style": "code",
+              "description": "Execute command once on all matched files passed as arguments (like xargs)",
+              "example": "find . -type f -name '*.txt' -exec grep 'TODO' {} +"
+            },
+            {
+              "key": "-execdir <cmd> {} \\;",
+              "key_style": "code",
+              "description": "Like -exec, but command is run from the subdirectory containing the matched file",
+              "example": "find . -name '.DS_Store' -execdir rm {} \\;"
+            },
+            {
+              "key": "-ok <cmd> {} \\;",
+              "key_style": "code",
+              "description": "Like -exec, but prompts the user before executing the command",
+              "example": "find . -name '*.log' -ok rm {} \\;"
+            },
+            {
+              "key": "-okdir <cmd> {} \\;",
+              "key_style": "code",
+              "description": "Like -execdir, but prompts the user first",
+              "example": "find . -name 'tmp_*' -okdir rm {} \\;"
+            }
+          ]
+        },
+        {
+          "label": "Control & Destructive Actions",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-delete",
+              "key_style": "code",
+              "description": "Delete files; implies -depth. Will not delete non-empty directories",
+              "example": "find . -name '*.tmp' -delete",
+              "danger": "Deletes files permanently without prompting. Test with -print first!"
+            },
+            {
+              "key": "-prune",
+              "key_style": "code",
+              "description": "If file is a directory, do not descend into it",
+              "example": "find . -name 'node_modules' -prune -o -print"
+            },
+            {
+              "key": "-quit",
+              "key_style": "code",
+              "description": "Exit immediately. No child processes will be left running",
+              "example": "find . -name 'target_file' -print -quit"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "💡",
+      "title": "Practical Examples",
+      "title_accent": "Practical",
+      "layout": "wide",
+      "sections": [
+        {
+          "label": "Everyday Tasks",
+          "kind": "table",
+          "items": [
+            {
+              "key": "find . -type f -mtime +7 -delete",
+              "key_style": "cmd",
+              "description": "Delete files older than 7 days",
+              "example": "find /var/log -type f -mtime +7 -delete",
+              "danger": "Permanently deletes old files"
+            },
+            {
+              "key": "find . -type f -printf '%s %p\\n' | sort -nr | head -10",
+              "key_style": "cmd",
+              "description": "Find the 10 largest files in a directory",
+              "example": "find /var -type f -printf '%s %p\\n' | sort -nr | head -10"
+            },
+            {
+              "key": "find . -type d -exec chmod 755 {} \\;",
+              "key_style": "cmd",
+              "description": "Set permissions of all directories to 755",
+              "example": "find /var/www -type d -exec chmod 755 {} \\;"
+            },
+            {
+              "key": "find . -type f -exec chmod 644 {} \\;",
+              "key_style": "cmd",
+              "description": "Set permissions of all files to 644",
+              "example": "find /var/www -type f -exec chmod 644 {} \\;"
+            },
+            {
+              "key": "find . -type f -exec grep -H 'pattern' {} +",
+              "key_style": "cmd",
+              "description": "Find files and grep for content inside them efficiently",
+              "example": "find src -type f -name '*.js' -exec grep -H 'console.log' {} +"
+            },
+            {
+              "key": "find . \\( -name node_modules -o -name .git \\) -prune -o -type f -print",
+              "key_style": "cmd",
+              "description": "Exclude specific directories like node_modules and .git",
+              "example": "find . \\( -name node_modules -o -name .git \\) -prune -o -type f -name '*.ts' -print"
+            },
+            {
+              "key": "find . -xtype l",
+              "key_style": "cmd",
+              "description": "Find broken symbolic links",
+              "example": "find /etc -xtype l -delete"
+            },
+            {
+              "key": "find . -type d -empty",
+              "key_style": "cmd",
+              "description": "Find empty directories",
+              "example": "find . -type d -empty -delete"
+            },
+            {
+              "key": "find . -daystart -mtime 0",
+              "key_style": "cmd",
+              "description": "Find files modified today (since midnight)",
+              "example": "find ~ -type f -daystart -mtime 0"
+            },
+            {
+              "key": "find . -name '*.txt' -exec cp {} /dest \\;",
+              "key_style": "cmd",
+              "description": "Copy found files to another directory",
+              "example": "find docs -name '*.md' -exec cp {} /backup/docs \\;"
+            },
+            {
+              "key": "find . -type f -name '*.jpg' -exec bash -c 'mv \"$0\" \"${0%.jpg}.png\"' {} \\;",
+              "key_style": "cmd",
+              "description": "Rename file extension of all matched files",
+              "example": "find images -type f -name '*.jpeg' -exec bash -c 'mv \"$0\" \"${0%.jpeg}.jpg\"' {} \\;"
+            },
+            {
+              "key": "find . -type f | sed -n 's/.*\\.//p' | sort | uniq -c",
+              "key_style": "cmd",
+              "description": "Count files per extension in the directory tree",
+              "example": "find ~/projects -type f | sed -n 's/.*\\.//p' | sort | uniq -c"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

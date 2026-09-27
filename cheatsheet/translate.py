@@ -2,6 +2,9 @@
 
     uv run -m cheatsheet.translate            # chỉ dịch entry mới / đã đổi nội dung, rồi chạy lại extract
     uv run -m cheatsheet.translate --dry-run  # đếm số entry cần dịch
+    uv run -m cheatsheet.translate --engine ollama  # dịch bằng model local (TRANSLATE_MODEL, mặc định gemma4)
+
+Engine agy (mặc định) dịch tốt hơn; lượt 2 dịch lại phần agy bỏ sót bằng Ollama nếu Ollama đang chạy.
 
 Đọc data/*.json do cheatsheet.extract sinh ra. Mỗi bản dịch khoá theo content_hash (sha256 của
 embed_text tiếng Anh) nên chạy lại an toàn; entry đổi nội dung sẽ được dịch lại. File kết quả nên
@@ -9,18 +12,23 @@ embed_text tiếng Anh) nên chạy lại an toàn; entry đổi nội dung sẽ
 """
 
 import json
+import os
 import shutil
 import subprocess
 import sys
 import tempfile
+import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-from cheatsheet.config import ROOT
+from cheatsheet.config import OLLAMA_KEEP_ALIVE, OLLAMA_URL, ROOT
 from cheatsheet.extract import TRANSLATIONS, load_translations
 
-MODEL = "gemini-3.8-flash-high"
+MODEL = os.environ.get("TRANSLATE_AGY_MODEL", "gemini-3.8-flash-medium")  # dịch là việc dễ → Flash Medium là đủ
 BATCH = 40
 WORKERS = 4
+OLLAMA_MODEL = os.environ.get("TRANSLATE_MODEL", "gemma4")
+OLLAMA_BATCH = 15  # model local giữ chất lượng tốt hơn với batch nhỏ
+OLLAMA_WORKERS = 4  # Ollama chỉ chạy song song tối đa 4 request
 
 SCHEMA = {
     "type": "object",
@@ -66,14 +74,30 @@ def pending_entries(translations):
             seen.add(h)
             todo.append({"hash": h, "sheet": sheet["slug"], "card": e["card"], "section": e["section"],
                          "kind": e["kind"], "command": (e["command"] or "")[:400] or None,
-                         "description": e["description"], "details": (e["details"] or "")[:300] or None})
+                         "description": e["description"], "details": (e["details"] or "")[:300] or None,
+                         "example": e["example"] if e["example"] != e["command"] else None})
     return todo
 
 
-def run_agy(batch, schema_path):
+def prompt_for(batch):
     payload = [{"id": str(i), **{k: v for k, v in e.items() if k != "hash" and v}} for i, e in enumerate(batch)]
+    return PROMPT + json.dumps(payload, ensure_ascii=False, indent=1)
+
+
+def collect(batch, items):
+    result = {}
+    for it in items:
+        i = int(it["id"]) if it["id"].isdigit() else -1
+        if 0 <= i < len(batch) and it["vi"].strip():
+            result[batch[i]["hash"]] = {"src": f"{batch[i]['sheet']} · {(batch[i]['command'] or batch[i]['description'] or '')[:60]}",
+                                        "vi": it["vi"].strip(),
+                                        "q": [q.strip() for q in it["q"] if q.strip()][:3]}
+    return result
+
+
+def run_agy(batch, schema_path):
     proc = subprocess.run(
-        ["agy", "-p", PROMPT + json.dumps(payload, ensure_ascii=False, indent=1),
+        ["agy", "-p", prompt_for(batch),
          "--model", MODEL, "--output-format", "json", "--json-schema", schema_path,
          "--disable-slash-commands", "--print-timeout", "10m"],
         capture_output=True, text=True, cwd=tempfile.gettempdir())
@@ -82,14 +106,27 @@ def run_agy(batch, schema_path):
     out = json.loads(proc.stdout)
     if out.get("status") != "SUCCESS":
         raise RuntimeError(f"agy status {out.get('status')}: {str(out.get('response'))[:300]}")
-    result = {}
-    for it in (out.get("structured_output") or {}).get("items", []):
-        i = int(it["id"]) if it["id"].isdigit() else -1
-        if 0 <= i < len(batch) and it["vi"].strip():
-            result[batch[i]["hash"]] = {"src": f"{batch[i]['sheet']} · {(batch[i]['command'] or batch[i]['description'] or '')[:60]}",
-                                        "vi": it["vi"].strip(),
-                                        "q": [q.strip() for q in it["q"] if q.strip()][:3]}
-    return result
+    return collect(batch, (out.get("structured_output") or {}).get("items", []))
+
+
+def run_ollama(batch, _schema_path=None):
+    body = {"model": OLLAMA_MODEL, "stream": False, "format": SCHEMA, "think": False,
+            "keep_alive": OLLAMA_KEEP_ALIVE, "options": {"temperature": 0.2},
+            "messages": [{"role": "user", "content": prompt_for(batch)}]}
+    req = urllib.request.Request(f"{OLLAMA_URL}/api/chat", data=json.dumps(body).encode(),
+                                 headers={"Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=900) as r:
+        content = json.load(r)["message"]["content"]
+    return collect(batch, json.loads(content).get("items", []))
+
+
+def ollama_ready():
+    try:
+        with urllib.request.urlopen(f"{OLLAMA_URL}/api/tags", timeout=5) as r:
+            names = {m["name"] for m in json.load(r)["models"]}
+    except OSError:
+        return False
+    return OLLAMA_MODEL in names or f"{OLLAMA_MODEL}:latest" in names
 
 
 def save(translations):
@@ -102,16 +139,26 @@ def main():
     print(f"{len(todo)} entry cần dịch ({len(translations)} đã có)")
     if not todo or "--dry-run" in sys.argv:
         return 0
-    if not shutil.which("agy"):
-        print("✗ không tìm thấy agy (Antigravity CLI) — bỏ qua bước dịch", file=sys.stderr)
-        return 1
+    engine = sys.argv[sys.argv.index("--engine") + 1] if "--engine" in sys.argv else "agy"
+    engines = {"agy": (run_agy, BATCH, WORKERS), "ollama": (run_ollama, OLLAMA_BATCH, OLLAMA_WORKERS)}
+    if engine == "agy" and not shutil.which("agy"):
+        print("⚠ không tìm thấy agy (Antigravity CLI) — chuyển sang Ollama", file=sys.stderr)
+        engine = "ollama"
+    passes = [engine, "ollama"] if engine == "agy" else ["ollama", "ollama"]
+    if "ollama" in passes and not ollama_ready():
+        if engine == "ollama":
+            print(f"✗ Ollama chưa chạy hoặc chưa có model {OLLAMA_MODEL} — bỏ qua bước dịch", file=sys.stderr)
+            return 1
+        passes = ["agy", "agy"]
 
     with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False) as f:
         json.dump(SCHEMA, f)
-    for attempt in (1, 2):  # lượt 2: dịch lại entry agy bỏ sót / batch lỗi
-        batches = [todo[i:i + BATCH] for i in range(0, len(todo), BATCH)]
-        with ThreadPoolExecutor(WORKERS) as ex:
-            futs = {ex.submit(run_agy, b, f.name): b for b in batches}
+    for attempt, name in enumerate(passes, 1):  # lượt 2: dịch lại entry bị bỏ sót / batch lỗi
+        run, size, workers = engines[name]
+        print(f"lượt {attempt}: {name} ({len(todo)} entry)")
+        batches = [todo[i:i + size] for i in range(0, len(todo), size)]
+        with ThreadPoolExecutor(workers) as ex:
+            futs = {ex.submit(run, b, f.name): b for b in batches}
             for fut in as_completed(futs):
                 try:
                     got = fut.result()

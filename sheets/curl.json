@@ -1,0 +1,582 @@
+{
+  "title": "curl Cheatsheet",
+  "subtitle": "Command-line tool for transferring data with URLs",
+  "description": "Comprehensive reference for curl, covering basic requests, headers, data payloads, TLS, proxies, and performance tuning.",
+  "source_url": "https://curl.se/docs/manpage.html",
+  "links": [
+    {
+      "label": "curl.se/docs",
+      "url": "https://curl.se/docs/manpage.html"
+    }
+  ],
+  "cards": [
+    {
+      "icon": "🌐",
+      "title": "Basic Requests",
+      "title_accent": "Basic",
+      "sections": [
+        {
+          "kind": "table",
+          "items": [
+            {
+              "key": "curl <url>",
+              "key_style": "cmd",
+              "description": "Fetch a URL (defaults to GET method)",
+              "example": "curl https://example.com"
+            },
+            {
+              "key": "curl -X <method> <url>",
+              "key_style": "cmd",
+              "description": "Specify the HTTP method to use",
+              "example": "curl -X DELETE https://api.example.com/user/1"
+            },
+            {
+              "key": "curl -I <url>",
+              "key_style": "cmd",
+              "description": "Fetch HTTP response headers only (HEAD request)",
+              "example": "curl -I https://example.com"
+            },
+            {
+              "key": "curl -i <url>",
+              "key_style": "cmd",
+              "description": "Include HTTP response headers in the output",
+              "example": "curl -i https://api.example.com/data"
+            },
+            {
+              "key": "curl -L <url>",
+              "key_style": "cmd",
+              "description": "Automatically follow HTTP redirects",
+              "example": "curl -L https://example.com"
+            },
+            {
+              "key": "curl --max-redirs <num> <url>",
+              "key_style": "cmd",
+              "description": "Limit the maximum number of redirects followed",
+              "example": "curl -L --max-redirs 3 https://example.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "💾",
+      "title": "Output & Debugging",
+      "title_accent": "Output",
+      "sections": [
+        {
+          "label": "Save to File",
+          "kind": "table",
+          "items": [
+            {
+              "key": "curl -o <file> <url>",
+              "key_style": "cmd",
+              "description": "Save the response body to a specific file",
+              "example": "curl -o data.json https://api.example.com/users"
+            },
+            {
+              "key": "curl -O <url>",
+              "key_style": "cmd",
+              "description": "Save the file using the remote file's name",
+              "example": "curl -O https://example.com/archive.zip"
+            },
+            {
+              "key": "curl -O -J <url>",
+              "key_style": "cmd",
+              "description": "Save the file using the server-provided filename",
+              "example": "curl -O -J https://example.com/download"
+            },
+            {
+              "key": "curl --output-dir <dir> -O <url>",
+              "key_style": "cmd",
+              "description": "Specify a directory to save downloaded files into",
+              "example": "curl --output-dir /tmp -O https://example.com/file.txt"
+            },
+            {
+              "key": "curl --create-dirs -o <path> <url>",
+              "key_style": "cmd",
+              "description": "Create missing local directories for the output path",
+              "example": "curl --create-dirs -o docs/2024/report.pdf https://example.com/report.pdf"
+            }
+          ]
+        },
+        {
+          "label": "Verbosity & Progress",
+          "kind": "table",
+          "items": [
+            {
+              "key": "curl -s <url>",
+              "key_style": "cmd",
+              "description": "Silent mode, suppressing progress meter and error messages",
+              "example": "curl -s https://example.com > out.html"
+            },
+            {
+              "key": "curl -S <url>",
+              "key_style": "cmd",
+              "description": "Show error messages even when silent mode is active",
+              "example": "curl -sS https://example.com > out.html"
+            },
+            {
+              "key": "curl -sS <url>",
+              "key_style": "cmd",
+              "description": "Common combo to hide progress but show errors",
+              "example": "curl -sS https://api.example.com"
+            },
+            {
+              "key": "curl --no-progress-meter <url>",
+              "key_style": "cmd",
+              "description": "Hide the progress meter but keep error messages",
+              "example": "curl --no-progress-meter -O https://example.com/huge.zip"
+            },
+            {
+              "key": "curl -# -O <url>",
+              "key_style": "cmd",
+              "description": "Display a simple progress bar instead of the meter",
+              "example": "curl -# -O https://example.com/large.iso"
+            },
+            {
+              "key": "curl -v <url>",
+              "key_style": "cmd",
+              "description": "Verbose mode for debugging request and response",
+              "example": "curl -v https://example.com"
+            },
+            {
+              "key": "curl --trace-ascii <file> <url>",
+              "key_style": "cmd",
+              "description": "Dump full ASCII trace of all traffic to a file",
+              "example": "curl --trace-ascii debug.log https://example.com"
+            },
+            {
+              "key": "curl -D <file> <url>",
+              "key_style": "cmd",
+              "description": "Dump HTTP response headers to a specific file",
+              "example": "curl -D headers.txt https://example.com"
+            }
+          ]
+        },
+        {
+          "label": "Write-out variables",
+          "kind": "table",
+          "items": [
+            {
+              "key": "curl -w <format> <url>",
+              "key_style": "cmd",
+              "description": "Write custom formatted information after completion",
+              "example": "curl -s -o /dev/null -w \"%{http_code}\" https://example.com"
+            },
+            {
+              "key": "%{http_code}",
+              "key_style": "code",
+              "description": "Write-out variable for HTTP response status code",
+              "example": "curl -w \"Status: %{http_code}\\n\" https://example.com"
+            },
+            {
+              "key": "%{time_total}",
+              "key_style": "code",
+              "description": "Write-out variable for total transaction time in seconds",
+              "example": "curl -w \"Time: %{time_total}s\\n\" https://example.com"
+            },
+            {
+              "key": "%{size_download}",
+              "key_style": "code",
+              "description": "Write-out variable for total downloaded bytes",
+              "example": "curl -w \"Downloaded: %{size_download} bytes\\n\" https://example.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "📤",
+      "title": "Request Data (POST & PUT)",
+      "title_accent": "Data",
+      "sections": [
+        {
+          "kind": "table",
+          "items": [
+            {
+              "key": "curl -d <data> <url>",
+              "key_style": "cmd",
+              "description": "Send URL-encoded data in a POST request body",
+              "example": "curl -d \"name=admin&id=1\" https://api.example.com/login"
+            },
+            {
+              "key": "curl --data-raw <data> <url>",
+              "key_style": "cmd",
+              "description": "Send data exactly as specified (does not parse @)",
+              "example": "curl --data-raw \"password=@dmin\" https://api.example.com/login"
+            },
+            {
+              "key": "curl --data-binary @<file> <url>",
+              "key_style": "cmd",
+              "description": "Send exact file contents as data without modification",
+              "example": "curl --data-binary @image.png -H \"Content-Type: image/png\" https://api.example.com/upload"
+            },
+            {
+              "key": "curl --data-urlencode <data> <url>",
+              "key_style": "cmd",
+              "description": "URL-encode the data before sending it",
+              "example": "curl --data-urlencode \"query=hello world\" https://api.example.com/search"
+            },
+            {
+              "key": "curl -G -d <data> <url>",
+              "key_style": "cmd",
+              "description": "Send data as query string parameters in a GET request",
+              "example": "curl -G -d \"search=books\" https://api.example.com/items"
+            },
+            {
+              "key": "curl --json <json> <url>",
+              "key_style": "cmd",
+              "description": "Send JSON data (auto-sets Content-Type and Accept headers)",
+              "note": "7.82+",
+              "example": "curl --json '{\"status\": \"ok\"}' https://api.example.com/update"
+            },
+            {
+              "key": "curl -F <name=value> <url>",
+              "key_style": "cmd",
+              "description": "Send multipart/form-data field",
+              "example": "curl -F \"username=john\" https://api.example.com/register"
+            },
+            {
+              "key": "curl -F <name=@file> <url>",
+              "key_style": "cmd",
+              "description": "Upload a file as a multipart/form-data field",
+              "example": "curl -F \"document=@resume.pdf\" https://api.example.com/upload"
+            },
+            {
+              "key": "curl -T <file> <url>",
+              "key_style": "cmd",
+              "description": "Upload a file via HTTP PUT method",
+              "example": "curl -T backup.tar.gz https://example.com/upload/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔑",
+      "title": "Headers & Authentication",
+      "title_accent": "Headers",
+      "sections": [
+        {
+          "kind": "table",
+          "items": [
+            {
+              "key": "curl -H <header> <url>",
+              "key_style": "cmd",
+              "description": "Add a custom HTTP header to the request",
+              "example": "curl -H \"X-Custom-Auth: secret123\" https://api.example.com"
+            },
+            {
+              "key": "curl -A <agent> <url>",
+              "key_style": "cmd",
+              "description": "Set the User-Agent string for the request",
+              "example": "curl -A \"Mozilla/5.0\" https://example.com"
+            },
+            {
+              "key": "curl -e <url> <url>",
+              "key_style": "cmd",
+              "description": "Set the Referer HTTP header",
+              "example": "curl -e \"https://google.com\" https://example.com"
+            },
+            {
+              "key": "curl -u <user:pass> <url>",
+              "key_style": "cmd",
+              "description": "Provide credentials for HTTP Basic Authentication",
+              "example": "curl -u admin:supersecret https://api.example.com"
+            },
+            {
+              "key": "curl --digest -u <user:pass> <url>",
+              "key_style": "cmd",
+              "description": "Use HTTP Digest Authentication",
+              "example": "curl --digest -u admin:supersecret https://api.example.com"
+            },
+            {
+              "key": "curl -H \"Authorization: Bearer <token>\" <url>",
+              "key_style": "cmd",
+              "description": "Pass a Bearer token in the Authorization header",
+              "example": "curl -H \"Authorization: Bearer abc123xyz\" https://api.example.com/data"
+            },
+            {
+              "key": "curl --oauth2-bearer <token> <url>",
+              "key_style": "cmd",
+              "description": "Pass an OAuth 2.0 Bearer token natively",
+              "example": "curl --oauth2-bearer \"abc123xyz\" https://api.example.com/data"
+            },
+            {
+              "key": "curl -n <url>",
+              "key_style": "cmd",
+              "description": "Read authentication credentials from ~/.netrc file",
+              "example": "curl -n https://api.example.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🍪",
+      "title": "Cookies",
+      "title_accent": "Cookies",
+      "sections": [
+        {
+          "kind": "table",
+          "items": [
+            {
+              "key": "curl -b <data> <url>",
+              "key_style": "cmd",
+              "description": "Send a cookie string or read cookies from a file",
+              "example": "curl -b \"session=abc\" https://example.com"
+            },
+            {
+              "key": "curl -c <file> <url>",
+              "key_style": "cmd",
+              "description": "Save response cookies to a specified file",
+              "example": "curl -c cookies.txt https://example.com/login"
+            },
+            {
+              "key": "curl -j -b <file> <url>",
+              "key_style": "cmd",
+              "description": "Discard existing session cookies when reading from a file",
+              "example": "curl -j -b cookies.txt https://example.com/profile"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔒",
+      "title": "TLS & Certificates",
+      "title_accent": "TLS",
+      "sections": [
+        {
+          "kind": "table",
+          "items": [
+            {
+              "key": "curl -k <url>",
+              "key_style": "cmd",
+              "description": "Allow insecure connections and skip TLS certificate verification",
+              "example": "curl -k https://self-signed.example.com",
+              "danger": "Exposes you to man-in-the-middle attacks."
+            },
+            {
+              "key": "curl --cacert <file> <url>",
+              "key_style": "cmd",
+              "description": "Use a custom CA certificate bundle to verify the server",
+              "example": "curl --cacert custom-ca.pem https://example.com"
+            },
+            {
+              "key": "curl --cert <file> --key <file> <url>",
+              "key_style": "cmd",
+              "description": "Provide a client certificate and private key for mutual TLS",
+              "example": "curl --cert client.pem --key client.key https://api.example.com"
+            },
+            {
+              "key": "curl --tlsv1.2 <url>",
+              "key_style": "cmd",
+              "description": "Force the use of TLS version 1.2 or higher",
+              "example": "curl --tlsv1.2 https://example.com"
+            },
+            {
+              "key": "curl --tls-max <version> <url>",
+              "key_style": "cmd",
+              "description": "Set the maximum allowed TLS version",
+              "example": "curl --tls-max 1.3 https://example.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🌍",
+      "title": "Network & Proxies",
+      "title_accent": "Network",
+      "sections": [
+        {
+          "kind": "table",
+          "items": [
+            {
+              "key": "curl -x <proxy> <url>",
+              "key_style": "cmd",
+              "description": "Route requests through an HTTP or SOCKS proxy",
+              "example": "curl -x http://proxy.example.com:8080 https://example.com"
+            },
+            {
+              "key": "curl --noproxy <list> <url>",
+              "key_style": "cmd",
+              "description": "List of hosts that should bypass the proxy setup",
+              "example": "curl -x http://proxy --noproxy \"localhost,127.0.0.1\" https://localhost"
+            },
+            {
+              "key": "curl --resolve <host:port:ip> <url>",
+              "key_style": "cmd",
+              "description": "Force a custom IP address for a specific hostname and port",
+              "example": "curl --resolve example.com:443:127.0.0.1 https://example.com"
+            },
+            {
+              "key": "curl --connect-to <host:port:host2:port2> <url>",
+              "key_style": "cmd",
+              "description": "Redirect connections intended for one host/port to another",
+              "example": "curl --connect-to example.com:443:test.example.com:8443 https://example.com"
+            },
+            {
+              "key": "curl --interface <name> <url>",
+              "key_style": "cmd",
+              "description": "Bind the local connection to a specific network interface or IP",
+              "example": "curl --interface eth0 https://example.com"
+            },
+            {
+              "key": "curl -4 <url>",
+              "key_style": "cmd",
+              "description": "Resolve and connect using IPv4 addresses only",
+              "example": "curl -4 https://example.com"
+            },
+            {
+              "key": "curl -6 <url>",
+              "key_style": "cmd",
+              "description": "Resolve and connect using IPv6 addresses only",
+              "example": "curl -6 https://example.com"
+            },
+            {
+              "key": "curl --unix-socket <path> <url>",
+              "key_style": "cmd",
+              "description": "Connect through a local Unix domain socket",
+              "example": "curl --unix-socket /var/run/docker.sock http://localhost/images/json"
+            },
+            {
+              "key": "curl --http1.1 <url>",
+              "key_style": "cmd",
+              "description": "Force the use of HTTP/1.1 protocol",
+              "example": "curl --http1.1 https://example.com"
+            },
+            {
+              "key": "curl --http2 <url>",
+              "key_style": "cmd",
+              "description": "Attempt to use the HTTP/2 protocol",
+              "example": "curl --http2 https://example.com"
+            },
+            {
+              "key": "curl --http3 <url>",
+              "key_style": "cmd",
+              "description": "Attempt to use the HTTP/3 protocol",
+              "example": "curl --http3 https://example.com"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⚡",
+      "title": "Reliability & Performance",
+      "title_accent": "Reliability",
+      "sections": [
+        {
+          "kind": "table",
+          "items": [
+            {
+              "key": "curl --connect-timeout <sec> <url>",
+              "key_style": "cmd",
+              "description": "Maximum time in seconds to wait for a connection to establish",
+              "example": "curl --connect-timeout 5 https://example.com"
+            },
+            {
+              "key": "curl -m <sec> <url>",
+              "key_style": "cmd",
+              "description": "Maximum total time in seconds for the entire operation",
+              "example": "curl -m 10 https://example.com"
+            },
+            {
+              "key": "curl --retry <num> <url>",
+              "key_style": "cmd",
+              "description": "Retry the request if a transient network error occurs",
+              "example": "curl --retry 3 https://example.com"
+            },
+            {
+              "key": "curl --retry-delay <sec> <url>",
+              "key_style": "cmd",
+              "description": "Wait time in seconds between retries",
+              "example": "curl --retry 3 --retry-delay 5 https://example.com"
+            },
+            {
+              "key": "curl --retry-all-errors <url>",
+              "key_style": "cmd",
+              "description": "Retry the request on any error, not just transient ones",
+              "example": "curl --retry 3 --retry-all-errors https://example.com"
+            },
+            {
+              "key": "curl -f <url>",
+              "key_style": "cmd",
+              "description": "Fail fast silently on HTTP server errors like 404 or 500",
+              "example": "curl -f https://example.com/not-found"
+            },
+            {
+              "key": "curl --fail-with-body <url>",
+              "key_style": "cmd",
+              "description": "Fail on HTTP errors but still output the response body",
+              "example": "curl --fail-with-body https://example.com/api"
+            },
+            {
+              "key": "curl -C - -O <url>",
+              "key_style": "cmd",
+              "description": "Automatically resume a partially downloaded file",
+              "example": "curl -C - -O https://example.com/large.iso"
+            },
+            {
+              "key": "curl -r <range> <url>",
+              "key_style": "cmd",
+              "description": "Retrieve a specific byte range of a file",
+              "example": "curl -r 0-1024 https://example.com/file.bin"
+            },
+            {
+              "key": "curl --limit-rate <speed> <url>",
+              "key_style": "cmd",
+              "description": "Limit the data transfer speed",
+              "example": "curl --limit-rate 500K -O https://example.com/large.iso"
+            },
+            {
+              "key": "curl --compressed <url>",
+              "key_style": "cmd",
+              "description": "Request compressed response and decompress it automatically",
+              "example": "curl --compressed https://example.com"
+            },
+            {
+              "key": "curl -Z <url> <url2>",
+              "key_style": "cmd",
+              "description": "Perform parallel requests for multiple URLs",
+              "example": "curl -Z https://example.com https://example.org"
+            },
+            {
+              "key": "curl -K <file>",
+              "key_style": "cmd",
+              "description": "Read command line arguments from a config file",
+              "example": "curl -K config.txt"
+            },
+            {
+              "key": "curl \"<url>[start-end]\"",
+              "key_style": "cmd",
+              "description": "Fetch multiple URLs using alphanumeric globbing",
+              "example": "curl -O \"http://example.com/file[1-10].txt\""
+            },
+            {
+              "key": "curl \"<url>{a,b}\"",
+              "key_style": "cmd",
+              "description": "Fetch multiple URLs using brace expansion",
+              "example": "curl -O \"http://example.com/image{A,B}.jpg\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "💡",
+      "title": "Practical Examples",
+      "title_accent": "Examples",
+      "sections": [
+        {
+          "kind": "code",
+          "lang": "bash",
+          "copy_lines": true,
+          "content": "# POST JSON to API\ncurl -X POST -H \"Content-Type: application/json\" -d '{\"key\":\"val\"}' https://api.example.com\n\n# Download a file with a clean progress bar\ncurl -# -O https://example.com/file.zip\n\n# Print only the HTTP status code\ncurl -s -o /dev/null -w \"%{http_code}\" https://example.com\n\n# Detailed response time breakdown\ncurl -w \"\\nLookup: %{time_namelookup}\\nConnect: %{time_connect}\\nTotal: %{time_total}\\n\" -s -o /dev/null https://example.com\n\n# Upload file via multipart form\ncurl -F \"profile=@photo.jpg\" https://example.com/upload\n\n# Authenticate with a Bearer token\ncurl -H \"Authorization: Bearer my_token_123\" https://api.example.com/data\n\n# Save cookies to a file and reuse them in a single command\ncurl -c cookie.txt -b cookie.txt https://example.com\n\n# Route traffic through an HTTP proxy\ncurl -x http://proxy.example.com:8080 https://example.com\n\n# Resume an interrupted download\ncurl -C - -O https://example.com/large.iso\n\n# Call local Docker socket\ncurl --unix-socket /var/run/docker.sock http://localhost/images/json"
+        }
+      ]
+    }
+  ]
+}

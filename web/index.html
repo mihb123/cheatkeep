@@ -1799,7 +1799,7 @@
         out += '<table>';
         if (sec.columns) out += '<thead><tr>' + sec.columns.map(function (c) { return '<th>' + esc(c) + '</th>'; }).join('') + '</tr></thead>';
         out += '<tbody>' + items.map(function (it, i) {
-          return '<tr class="item" data-i="' + i + '"' + attr('data-tip', it.tip) + '>' +
+          return '<tr class="item" data-i="' + i + '"' + attr('data-tip', it.tip || it.example) + '>' +
                  '<td>' + renderKey(it) + '</td><td class="desc">' + rich(it.description) + '</td></tr>';
         }).join('') + '</tbody></table>';
       } else if (sec.kind === 'rows') {
@@ -2221,7 +2221,7 @@
         var card = sheet.cards[tr.closest('.card').dataset.ci];
         var secIdx = Array.prototype.indexOf.call(tr.closest('.card-body').children, tr.closest('.section'));
         var it = card.sections[secIdx].items[tr.dataset.i];
-        return openTip(tr, it.key, it.tip, it.example, it.danger);
+        return openTip(tr, it.key, it.tip || it.description, it.example, it.danger);
       }
       var head = t.closest('.card-header[data-tip]');
       if (head) return openTip(head, head.textContent.trim(), head.dataset.tip);

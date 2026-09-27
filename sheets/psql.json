@@ -1,0 +1,1402 @@
+{
+  "title": "PostgreSQL Cheatsheet",
+  "subtitle": "psql client, PostgreSQL SQL & Admin",
+  "description": "Comprehensive PostgreSQL cheatsheet: psql meta-commands, SQL data types, JSONB, array operators, window functions, and admin queries.",
+  "source_url": "https://www.postgresql.org/docs/current/",
+  "links": [
+    {
+      "label": "postgresql.org/docs",
+      "url": "https://www.postgresql.org/docs/current/"
+    }
+  ],
+  "aliases": [
+    "postgres",
+    "pg"
+  ],
+  "cards": [
+    {
+      "icon": "🔌",
+      "title": "Connect & Session",
+      "title_accent": "Connect",
+      "sections": [
+        {
+          "label": "Connection Commands",
+          "kind": "table",
+          "items": [
+            {
+              "key": "psql -U <user> -h <host> -d <db>",
+              "key_style": "cmd",
+              "description": "Connect to a specific database as user",
+              "example": "psql -U postgres -h localhost -d shop"
+            },
+            {
+              "key": "psql -W -U <user> <db>",
+              "key_style": "cmd",
+              "description": "Force password prompt and connect",
+              "example": "psql -W -U admin my_db"
+            },
+            {
+              "key": "psql -f <file.sql> <db>",
+              "key_style": "cmd",
+              "description": "Execute commands from a file",
+              "example": "psql -f init.sql shop_db"
+            },
+            {
+              "key": "psql -c \"<query>\"",
+              "key_style": "cmd",
+              "description": "Run a single command and exit",
+              "example": "psql -c \"SELECT version();\""
+            }
+          ]
+        },
+        {
+          "label": "Environment Variables",
+          "kind": "table",
+          "items": [
+            {
+              "key": "PGHOST",
+              "key_style": "code",
+              "description": "Default server host",
+              "example": "export PGHOST=localhost"
+            },
+            {
+              "key": "PGPASSWORD",
+              "key_style": "code",
+              "description": "Default connection password",
+              "example": "export PGPASSWORD=secret"
+            },
+            {
+              "key": "PGUSER",
+              "key_style": "code",
+              "description": "Default connection user",
+              "example": "export PGUSER=admin"
+            },
+            {
+              "key": "PGDATABASE",
+              "key_style": "code",
+              "description": "Default database to connect to",
+              "example": "export PGDATABASE=shop_db"
+            },
+            {
+              "key": "PGSSLMODE",
+              "key_style": "code",
+              "description": "Require SSL connection",
+              "example": "export PGSSLMODE=require"
+            }
+          ]
+        },
+        {
+          "label": "Config Files",
+          "kind": "table",
+          "items": [
+            {
+              "key": "~/.pgpass",
+              "key_style": "code",
+              "description": "Format: hostname:port:database:username:password",
+              "example": "localhost:5432:*:postgres:secret"
+            },
+            {
+              "key": "~/.psqlrc",
+              "key_style": "code",
+              "description": "Startup commands for psql session",
+              "example": "\\set PROMPT1 '%/ > '"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⚡",
+      "title": "psql Meta-Commands",
+      "title_accent": "Meta-Commands",
+      "sections": [
+        {
+          "label": "Information & Navigation",
+          "kind": "table",
+          "items": [
+            {
+              "key": "\\?",
+              "key_style": "cmd",
+              "description": "Show help on psql meta-commands",
+              "example": "\\? options"
+            },
+            {
+              "key": "\\l",
+              "key_style": "cmd",
+              "description": "List all databases",
+              "example": "\\l+"
+            },
+            {
+              "key": "\\c <db>",
+              "key_style": "cmd",
+              "description": "Connect to a different database",
+              "example": "\\c shop_db"
+            },
+            {
+              "key": "\\conninfo",
+              "key_style": "cmd",
+              "description": "Display current connection information",
+              "example": "=> \\conninfo"
+            },
+            {
+              "key": "\\q",
+              "key_style": "cmd",
+              "description": "Quit psql session",
+              "example": "=> \\q"
+            }
+          ]
+        },
+        {
+          "label": "List Database Objects",
+          "kind": "table",
+          "items": [
+            {
+              "key": "\\dt",
+              "key_style": "cmd",
+              "description": "List all tables in current schema",
+              "example": "\\dt public.*"
+            },
+            {
+              "key": "\\d <table_name>",
+              "key_style": "cmd",
+              "description": "Describe table columns, types, modifiers",
+              "example": "\\d users"
+            },
+            {
+              "key": "\\d+",
+              "key_style": "cmd",
+              "description": "Describe table with more details (size, description)",
+              "example": "\\d+ orders"
+            },
+            {
+              "key": "\\dn",
+              "key_style": "cmd",
+              "description": "List all schemas",
+              "example": "\\dn+"
+            },
+            {
+              "key": "\\df",
+              "key_style": "cmd",
+              "description": "List functions/procedures",
+              "example": "\\df my_func*"
+            },
+            {
+              "key": "\\dv",
+              "key_style": "cmd",
+              "description": "List all views",
+              "example": "\\dv active_*"
+            },
+            {
+              "key": "\\di",
+              "key_style": "cmd",
+              "description": "List all indexes",
+              "example": "\\di users_*"
+            },
+            {
+              "key": "\\du",
+              "key_style": "cmd",
+              "description": "List database roles / users",
+              "example": "\\du+"
+            },
+            {
+              "key": "\\dx",
+              "key_style": "cmd",
+              "description": "List installed extensions",
+              "example": "\\dx+"
+            }
+          ]
+        },
+        {
+          "label": "Formatting & I/O",
+          "kind": "table",
+          "items": [
+            {
+              "key": "\\x",
+              "key_style": "cmd",
+              "description": "Toggle expanded (vertical) output",
+              "example": "\\x auto"
+            },
+            {
+              "key": "\\timing",
+              "key_style": "cmd",
+              "description": "Toggle query timing",
+              "example": "\\timing on"
+            },
+            {
+              "key": "\\i <file>",
+              "key_style": "cmd",
+              "description": "Execute commands from a script file",
+              "example": "\\i setup.sql"
+            },
+            {
+              "key": "\\o <file>",
+              "key_style": "cmd",
+              "description": "Redirect query output to a file",
+              "example": "\\o results.txt"
+            },
+            {
+              "key": "\\copy <table> FROM '<file>' CSV",
+              "key_style": "cmd",
+              "description": "Import CSV file data into a table",
+              "example": "\\copy users FROM 'users.csv' CSV HEADER"
+            },
+            {
+              "key": "\\copy (query) TO '<file>' CSV",
+              "key_style": "cmd",
+              "description": "Export query results to CSV",
+              "example": "\\copy (SELECT * FROM users) TO 'out.csv' CSV"
+            }
+          ]
+        },
+        {
+          "label": "Execution & Editing",
+          "kind": "table",
+          "items": [
+            {
+              "key": "\\e",
+              "key_style": "cmd",
+              "description": "Edit the current query buffer in external editor",
+              "example": "\\e file.sql"
+            },
+            {
+              "key": "\\ef <function>",
+              "key_style": "cmd",
+              "description": "Edit a function definition in editor",
+              "example": "\\ef my_func"
+            },
+            {
+              "key": "\\watch <sec>",
+              "key_style": "cmd",
+              "description": "Execute query repeatedly at intervals",
+              "example": "SELECT * FROM jobs; \\watch 2"
+            },
+            {
+              "key": "\\set <var> <val>",
+              "key_style": "cmd",
+              "description": "Set internal psql variable",
+              "example": "\\set myvar 'hello'"
+            },
+            {
+              "key": "\\gexec",
+              "key_style": "cmd",
+              "description": "Execute the result of a query as SQL",
+              "example": "SELECT 'SELECT 1;' \\gexec"
+            },
+            {
+              "key": "\\gset",
+              "key_style": "cmd",
+              "description": "Store query result into psql variables",
+              "example": "SELECT count(*) as c FROM users \\gset"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🗄️",
+      "title": "Databases & Schemas",
+      "title_accent": "Databases",
+      "sections": [
+        {
+          "label": "Databases",
+          "kind": "table",
+          "items": [
+            {
+              "key": "CREATE DATABASE <db>;",
+              "key_style": "cmd",
+              "description": "Create a new database",
+              "example": "CREATE DATABASE shop_db;"
+            },
+            {
+              "key": "DROP DATABASE <db>;",
+              "key_style": "cmd",
+              "description": "Delete a database permanently",
+              "example": "DROP DATABASE shop_db;",
+              "danger": "Deletes database and all data."
+            },
+            {
+              "key": "ALTER DATABASE <db> RENAME TO <new_name>;",
+              "key_style": "cmd",
+              "description": "Rename a database",
+              "example": "ALTER DATABASE shop_db RENAME TO old_shop;"
+            }
+          ]
+        },
+        {
+          "label": "Schemas",
+          "kind": "table",
+          "items": [
+            {
+              "key": "CREATE SCHEMA <schema>;",
+              "key_style": "cmd",
+              "description": "Create a new schema",
+              "example": "CREATE SCHEMA api;"
+            },
+            {
+              "key": "SET search_path TO <schema>;",
+              "key_style": "cmd",
+              "description": "Set default schema for current session",
+              "example": "SET search_path TO api, public;"
+            },
+            {
+              "key": "DROP SCHEMA <schema> CASCADE;",
+              "key_style": "cmd",
+              "description": "Drop schema and all its objects",
+              "example": "DROP SCHEMA api CASCADE;",
+              "danger": "Deletes schema and all tables/functions inside."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🏗️",
+      "title": "Tables & Constraints",
+      "title_accent": "Tables",
+      "sections": [
+        {
+          "label": "Create Table",
+          "kind": "table",
+          "items": [
+            {
+              "key": "CREATE TABLE <table> ( ... );",
+              "key_style": "cmd",
+              "description": "Define a new table",
+              "example": "CREATE TABLE users (id SERIAL, name TEXT);"
+            },
+            {
+              "key": "CREATE TABLE IF NOT EXISTS <table> ( ... );",
+              "key_style": "cmd",
+              "description": "Create only if table doesn't exist",
+              "example": "CREATE TABLE IF NOT EXISTS tags (id SERIAL);"
+            },
+            {
+              "key": "CREATE TABLE <table> AS <query>;",
+              "key_style": "cmd",
+              "description": "Create table from query results",
+              "example": "CREATE TABLE backup_users AS SELECT * FROM users;"
+            }
+          ]
+        },
+        {
+          "label": "Column Types & Constraints",
+          "kind": "table",
+          "items": [
+            {
+              "key": "PRIMARY KEY",
+              "key_style": "code",
+              "description": "Uniquely identifies each record",
+              "example": "id UUID PRIMARY KEY"
+            },
+            {
+              "key": "GENERATED ALWAYS AS IDENTITY",
+              "key_style": "code",
+              "description": "Standard auto-incrementing ID (replaces SERIAL)",
+              "example": "id INT GENERATED ALWAYS AS IDENTITY"
+            },
+            {
+              "key": "SERIAL",
+              "key_style": "code",
+              "description": "Legacy auto-increment integer",
+              "example": "id SERIAL PRIMARY KEY"
+            },
+            {
+              "key": "REFERENCES <table>(<col>)",
+              "key_style": "code",
+              "description": "Foreign key constraint",
+              "example": "user_id INT REFERENCES users(id)"
+            },
+            {
+              "key": "ON DELETE CASCADE",
+              "key_style": "code",
+              "description": "Delete row if referenced parent is deleted",
+              "example": "user_id INT REFERENCES users(id) ON DELETE CASCADE"
+            },
+            {
+              "key": "UNIQUE",
+              "key_style": "code",
+              "description": "Ensure column values are distinct",
+              "example": "email TEXT UNIQUE"
+            },
+            {
+              "key": "CHECK (<condition>)",
+              "key_style": "code",
+              "description": "Enforce value condition",
+              "example": "age INT CHECK (age > 0)"
+            },
+            {
+              "key": "DEFAULT <value>",
+              "key_style": "code",
+              "description": "Set default value for column",
+              "example": "status TEXT DEFAULT 'active'"
+            },
+            {
+              "key": "NOT NULL",
+              "key_style": "code",
+              "description": "Disallow NULL values",
+              "example": "name TEXT NOT NULL"
+            }
+          ]
+        },
+        {
+          "label": "Alter Table",
+          "kind": "table",
+          "items": [
+            {
+              "key": "ALTER TABLE <table> ADD COLUMN <col> <type>;",
+              "key_style": "cmd",
+              "description": "Add a new column",
+              "example": "ALTER TABLE users ADD COLUMN age INT;"
+            },
+            {
+              "key": "ALTER TABLE <table> DROP COLUMN <col>;",
+              "key_style": "cmd",
+              "description": "Remove a column",
+              "example": "ALTER TABLE users DROP COLUMN age;"
+            },
+            {
+              "key": "ALTER TABLE <table> ALTER COLUMN <col> TYPE <type>;",
+              "key_style": "cmd",
+              "description": "Change column data type",
+              "example": "ALTER TABLE users ALTER COLUMN age TYPE BIGINT;"
+            },
+            {
+              "key": "ALTER TABLE <table> RENAME COLUMN <col> TO <new>;",
+              "key_style": "cmd",
+              "description": "Rename a column",
+              "example": "ALTER TABLE users RENAME COLUMN age TO years;"
+            },
+            {
+              "key": "ALTER TABLE <table> ADD CONSTRAINT <name> <type>;",
+              "key_style": "cmd",
+              "description": "Add a named constraint",
+              "example": "ALTER TABLE users ADD CONSTRAINT age_chk CHECK (age>0);"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔠",
+      "title": "Data Types",
+      "title_accent": "Data",
+      "sections": [
+        {
+          "label": "Common Types",
+          "kind": "table",
+          "items": [
+            {
+              "key": "boolean",
+              "key_style": "code",
+              "description": "True/False",
+              "example": "is_active BOOLEAN"
+            },
+            {
+              "key": "text / varchar",
+              "key_style": "code",
+              "description": "Variable-length string (prefer text)",
+              "example": "name TEXT"
+            },
+            {
+              "key": "smallint",
+              "key_style": "code",
+              "description": "2-byte integer",
+              "example": "status_code SMALLINT"
+            },
+            {
+              "key": "integer / bigint",
+              "key_style": "code",
+              "description": "4-byte / 8-byte integer",
+              "example": "count BIGINT"
+            },
+            {
+              "key": "numeric(p, s)",
+              "key_style": "code",
+              "description": "Exact precision number (e.g., currency)",
+              "example": "price NUMERIC(10, 2)"
+            },
+            {
+              "key": "uuid",
+              "key_style": "code",
+              "description": "Universally Unique Identifier",
+              "example": "id UUID DEFAULT gen_random_uuid()"
+            },
+            {
+              "key": "timestamptz",
+              "key_style": "code",
+              "description": "Date and time with time zone",
+              "example": "created_at TIMESTAMPTZ DEFAULT now()"
+            },
+            {
+              "key": "interval",
+              "key_style": "code",
+              "description": "Time span",
+              "example": "duration INTERVAL"
+            }
+          ]
+        },
+        {
+          "label": "Advanced Types",
+          "kind": "table",
+          "items": [
+            {
+              "key": "jsonb",
+              "key_style": "code",
+              "description": "Binary JSON format (queryable & indexable)",
+              "example": "metadata JSONB"
+            },
+            {
+              "key": "<type>[]",
+              "key_style": "code",
+              "description": "Array of a given type",
+              "example": "tags TEXT[]"
+            },
+            {
+              "key": "CREATE TYPE <name> AS ENUM (<values>);",
+              "key_style": "cmd",
+              "description": "Create custom enum type",
+              "example": "CREATE TYPE status AS ENUM ('draft', 'published');"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "📝",
+      "title": "CRUD & Filtering",
+      "title_accent": "CRUD",
+      "sections": [
+        {
+          "label": "Write Data",
+          "kind": "table",
+          "items": [
+            {
+              "key": "INSERT INTO <table> (<cols>) VALUES (<vals>);",
+              "key_style": "cmd",
+              "description": "Insert a new row",
+              "example": "INSERT INTO users (name) VALUES ('Alice');"
+            },
+            {
+              "key": "INSERT ... RETURNING <col>;",
+              "key_style": "cmd",
+              "description": "Insert and return generated values (like IDs)",
+              "example": "INSERT INTO users (name) VALUES ('Bob') RETURNING id;"
+            },
+            {
+              "key": "INSERT ... ON CONFLICT (<col>) DO UPDATE ...",
+              "key_style": "cmd",
+              "description": "Upsert: update if row exists",
+              "example": "INSERT INTO t (id, v) VALUES (1, 2) ON CONFLICT (id) DO UPDATE SET v = 2;"
+            },
+            {
+              "key": "INSERT ... ON CONFLICT DO NOTHING;",
+              "key_style": "cmd",
+              "description": "Ignore insert if conflict occurs",
+              "example": "INSERT INTO t (id) VALUES (1) ON CONFLICT DO NOTHING;"
+            },
+            {
+              "key": "UPDATE <table> SET <col> = <val> WHERE <cond>;",
+              "key_style": "cmd",
+              "description": "Modify existing rows",
+              "example": "UPDATE users SET age = 30 WHERE id = 1;"
+            },
+            {
+              "key": "DELETE FROM <table> WHERE <cond>;",
+              "key_style": "cmd",
+              "description": "Remove rows matching condition",
+              "example": "DELETE FROM users WHERE age < 18;"
+            }
+          ]
+        },
+        {
+          "label": "Filtering (WHERE)",
+          "kind": "table",
+          "items": [
+            {
+              "key": "LIKE '<pattern>'",
+              "key_style": "code",
+              "description": "Case-sensitive wildcard match (% = any, _ = one)",
+              "example": "SELECT * FROM users WHERE name LIKE 'A%';"
+            },
+            {
+              "key": "ILIKE '<pattern>'",
+              "key_style": "code",
+              "description": "Case-insensitive wildcard match",
+              "example": "SELECT * FROM users WHERE name ILIKE 'a%';"
+            },
+            {
+              "key": "SIMILAR TO '<regex>'",
+              "key_style": "code",
+              "description": "SQL standard regex match",
+              "example": "SELECT * FROM users WHERE name SIMILAR TO '(A|B)%';"
+            },
+            {
+              "key": "~ '<regex>'",
+              "key_style": "code",
+              "description": "POSIX regular expression match (case-sensitive)",
+              "example": "SELECT * FROM users WHERE name ~ '^A.*';"
+            },
+            {
+              "key": "~* '<regex>'",
+              "key_style": "code",
+              "description": "POSIX regular expression match (case-insensitive)",
+              "example": "SELECT * FROM users WHERE name ~* '^a.*';"
+            },
+            {
+              "key": "IN (<list>)",
+              "key_style": "code",
+              "description": "Value matches any in a list",
+              "example": "WHERE status IN ('active', 'pending')"
+            },
+            {
+              "key": "BETWEEN <a> AND <b>",
+              "key_style": "code",
+              "description": "Value is within inclusive range",
+              "example": "WHERE age BETWEEN 18 AND 65"
+            },
+            {
+              "key": "IS NULL / IS NOT NULL",
+              "key_style": "code",
+              "description": "Check for NULL values",
+              "example": "WHERE email IS NULL"
+            },
+            {
+              "key": "IS DISTINCT FROM <val>",
+              "key_style": "code",
+              "description": "Safe equality check, treats NULLs as normal values",
+              "example": "WHERE col1 IS DISTINCT FROM col2"
+            },
+            {
+              "key": "= ANY(<array>)",
+              "key_style": "code",
+              "description": "Match against any element in an array",
+              "example": "WHERE 1 = ANY(ARRAY[1,2,3])"
+            },
+            {
+              "key": "= ALL(<array>)",
+              "key_style": "code",
+              "description": "Match all elements in an array",
+              "example": "WHERE 1 = ALL(my_array_col)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔗",
+      "title": "Joins, Aggregates & CTEs",
+      "title_accent": "Joins",
+      "sections": [
+        {
+          "label": "Joins",
+          "kind": "table",
+          "items": [
+            {
+              "key": "INNER JOIN",
+              "key_style": "code",
+              "description": "Returns records with matching values in both tables",
+              "example": "SELECT * FROM a INNER JOIN b ON a.id = b.a_id;"
+            },
+            {
+              "key": "LEFT JOIN",
+              "key_style": "code",
+              "description": "All records from left, matched records from right",
+              "example": "SELECT * FROM a LEFT JOIN b ON a.id = b.a_id;"
+            },
+            {
+              "key": "RIGHT JOIN",
+              "key_style": "code",
+              "description": "All records from right, matched records from left",
+              "example": "SELECT * FROM a RIGHT JOIN b ON a.id = b.a_id;"
+            },
+            {
+              "key": "FULL OUTER JOIN",
+              "key_style": "code",
+              "description": "All records from both tables",
+              "example": "SELECT * FROM a FULL OUTER JOIN b ON a.id = b.a_id;"
+            },
+            {
+              "key": "CROSS JOIN",
+              "key_style": "code",
+              "description": "Cartesian product of both tables",
+              "example": "SELECT * FROM a CROSS JOIN b;"
+            }
+          ]
+        },
+        {
+          "label": "Aggregations",
+          "kind": "table",
+          "items": [
+            {
+              "key": "GROUP BY <col>",
+              "key_style": "code",
+              "description": "Group rows that have the same values",
+              "example": "SELECT dept, count(*) FROM users GROUP BY dept;"
+            },
+            {
+              "key": "HAVING <cond>",
+              "key_style": "code",
+              "description": "Filter groups based on aggregate condition",
+              "example": "GROUP BY dept HAVING count(*) > 5;"
+            },
+            {
+              "key": "count(<col>)",
+              "key_style": "code",
+              "description": "Count rows (or non-null values if column specified)",
+              "example": "SELECT count(id) FROM users;"
+            },
+            {
+              "key": "sum(<col>)",
+              "key_style": "code",
+              "description": "Sum of numeric values",
+              "example": "SELECT sum(amount) FROM sales;"
+            },
+            {
+              "key": "string_agg(<col>, '<sep>')",
+              "key_style": "code",
+              "description": "Concatenate strings with separator",
+              "example": "SELECT string_agg(name, ', ') FROM users;"
+            },
+            {
+              "key": "array_agg(<col>)",
+              "key_style": "code",
+              "description": "Collect values into an array",
+              "example": "SELECT array_agg(id) FROM users;"
+            },
+            {
+              "key": "FILTER (WHERE <cond>)",
+              "key_style": "code",
+              "description": "Apply aggregate only to rows matching condition",
+              "example": "SELECT count(*) FILTER (WHERE status = 'ok') FROM t;"
+            }
+          ]
+        },
+        {
+          "label": "Subqueries & CTEs",
+          "kind": "table",
+          "items": [
+            {
+              "key": "WITH <name> AS (<query>)",
+              "key_style": "cmd",
+              "description": "Common Table Expression (CTE) for cleaner subqueries",
+              "example": "WITH t AS (SELECT * FROM a) SELECT * FROM t;"
+            },
+            {
+              "key": "WITH RECURSIVE <name> AS (...)",
+              "key_style": "cmd",
+              "description": "Recursive CTE, useful for hierarchical data",
+              "example": "WITH RECURSIVE n AS (SELECT 1 AS i UNION ALL SELECT i + 1 FROM n WHERE i < 5) SELECT * FROM n;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🪟",
+      "title": "Window Functions",
+      "title_accent": "Window",
+      "sections": [
+        {
+          "label": "Window Functions",
+          "kind": "table",
+          "items": [
+            {
+              "key": "OVER (PARTITION BY <col>)",
+              "key_style": "code",
+              "description": "Apply window function over grouped partition",
+              "example": "SELECT sum(amount) OVER (PARTITION BY dept) FROM sales;"
+            },
+            {
+              "key": "OVER (ORDER BY <col>)",
+              "key_style": "code",
+              "description": "Apply window function cumulatively ordered",
+              "example": "SELECT sum(amount) OVER (ORDER BY date) FROM sales;"
+            },
+            {
+              "key": "row_number()",
+              "key_style": "code",
+              "description": "Sequential number of row within partition",
+              "example": "SELECT row_number() OVER (PARTITION BY dept ORDER BY score DESC) FROM t;"
+            },
+            {
+              "key": "rank()",
+              "key_style": "code",
+              "description": "Rank with gaps for ties",
+              "example": "SELECT rank() OVER (ORDER BY score DESC) FROM scores;"
+            },
+            {
+              "key": "lag(<col>)",
+              "key_style": "code",
+              "description": "Value from previous row in partition",
+              "example": "SELECT lag(price) OVER (ORDER BY date) FROM stocks;"
+            },
+            {
+              "key": "lead(<col>)",
+              "key_style": "code",
+              "description": "Value from next row in partition",
+              "example": "SELECT lead(price) OVER (ORDER BY date) FROM stocks;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🛠️",
+      "title": "Functions & Triggers",
+      "title_accent": "Functions",
+      "sections": [
+        {
+          "label": "String Functions",
+          "kind": "table",
+          "items": [
+            {
+              "key": "concat(<s>, <s>, ...)",
+              "key_style": "code",
+              "description": "Concatenate strings (ignores nulls)",
+              "example": "SELECT concat(first_name, ' ', last_name);"
+            },
+            {
+              "key": "split_part(<s>, '<sep>', <n>)",
+              "key_style": "code",
+              "description": "Split string and get nth part (1-indexed)",
+              "example": "SELECT split_part('a,b,c', ',', 2);"
+            },
+            {
+              "key": "regexp_replace(<s>, '<re>', '<rep>')",
+              "key_style": "code",
+              "description": "Replace substring matching regex",
+              "example": "SELECT regexp_replace('foobar', 'f.*b', 'B');"
+            },
+            {
+              "key": "lower(<s>)",
+              "key_style": "code",
+              "description": "Convert string to lowercase",
+              "example": "SELECT lower('HELLO');"
+            },
+            {
+              "key": "upper(<s>)",
+              "key_style": "code",
+              "description": "Convert string to uppercase",
+              "example": "SELECT upper('hello');"
+            },
+            {
+              "key": "trim(<s>)",
+              "key_style": "code",
+              "description": "Remove whitespace from start and end",
+              "example": "SELECT trim('  abc  ');"
+            },
+            {
+              "key": "length(<s>)",
+              "key_style": "code",
+              "description": "Return string length in characters",
+              "example": "SELECT length('hello');"
+            }
+          ]
+        },
+        {
+          "label": "Date/Time Functions",
+          "kind": "table",
+          "items": [
+            {
+              "key": "now() / CURRENT_TIMESTAMP",
+              "key_style": "code",
+              "description": "Current transaction time",
+              "example": "SELECT now();"
+            },
+            {
+              "key": "date_trunc('<unit>', <time>)",
+              "key_style": "code",
+              "description": "Truncate timestamp to specified precision",
+              "example": "SELECT date_trunc('month', now());"
+            },
+            {
+              "key": "extract(<field> FROM <time>)",
+              "key_style": "code",
+              "description": "Get sub-field from timestamp/interval",
+              "example": "SELECT extract(year FROM now());"
+            },
+            {
+              "key": "age(<time>)",
+              "key_style": "code",
+              "description": "Interval between current time and given time",
+              "example": "SELECT age(created_at);"
+            },
+            {
+              "key": "to_char(<val>, '<fmt>')",
+              "key_style": "code",
+              "description": "Format timestamp/number to string",
+              "example": "SELECT to_char(now(), 'YYYY-MM-DD HH24:MI');"
+            }
+          ]
+        },
+        {
+          "label": "Utility Functions",
+          "kind": "table",
+          "items": [
+            {
+              "key": "generate_series(<start>, <end>)",
+              "key_style": "code",
+              "description": "Generate a series of values/dates",
+              "example": "SELECT generate_series(1, 10);"
+            },
+            {
+              "key": "coalesce(<val1>, <val2>, ...)",
+              "key_style": "code",
+              "description": "Return first non-null argument",
+              "example": "SELECT coalesce(phone, email, 'N/A');"
+            },
+            {
+              "key": "nullif(<val1>, <val2>)",
+              "key_style": "code",
+              "description": "Return null if arguments are equal",
+              "example": "SELECT nullif(status, 'inactive');"
+            }
+          ]
+        },
+        {
+          "label": "Custom Functions & Triggers",
+          "kind": "table",
+          "items": [
+            {
+              "key": "CREATE OR REPLACE FUNCTION <name> ...",
+              "key_style": "cmd",
+              "description": "Define a custom function",
+              "example": "CREATE FUNCTION add(a int, b int) RETURNS int AS $$ SELECT a + b; $$ LANGUAGE sql;"
+            },
+            {
+              "key": "CREATE PROCEDURE <name> ...",
+              "key_style": "cmd",
+              "description": "Define a procedure (supports transactions)",
+              "example": "CREATE PROCEDURE transfer(a int, b int, amount int) AS $$ BEGIN COMMIT; END; $$ LANGUAGE plpgsql;"
+            },
+            {
+              "key": "CALL <procedure>(...);",
+              "key_style": "cmd",
+              "description": "Execute a procedure",
+              "example": "CALL transfer(1, 2, 100);"
+            },
+            {
+              "key": "CREATE TRIGGER <name> AFTER <event> ON <table> ...",
+              "key_style": "cmd",
+              "description": "Create a trigger for a table",
+              "example": "CREATE TRIGGER log_update AFTER UPDATE ON users FOR EACH ROW EXECUTE FUNCTION log();"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "📦",
+      "title": "JSONB & Arrays",
+      "title_accent": "JSONB",
+      "sections": [
+        {
+          "label": "JSONB Operators",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-> '<key>' / -> <idx>",
+              "key_style": "code",
+              "description": "Get JSON object field / array element as JSON",
+              "example": "SELECT data->'user' FROM logs;"
+            },
+            {
+              "key": "->> '<key>' / ->> <idx>",
+              "key_style": "code",
+              "description": "Get JSON object field / array element as text",
+              "example": "SELECT data->>'name' FROM logs;"
+            },
+            {
+              "key": "#> '{<key>,<key>}'",
+              "key_style": "code",
+              "description": "Get JSON object at specified path as JSON",
+              "example": "SELECT data#>'{user, address}' FROM logs;"
+            },
+            {
+              "key": "@> '<json>'",
+              "key_style": "code",
+              "description": "Does left JSON contain right JSON?",
+              "example": "SELECT * FROM logs WHERE data @> '{\"status\":\"ok\"}';"
+            },
+            {
+              "key": "? '<key>'",
+              "key_style": "code",
+              "description": "Does JSON object contain the string key?",
+              "example": "SELECT * FROM logs WHERE data ? 'error';"
+            }
+          ]
+        },
+        {
+          "label": "JSONB Functions",
+          "kind": "table",
+          "items": [
+            {
+              "key": "jsonb_set(<target>, <path>, <val>)",
+              "key_style": "code",
+              "description": "Update or insert value at JSON path",
+              "example": "SELECT jsonb_set('{\"a\":1}', '{a}', '2');"
+            },
+            {
+              "key": "jsonb_agg(<col>)",
+              "key_style": "code",
+              "description": "Aggregate values into JSON array",
+              "example": "SELECT jsonb_agg(name) FROM users;"
+            }
+          ]
+        },
+        {
+          "label": "Array Operators",
+          "kind": "table",
+          "items": [
+            {
+              "key": "<array>[<idx>]",
+              "key_style": "code",
+              "description": "Access array element (1-indexed)",
+              "example": "SELECT tags[1] FROM posts;"
+            },
+            {
+              "key": "<array1> || <array2>",
+              "key_style": "code",
+              "description": "Concatenate arrays",
+              "example": "SELECT ARRAY[1] || ARRAY[2];"
+            },
+            {
+              "key": "@> '<array>'",
+              "key_style": "code",
+              "description": "Does left array contain right array?",
+              "example": "WHERE tags @> ARRAY['sql'];"
+            },
+            {
+              "key": "&& '<array>'",
+              "key_style": "code",
+              "description": "Do arrays overlap (have elements in common)?",
+              "example": "WHERE tags && ARRAY['sql', 'db'];"
+            },
+            {
+              "key": "array_length(<array>, 1)",
+              "key_style": "code",
+              "description": "Get length of array dimension",
+              "example": "SELECT array_length(tags, 1) FROM posts;"
+            },
+            {
+              "key": "unnest(<array>)",
+              "key_style": "code",
+              "description": "Expand an array into a set of rows",
+              "example": "SELECT unnest(tags) FROM posts;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔍",
+      "title": "Indexes & Views",
+      "title_accent": "Indexes",
+      "sections": [
+        {
+          "label": "Indexes",
+          "kind": "table",
+          "items": [
+            {
+              "key": "CREATE INDEX <idx> ON <table>(<col>);",
+              "key_style": "cmd",
+              "description": "Create standard B-tree index",
+              "example": "CREATE INDEX name_idx ON users(name);"
+            },
+            {
+              "key": "CREATE UNIQUE INDEX <idx> ON <table>(<col>);",
+              "key_style": "cmd",
+              "description": "Create index ensuring column uniqueness",
+              "example": "CREATE UNIQUE INDEX email_idx ON users(email);"
+            },
+            {
+              "key": "CREATE INDEX ... USING GIN (<col>);",
+              "key_style": "cmd",
+              "description": "Create GIN index (for JSONB, arrays, text search)",
+              "example": "CREATE INDEX meta_idx ON users USING GIN (metadata);"
+            },
+            {
+              "key": "CREATE INDEX <idx> ON <table>(<func>);",
+              "key_style": "cmd",
+              "description": "Create expression index",
+              "example": "CREATE INDEX lower_name_idx ON users(lower(name));"
+            },
+            {
+              "key": "CREATE INDEX <idx> ON <table>(<col>) WHERE <cond>;",
+              "key_style": "cmd",
+              "description": "Create partial index (indexes subset of rows)",
+              "example": "CREATE INDEX active_idx ON users(id) WHERE active = true;"
+            },
+            {
+              "key": "CREATE INDEX CONCURRENTLY <idx> ON <table>(<col>);",
+              "key_style": "cmd",
+              "description": "Create index without locking writes",
+              "example": "CREATE INDEX CONCURRENTLY u_idx ON users(id);"
+            }
+          ]
+        },
+        {
+          "label": "Views & Materialized Views",
+          "kind": "table",
+          "items": [
+            {
+              "key": "CREATE VIEW <view> AS <query>;",
+              "key_style": "cmd",
+              "description": "Create a virtual table from a query",
+              "example": "CREATE VIEW active_users AS SELECT * FROM users WHERE active;"
+            },
+            {
+              "key": "CREATE MATERIALIZED VIEW <view> AS <query>;",
+              "key_style": "cmd",
+              "description": "Create view that stores result physically",
+              "example": "CREATE MATERIALIZED VIEW report AS SELECT count(*) FROM t;"
+            },
+            {
+              "key": "REFRESH MATERIALIZED VIEW <view>;",
+              "key_style": "cmd",
+              "description": "Update materialized view data",
+              "example": "REFRESH MATERIALIZED VIEW report;"
+            },
+            {
+              "key": "REFRESH MATERIALIZED VIEW CONCURRENTLY <view>;",
+              "key_style": "cmd",
+              "description": "Update without locking reads (needs unique index)",
+              "example": "REFRESH MATERIALIZED VIEW CONCURRENTLY report;"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⚙️",
+      "title": "Admin & Maintenance",
+      "title_accent": "Admin",
+      "sections": [
+        {
+          "label": "Query Analysis",
+          "kind": "table",
+          "items": [
+            {
+              "key": "EXPLAIN <query>;",
+              "key_style": "cmd",
+              "description": "Show execution plan of a query",
+              "example": "EXPLAIN SELECT * FROM users;"
+            },
+            {
+              "key": "EXPLAIN ANALYZE <query>;",
+              "key_style": "cmd",
+              "description": "Execute query and show actual run times",
+              "example": "EXPLAIN ANALYZE SELECT * FROM users;"
+            }
+          ]
+        },
+        {
+          "label": "Maintenance",
+          "kind": "table",
+          "items": [
+            {
+              "key": "VACUUM;",
+              "key_style": "cmd",
+              "description": "Reclaim storage from deleted/updated rows",
+              "example": "VACUUM users;"
+            },
+            {
+              "key": "VACUUM FULL;",
+              "key_style": "cmd",
+              "description": "Rewrite table to reclaim maximum space (locks table)",
+              "example": "VACUUM FULL users;",
+              "danger": "Takes exclusive lock on the table."
+            },
+            {
+              "key": "ANALYZE;",
+              "key_style": "cmd",
+              "description": "Update statistics used by query planner",
+              "example": "ANALYZE users;"
+            },
+            {
+              "key": "REINDEX TABLE <table>;",
+              "key_style": "cmd",
+              "description": "Rebuild all indexes on a table",
+              "example": "REINDEX TABLE users;"
+            }
+          ]
+        },
+        {
+          "label": "Server & Activity",
+          "kind": "table",
+          "items": [
+            {
+              "key": "pg_stat_activity",
+              "key_style": "code",
+              "description": "View showing current server processes/queries",
+              "example": "SELECT * FROM pg_stat_activity;"
+            },
+            {
+              "key": "pg_cancel_backend(<pid>)",
+              "key_style": "code",
+              "description": "Gracefully cancel a running query",
+              "example": "SELECT pg_cancel_backend(1234);"
+            },
+            {
+              "key": "pg_terminate_backend(<pid>)",
+              "key_style": "code",
+              "description": "Forcefully terminate a connection",
+              "example": "SELECT pg_terminate_backend(1234);"
+            },
+            {
+              "key": "pg_size_pretty(pg_database_size('<db>'))",
+              "key_style": "code",
+              "description": "Get human-readable database size",
+              "example": "SELECT pg_size_pretty(pg_database_size('shop'));"
+            },
+            {
+              "key": "pg_total_relation_size('<table>')",
+              "key_style": "code",
+              "description": "Get table size including indexes in bytes",
+              "example": "SELECT pg_size_pretty(pg_total_relation_size('users'));"
+            },
+            {
+              "key": "current_setting('<setting>')",
+              "key_style": "code",
+              "description": "Get current value of a setting",
+              "example": "SELECT current_setting('timezone');"
+            },
+            {
+              "key": "SHOW <setting>;",
+              "key_style": "cmd",
+              "description": "Show current configuration setting",
+              "example": "SHOW work_mem;"
+            },
+            {
+              "key": "SET <setting> = <val>;",
+              "key_style": "cmd",
+              "description": "Set config parameter for current session",
+              "example": "SET work_mem = '64MB';"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🛡️",
+      "title": "Roles, Backup & Transactions",
+      "title_accent": "Roles",
+      "sections": [
+        {
+          "label": "Roles & Permissions",
+          "kind": "table",
+          "items": [
+            {
+              "key": "CREATE ROLE <role> WITH LOGIN PASSWORD '<pwd>';",
+              "key_style": "cmd",
+              "description": "Create a new user role",
+              "example": "CREATE ROLE app_user WITH LOGIN PASSWORD 'secret';"
+            },
+            {
+              "key": "GRANT <priv> ON <table> TO <role>;",
+              "key_style": "cmd",
+              "description": "Grant privileges on a table",
+              "example": "GRANT SELECT ON users TO app_user;"
+            },
+            {
+              "key": "REVOKE <priv> ON <table> FROM <role>;",
+              "key_style": "cmd",
+              "description": "Revoke privileges",
+              "example": "REVOKE UPDATE ON users FROM app_user;"
+            },
+            {
+              "key": "ALTER DEFAULT PRIVILEGES IN SCHEMA <s> GRANT <priv> ON TABLES TO <role>;",
+              "key_style": "cmd",
+              "description": "Grant rights on future tables automatically",
+              "example": "ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO read_only;"
+            }
+          ]
+        },
+        {
+          "label": "Transactions",
+          "kind": "table",
+          "items": [
+            {
+              "key": "BEGIN; / START TRANSACTION;",
+              "key_style": "cmd",
+              "description": "Start a transaction block",
+              "example": "BEGIN;"
+            },
+            {
+              "key": "COMMIT;",
+              "key_style": "cmd",
+              "description": "Commit current transaction",
+              "example": "COMMIT; -- apply changes"
+            },
+            {
+              "key": "ROLLBACK;",
+              "key_style": "cmd",
+              "description": "Abort current transaction",
+              "example": "ROLLBACK; -- discard changes"
+            },
+            {
+              "key": "SAVEPOINT <name>;",
+              "key_style": "cmd",
+              "description": "Define a savepoint in transaction",
+              "example": "SAVEPOINT sp1;"
+            },
+            {
+              "key": "ROLLBACK TO SAVEPOINT <name>;",
+              "key_style": "cmd",
+              "description": "Rollback to specific savepoint",
+              "example": "ROLLBACK TO SAVEPOINT sp1;"
+            },
+            {
+              "key": "SELECT ... FOR UPDATE;",
+              "key_style": "cmd",
+              "description": "Lock selected rows for update",
+              "example": "SELECT * FROM users WHERE id = 1 FOR UPDATE;"
+            },
+            {
+              "key": "SELECT ... FOR SHARE;",
+              "key_style": "cmd",
+              "description": "Lock rows for shared reading",
+              "example": "SELECT * FROM config FOR SHARE;"
+            },
+            {
+              "key": "LOCK TABLE <table> IN <mode> MODE;",
+              "key_style": "cmd",
+              "description": "Obtain table-level lock",
+              "example": "LOCK TABLE users IN EXCLUSIVE MODE;"
+            }
+          ]
+        },
+        {
+          "label": "Backup, Restore & Extensions",
+          "kind": "table",
+          "items": [
+            {
+              "key": "pg_dump -Fc <db> > <file>",
+              "key_style": "cmd",
+              "description": "Backup database in custom format (run in shell)",
+              "example": "pg_dump -Fc shop > shop.dump"
+            },
+            {
+              "key": "pg_restore -d <db> <file>",
+              "key_style": "cmd",
+              "description": "Restore database from custom dump (run in shell)",
+              "example": "pg_restore -d shop shop.dump"
+            },
+            {
+              "key": "pg_dumpall > <file>",
+              "key_style": "cmd",
+              "description": "Backup entire Postgres cluster (run in shell)",
+              "example": "pg_dumpall > all.sql"
+            },
+            {
+              "key": "CREATE EXTENSION IF NOT EXISTS <ext>;",
+              "key_style": "cmd",
+              "description": "Enable an extension in current database",
+              "example": "CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\";"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

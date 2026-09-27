@@ -176,6 +176,7 @@ Lệnh sẽ tính toán các chỉ số:
 │   └── seed.sql             # Dữ liệu seed trích xuất từ các cheatsheet
 ├── eval/
 │   └── queries.json         # Tập mẫu câu hỏi và kết quả kỳ vọng để benchmark
+├── sheets/                  # Nguồn cheatsheet viết tay (JSON) + README định dạng
 ├── scripts/
 │   └── setup.sh             # Script cài đặt và triển khai toàn bộ chỉ với 1 bước
 ├── web/
@@ -190,17 +191,17 @@ Lệnh sẽ tính toán các chỉ số:
 
 ## 🔧 Thêm Cheatsheet mới
 
-1. Đặt file HTML của cheatsheet vào thư mục gốc (ví dụ: `docker.html`).
-2. Nếu trang có cấu trúc mới, bổ sung hàm parser trong [cheatsheet/extract.py](file:///home/mihb/Work/cheatsheet/cheatsheet/extract.py).
-3. Chạy trích xuất:
+1. Viết nguồn JSON `sheets/<slug>.json` theo định dạng ở [sheets/README.md](sheets/README.md) (card → section → item, mỗi item có `description` + `example` ngắn).
+   Cách cũ vẫn chạy: đặt file HTML vào thư mục gốc (ví dụ: `docker.html`); trang có cấu trúc mới thì bổ sung parser trong [cheatsheet/extract.py](file:///home/mihb/Work/cheatsheet/cheatsheet/extract.py).
+2. Chạy trích xuất:
    ```bash
    uv run -m cheatsheet.extract
    ```
-4. Dịch và bổ sung từ khóa tìm kiếm tiếng Việt:
+3. Dịch và bổ sung từ khóa tìm kiếm tiếng Việt (mặc định agy; `--engine ollama` dùng model local `TRANSLATE_MODEL`, mặc định gemma4):
    ```bash
    uv run -m cheatsheet.translate
    ```
-5. Cập nhật cơ sở dữ liệu và đánh vector mới:
+4. Cập nhật cơ sở dữ liệu và đánh vector mới:
    ```bash
    docker compose exec -T db sh -c 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB"' < db/seed.sql
    uv run -m cheatsheet.embed --prune
