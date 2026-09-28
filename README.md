@@ -211,9 +211,9 @@ Lệnh sẽ tính toán các chỉ số:
    ```
 4. Cập nhật cơ sở dữ liệu và đánh vector mới:
    ```bash
-   docker compose exec -T db sh -c 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB"' < db/seed.sql
-   uv run -m cheatsheet.embed --prune
+   make load     # nạp db/schema.sql + db/seed.sql rồi embed phần mới (--prune)
    ```
+   Hoặc gộp bước 2–4: `make reload` (`ENGINE=ollama make reload` để dịch bằng model local). Xem mọi lệnh: `make help`.
 
 ---
 
