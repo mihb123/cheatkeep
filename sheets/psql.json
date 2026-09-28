@@ -1,5 +1,12 @@
 {
   "title": "PostgreSQL Cheatsheet",
+  "popular_commands": [
+    "\\l",
+    "\\c <db>",
+    "\\dt",
+    "\\d <table_name>",
+    "\\q"
+  ],
   "subtitle": "psql client, PostgreSQL SQL & Admin",
   "description": "Comprehensive PostgreSQL cheatsheet: psql meta-commands, SQL data types, JSONB, array operators, window functions, and admin queries.",
   "source_url": "https://www.postgresql.org/docs/current/",

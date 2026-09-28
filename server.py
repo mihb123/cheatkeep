@@ -22,7 +22,7 @@ from psycopg_pool import ConnectionPool
 
 from cheatsheet.config import APP_HOST, APP_PORT, DATABASE_URL, ROOT
 from cheatsheet.embedder import EmbedError
-from cheatsheet.search import parse_query, search
+from cheatsheet.search import lookup, parse_query
 
 WEB = ROOT / "web"
 pool = ConnectionPool(DATABASE_URL, min_size=1, max_size=4, open=True, check=ConnectionPool.check_connection)
@@ -61,13 +61,15 @@ class Handler(BaseHTTPRequestHandler):
 
             if path == "/api/search":
                 q = qs.get("q", "").strip()
-                if not q:
+                selected_sheet = qs.get("sheet") or None
+                if not q and not selected_sheet:
                     return self.send(400, {"error": "missing q"})
                 limit = max(1, min(int(qs.get("limit", 10)), 50))
                 with pool.connection() as conn:
-                    scope = parse_query(conn, q, qs.get("sheet") or None)
-                    rows = search(conn, scope, limit)
-                return self.send(200, {"query": q, "sheet": scope.sheet, "results": rows})
+                    scope = parse_query(conn, q, selected_sheet)
+                    result = lookup(conn, scope, limit)
+                return self.send(200, {"query": q, "sheet": result.sheet, "suggestion": result.reason,
+                                       "similarity": result.similarity, "results": result.rows})
 
             if path.startswith("/api/"):
                 return self.send(404, {"error": "not found"})

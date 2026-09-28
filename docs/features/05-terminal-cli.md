@@ -65,7 +65,7 @@ ln -sf "$(pwd)/chs" ~/.local/bin/chs
 | Cờ lệnh | Viết tắt | Ý nghĩa & Ví dụ |
 |---|---|---|
 | `<query>` | | Câu hỏi bằng tiếng Anh hoặc tiếng Việt: `chs "tạo database"` |
-| `tool:` | | Tiền tố trong câu hỏi, tương đương `-s`: `chs "mysql: tạo bảng"` (xem mục bên dưới) |
+| `tool:` / `tool` | | Tên tool ở đầu câu, tương đương `-s`: `chs "mysql: tạo bảng"` hoặc `chs "mysql tạo bảng"` (xem mục bên dưới) |
 | `--sheet` | `-s` | Chỉ định tìm trong 1 sheet (slug hoặc alias): `chs -s nvim "chia đôi cửa sổ"` |
 | `--limit` | `-n` | Số lượng kết quả hiển thị (mặc định là 5): `chs -n 3 "git rebase"` |
 | `--copy` | `-c` | Tự động copy lệnh phù hợp nhất vào clipboard: `chs -c "backup database"` |
@@ -74,19 +74,21 @@ ln -sf "$(pwd)/chs" ~/.local/bin/chs
 | `--json` | | Xuất kết quả dạng JSON để pipe sang công cụ khác: `chs --json "regex" \| jq` |
 | `--list` | | Liệt kê toàn bộ các cheatsheet và số lượng lệnh hiện có. |
 
-### Thu hẹp phạm vi bằng tiền tố `tool:`
+### Thu hẹp phạm vi bằng tên tool ở đầu câu
 
 Khi có nhiều sheet cùng lĩnh vực (mysql, psql, sqlite...), câu hỏi chung chung như "tạo bảng" dễ trả về lẫn lộn. Ghi tên tool ở đầu câu để chỉ tìm trong sheet đó:
 
 ```bash
 chs "mysql: tạo bảng"      # = chs -s mysql "tạo bảng"
+chs "mysql tạo bảng"       # dấu : là tuỳ chọn
 chs "nvim: xoá dòng"       # nhận cả viết tắt/alias
 chs "psql: cấp quyền"      # psql: pg: postgres: postgresql: đều trỏ về sheet psql
+chs "atuin"                # chưa có từ khoá → hiện 5 lệnh Atuin thường dùng ngay
 chs --list                 # bảng mọi sheet + tiền tố dùng được (--list --json cho script)
 ```
 
 Tiền tố = slug + tên tool (từ title) + `aliases` khai báo trong `sheets/<slug>.json`. `extract` dừng với lỗi nếu hai sheet trùng alias, nên mỗi tiền tố luôn trỏ về đúng một sheet. Thêm viết tắt mới: bổ sung vào `aliases` của file JSON rồi chạy lại extract + seed.
 
-- `parse_query()` trong `cheatsheet/search.py` tách tiền tố (tên tool ASCII + `:`), đổi alias → slug và **bỏ tiền tố khỏi văn bản embed** (giữ `mysql:` trong vector làm hit@1 giảm ~5 điểm). Web UI / `/api/search` dùng chung cơ chế này.
+- `parse_query()` trong `cheatsheet/search.py` nhận mọi alias có dấu `:`; khi không có `:`, chỉ alias nằm trong `SEARCH_COLON_FREE_PREFIXES` của `.env` mới lọc cứng. Riêng tên sheet đứng một mình vẫn hiện 5 lệnh thường dùng mà không gọi embedding. Khi độ tương đồng dưới `SEARCH_MIN_SIMILARITY`, CLI và API gợi ý 5 lệnh thường dùng của sheet được chọn hoặc sheet của kết quả đứng đầu. Web UI / `/api/search` dùng chung cơ chế này.
 - Tiền tố không khớp sheet nào (vd `git:` khi chưa có sheet git, hay `error: ...`) → cảnh báo trên stderr và tìm như bình thường với nguyên câu hỏi. `-s` sai tên → báo lỗi, thoát mã 2.
 - Không bắt buộc cú pháp này: tên tool ở bất kỳ đâu trong câu vẫn được ưu tiên (cộng điểm, không lọc cứng — xem [01-hybrid-search.md](01-hybrid-search.md)). Khi không chỉ rõ tool mà kết quả lẫn nhiều sheet, `chs` in gợi ý (stderr, không in với `-p`/`--json`), vd: `gợi ý: ... vd: chs "neovim: xoá"`.

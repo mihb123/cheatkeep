@@ -1,5 +1,12 @@
 {
   "title": "sed Cheatsheet",
+  "popular_commands": [
+    "s/<a>/<b>/",
+    "-i",
+    "-n",
+    "p",
+    "d"
+  ],
   "subtitle": "Stream Editor for filtering and transforming text",
   "description": "Comprehensive cheatsheet for sed, covering command line options, addresses, substitution, advanced commands, hold space, and classic one-liners.",
   "source_url": "https://www.gnu.org/software/sed/manual/sed.html",

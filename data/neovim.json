@@ -36,6 +36,13 @@
         "label": "Command",
         "tip": "Type Ex commands starting with :, or search with / and ?. Enter with : from Normal mode. Run with Enter, cancel with Esc. Supports tab completion for commands, files, and options."
       }
+    ],
+    "popular_commands": [
+      "i",
+      ":w",
+      ":q",
+      "dd",
+      ":%s/old/new/g"
     ]
   },
   "aliases": [

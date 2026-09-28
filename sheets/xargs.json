@@ -1,5 +1,12 @@
 {
   "title": "xargs Cheatsheet",
+  "popular_commands": [
+    "xargs",
+    "-0",
+    "-I <replace-str>",
+    "-P <max-procs>",
+    "find <path> -print0 | xargs -0 <cmd>"
+  ],
   "subtitle": "Build and execute command lines from standard input",
   "description": "Comprehensive reference for xargs: splitting input, batching arguments, parallel execution, and safe filename handling.",
   "source_url": "https://www.gnu.org/software/findutils/manual/html_node/find_html/Invoking-xargs.html",

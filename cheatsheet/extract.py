@@ -272,6 +272,9 @@ def parse_devhints(soup):
 
 def load_json_sheet(path):
     src = json.loads(path.read_text(encoding="utf-8"))
+    popular_commands = src.pop("popular_commands", None)
+    if popular_commands:
+        src["meta"] = {**src.get("meta", {}), "popular_commands": popular_commands}
     cards = []
     for c in src.pop("cards"):
         sections = [{**new_section(), **sec, "items": [new_item(**it) for it in sec.get("items", [])]}

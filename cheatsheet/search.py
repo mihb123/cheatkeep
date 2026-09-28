@@ -15,21 +15,30 @@ from typing import NamedTuple
 
 from psycopg.rows import dict_row
 
-from cheatsheet.config import EMBED_MODEL
+from cheatsheet.config import EMBED_MODEL, SEARCH_COLON_FREE_PREFIXES, SEARCH_MIN_SIMILARITY
 from cheatsheet.embedder import embed, to_pgvector
 
 
 # "mysql: tạo bảng" → tool "mysql" + câu hỏi "tạo bảng". Chỉ nhận tên tool ASCII để câu tiếng Việt
 # có dấu hai chấm ("lỗi: ...") không bị hiểu nhầm là tiền tố.
-PREFIX_RE = re.compile(r"\s*([a-z0-9][\w.+-]*)\s*:\s*(\S.*)", re.ASCII | re.IGNORECASE | re.DOTALL)
+PREFIX_RE = re.compile(r"\s*([a-z0-9][\w.+-]*)\s*:\s*(.*)", re.ASCII | re.IGNORECASE | re.DOTALL)
+LEADING_TOOL_RE = re.compile(r"\s*([a-z0-9][\w.+-]*)(?:\s+(.*))?", re.ASCII | re.IGNORECASE | re.DOTALL)
 
 
 class Scope(NamedTuple):
     query: str                # câu hỏi đem đi tìm (đã bỏ tiền tố "tool:")
     sheet: str | None         # slug sheet cần lọc cứng; None → tìm mọi sheet
-    explicit: bool            # người dùng đã chỉ rõ sheet (-s hoặc tiền tố)
+    explicit: bool            # người dùng đã chỉ rõ sheet (-s, tên tool đầu câu, hoặc tiền tố)
     unknown: str | None = None  # tiền tố trông như tên tool nhưng không khớp sheet nào
     boost: tuple = ()         # sheet có tên trong câu hỏi → chỉ được cộng điểm, không lọc
+    browse: bool = False
+
+
+class Lookup(NamedTuple):
+    rows: list
+    sheet: str | None
+    reason: str | None = None
+    similarity: float | None = None
 
 
 def sheet_aliases(conn):
@@ -39,23 +48,29 @@ def sheet_aliases(conn):
 
 
 def parse_query(conn, query, sheet=None):
-    """Tách phạm vi tìm kiếm khỏi câu hỏi: `sheet` (slug hoặc alias) hoặc tiền tố "tool:" trong query.
+    """Tách phạm vi tìm kiếm khỏi câu hỏi: `sheet`, tên tool đầu câu, hoặc tiền tố "tool:".
 
     Tiền tố phải bị bỏ khỏi văn bản embed — giữ "mysql:" trong vector làm hit@1 bộ eval giảm ~5 điểm.
     """
     aliases = sheet_aliases(conn)
     m = PREFIX_RE.fullmatch(query)
     prefix = m and aliases.get(m[1].lower())
-    if prefix:
-        query = m[2].strip()
     if sheet:
         slug = aliases.get(sheet.lower())
         if not slug:
             raise ValueError(f"không có sheet '{sheet}' (có: {', '.join(sorted(set(aliases.values())))};"
                              " viết tắt: chs --list)")
-        return Scope(query, slug, True)
+        query = m[2].strip() if prefix else query
+        return Scope(query, slug, True, browse=not query)
     if prefix:
-        return Scope(query, prefix, True)
+        query = m[2].strip()
+        return Scope(query, prefix, True, browse=not query)
+    leading = LEADING_TOOL_RE.fullmatch(query)
+    leading_slug = leading and aliases.get(leading[1].lower())
+    rest = (leading[2] or "").strip() if leading else ""
+    if leading_slug and (not rest or leading[1].lower() in SEARCH_COLON_FREE_PREFIXES):
+        query = rest
+        return Scope(query, leading_slug, True, browse=not query)
     named = {slug for a, slug in aliases.items() if re.search(rf"(?<!\w){re.escape(a)}(?!\w)", query, re.I)}
     # tiền tố lạ (vd "git:" khi chưa có sheet git, hay "error: ...") → giữ nguyên câu hỏi, tìm như thường
     return Scope(query, None, False, m[1] if m else None, tuple(sorted(named)))
@@ -67,6 +82,50 @@ def search(conn, scope, limit=10, kw_weight=0.15):
         return cur.execute("SELECT * FROM search_entries(%s, %s::vector, %s, %s, %s, %s, %s)",
                            (scope.query, vec, EMBED_MODEL, scope.sheet, limit, kw_weight,
                             list(scope.boost))).fetchall()
+
+
+def popular_entries(conn, scope, limit=5):
+    with conn.cursor(row_factory=dict_row) as cur:
+        commands = cur.execute("SELECT meta->'popular_commands' AS commands FROM sheets WHERE slug = %s",
+                               (scope.sheet,)).fetchone()["commands"]
+        if not commands:
+            return cur.execute("""
+                SELECT e.id, sh.slug AS sheet, e.card, e.section, e.kind, e.command,
+                       e.description, e.description_vi, e.details, e.example, e.danger, e.lang,
+                       0::float8 AS score, NULL::float8 AS similarity, NULL::float8 AS kw_ratio
+                FROM entries e JOIN sheets sh ON sh.id = e.sheet_id
+                WHERE sh.slug = %s AND e.command IS NOT NULL
+                ORDER BY e.card_pos, e.section_pos, e.position
+                LIMIT %s
+            """, (scope.sheet, limit)).fetchall()
+        return cur.execute("""
+            WITH selected AS (
+                SELECT DISTINCT ON (e.command)
+                       e.id, sh.slug AS sheet, e.card, e.section, e.kind, e.command,
+                       e.description, e.description_vi, e.details, e.example, e.danger, e.lang,
+                       0::float8 AS score, NULL::float8 AS similarity, NULL::float8 AS kw_ratio
+                FROM entries e JOIN sheets sh ON sh.id = e.sheet_id
+                WHERE sh.slug = %s AND e.command = ANY(%s::text[])
+                ORDER BY e.command, e.card_pos, e.section_pos, e.position
+            )
+            SELECT * FROM selected
+            ORDER BY array_position(%s::text[], command)
+            LIMIT %s
+        """, (scope.sheet, commands, commands, limit)).fetchall()
+
+
+def lookup(conn, scope, limit=5, kw_weight=0.15):
+    if scope.browse:
+        return Lookup(popular_entries(conn, scope, min(limit, 5)), scope.sheet, "browse")
+    rows = search(conn, scope, limit, kw_weight)
+    similarity = max((row["similarity"] or 0 for row in rows), default=0)
+    if similarity >= SEARCH_MIN_SIMILARITY:
+        return Lookup(rows, scope.sheet, similarity=similarity)
+    sheet = scope.sheet or (rows[0]["sheet"] if rows else None)
+    if not sheet:
+        return Lookup(rows, None, similarity=similarity)
+    popular = popular_entries(conn, scope._replace(sheet=sheet), min(limit, 5))
+    return Lookup(popular or rows, sheet, "low_similarity" if popular else None, similarity)
 
 
 def main():

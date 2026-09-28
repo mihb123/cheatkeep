@@ -16,7 +16,7 @@ import time
 import psycopg
 
 from cheatsheet.config import DATABASE_URL, ROOT
-from cheatsheet.search import parse_query, search
+from cheatsheet.search import lookup, parse_query
 
 K = 10
 
@@ -44,7 +44,7 @@ def main():
     ranks, t0 = [], time.perf_counter()
     with psycopg.connect(DATABASE_URL) as conn:
         for c in cases:
-            rows = search(conn, parse_query(conn, c["q"]), K, args.kw_weight)
+            rows = lookup(conn, parse_query(conn, c["q"]), K, args.kw_weight).rows
             rk = rank_of(rows, c)
             ranks.append(rk)
             if args.verbose or not rk or rk > 1:

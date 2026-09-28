@@ -5,7 +5,15 @@
   "badge": null,
   "logo": null,
   "links": [],
-  "meta": {},
+  "meta": {
+    "popular_commands": [
+      "SHOW DATABASES;",
+      "SHOW TABLES;",
+      "SELECT * FROM table;",
+      "CREATE TABLE table (field1 type1, field2 type2);",
+      "INSERT INTO table1 (field1, field2) VALUES (value1, value2);"
+    ]
+  },
   "aliases": [
     "mysql"
   ],

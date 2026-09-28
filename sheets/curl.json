@@ -1,5 +1,12 @@
 {
   "title": "curl Cheatsheet",
+  "popular_commands": [
+    "curl <url>",
+    "curl -I <url>",
+    "curl -L <url>",
+    "curl -o <file> <url>",
+    "curl -X POST -H \"Content-Type: application/json\" -d '{\"key\":\"val\"}' https://api.example.com"
+  ],
   "subtitle": "Command-line tool for transferring data with URLs",
   "description": "Comprehensive reference for curl, covering basic requests, headers, data payloads, TLS, proxies, and performance tuning.",
   "source_url": "https://curl.se/docs/manpage.html",

@@ -13,6 +13,7 @@ self-describing command / option / key with a precise English description.
   "source_url": "https://www.postgresql.org/docs/current/",
   "links": [{"label": "postgresql.org/docs", "url": "https://www.postgresql.org/docs/current/"}],
   "aliases": ["postgres", "pg"],              // extra words that identify the tool in a query (lowercase)
+  "popular_commands": ["\\l", "\\c <db>", "\\dt", "\\d <table_name>", "\\q"], // exactly five existing keys
   "cards": [
     {
       "icon": "🔌",                            // one emoji
@@ -41,6 +42,8 @@ self-describing command / option / key with a precise English description.
 }
 ```
 (Real files are plain JSON — no `//` comments.)
+
+Each sheet must define five `popular_commands` that exactly match entry keys. `make test` checks the source, seed, and returned order for every sheet.
 
 ## Section kinds
 - `table` (preferred for new content): list of `items`. Optional `"columns": ["Command", "Description"]`.

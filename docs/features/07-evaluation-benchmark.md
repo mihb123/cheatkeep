@@ -21,7 +21,7 @@
 flowchart TD
     Dataset["eval/queries.json (N câu hỏi)"] --> Loop["Lặp qua từng case: {q, sheet, expect}"]
     
-    Loop --> RunSearch["search(conn, parse_query(conn, case.q), limit=10, kw_weight)"]
+    Loop --> RunSearch["lookup(conn, parse_query(conn, case.q), limit=10, kw_weight).rows"]
     RunSearch --> RankEval["Hàm rank_of(rows, case): So khớp command.startswith(prefix)"]
     
     RankEval --> RankRecord["Ghi nhận thứ hạng (1 <= rk <= 10) hoặc MISS"]
@@ -54,6 +54,7 @@ flowchart TD
   ```
   (`-n` của grep là "hiện số dòng", còn `-n` của sed là "không in tự động").
 - Bộ mẫu hiện có 133 câu phủ 13 sheet, gồm cả câu dạng tiền tố `tool:` và câu có tên tool đóng vai đối tượng (`"import history from bash"` → atuin, `"find and replace in vim"` → neovim).
+- Script đánh giá đi qua `lookup()` như CLI/API, nên `SEARCH_MIN_SIMILARITY` trong `.env` cũng ảnh hưởng các chỉ số nếu đặt quá cao.
 
 ### 2. Tinh chỉnh trọng số Keyword (`--kw-weight`)
 - Tham số `-w` cho phép lập trình viên chạy thử nghiệm các trọng số kết hợp giữa Vector và Keyword (`0.0`, `0.1`, `0.15`, `0.2`...) để tìm ra điểm cân bằng tối ưu nhất cho tập dữ liệu.

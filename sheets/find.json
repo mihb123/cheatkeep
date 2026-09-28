@@ -1,5 +1,12 @@
 {
   "title": "find Cheatsheet",
+  "popular_commands": [
+    "find <path> <expression>",
+    "-name <pattern>",
+    "-type f",
+    "-maxdepth <levels>",
+    "-exec <cmd> {} \\;"
+  ],
   "subtitle": "Search for files in a directory hierarchy",
   "description": "Comprehensive guide to GNU find, the standard Unix command for locating and acting on files based on names, types, sizes, times, and permissions.",
   "source_url": "https://www.gnu.org/software/findutils/manual/html_mono/find.html",

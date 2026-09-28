@@ -50,7 +50,7 @@ flowchart TD
 |---|---|---|---|
 | `GET` | `/api/cheatsheets` | Không | Danh sách toàn bộ cheatsheets kèm tổng số cards và entries. |
 | `GET` | `/api/cheatsheets/<slug>` | `slug`: mã định danh sheet | Cấu trúc chi tiết của 1 sheet để render web (cards/sections/items). |
-| `GET` | `/api/search` | `q` *(bắt buộc)*, `sheet`, `limit` (max 50) | Tìm kiếm hybrid và trả về danh sách kết quả kèm điểm số. |
+| `GET` | `/api/search` | `q` hoặc `sheet` (cần ít nhất một), `limit` (max 50) | Tìm kiếm hybrid; trả `results`, `sheet`, `similarity` và `suggestion` (`browse`/`low_similarity` khi gợi ý lệnh thường dùng). |
 | `GET` | `/<slug>` | | Trả về `web/index.html` (Frontend tự đọc path để fetch API sheet tương ứng). |
 
 ---

@@ -1,5 +1,12 @@
 {
   "title": "jq Cheatsheet",
+  "popular_commands": [
+    "jq '.' <file>",
+    "jq '.[] | select(.<field> == <val>)' <file>",
+    "jq -c 'select(.<field> == \"<val>\")' <file>",
+    "jq 'length' <file>",
+    "jq 'del(.. | nulls)' <file>"
+  ],
   "subtitle": "Command-line JSON processor",
   "description": "Fast and flexible command-line JSON processor for querying, filtering, slicing, mapping, and transforming structured data.",
   "source_url": "https://jqlang.org/manual/",

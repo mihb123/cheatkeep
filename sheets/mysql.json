@@ -1,5 +1,12 @@
 {
   "title": "MySQL Cheatsheet",
+  "popular_commands": [
+    "SHOW DATABASES;",
+    "SHOW TABLES;",
+    "SELECT * FROM table;",
+    "CREATE TABLE table (field1 type1, field2 type2);",
+    "INSERT INTO table1 (field1, field2) VALUES (value1, value2);"
+  ],
   "subtitle": "The one-page guide to MySQL: usage, examples, links, snippets, and more.",
   "description": "The one-page guide to MySQL: usage, examples, links, snippets, and more.",
   "source_url": "https://devhints.io/mysql",

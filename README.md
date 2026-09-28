@@ -12,7 +12,8 @@
   - Tự động đối sánh qua hai tầng vector (ngữ cảnh tiếng Anh gốc và mô tả/cụm từ tiếng Việt) với mô hình `bge-m3`.
 - ⚡ **Hybrid Search (Vector + Full-Text Search)**:
   - Tận dụng `pgvector` (chỉ mục HNSW cosine) kết hợp `tsvector` PostgreSQL có xử lý bỏ dấu tiếng Việt (`unaccent`).
-  - Tiền tố `tool:` để chỉ tìm trong 1 sheet (`chs "nvim: xoá dòng"`, `chs "psql: cấp quyền"`); tên tool nằm trong câu thì được ưu tiên (ví dụ: `nvim`, `vim` -> `neovim`, `pg` -> `psql`).
+  - Tên tool ở đầu câu có `:` sẽ chỉ tìm trong 1 sheet. Cú pháp không dấu `:` (`chs "nvim xoá dòng"`) được bật bằng `SEARCH_COLON_FREE_PREFIXES` trong `.env`, tránh hiểu nhầm câu tự nhiên như `find and replace in vim`. Tên tool ở vị trí khác vẫn được ưu tiên.
+  - Chỉ nhập tên sheet hoặc hỏi câu có độ tương đồng thấp sẽ nhận 5 lệnh thường dùng của sheet; ngưỡng do `SEARCH_MIN_SIMILARITY` quyết định.
 - 💻 **Terminal CLI tiện lợi (`chs`)**:
   - Tự động nạp cấu hình và chạy nhanh qua `uv run --script`.
   - Hỗ trợ copy thẳng lệnh tìm được vào clipboard (`-c`).
@@ -102,6 +103,11 @@ ln -sf "$(pwd)/chs" ~/.local/bin/chs
 # Ghi rõ tool ở đầu câu "tool: câu hỏi" → chỉ tìm trong sheet đó, chính xác nhất (khuyên dùng)
 chs "mysql: tạo bảng"
 
+# Các prefix trong .env được bỏ dấu :; chỉ ghi tên tool thì hiện 5 lệnh thường dùng
+chs "atuin"
+chs "atuin hook"
+chs -s mysql
+
 # Tra cứu tự nhiên trên mọi sheet (tên tool trong câu được ưu tiên, không lọc cứng)
 chs "câu lệnh tạo bảng trong mysql là gì?"
 
@@ -124,6 +130,16 @@ chs --list
 chs --json "xóa file git"
 ```
 
+Các thiết lập search nằm trong `.env` (giá trị mẫu ở [`.env.example`](.env.example)):
+
+```dotenv
+SEARCH_COLON_FREE_PREFIXES=atuin,awk,bash,curl,grep,mysql,neovim,nvim,vim,psql
+SEARCH_MIN_SIMILARITY=0.40
+SEARCH_MAX_AVERAGE_MS=200
+```
+
+`SEARCH_COLON_FREE_PREFIXES` là danh sách alias cách nhau bằng dấu phẩy; ví dụ trên chỉ minh họa, `.env.example` chứa danh sách mặc định đầy đủ. `find` không có trong danh sách mặc định để `find and replace in vim` được tìm trên mọi sheet; `find:` vẫn lọc vào Find và `find` đứng một mình vẫn hiện 5 lệnh. Alias mới cần khai báo trong `sheets/<slug>.json` và chạy `make reload`. `SEARCH_MIN_SIMILARITY` là ngưỡng cosine, không phải phần trăm xác suất đúng: nếu mọi kết quả dưới ngưỡng, hệ thống gợi ý 5 lệnh của sheet được chỉ rõ, hoặc sheet của kết quả đứng đầu khi chưa chỉ rõ sheet. CLI đọc lại `.env` ở lần chạy sau; web server cần khởi động lại.
+
 ---
 
 ### 2. Giao diện Web & REST API
@@ -140,7 +156,7 @@ Truy cập trên trình duyệt tại: `http://127.0.0.1:8080` (hoặc cổng đ
 
 - `GET /api/cheatsheets`: Danh sách cheatsheet và số lượng entries/cards.
 - `GET /api/cheatsheets/<slug>`: Nội dung chi tiết của sheet dạng cấu trúc cards/sections.
-- `GET /api/search?q=<query>&sheet=<slug>&limit=<n>`: API tìm kiếm hybrid trả về JSON.
+- `GET /api/search?q=<query>&sheet=<slug>&limit=<n>`: API tìm kiếm hybrid trả JSON; có thể bỏ `q` nếu truyền `sheet` để xem lệnh thường dùng. `suggestion` là `browse` hoặc `low_similarity` khi trả danh sách gợi ý.
 
 ---
 
@@ -214,6 +230,12 @@ Lệnh sẽ tính toán các chỉ số:
    make load     # nạp db/schema.sql + db/seed/*.sql rồi embed phần mới (--prune)
    ```
    Hoặc gộp bước 2–4: `make reload` (`ENGINE=ollama make reload` để dịch bằng model local). Xem mọi lệnh: `make help`.
+
+## 🧪 Kiểm thử
+
+Sau khi đã nạp dữ liệu bằng `make load` và bật Ollama với model embedding đã cấu hình, chạy `make test`. Lệnh này khởi động PostgreSQL nếu cần, kiểm tra đủ 5 lệnh gợi ý của mọi sheet, chạy unit test và đo hiệu năng search trên ít nhất 5 tình huống thực tế. Trung bình từng tình huống và toàn bộ phải dưới `SEARCH_MAX_AVERAGE_MS` (mặc định 200 ms); thiếu dữ liệu hoặc dịch vụ sẽ làm test thất bại.
+
+Quy định đo và cách bổ sung case khi mở rộng tính năng: [docs/performance-testing.md](docs/performance-testing.md).
 
 ---
 

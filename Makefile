@@ -8,7 +8,7 @@ ENGINE ?= agy   # engine dịch: agy | ollama
 PSQL = docker compose exec -T db sh -c 'psql -v ON_ERROR_STOP=1 -q -U "$$POSTGRES_USER" -d "$$POSTGRES_DB"'
 
 .DEFAULT_GOAL := help
-.PHONY: help setup up down extract translate seed load reload embed status psql serve eval
+.PHONY: help setup up down extract translate seed load reload embed status psql serve eval test
 
 help:  ## Liệt kê lệnh
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | awk -F':.*## ' '{printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2}'
@@ -51,3 +51,7 @@ serve:  ## Chạy web server
 
 eval:  ## Đo hit@1 / hit@5 / MRR
 	uv run -m cheatsheet.evaluate
+
+test:  ## Chạy unit test và kiểm tra hiệu năng search (ngưỡng từ .env)
+	@docker compose --progress quiet up -d --wait
+	@uv run -q -m unittest discover -s tests -p 'test_*.py' -q

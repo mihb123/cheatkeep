@@ -32,7 +32,7 @@ import psycopg  # noqa: E402
 
 from cheatsheet.config import DATABASE_URL  # noqa: E402
 from cheatsheet.embedder import EmbedError  # noqa: E402
-from cheatsheet.search import parse_query, search  # noqa: E402
+from cheatsheet.search import lookup, parse_query  # noqa: E402
 
 
 # ------------------------------------------------------------------ output
@@ -118,7 +118,7 @@ def scope_hint(scope, rows):
 def main(argv=None):
     ap = argparse.ArgumentParser(
         prog="chs", description="Tìm lệnh trong cheatsheet bằng câu hỏi tự nhiên (vector + keyword).",
-        epilog='Mẹo: mở đầu câu hỏi bằng "tool:" để chỉ tìm trong sheet đó, vd: chs "mysql: tạo bảng".'
+        epilog='Mẹo: "tool:" luôn chọn sheet; "tool " chỉ áp dụng cho alias trong SEARCH_COLON_FREE_PREFIXES của .env.'
                ' Xem mọi tiền tố/viết tắt: chs --list')
     ap.add_argument("query", nargs="*", help='câu hỏi, có thể mở đầu bằng "tool:"; bỏ trống thì đọc từ stdin')
     ap.add_argument("-s", "--sheet", help="chỉ tìm trong 1 sheet (slug hoặc alias, vd mysql, nvim)")
@@ -136,7 +136,7 @@ def main(argv=None):
     query = " ".join(args.query).strip()
     if not query and not args.list and not sys.stdin.isatty():
         query = sys.stdin.read().strip()
-    if not query and not args.list:
+    if not query and not args.list and not args.sheet:
         ap.print_usage(sys.stderr)
         return 2
 
@@ -146,7 +146,9 @@ def main(argv=None):
                 list_sheets(conn, st, args.json)
                 return 0
             scope = parse_query(conn, query, args.sheet)
-            rows = search(conn, scope, 1 if args.print_only else max(1, args.limit))
+            result_limit = 1 if args.print_only else max(1, args.limit)
+            result = lookup(conn, scope, result_limit)
+            rows = result.rows
     except ValueError as e:
         print(err.red(f"chs: {e}"), file=sys.stderr)
         return 2
@@ -171,6 +173,10 @@ def main(argv=None):
     elif args.print_only:
         print(best or rows[0]["description"])
     else:
+        if result.reason == "browse":
+            print(err.dim(f"chs: chưa có từ khoá cụ thể — {len(rows)} lệnh {result.sheet} thường dùng:"), file=sys.stderr)
+        elif result.reason == "low_similarity":
+            print(err.dim(f"chs: độ khớp thấp — gợi ý {len(rows)} lệnh {result.sheet} thường dùng:"), file=sys.stderr)
         print_results(rows, st, args.verbose)
         hint = scope_hint(scope, rows)
         if hint:

@@ -1,5 +1,12 @@
 {
   "title": "grep Cheatsheet",
+  "popular_commands": [
+    "grep <pattern> <file>",
+    "-i",
+    "-n",
+    "-r",
+    "-v"
+  ],
   "subtitle": "Global Regular Expression Print",
   "description": "Search text and files using regular expressions.",
   "source_url": "https://www.gnu.org/software/grep/manual/grep.html",

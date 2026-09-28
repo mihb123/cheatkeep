@@ -1,5 +1,12 @@
 {
   "title": "Neovim Cheatsheet",
+  "popular_commands": [
+    "i",
+    ":w",
+    ":q",
+    "dd",
+    ":%s/old/new/g"
+  ],
   "subtitle": "Complete nvim command reference - searchable, fast, always free",
   "description": "A fast, searchable Neovim cheatsheet covering every essential nvim command: modes, navigation, editing, text objects, search & replace, splits, tabs, buffers, macros, LSP, and more.",
   "source_url": "https://neovimcheatsheet.com/",

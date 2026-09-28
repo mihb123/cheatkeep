@@ -1,5 +1,12 @@
 {
   "title": "tar Cheatsheet",
+  "popular_commands": [
+    "tar -czf <file.tar.gz> <dir>",
+    "tar -xzf <file.tar.gz> -C <dir>",
+    "tar -tvf <file.tar>",
+    "tar -xf <file.tar> <path>",
+    "-C <dir>"
+  ],
   "subtitle": "Archive, compress, and extract files",
   "description": "Comprehensive reference for tar, gzip, zip, and other compression utilities. Covers basic operations, file filtering, compression algorithms, and advanced tar recipes.",
   "source_url": "https://www.gnu.org/software/tar/manual/tar.html",

@@ -19,7 +19,7 @@
 
 ```mermaid
 flowchart TD
-    Q["Query người dùng (vd: 'mysql: tạo bảng' hoặc 'tạo bảng trong mysql')"] --> P1["1. parse_query(): tiền tố 'tool:' / -s -> lọc cứng; tên tool trong câu -> boost"]
+    Q["Query người dùng (vd: 'mysql: tạo bảng' hoặc 'mysql tạo bảng')"] --> P1["1. parse_query(): tool đầu câu / -s -> lọc cứng; tên tool ở vị trí khác -> boost"]
     Q --> P2["2. Bỏ hư từ tiếng Việt -> Trích xuất từ khóa tìm kiếm (terms)"]
     Q --> P3["3. Ollama embed(query) -> Query Vector (1024 chiều)"]
     
@@ -40,8 +40,9 @@ flowchart TD
 
 ### 1. Phạm vi sheet: lọc cứng vs ưu tiên (`parse_query()` trong `search.py`)
 - Dựa trên cột `sheets.aliases` (ví dụ: `neovim` có alias `nvim`, `vim`; `psql` có `pg`, `postgres`, `postgresql`). Xem đủ bằng `chs --list`.
-- **Lọc cứng** (`p_sheet`) chỉ khi người dùng chỉ rõ: tiền tố *"nvim: chia đôi màn hình"* hoặc `-s nvim`. Tiền tố được bỏ khỏi văn bản embed.
-- **Ưu tiên** (`p_boost`, +0.05 điểm) khi tên tool chỉ nằm trong câu: *"chia đôi màn hình trong nvim"*. Không lọc cứng vì tên tool có thể là đối tượng chứ không phải tool cần tìm — *"import history from bash"* cần `atuin import bash`, *"find and replace in vim"* cần `:%s` của neovim (trước đây alias dài nhất `find` thắng và khoá nhầm sheet). Tên tool vẫn giữ trong keyword vì nó giúp khớp đúng những lệnh như `atuin import bash`.
+- **Lọc cứng** (`p_sheet`) khi người dùng chỉ rõ: *"nvim: chia đôi màn hình"*, `-s nvim`, hoặc *"nvim chia đôi màn hình"* nếu `nvim` nằm trong `SEARCH_COLON_FREE_PREFIXES` của `.env`. Tên tool được bỏ khỏi văn bản embed.
+- Chỉ ghi tên sheet (*`chs "atuin"`* hoặc *`chs "atuin:"`*) không gọi embedding; CLI trả 5 lệnh được chọn trong `popular_commands` của sheet. Nếu mọi kết quả search có cosine similarity dưới `SEARCH_MIN_SIMILARITY` (mặc định 0.40), CLI/API cũng gợi ý 5 lệnh của sheet đã chọn; nếu chưa chọn sheet thì dùng sheet của kết quả đứng đầu.
+- **Ưu tiên** (`p_boost`, +0.05 điểm) khi tên tool chỉ nằm trong câu, hoặc đứng đầu câu nhưng không được bật làm prefix không dấu `:`: *"chia đôi màn hình trong nvim"*, *"find and replace in vim"*. Câu sau được tìm trên mọi sheet nên có thể trả `:%s` của Neovim. Tên tool vẫn giữ trong keyword vì nó giúp khớp đúng những lệnh như `atuin import bash`.
 - Trọng số 0.05 chọn bằng đo đạc: tăng tỷ lệ top-5 cùng sheet được nêu từ 56/70 → 64/70 trên 14 câu thử, không đổi hit@1; 0.1 bắt đầu kéo entry sheet bash lên trên atuin.
 
 ### 2. Xử lý tiếng Việt & Bỏ hư từ (Stopwords Filtering)

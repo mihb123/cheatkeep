@@ -1,5 +1,12 @@
 {
   "title": "Bash Cheatsheet",
+  "popular_commands": [
+    "history",
+    "Ctrl+r",
+    "!!",
+    "export <var>=<value>",
+    "cd -"
+  ],
   "subtitle": "The GNU Bourne-Again SHell",
   "description": "Comprehensive reference for Bash syntax, scripting, and command line usage.",
   "source_url": "https://www.gnu.org/software/bash/manual/",

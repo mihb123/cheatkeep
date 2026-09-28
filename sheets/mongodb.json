@@ -1,5 +1,12 @@
 {
   "title": "MongoDB Cheatsheet",
+  "popular_commands": [
+    "show dbs",
+    "use <db>",
+    "show collections",
+    "db.<coll>.find({ <filter> })",
+    "db.<coll>.insertOne({ <doc> })"
+  ],
   "subtitle": "mongosh client, query language & database tools",
   "description": "Comprehensive MongoDB cheatsheet covering mongosh connection, shell helpers, CRUD operations, query & update operators, aggregation pipeline, indexes, and database tools.",
   "source_url": "https://www.mongodb.com/docs/manual/",

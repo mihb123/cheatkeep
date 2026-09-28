@@ -1,5 +1,12 @@
 {
   "title": "AWK Cheatsheet",
+  "popular_commands": [
+    "awk '<prog>' <file>",
+    "awk -F '<sep>' '<prog>' <file>",
+    "awk '{print $NF}' <file>",
+    "awk 'END {print NR}' <file>",
+    "awk '!seen[$0]++' <file>"
+  ],
   "subtitle": "Text processing and data extraction tool",
   "description": "Comprehensive guide to AWK scripting language, patterns, functions, and common one-liners.",
   "source_url": "https://www.gnu.org/software/gawk/manual/",

@@ -1702,7 +1702,7 @@
         <input type="text" class="chat-input" id="chatInput" placeholder="Hỏi câu lệnh (vd: xoá bảng tạm, backup db...)" autocomplete="off" spellcheck="false" aria-label="Nhập câu hỏi tra cứu câu lệnh" />
         <button type="submit" class="chat-send-btn" id="chatSendBtn" title="Gửi câu hỏi" aria-label="Gửi">➤</button>
       </form>
-      <div class="chat-footer-hint">Nhấn Enter để gửi · Esc để đóng chat</div>
+      <div class="chat-footer-hint">Enter: gửi · Chọn sheet rồi gửi trống: 5 lệnh thường dùng · Esc: đóng</div>
     </div>
   </div>
 
@@ -2393,12 +2393,16 @@
       });
     }
 
-    function renderChatResults(results, query) {
+    function renderChatResults(results, query, suggestion, sheet) {
       if (!results || !results.length) {
         return '<p class="chat-results-count">Không tìm thấy câu lệnh phù hợp với "<strong>' + esc(query) + '</strong>".</p>' +
                '<p class="chat-empty-hint">💡 Thử diễn đạt lại câu hỏi (ví dụ "tạo bảng", "backup db", "tìm lệnh") hoặc chọn phạm vi <em>🌐 Tất cả cheatsheets</em>.</p>';
       }
-      var html = '<div class="chat-results-count">Tìm thấy <strong>' + results.length + '</strong> kết quả phù hợp nhất:</div>';
+      var heading = suggestion
+        ? 'Gợi ý <strong>' + results.length + '</strong> lệnh ' + esc(sheet || '') + ' thường dùng' +
+          (suggestion === 'low_similarity' ? ' vì độ khớp tìm kiếm thấp:' : ':')
+        : 'Tìm thấy <strong>' + results.length + '</strong> kết quả phù hợp nhất:';
+      var html = '<div class="chat-results-count">' + heading + '</div>';
       html += results.map(function (r) {
         var icon = r.sheet === 'mysql' ? '🐬' : r.sheet === 'neovim' ? '⚡' : r.sheet === 'atuin' ? '🐚' : '📄';
         var pathParts = [icon + ' ' + (r.sheet || ''), r.card, r.section].filter(Boolean);
@@ -2464,9 +2468,10 @@
 
     function sendChatQuery(q) {
       q = (q || '').trim();
-      if (!q || !chatMessages) return;
+      var scope = chatScope ? chatScope.value : '';
+      if ((!q && !scope) || !chatMessages) return;
 
-      pushChatHistory(q);
+      if (q) pushChatHistory(q);
 
       var welcome = $('chatWelcome');
       if (welcome) welcome.style.display = 'none';
@@ -2474,17 +2479,16 @@
       // Bubble người dùng
       var userBubble = document.createElement('div');
       userBubble.className = 'chat-bubble user';
-      userBubble.innerHTML = '<div class="chat-content">' + esc(q) + '</div>';
+      userBubble.innerHTML = '<div class="chat-content">' + esc(q || 'Lệnh thường dùng của ' + scope) + '</div>';
       chatMessages.appendChild(userBubble);
 
       // Bubble trợ lý đang tìm kiếm
       var botBubble = document.createElement('div');
       botBubble.className = 'chat-bubble assistant';
-      botBubble.innerHTML = '<div class="chat-content"><div class="chat-typing"><span>Đang tra cứu vector db</span><div class="chat-dots"><span></span><span></span><span></span></div></div></div>';
+      botBubble.innerHTML = '<div class="chat-content"><div class="chat-typing"><span>Đang tìm lệnh</span><div class="chat-dots"><span></span><span></span><span></span></div></div></div>';
       chatMessages.appendChild(botBubble);
       chatMessages.scrollTop = chatMessages.scrollHeight;
 
-      var scope = chatScope ? chatScope.value : '';
       var limit = chatLimit ? parseInt(chatLimit.value, 10) || 5 : 5;
       var url = '/api/search?q=' + encodeURIComponent(q) + (scope ? '&sheet=' + encodeURIComponent(scope) : '') + '&limit=' + limit;
 
@@ -2493,7 +2497,7 @@
 
       fetchJSON(url).then(function (res) {
         var contentEl = botBubble.querySelector('.chat-content');
-        if (contentEl) contentEl.innerHTML = renderChatResults(res.results, q);
+        if (contentEl) contentEl.innerHTML = renderChatResults(res.results, q, res.suggestion, res.sheet);
         chatMessages.scrollTop = chatMessages.scrollHeight;
         saveChatState();
       }).catch(function (err) {

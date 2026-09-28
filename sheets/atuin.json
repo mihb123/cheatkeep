@@ -4,6 +4,13 @@
   "description": "Complete Atuin cheatsheet: CLI commands, keyboard shortcuts, filter modes, search modes, sync setup, and config.toml reference for the magical shell history tool.",
   "source_url": "https://atuin.linuz.com/",
   "badge": "v18+",
+  "popular_commands": [
+    "atuin search -i <query>",
+    "atuin history list",
+    "atuin sync",
+    "atuin status",
+    "atuin import auto"
+  ],
   "logo": "atuin-logo-transp.png",
   "links": [
     {
