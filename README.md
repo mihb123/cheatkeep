@@ -140,6 +140,8 @@ SEARCH_MAX_AVERAGE_MS=200
 
 `SEARCH_COLON_FREE_PREFIXES` là danh sách alias cách nhau bằng dấu phẩy; ví dụ trên chỉ minh họa, `.env.example` chứa danh sách mặc định đầy đủ. `find` không có trong danh sách mặc định để `find and replace in vim` được tìm trên mọi sheet; `find:` vẫn lọc vào Find và `find` đứng một mình vẫn hiện 5 lệnh. Alias mới cần khai báo trong `sheets/<slug>.json` và chạy `make reload`. `SEARCH_MIN_SIMILARITY` là ngưỡng cosine, không phải phần trăm xác suất đúng: nếu mọi kết quả dưới ngưỡng, hệ thống gợi ý 5 lệnh của sheet được chỉ rõ, hoặc sheet của kết quả đứng đầu khi chưa chỉ rõ sheet. CLI đọc lại `.env` ở lần chạy sau; web server cần khởi động lại.
 
+Nếu không khai báo các biến trên trong `.env`, ứng dụng dùng danh sách prefix đầy đủ trong `.env.example`, ngưỡng tương đồng `0.40` và ngưỡng test `200` ms.
+
 ---
 
 ### 2. Giao diện Web & REST API
