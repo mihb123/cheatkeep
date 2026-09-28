@@ -33,7 +33,7 @@ flowchart TD
     UpdateCache --> Retry{"Còn entry lỗi?"}
     Retry -- Có --> Lượt2["Lượt 2: Thử lại các batch lỗi"]
     Lượt2 --> UpdateCache
-    Retry -- Không --> ReExtract["Tự động kích hoạt cheatsheet.extract -> Cập nhật db/seed.sql"]
+    Retry -- Không --> ReExtract["Tự động kích hoạt cheatsheet.extract -> Cập nhật db/seed/*.sql"]
 ```
 
 ### 1. Yêu cầu đầu ra chuẩn hóa (Structured JSON Schema)

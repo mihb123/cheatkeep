@@ -1,6 +1,6 @@
 # Feature 02: Data Ingestion & HTML Extraction
 
-> **Mục đích:** Parser trích xuất nội dung từ các file HTML cheatsheet nguồn, tự động nhận diện cấu trúc giao diện, chuẩn hóa dữ liệu thành cây `card → section → item`, trải phẳng thành `entries` (đơn vị tìm kiếm) và sinh file `db/seed.sql` cùng các file `data/*.json`.
+> **Mục đích:** Parser trích xuất nội dung từ các file HTML cheatsheet nguồn, tự động nhận diện cấu trúc giao diện, chuẩn hóa dữ liệu thành cây `card → section → item`, trải phẳng thành `entries` (đơn vị tìm kiếm) và sinh file `db/seed/<slug>.sql` (1 file / sheet) cùng các file `data/*.json`.
 
 ---
 
@@ -10,7 +10,7 @@
 |---|---|
 | [`cheatsheet/extract.py`](file:///home/chuminh/cheatsheet/cheatsheet/extract.py) | Module chính chứa toàn bộ parser HTML, logic bóc tách code block, trải phẳng dữ liệu và xuất SQL. |
 | [`data/*.json`](file:///home/chuminh/cheatsheet/data/) | File JSON trung gian lưu toàn bộ cấu trúc cards, entries của từng sheet (dùng để soát lỗi và cấp dữ liệu cho module dịch). |
-| [`db/seed.sql`](file:///home/chuminh/cheatsheet/db/seed.sql) | File SQL được tạo tự động chứa các câu lệnh `INSERT INTO sheets` và `INSERT INTO entries`. |
+| [`db/seed/<slug>.sql`](file:///home/chuminh/cheatsheet/db/seed/) | Mỗi sheet một file SQL tự sinh, tự chứa: `DELETE` sheet cũ theo slug rồi `INSERT INTO sheets` + `INSERT INTO entries` (sheet_id tra theo slug, không cố định id) — nạp riêng một file cũng được. |
 | [`data/translations.vi.json`](file:///home/chuminh/cheatsheet/data/translations.vi.json) | Bản dịch tiếng Việt được nạp để ghép nối vào từng entry qua `content_hash`. |
 | [`cheatsheet/config.py`](file:///home/chuminh/cheatsheet/cheatsheet/config.py) | Khai báo đường dẫn thư mục gốc `ROOT`. |
 
@@ -31,7 +31,7 @@ flowchart TD
     TransLoad --> Flatten["Hàm flatten(): Tách layout & entries"]
     
     Flatten --> OutJSON["Ghi data/{slug}.json"]
-    Flatten --> OutSQL["Hàm to_sql() -> Sinh db/seed.sql"]
+    Flatten --> OutSQL["Hàm to_sql() -> Sinh db/seed/*.sql"]
 ```
 
 ### 1. Nhận diện cấu trúc tự động (`detect`)
@@ -68,6 +68,6 @@ uv run -m cheatsheet.extract
 4. Sinh bản dịch tiếng Việt: `uv run -m cheatsheet.translate`.
 5. Nạp vào database:
    ```bash
-   docker compose exec -T db sh -c 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB"' < db/seed.sql
+   docker compose exec -T db sh -c 'psql -v ON_ERROR_STOP=1 -U "$POSTGRES_USER" -d "$POSTGRES_DB"' < db/seed/<slug>.sql  # hoặc make load
    uv run -m cheatsheet.embed --prune
    ```

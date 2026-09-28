@@ -1,5 +1,5 @@
 # Nạp dữ liệu cheatsheet vào Postgres (pgvector) — xem `make help`.
-# schema.sql tạo lại sheets/entries, seed.sql TRUNCATE rồi INSERT; bảng embeddings giữ nguyên,
+# schema.sql tạo lại sheets/entries, db/seed/<slug>.sql INSERT từng sheet; bảng embeddings giữ nguyên,
 # nên nạp lại bao nhiêu lần cũng chỉ embed phần văn bản mới/đổi.
 
 SHELL  := bash
@@ -22,20 +22,20 @@ up:  ## Bật Postgres, chờ healthy
 down:  ## Tắt Postgres (giữ volume)
 	docker compose down
 
-extract:  ## sheets/*.json + *.html → data/*.json, db/seed.sql
+extract:  ## sheets/*.json + *.html → data/*.json, db/seed/<slug>.sql
 	uv run -q -m cheatsheet.extract
 
 translate:  ## Dịch entry mới sang tiếng Việt (ENGINE=agy|ollama); tự extract lại
 	uv run -q -m cheatsheet.translate --engine $(strip $(ENGINE)) \
 	  || echo "⚠ còn entry chưa có bản dịch tiếng Việt (search vẫn chạy, kém chính xác hơn)" >&2
 
-seed: up  ## Nạp db/schema.sql + db/seed.sql (bảng embeddings giữ nguyên)
-	cat db/schema.sql db/seed.sql | $(PSQL)
+seed: up  ## Nạp db/schema.sql + db/seed/*.sql (bảng embeddings giữ nguyên)
+	cat db/schema.sql db/seed/*.sql | $(PSQL)
 
 embed: up  ## Embed văn bản mới/đổi + dọn vector mồ côi
 	uv run -q -m cheatsheet.embed --prune
 
-load: seed embed status  ## Nạp db/seed.sql đang có vào DB rồi embed (không extract/dịch)
+load: seed embed status  ## Nạp db/seed/*.sql đang có vào DB rồi embed (không extract/dịch)
 
 reload: extract translate load  ## Sinh lại seed từ sheets/ + dịch rồi nạp vào DB
 

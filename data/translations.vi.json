@@ -16045,5 +16045,2291 @@
    "nén từng tệp một trong folder và thư mục con",
    "nén hàng loạt tất cả file trong thư mục đệ quy"
   ]
+ },
+ "b54383773a3ca391e6a8cf173254d3a46b5fe4464f1dc5f1f62f14acb76f5afa": {
+  "src": "jq · indices(<val>)",
+  "vi": "Trả về mảng chứa tất cả chỉ số (index) xuất hiện của giá trị.",
+  "q": [
+   "tìm vị trí phần tử trong mảng",
+   "lấy danh sách index của giá trị",
+   "tìm tất cả chỉ số xuất hiện"
+  ]
+ },
+ "c8919da2ed01a3ddc4e6a516dbe55c6fcedaf83867b57c5ab9e2733e0bcf8393": {
+  "src": "jq · contains(<subval>)",
+  "vi": "Kiểm tra mảng, chuỗi hoặc object có chứa phần tử con hay không.",
+  "q": [
+   "kiểm tra chứa phần tử con",
+   "xem chuỗi mảng object có chứa giá trị không",
+   "check phần tử tồn tại bên trong"
+  ]
+ },
+ "0c9dc2f1ca0bf949a93842da192d23720cee43a965c861f2dd7759a8e644c7ea": {
+  "src": "jq · inside(<container>)",
+  "vi": "Kiểm tra giá trị hiện tại có nằm trong vùng chứa chỉ định không.",
+  "q": [
+   "kiểm tra giá trị có nằm trong mảng không",
+   "xem phần tử có thuộc container đích",
+   "check giá trị hiện tại nằm trong đối tượng"
+  ]
+ },
+ "fe6683d4e17c9b242f15ce18b57f65a597bd0c32b9ca3e09a5d60208940521b2": {
+  "src": "jq · combinations",
+  "vi": "Tạo tích Descartes (Cartesian product) từ các mảng con đầu vào.",
+  "q": [
+   "tạo tích cartesian từ các mảng",
+   "sinh tổ hợp tích các mảng con",
+   "tổ hợp cartesian product danh sách"
+  ]
+ },
+ "19b4c34936d7cfab2206f743c7af0ec63a9d737b9d779c2ff402ae33d66d3212": {
+  "src": "jq · transpose",
+  "vi": "Chuyển vị ma trận (mảng hai chiều), hoán đổi hàng thành cột.",
+  "q": [
+   "chuyển vị ma trận mảng hai chiều",
+   "đổi hàng thành cột trong mảng",
+   "transpose ma trận đảo chiều dòng cột"
+  ]
+ },
+ "e9ac443114cdc0108973c57cd541dd69db49cda20b0906ce0e77696a3e7fecc4": {
+  "src": "jq · bsearch(<val>)",
+  "vi": "Tìm kiếm nhị phân (binary search) trên mảng đã sắp xếp để lấy index.",
+  "q": [
+   "tìm kiếm nhị phân trong mảng đã sort",
+   "binary search tìm index mảng đã sắp xếp",
+   "tìm vị trí chèn phần tử vào mảng sắp xếp"
+  ]
+ },
+ "2e7668f9982824e8e511916d3cbbb2ed90c838fdc9a071b0d9675466c846154e": {
+  "src": "jq · keys",
+  "vi": "Lấy mảng các key của object (đã sắp xếp chữ cái) hoặc index mảng.",
+  "q": [
+   "lấy danh sách key đã sắp xếp",
+   "liệt kê các key object sort alphabet",
+   "trích xuất key theo thứ tự chữ cái"
+  ]
+ },
+ "4422c05a7cbfa8bfd0ae89181e4dda3ae9e5f1e1967ed767880701fe0081004e": {
+  "src": "jq · keys_unsorted",
+  "vi": "Lấy mảng các key của object theo đúng thứ tự gốc ban đầu.",
+  "q": [
+   "lấy danh sách key giữ nguyên thứ tự gốc",
+   "liệt kê key không sắp xếp",
+   "trích xuất key object theo thứ tự ban đầu"
+  ]
+ },
+ "d9a74c625a355e6bd80270e243b2ecc9f049e172a43b3e30e0071750aa84524f": {
+  "src": "jq · has(<key>)",
+  "vi": "Kiểm tra object có chứa key hoặc mảng có chứa index không.",
+  "q": [
+   "kiểm tra key có tồn tại trong object",
+   "check mảng có index chỉ định không",
+   "xác định sự tồn tại của khóa"
+  ]
+ },
+ "aaf428b1532dfbbb980253f1fef60861442f2f73fa7cf89d411f38c192daa582": {
+  "src": "jq · in(<obj>)",
+  "vi": "Kiểm tra key hoặc index hiện tại có tồn tại trong object đích.",
+  "q": [
+   "kiểm tra key hiện tại có trong object đích",
+   "check index có thuộc mảng mục tiêu",
+   "xem khóa có nằm trong đối tượng đích không"
+  ]
+ },
+ "3da904befda7f12f639fac6b5a293fab5ca8d2cc276b4aa4a4ba7405516ba97d": {
+  "src": "jq · values",
+  "vi": "Lọc bỏ các giá trị null, chỉ giữ lại giá trị hợp lệ.",
+  "q": [
+   "lọc bỏ phần tử null",
+   "loại bỏ giá trị null khỏi mảng",
+   "chỉ lấy các giá trị khác null"
+  ]
+ },
+ "19ecc126356da6e088738597daedd04669ca2e07b2b03b3ff123fffeec2ce361": {
+  "src": "jq · to_entries",
+  "vi": "Chuyển object thành mảng các cặp {key, value}.",
+  "q": [
+   "chuyển object thành mảng key value",
+   "biến đổi đối tượng sang mảng cặp khóa giá trị",
+   "convert object sang array of entries"
+  ]
+ },
+ "d04dba750f380ac7e21b126f7bc3f4d51deb24edb23c354cc0b1ea334eb9a3dd": {
+  "src": "jq · from_entries",
+  "vi": "Chuyển mảng các cặp {key, value} ngược lại thành object JSON chuẩn.",
+  "q": [
+   "chuyển mảng key value thành object",
+   "tạo object từ mảng các entry",
+   "convert array of entries sang json object"
+  ]
+ },
+ "585341ffc0a337c5d0c5665a171f97bd44c5e84a4ed32ae283855e7d4ae3c71e": {
+  "src": "jq · with_entries(<f>)",
+  "vi": "Áp dụng bộ lọc lên các cặp {key, value} rồi gộp lại thành object.",
+  "q": [
+   "sửa đổi đồng thời key và value của object",
+   "map filter lên các entry rồi chuyển lại object",
+   "biến đổi các cặp key value trong object"
+  ]
+ },
+ "3348174781843dfb407bfafd70b1204da59a8b169d3b73ec49f7a1ccd88cf302": {
+  "src": "jq · pick(<paths>)",
+  "vi": "Trích xuất tập con của object hoặc mảng theo các trường chỉ định.",
+  "q": [
+   "chọn lọc các trường chỉ định trong object",
+   "trích xuất một số field nhất định",
+   "lọc tập con thuộc tính theo path"
+  ]
+ },
+ "bda90bcfd54948409471f6e5304a39bfdbd15786ade091d01f6dbba39a97b1fa": {
+  "src": "jq · path(<expr>)",
+  "vi": "Trả về mảng biểu diễn đường dẫn (path) dẫn tới phần tử khớp.",
+  "q": [
+   "lấy mảng đường dẫn đến phần tử",
+   "xem path dẫn tới trường khớp",
+   "trả về array path của biểu thức"
+  ]
+ },
+ "6cbaa84ea2413650df793c01d3c5394e74cc780640c9a8f5e9d45b15fe0aa07d": {
+  "src": "jq · paths",
+  "vi": "Xuất luồng đường dẫn (paths) tới mọi phần tử bên trong dữ liệu.",
+  "q": [
+   "liệt kê tất cả đường dẫn trong cấu trúc dữ liệu",
+   "lấy toàn bộ paths của mọi node",
+   "stream danh sách path tới các phần tử"
+  ]
+ },
+ "77580daf7434a86fc68e9197c581c19647516f0cde87bfbecac49ff5273d839c": {
+  "src": "jq · paths(<f>)",
+  "vi": "Xuất luồng đường dẫn tới các phần tử thoả mãn điều kiện f.",
+  "q": [
+   "tìm đường dẫn đến các phần tử thoả điều kiện",
+   "lọc path theo điều kiện",
+   "lấy danh sách paths thoả bộ lọc"
+  ]
+ },
+ "cc0eb46dec57de4558779991e83a642668fa0bee9af3b3609a53531f4ff7858f": {
+  "src": "jq · getpath(<path>)",
+  "vi": "Lấy giá trị lồng nhau tại đường dẫn mảng (path) chỉ định.",
+  "q": [
+   "lấy giá trị lồng nhau bằng mảng path",
+   "truy xuất phần tử theo array đường dẫn",
+   "đọc dữ liệu tại path chỉ định"
+  ]
+ },
+ "e7de7c376fc5b253381d8fbded2487804e9bdc9bab73f46d5a07190b63ceeae3": {
+  "src": "jq · setpath(<path>; <val>)",
+  "vi": "Gán giá trị tại đường dẫn mảng, tự tạo các object trung gian.",
+  "q": [
+   "gán giá trị theo mảng đường dẫn",
+   "cập nhật dữ liệu tại path tự tạo object trung gian",
+   "thiết lập value theo array path"
+  ]
+ },
+ "6f9bbc06aed67550e7ed289fd93493c373539110d7e03581652710a262771aa0": {
+  "src": "jq · delpaths(<paths>)",
+  "vi": "Xoá nhiều phần tử tại danh sách các đường dẫn (paths) chỉ định.",
+  "q": [
+   "xoá nhiều trường bằng danh sách paths",
+   "loại bỏ hàng loạt phần tử theo mảng đường dẫn",
+   "gỡ bỏ các thuộc tính qua delpaths"
+  ]
+ },
+ "e9872c347bff2976aa39dd9f530d92dbd830f1b1bec8302045cf3cd17166a917": {
+  "src": "jq · del(<path>)",
+  "vi": "Xoá trường, phần tử mảng hoặc lát cắt chỉ định khỏi cấu trúc JSON.",
+  "q": [
+   "xoá trường chỉ định trong json",
+   "loại bỏ phần tử khỏi mảng hoặc object",
+   "gỡ bỏ field theo đường dẫn"
+  ]
+ },
+ "0415f01ea1a78d24e26bf121ecfe75922e6acda7d9137ac3becb03d84ff31d63": {
+  "src": "jq · walk(<f>)",
+  "vi": "Áp dụng đệ quy bộ lọc f từ dưới lên trên mọi node JSON.",
+  "q": [
+   "duyệt đệ quy biến đổi mọi node trong cây json",
+   "áp dụng filter bottom-up lên toàn bộ cấu trúc",
+   "thay đổi dữ liệu đệ quy khắp cây json"
+  ]
+ },
+ "b04f374a78899d7d13f384e4d6b589a0d140d8c287d8807da806861d7e815769": {
+  "src": "jq · |=",
+  "vi": "Cập nhật trường tại chỗ (in-place) bằng cách pipe giá trị qua filter.",
+  "q": [
+   "cập nhật tại chỗ trường dữ liệu qua bộ lọc",
+   "pipe giá trị qua filter để update in-place",
+   "sửa đổi giá trị field tại chỗ"
+  ]
+ },
+ "e65dd16d168ba42fa2156169d55af0d7eb2095ee9c06bf1a1fb73ac2f39c9f2f": {
+  "src": "jq · =",
+  "vi": "Gán trực tiếp kết quả biểu thức vào đường dẫn trường chỉ định.",
+  "q": [
+   "gán giá trị trực tiếp cho trường",
+   "thay thế giá trị tại path bằng biểu thức",
+   "thiết lập dữ liệu cho field"
+  ]
+ },
+ "60032689e374860f48141b76fcd221249f8efe91e95add3d72137e69d3e11d97": {
+  "src": "jq · +=",
+  "vi": "Cộng tại chỗ: tăng số, nối thêm vào mảng hoặc cập nhật object.",
+  "q": [
+   "cộng dồn số hoặc nối thêm vào mảng tại chỗ",
+   "append phần tử vào mảng in-place",
+   "tăng giá trị số hoặc merge thêm vào object"
+  ]
+ },
+ "965cef36210d6d8181cbc08f05e37e48ca6d4c0467745c0f92c983dad43ae9cd": {
+  "src": "jq · -=",
+  "vi": "Trừ tại chỗ: giảm số hoặc xoá các phần tử khỏi mảng.",
+  "q": [
+   "giảm giá trị số tại chỗ",
+   "trừ bớt số hoặc loại bỏ phần tử mảng in-place",
+   "xoá bớt phần tử khỏi mảng bằng phép trừ"
+  ]
+ },
+ "90af55a103d34887d250996ec717d0fc20f306ee57739d42dbb18687d0b64a09": {
+  "src": "jq · *=",
+  "vi": "Nhân số tại chỗ hoặc hợp nhất sâu (deep merge) hai object.",
+  "q": [
+   "deep merge hợp nhất hai object tại chỗ",
+   "nhân giá trị số in-place",
+   "trộn sâu object tại vị trí hiện tại"
+  ]
+ },
+ "ebe68cf6679b089a98a2ff1f56f1d51d98e06d7c1e00e1e927f0a663917c5ea2": {
+  "src": "jq · //=",
+  "vi": "Gán giá trị thay thế tại chỗ nếu giá trị hiện tại là null/false.",
+  "q": [
+   "gán giá trị mặc định tại chỗ khi null hoặc false",
+   "fallback giá trị thay thế in-place",
+   "thiết lập default value nếu trường rỗng"
+  ]
+ },
+ "e0a039920b29981c7364754f609cca537f51446699d9d31f189a198c90b0e963": {
+  "src": "jq · split(<sep>)",
+  "vi": "Cắt chuỗi thành mảng các chuỗi con bằng ký tự phân tách.",
+  "q": [
+   "tách chuỗi thành mảng theo ký tự phân cách",
+   "cắt chuỗi ra array bằng dấu phân tách",
+   "phân chia chuỗi thành danh sách"
+  ]
+ },
+ "68e83b59d055f6f98712c362dbcb4f5a8fa4b7629422164d270341da2771b146": {
+  "src": "jq · splits(<sep>)",
+  "vi": "Tách chuỗi theo ký tự phân tách và xuất kết quả thành stream.",
+  "q": [
+   "tách chuỗi thành stream các chuỗi con",
+   "phát chuỗi con dạng stream theo phân cách",
+   "cắt chuỗi xuất ra từng dòng kết quả"
+  ]
+ },
+ "b35ac7dd76057bc219ec24f1720aa71cd19688f7ae14333827e77a392d7f5b7a": {
+  "src": "jq · join(<sep>)",
+  "vi": "Nối các phần tử mảng thành một chuỗi bằng ký tự phân tách.",
+  "q": [
+   "nối mảng thành chuỗi bằng ký tự ngăn cách",
+   "gộp danh sách chuỗi thành một chuỗi duy nhất",
+   "join các phần tử mảng lại với nhau"
+  ]
+ },
+ "31e747751f49529cdb5196c3da9138ae0f6dbfd2e9a5b8e9e4b034785b5c2134": {
+  "src": "jq · startswith(<prefix>)",
+  "vi": "Kiểm tra chuỗi có bắt đầu bằng tiền tố (prefix) chỉ định không.",
+  "q": [
+   "kiểm tra chuỗi bắt đầu bằng tiền tố",
+   "xem chuỗi có mở đầu bằng ký tự chỉ định không",
+   "check tiền tố chuỗi"
+  ]
+ },
+ "4f5e96aab97c42780736ea0768b08028dcd2917dbe7dd2b3267d7dbdf4d3b079": {
+  "src": "jq · endswith(<suffix>)",
+  "vi": "Kiểm tra chuỗi có kết thúc bằng hậu tố (suffix) chỉ định không.",
+  "q": [
+   "kiểm tra chuỗi kết thúc bằng hậu tố",
+   "xem chuỗi có tận cùng bằng đuôi chỉ định không",
+   "check phần đuôi kết thúc của chuỗi"
+  ]
+ },
+ "36b81ad4c56915dbbf4eeb805596f4412b10c7b40dad9dd3764db4649c3c3193": {
+  "src": "jq · ascii_downcase",
+  "vi": "Chuyển các ký tự ASCII viết hoa trong chuỗi thành chữ thường.",
+  "q": [
+   "chuyển chuỗi thành chữ thường",
+   "đổi ký tự hoa sang chữ thường ascii",
+   "biến đổi text sang lowercase"
+  ]
+ },
+ "10bdc34dba49708ff9a25c6fa54b138a97a62b971e685794e9c283db94075508": {
+  "src": "jq · ascii_upcase",
+  "vi": "Chuyển các ký tự ASCII viết thường trong chuỗi thành chữ hoa.",
+  "q": [
+   "chuyển chuỗi thành chữ in hoa",
+   "đổi ký tự thường sang chữ hoa ascii",
+   "biến đổi text sang uppercase"
+  ]
+ },
+ "f08479938eef84dfe154760dfe0605684f94cd7b64b4cffc612a5effb7bcf817": {
+  "src": "jq · ltrimstr(<prefix>)",
+  "vi": "Xoá tiền tố chỉ định ở đầu chuỗi nếu có tồn tại.",
+  "q": [
+   "xoá tiền tố ở đầu chuỗi",
+   "cắt bỏ chuỗi bắt đầu nếu khớp",
+   "gỡ bỏ prefix đầu chuỗi"
+  ]
+ },
+ "fcf181e52db3569589fc93cf125a613726d0d8d42902d415e39c9f4e012f6871": {
+  "src": "jq · rtrimstr(<suffix>)",
+  "vi": "Xoá hậu tố chỉ định ở cuối chuỗi nếu có tồn tại.",
+  "q": [
+   "xoá hậu tố ở cuối chuỗi",
+   "cắt bỏ đuôi chuỗi nếu khớp",
+   "gỡ bỏ suffix cuối chuỗi"
+  ]
+ },
+ "8cfa7254f43fc21f635b1a64ff4071b0578111f3d3311366dad3ad966ed57f27": {
+  "src": "jq · trim",
+  "vi": "Xoá tất cả khoảng trắng thừa ở cả hai đầu chuỗi.",
+  "q": [
+   "xoá khoảng trắng ở hai đầu chuỗi",
+   "cắt tỉa khoảng trắng đầu và cuối text",
+   "loại bỏ khoảng trắng thừa xung quanh chuỗi"
+  ]
+ },
+ "60043640bc255894d38ab1a908831fabb4aa1fc63a540add7095933cf52a8fce": {
+  "src": "jq · ltrim",
+  "vi": "Xoá các khoảng trắng thừa ở phần đầu của chuỗi.",
+  "q": [
+   "xoá khoảng trắng ở đầu chuỗi",
+   "loại bỏ khoảng trắng phía trước text",
+   "cắt tỉa khoảng trắng bên trái"
+  ]
+ },
+ "a99f54350a92ef07860a2554e68b670af60803ba40bed6ad1c379667bbb999a7": {
+  "src": "jq · -c, --compact-output",
+  "vi": "In JSON rút gọn trên một dòng duy nhất",
+  "q": [
+   "in json trên một dòng",
+   "thu gọn json một dòng",
+   "xuất ndjson compact"
+  ]
+ },
+ "8abf3277ced9a4738f5f6f9f45468610047a12ee6f5cd7ceadbbfdc70308a9d1": {
+  "src": "jq · -r, --raw-output",
+  "vi": "Xuất chuỗi thô không kèm dấu ngoặc kép và escape",
+  "q": [
+   "bỏ dấu ngoặc kép chuỗi json",
+   "xuất chuỗi thô không nháy kép",
+   "in raw string không escape"
+  ]
+ },
+ "367c255465697a02a5be67e1351d70dcdb410d4ebe93610ad9df345547c50197": {
+  "src": "jq · --raw-output0",
+  "vi": "Xuất chuỗi thô kết thúc bằng ký tự NUL",
+  "q": [
+   "xuất chuỗi phân cách ký tự null",
+   "in raw string kèm nul byte",
+   "kết thúc chuỗi bằng ký tự nul cho xargs"
+  ]
+ },
+ "8edab4c7bc7153311b25e2f47cebaccd0754ecfda09b61db67d160297e18acda": {
+  "src": "jq · -j, --join-output",
+  "vi": "Xuất chuỗi thô không kèm ký tự xuống dòng ở cuối",
+  "q": [
+   "in chuỗi không xuống dòng",
+   "nối chuỗi không newline",
+   "xuất kết quả không thêm dòng mới"
+  ]
+ },
+ "fc487518216e955812ea2fdc5d7e07fda01b89bf224691b0398744ad0d8fbbdc": {
+  "src": "jq · -a, --ascii-output",
+  "vi": "Ép xuất chuẩn ASCII, escape ký tự non-ASCII thành \\uXXXX",
+  "q": [
+   "chuyển ký tự unicode sang uxxxx",
+   "escape ký tự non ascii",
+   "bắt buộc xuất ascii"
+  ]
+ },
+ "869326f8dbd1e0fe490035fb0794cb3961eafceebef1e924f2e71b0dad6da710": {
+  "src": "jq · -S, --sort-keys",
+  "vi": "Sắp xếp các key của object theo thứ tự bảng chữ cái",
+  "q": [
+   "sắp xếp key json theo alphabet",
+   "sort key object tăng dần",
+   "thứ tự key theo bảng chữ cái"
+  ]
+ },
+ "07069a2dac38e06c1897a74d64fa75f8d4eef67ddc7484f1f27f3ed098db4d7d": {
+  "src": "jq · -C, --color-output",
+  "vi": "Bắt buộc tô màu cú pháp output cả khi pipe",
+  "q": [
+   "bật màu cú pháp khi pipe",
+   "ép hiển thị màu terminal",
+   "giữ màu sắc khi qua less"
+  ]
+ },
+ "bd7bef687af27cc40ffedf9fdf1e0e90909ea255123a3dccd862ad75cbdb231c": {
+  "src": "jq · -M, --monochrome-output",
+  "vi": "Tắt tô màu cú pháp trong output terminal",
+  "q": [
+   "tắt màu cú pháp terminal",
+   "xuất không màu monochrome",
+   "vô hiệu hóa highlight màu"
+  ]
+ },
+ "c801d6d83d1be217cbab6f3792e56d88e0057fa2a85ec3eb2ad08ab805f73568": {
+  "src": "jq · --tab",
+  "vi": "Thụt lề (indent) output bằng tab thay vì khoảng trắng",
+  "q": [
+   "thụt lề bằng tab",
+   "format json dùng tab",
+   "indent tab thay vì space"
+  ]
+ },
+ "6ab27591a1c9bd4e868cf84f3a0b2c068f6d4c0c0656f9870efbec1829072761": {
+  "src": "jq · --indent <n>",
+  "vi": "Thụt lề (indent) output bằng <n> khoảng trắng (0 đến 7)",
+  "q": [
+   "chỉnh số space thụt lề",
+   "thụt đầu dòng n khoảng trắng",
+   "format indent số space tùy chọn"
+  ]
+ },
+ "7995ad350cde6dc8d80be91bb70bf431118634458c528c4575545da5e5631047": {
+  "src": "jq · --unbuffered",
+  "vi": "Xả (flush) stdout ngay lập tức sau mỗi item JSON",
+  "q": [
+   "flush stdout ngay lập tức",
+   "không đệm output khi xem log",
+   "xả đệm realtime luồng stream"
+  ]
+ },
+ "3137b44e20de038cf5db2bf3a0b10fb834e1ce7cd00cfb574714d1a64a874b75": {
+  "src": "jq · -n, --null-input",
+  "vi": "Chạy filter với input null, không đọc stdin",
+  "q": [
+   "chạy filter không đọc stdin",
+   "tạo json từ null input",
+   "thực thi không cần dữ liệu đầu vào"
+  ]
+ },
+ "3dee13ff845e6ebd42dbef7c33e83f07a1799f632de350dcb05da5061eec5496": {
+  "src": "jq · -R, --raw-input",
+  "vi": "Đọc từng dòng input dưới dạng chuỗi thô thay vì JSON",
+  "q": [
+   "đọc từng dòng thành chuỗi thô",
+   "nhận input text thô thay vì json",
+   "xử lý từng dòng văn bản raw"
+  ]
+ },
+ "1880392b62389280095dc63b06552a9cea4da58b74e287f954f6f52214a5a2f8": {
+  "src": "jq · -s, --slurp",
+  "vi": "Đọc toàn bộ input vào một array duy nhất trước khi lọc",
+  "q": [
+   "gộp toàn bộ input thành một mảng",
+   "đọc tất cả json vào array",
+   "slurp gom các dòng thành mảng"
+  ]
+ },
+ "35027d35578186073cf034f507187927bf217146ee57f910548b77be045788b8": {
+  "src": "jq · --seq",
+  "vi": "Parse và xuất JSON theo định dạng phân tách json-seq RS/LF",
+  "q": [
+   "xử lý định dạng json-seq",
+   "parse json seq rs lf",
+   "đọc ghi json text sequence"
+  ]
+ },
+ "df5ddefe883342746dbbcf41d77de05f51e86646c3761abf965bd3b4caaf9312": {
+  "src": "jq · --stream",
+  "vi": "Parse input dạng streaming trả về các cặp path-value",
+  "q": [
+   "parse streaming file json dung lượng lớn",
+   "đọc stream cặp đường dẫn và giá trị",
+   "xử lý json lớn tiết kiệm ram"
+  ]
+ },
+ "8346b15adeffaf83cdb5d1ebc309e405a763c6f690cc6f79702adb519b9e3f37": {
+  "src": "jq · --stream-errors",
+  "vi": "Parse stream và xuất lỗi cú pháp dưới dạng array",
+  "q": [
+   "bắt lỗi cú pháp khi stream",
+   "xuất lỗi parse json thành mảng",
+   "stream json hiển thị lỗi parse"
+  ]
+ },
+ "9e73579a9ff3df54ac2c58140d86fd94f558345057981772becd2780c32d2a09": {
+  "src": "jq · -e, --exit-status",
+  "vi": "Đặt exit code 1 nếu output là false/null, 4 nếu rỗng",
+  "q": [
+   "kiểm tra exit code false hoặc null",
+   "trả mã lỗi khi kết quả rỗng",
+   "exit status cho câu điều kiện bash"
+  ]
+ },
+ "cd96fea43c65c17cc147889a8ed477f831cdd797a05b59f8d903090307873673": {
+  "src": "jq · -f, --from-file <file>",
+  "vi": "Đọc biểu thức filter từ file script thay vì đối số CLI",
+  "q": [
+   "đọc bộ lọc từ file script",
+   "load filter expression từ tập tin",
+   "chạy filter lưu trong file"
+  ]
+ },
+ "1fa502e564b959189e1dfdd7c7f023deb9f79056cb4188da5cf004e1aabd7fa6": {
+  "src": "jq · -V, --version",
+  "vi": "Hiển thị chuỗi phiên bản đang dùng rồi thoát",
+  "q": [
+   "xem phiên bản đang cài đặt",
+   "kiểm tra version hiện tại",
+   "in thông tin version"
+  ]
+ },
+ "7a7a265fa08ed669203c7543303ae4ffa45910d7cc1360bbae8ca4be776e7a66": {
+  "src": "jq · --build-configuration",
+  "vi": "In chi tiết cấu hình và tính năng lúc biên dịch",
+  "q": [
+   "xem cấu hình build biên dịch",
+   "kiểm tra compile time features",
+   "in thông tin cấu hình đóng gói"
+  ]
+ },
+ "8b81ac3df35a54185e93e73c33d8e6e43d03c54e8707f85db60b8a08fdfc3c2c": {
+  "src": "jq · -h, --help",
+  "vi": "Hiển thị hướng dẫn sử dụng và tóm tắt các tùy chọn",
+  "q": [
+   "xem hướng dẫn sử dụng",
+   "trợ giúp cú pháp các tùy chọn",
+   "hiển thị bảng trợ giúp help"
+  ]
+ },
+ "1cec7c31ba54d6b39bae766fc476591bf133f4c40acb6a6709ac90c69a735824": {
+  "src": "jq · --",
+  "vi": "Dừng phân tích tùy chọn, coi các đối số còn lại là file",
+  "q": [
+   "ngăn nhầm file có dấu gạch ngang thành tùy chọn",
+   "kết thúc đọc option cli",
+   "phân tách tùy chọn và tên file"
+  ]
+ },
+ "986cae16684450db460bfdfdd216444edbe5b4bfb20a8c0c0796c3bed1b8b955": {
+  "src": "jq · --arg <name> <value>",
+  "vi": "Truyền giá trị chuỗi vào biến định sẵn $<name>",
+  "q": [
+   "truyền biến chuỗi từ terminal",
+   "gán giá trị string vào biến",
+   "đặt tham số chuỗi vào biến"
+  ]
+ },
+ "d1a5d271d24964e998feacc2d4ea7dac6cc4d59673f18fa20b607543542012f1": {
+  "src": "jq · --argjson <name> <value>",
+  "vi": "Truyền giá trị JSON literal vào biến định sẵn $<name>",
+  "q": [
+   "truyền biến kiểu json số hoặc boolean",
+   "gán json literal vào biến",
+   "đặt tham số đối tượng json vào biến"
+  ]
+ },
+ "ba8ff59463da1ae7360b9948250a199b63a43a98fc9f2f055e7bd6ce92f7179e": {
+  "src": "jq · --slurpfile <name> <file>",
+  "vi": "Đọc toàn bộ JSON từ file vào mảng gán cho $<name>",
+  "q": [
+   "đọc file json vào biến mảng",
+   "gán toàn bộ nội dung file thành array biến",
+   "slurp file ngoài vào biến"
+  ]
+ },
+ "8ee4ab9fcbc940cc9befa37f537824855d8c26c375720d574e7be1fb81854e42": {
+  "src": "jq · --rawfile <name> <file>",
+  "vi": "Đọc toàn bộ file thành chuỗi thô gán vào biến $<name>",
+  "q": [
+   "đọc toàn bộ file thành chuỗi vào biến",
+   "gán nội dung file text vào biến raw",
+   "nạp file văn bản thô vào biến"
+  ]
+ },
+ "81afc1f8257e23c98299c975475f6bb9e9fad09a22be8c9830ae1809d1e1f0f8": {
+  "src": "jq · --args",
+  "vi": "Truyền các đối số còn lại thành mảng chuỗi $ARGS.positional",
+  "q": [
+   "truyền danh sách đối số chuỗi vị trí",
+   "nhận mảng tham số chuỗi vào args positional",
+   "đưa đối số cli vào mảng chuỗi"
+  ]
+ },
+ "2e85670fe96fe150b074c4198a40809f64ea6060b4e150f130c7df3330df908e": {
+  "src": "jq · --jsonargs",
+  "vi": "Truyền các đối số còn lại thành mảng JSON $ARGS.positional",
+  "q": [
+   "truyền danh sách đối số json vị trí",
+   "nhận mảng tham số json vào args positional",
+   "đưa nhiều giá trị json vào mảng đối số"
+  ]
+ },
+ "35a0ef24d2d6345242c21e09b0545f45c823e3a9920cd0336b2f8d0286c252b4": {
+  "src": "jq · $ARGS.named",
+  "vi": "Object chứa tất cả biến có tên truyền qua --arg và --argjson",
+  "q": [
+   "truy cập object chứa biến có tên",
+   "lấy danh sách biến được đặt tên",
+   "xem các biến truyền từ arg và argjson"
+  ]
+ },
+ "a0bd6b63ffad9870c224495665922be7e769085c047b0effb4a5b0c967a1e95d": {
+  "src": "jq · $ARGS.positional",
+  "vi": "Mảng chứa tất cả đối số vị trí từ --args hoặc --jsonargs",
+  "q": [
+   "truy cập mảng đối số vị trí",
+   "lấy giá trị tham số theo vị trí",
+   "đọc mảng tham số positional"
+  ]
+ },
+ "f825cb3ea72381130f7fce729b9093943ddb945865e0e2fefaf1c6d514d1efbf": {
+  "src": "jq · $ENV",
+  "vi": "Object chứa tất cả biến môi trường được export vào tiến trình",
+  "q": [
+   "lấy biến môi trường qua đối tượng env",
+   "truy cập biến môi trường hệ thống trong filter",
+   "đọc biến export bằng env object"
+  ]
+ },
+ "172315a8d20bc6af1e517356331e6aca2ec2667dbf58b6abebd9bbc578667ce0": {
+  "src": "jq · env",
+  "vi": "Xuất toàn bộ biến môi trường hiện tại thành object JSON",
+  "q": [
+   "xuất danh sách biến môi trường thành json",
+   "lấy tất cả biến môi trường hiện tại",
+   "biến đổi env hệ thống thành json"
+  ]
+ },
+ "9af5f0b0f61c7eff940c0c15f6daca7fad26c052c1723691bfafb7be5a684005": {
+  "src": "jq · .",
+  "vi": "Trả về nguyên vẹn giá trị input (bộ lọc đồng nhất)",
+  "q": [
+   "in toàn bộ json gốc",
+   "bộ lọc giữ nguyên dữ liệu đầu vào",
+   "identity filter trả về input"
+  ]
+ },
+ "21c1c07f8da3f10377d7f7f0c2b052f24d954e263598a41c1d57fad7246d54d5": {
+  "src": "jq · .<key>",
+  "vi": "Trích xuất giá trị của thuộc tính <key> trong object",
+  "q": [
+   "lấy giá trị thuộc tính theo key",
+   "trích xuất trường trong json object",
+   "truy cập field của đối tượng"
+  ]
+ },
+ "397e499d4a6ea10ea27f42f42e5671d52b300dabacc84ad9081ba98e34a64bc4": {
+  "src": "jq · .<key>?",
+  "vi": "Lấy giá trị <key> hoặc bỏ qua lỗi nếu không phải object",
+  "q": [
+   "lấy thuộc tính bỏ qua lỗi nếu không tồn tại",
+   "truy cập key an toàn không báo lỗi",
+   "suppress error khi truy xuất trường null"
+  ]
+ },
+ "e88b92b09ae4e3145810a7ef09dbf08d55fa62d76280709f170b98245997c002": {
+  "src": "jq · .[\"<key>\"]",
+  "vi": "Truy cập thuộc tính <key> có ký tự đặc biệt hoặc khoảng trắng",
+  "q": [
+   "lấy thuộc tính có dấu gạch ngang hoặc dấu chấm",
+   "truy cập key chứa khoảng trắng",
+   "lấy trường json bằng chuỗi literal"
+  ]
+ },
+ "6e76acd1a761ee3f50edf6e2f9c48b3288d6bdb744f50d7c98cd90682ef170aa": {
+  "src": "jq · .[<n>]",
+  "vi": "Trích xuất phần tử của mảng tại chỉ mục <n> (tính từ 0)",
+  "q": [
+   "lấy phần tử mảng theo vị trí index",
+   "trích xuất item thứ n trong array",
+   "truy cập phần tử mảng bắt đầu từ 0"
+  ]
+ },
+ "9d3426dac176bbb7451a1bce35dc78b9a27879b4e7a69df50b9a57bb973425bb": {
+  "src": "jq · .[-1]",
+  "vi": "Trích xuất phần tử cuối cùng của mảng bằng chỉ mục âm",
+  "q": [
+   "lấy phần tử cuối cùng của mảng",
+   "truy cập item cuối trong array",
+   "lấy phần tử mảng bằng index âm"
+  ]
+ },
+ "44425955c306628614c7d7024dd343e678d4fbf9b765c1eb1f39c19956a66c0e": {
+  "src": "jq · .[<start>:<end>]",
+  "vi": "Cắt mảng hoặc chuỗi từ vị trí <start> đến <end>",
+  "q": [
+   "cắt mảng từ chỉ mục đến chỉ mục",
+   "slice chuỗi con theo vị trí bắt đầu và kết thúc",
+   "lấy đoạn phần tử trong mảng"
+  ]
+ },
+ "cd6a77500bc2e68882d8151d4b901bcf92d66dc4d97aab876b43748a86d6d844": {
+  "src": "jq · .[<start>:]",
+  "vi": "Cắt mảng hoặc chuỗi từ vị trí bắt đầu đến hết",
+  "q": [
+   "cắt mảng từ vị trí start đến hết",
+   "lấy phần tử mảng từ chỉ mục đến cuối",
+   "trích xuất chuỗi từ vị trí bắt đầu"
+  ]
+ },
+ "722b52c2e9b4b9fe174e87d1ecd7760e3996a55ab9290d8109164557ed7c20ee": {
+  "src": "jq · .[:<end>]",
+  "vi": "Cắt mảng hoặc chuỗi từ đầu đến vị trí kết thúc",
+  "q": [
+   "cắt mảng từ đầu đến vị trí chỉ định",
+   "lấy các phần tử đầu mảng đến index",
+   "trích xuất chuỗi từ đầu đến vị trí end"
+  ]
+ },
+ "85f366d2f5d857e8e4f7424d0e16facd4342917218e21667a45e76bf5a005319": {
+  "src": "jq · .[]",
+  "vi": "Lặp qua tất cả phần tử của mảng hoặc giá trị của object",
+  "q": [
+   "lặp qua mọi phần tử mảng",
+   "duyệt tất cả giá trị trong object",
+   "trải phẳng các phần tử trong mảng"
+  ]
+ },
+ "10373b5dd0de1d12bfe82e26d6d2b228435765a282f31bef41dbafa6b2f0a50c": {
+  "src": "jq · .[]?",
+  "vi": "Lặp qua phần tử an toàn, bỏ qua lỗi nếu là null hoặc scalar",
+  "q": [
+   "duyệt mảng an toàn bỏ qua lỗi null",
+   "lặp phần tử không báo lỗi khi null",
+   "tránh lỗi khi duyệt mảng hoặc object null"
+  ]
+ },
+ "0a13c3b61a2cb10bb8ee9fe596fc11140cc3c30dbb1bc5053d82e999dd5cbc6b": {
+  "src": "jq · ,",
+  "vi": "Thực thi nhiều biểu thức song song và xuất kết quả tuần tự",
+  "q": [
+   "chạy nhiều biểu thức cùng lúc",
+   "xuất nhiều trường cùng lúc tuần tự",
+   "phân tách nhiều filter bằng dấu phẩy"
+  ]
+ },
+ "7c3fe2fbacb59d202be4511f55e3be4936fec1aafc8221da017e7cf06744fe92": {
+  "src": "jq · |",
+  "vi": "Truyền kết quả đầu ra của filter trước làm đầu vào cho filter sau",
+  "q": [
+   "pipe kết quả sang filter tiếp theo",
+   "truyền output filter này sang input filter khác",
+   "nối các bộ lọc bằng đường ống pipe"
+  ]
+ },
+ "5f5deb38cb9ff560cd26b84a3c3df058d7313da2cb7017b5fd641fb7e6669bdb": {
+  "src": "jq · ..",
+  "vi": "Duyệt đệ quy tất cả giá trị con trong cây dữ liệu",
+  "q": [
+   "duyệt đệ quy toàn bộ cây json",
+   "tìm kiếm đệ quy mọi giá trị con",
+   "quét sâu tất cả node con cháu"
+  ]
+ },
+ "263f333505c20049d5f22ad40f03183dad03775a480fb8c138422937acbae513": {
+  "src": "jq · recurse(<f>)",
+  "vi": "Áp dụng đệ quy hàm f lên các giá trị đạt được",
+  "q": [
+   "áp dụng đệ quy một hàm lên dữ liệu",
+   "duyệt đệ quy theo biểu thức f",
+   "lặp đệ quy hàm recurse f"
+  ]
+ },
+ "f73ff28436e3686c25b47d57d7c10ad687b4a7c7a141b43d1b2b7cac683e13a9": {
+  "src": "jq · recurse(<f>; <cond>)",
+  "vi": "Áp dụng đệ quy hàm f chừng nào điều kiện cond còn đúng",
+  "q": [
+   "đệ quy có điều kiện dừng cond",
+   "lặp đệ quy hàm f khi thoả mãn điều kiện",
+   "recurse với điều kiện dừng"
+  ]
+ },
+ "0167604d895f19fb91019bb0a796a135afe83869c8a501dac33821c830dd6c32": {
+  "src": "jq · [<f>]",
+  "vi": "Gom tất cả kết quả của filter f vào một mảng mới",
+  "q": [
+   "gom kết quả filter vào mảng mới",
+   "tạo mảng từ các phần tử đầu ra",
+   "đóng gói output thành array"
+  ]
+ },
+ "72e21cfcf233e78b97f3d6db29aa3b509434d44b4f880e55b570f0f3786300e9": {
+  "src": "jq · {<k>: <v>}",
+  "vi": "Tạo object JSON mới với các key và value chỉ định",
+  "q": [
+   "tạo object mới với key và value tuỳ chỉnh",
+   "xây dựng json object từ các trường",
+   "gán key và value mới thành object"
+  ]
+ },
+ "fb71bd69e0900261ce996db043f46c3ede8e904b278ba27a8947cd9f81a64d36": {
+  "src": "jq · {(.<k>): .<v>}",
+  "vi": "Tạo object với tên key động lấy từ biểu thức",
+  "q": [
+   "tạo object với dynamic key",
+   "dùng giá trị biểu thức làm key object",
+   "tên thuộc tính object dạng động"
+  ]
+ },
+ "54d50c6279d2679f1926a602b133d8afe01a957e88e2f0e9d51d9425787f88c2": {
+  "src": "jq · {<key>}",
+  "vi": "Tạo object dùng cú pháp rút gọn với tên trường có sẵn",
+  "q": [
+   "rút gọn khai báo field trong object",
+   "tạo object giữ nguyên tên key cũ",
+   "cú pháp shorthand tạo object"
+  ]
+ },
+ "1371fb237fe620afed682d0310a7883f9b1e80b7532dc5843bccb34382f5513e": {
+  "src": "jq · \"\\(<f>)\"",
+  "vi": "Nối biểu thức f trực tiếp vào trong chuỗi ký tự",
+  "q": [
+   "nối biến vào chuỗi ký tự",
+   "chèn biểu thức vào trong string",
+   "string interpolation chuỗi ký tự"
+  ]
+ },
+ "e8151198796f711ccd388194084dd6c17380a0124837a2492fea0d17390e2e72": {
+  "src": "jq · @base64",
+  "vi": "Mã hoá chuỗi đầu vào sang định dạng Base64",
+  "q": [
+   "mã hoá chuỗi sang base64",
+   "encode base64 cho chuỗi",
+   "chuyển text thành base64"
+  ]
+ },
+ "7f947845e73251f2d160b218164a4ace1eed23ddb299012313bcea51715bfce6": {
+  "src": "jq · @base64d",
+  "vi": "Giải mã chuỗi Base64 trở lại văn bản gốc",
+  "q": [
+   "giải mã chuỗi base64",
+   "decode base64 ra text",
+   "chuyển base64 về văn bản gốc"
+  ]
+ },
+ "a88dbf6e97f1094e2c96e3cb3015960bedacd0a19fd57d1ea0ea3a36fa0b6b3b": {
+  "src": "jq · @csv",
+  "vi": "Định dạng mảng giá trị đơn thành một dòng CSV hợp lệ",
+  "q": [
+   "chuyển mảng thành dòng csv",
+   "format dữ liệu mảng sang định dạng csv",
+   "xuất mảng ra hàng csv"
+  ]
+ },
+ "a02d15468309dc19491b8f7a06f52ef04d92c19f02f44f069dd89ce0dc0621a0": {
+  "src": "jq · @tsv",
+  "vi": "Định dạng mảng giá trị thành dòng ngăn cách bằng tab (TSV)",
+  "q": [
+   "chuyển mảng thành dòng tsv",
+   "format dữ liệu mảng phân tách bằng tab",
+   "xuất mảng ra dòng tsv tab separated"
+  ]
+ },
+ "db0e48473dd6aa94a6a6c2dda9f2a6f6c8b0f2fefabe41e0f2f9d958e482087c": {
+  "src": "jq · @json",
+  "vi": "Serialize giá trị JSON thành chuỗi JSON string có escape",
+  "q": [
+   "chuyển object thành json string có escape",
+   "serialize giá trị sang chuỗi json",
+   "biến đổi json thành escape string"
+  ]
+ },
+ "7bc36ce72a84163dda464ce3bc2e1837886de30729d772f3861fdaaf7230608c": {
+  "src": "jq · @text",
+  "vi": "Định dạng đầu vào thành chuỗi không có dấu ngoặc kép bọc ngoài",
+  "q": [
+   "xuất text không kèm dấu ngoặc kép",
+   "chuyển giá trị thành chuỗi plain text",
+   "bỏ dấu ngoặc kép quanh chuỗi"
+  ]
+ },
+ "ec791d2627111be4886c8911fe6c736cd564dc0337731cc56eac6cac5eafb912": {
+  "src": "jq · @html",
+  "vi": "Escape các ký tự đặc biệt của HTML an toàn cho web",
+  "q": [
+   "escape ký tự đặc biệt html",
+   "mã hoá ký tự sang thực thể html an toàn",
+   "chống xss escape thẻ html"
+  ]
+ },
+ "c1b2dcdbb14729d417052bd2e39e10cbfb3b062b6fedf909c3a35ca6451815f2": {
+  "src": "jq · @uri",
+  "vi": "Mã hoá percent-encode (URL encode) cho chuỗi tham số URL",
+  "q": [
+   "url encode cho chuỗi query",
+   "percent encode đường dẫn url",
+   "mã hoá ký tự an toàn cho url"
+  ]
+ },
+ "79619d84ccdab2af500e6e7e0b5c6a4c6d767c81161a12888c4bd58dc52ad8a0": {
+  "src": "jq · @urid",
+  "vi": "Giải mã chuỗi URI percent-encode trở về văn bản thông thường",
+  "q": [
+   "url decode chuỗi percent encoded",
+   "giải mã đường dẫn url bị mã hoá",
+   "chuyển uri encode về văn bản gốc"
+  ]
+ },
+ "a9c9094402851956d71483acb770a5f091a0e4f1d979da7b2daf9383119da726": {
+  "src": "jq · @sh",
+  "vi": "Bọc nháy và escape chuỗi an toàn để thực thi trong shell",
+  "q": [
+   "escape chuỗi an toàn cho shell script",
+   "bọc nháy tham số chạy lệnh bash an toàn",
+   "chống shell injection escape tham số"
+  ]
+ },
+ "e9a19755fdd8ba842cf43ab61691b2733c0a6b4e0ded83dbdfe686612f8476ce": {
+  "src": "jq · +",
+  "vi": "Cộng số, nối chuỗi/mảng hoặc shallow merge hai object",
+  "q": [
+   "cộng số hoặc ghép nối mảng",
+   "shallow merge gộp hai object",
+   "nối chuỗi ký tự bằng dấu cộng"
+  ]
+ },
+ "ba683897ea61a630991d7bdab8d7f5685e4dd7a0c76eb842da681155f30365e3": {
+  "src": "jq · -",
+  "vi": "Trừ số hoặc loại bỏ các phần tử khớp khỏi mảng",
+  "q": [
+   "trừ hai số học",
+   "loại bỏ phần tử khỏi mảng",
+   "xoá giá trị khớp trong array"
+  ]
+ },
+ "bb496f076684abaed35dcd870a09a5076366ef27d3b263a1cd97b82961496608": {
+  "src": "jq · *",
+  "vi": "Nhân số, lặp lại chuỗi hoặc deep merge đệ quy hai object",
+  "q": [
+   "nhân hai số hoặc nhân bản chuỗi",
+   "deep merge hợp nhất sâu hai object",
+   "lặp lại chuỗi nhiều lần"
+  ]
+ },
+ "859357264b349db784bbe192bff241633bb62288a7cfa1497e1a2a832fcc57cc": {
+  "src": "jq · /",
+  "vi": "Chia số hoặc tách chuỗi thành mảng theo ký tự phân cách",
+  "q": [
+   "chia hai số học",
+   "tách chuỗi theo dấu phân cách",
+   "split string thành mảng"
+  ]
+ },
+ "4e0162dd7b7f0c2266c4a9597b6b81f3f6bc68214566e369668aac77112f707c": {
+  "src": "jq · %",
+  "vi": "Chia lấy phần dư của phép chia số nguyên (modulo)",
+  "q": [
+   "chia lấy phần dư modulo",
+   "tính số dư phép chia nguyên",
+   "phép toán lấy dư phần trăm"
+  ]
+ },
+ "3bd85439090210c6bb539fdcc29b6c8c59f37da2b3952db32194a8917e6a5eee": {
+  "src": "jq · ==",
+  "vi": "Kiểm tra hai giá trị có bằng nhau về cấu trúc hay không",
+  "q": [
+   "kiểm tra hai giá trị bằng nhau",
+   "so sánh bằng cấu trúc sâu",
+   "kiểm tra so khớp dữ liệu"
+  ]
+ },
+ "66709660ce06f4f567c5c0c8b67116ba57e5478b9b91252b995b46d08de882d2": {
+  "src": "jq · !=",
+  "vi": "Kiểm tra hai giá trị có khác nhau hay không",
+  "q": [
+   "kiểm tra hai giá trị khác nhau",
+   "so sánh không bằng nhau",
+   "điều kiện khác phủ định bằng"
+  ]
+ },
+ "eed1f68cc62ccc3670dd0cc3a93a25b86100f3d4dc123b40cc918c7b710542bd": {
+  "src": "jq · <",
+  "vi": "Kiểm tra giá trị bên trái nhỏ hơn giá trị bên phải",
+  "q": [
+   "so sánh nhỏ hơn nghiêm ngặt",
+   "kiểm tra giá trị bé hơn",
+   "điều kiện nhỏ hơn giá trị so sánh"
+  ]
+ },
+ "fb515bae10aba132542ff370c6aa535f6b9d9c9f16e3075a36bf02c9d00d51e5": {
+  "src": "jq · <=",
+  "vi": "Kiểm tra giá trị bên trái nhỏ hơn hoặc bằng giá trị bên phải",
+  "q": [
+   "so sánh nhỏ hơn hoặc bằng",
+   "kiểm tra giá trị bé hơn bằng",
+   "điều kiện không vượt quá giá trị"
+  ]
+ },
+ "c66fc8a6f095c1b482a8fa4e8539345d3065f4d68b674131084dbb3c14773856": {
+  "src": "jq · >",
+  "vi": "Kiểm tra giá trị bên trái lớn hơn giá trị bên phải",
+  "q": [
+   "so sánh lớn hơn nghiêm ngặt",
+   "kiểm tra giá trị lớn hơn mốc",
+   "điều kiện lớn hơn giá trị bên phải"
+  ]
+ },
+ "509da965ece296a5a99a34cf2f2cc49477120a25ae8199ded152857405ae7805": {
+  "src": "jq · >=",
+  "vi": "Kiểm tra giá trị bên trái lớn hơn hoặc bằng giá trị bên phải",
+  "q": [
+   "so sánh lớn hơn hoặc bằng",
+   "kiểm tra giá trị tối thiểu đạt được",
+   "điều kiện lớn hơn bằng giá trị chuẩn"
+  ]
+ },
+ "6aa8f2836c23accc7e54ed265d997e020f22ec1ef39f9253870f8cdfafed9e83": {
+  "src": "jq · and",
+  "vi": "Toán tử logic AND, trả về true nếu cả hai vế đều đúng",
+  "q": [
+   "toán tử logic and",
+   "kết hợp hai điều kiện đồng thời đúng",
+   "phép và logic giữa hai biểu thức"
+  ]
+ },
+ "04f2eb1af449ece4b38fc0a4ab79e7fb11bf1aff004428abface2e37bbc09065": {
+  "src": "jq · or",
+  "vi": "Toán tử logic OR, trả về true nếu ít nhất một vế đúng",
+  "q": [
+   "toán tử logic or",
+   "kiểm tra một trong hai điều kiện đúng",
+   "phép hoặc logic giữa hai biểu thức"
+  ]
+ },
+ "b5c0d239fcf0f1b6d6b2979271450e4cfff356b50e22d7741e5a7238a472e817": {
+  "src": "jq · not",
+  "vi": "Đảo ngược giá trị logic: trả về true cho false/null, ngược lại false",
+  "q": [
+   "đảo ngược giá trị boolean",
+   "phủ định điều kiện logic not",
+   "nghịch đảo kết quả đúng sai"
+  ]
+ },
+ "f8fca55cef68070982f67b8fba983862cd1ad53696880ae52a539c137aea2a0c": {
+  "src": "jq · //",
+  "vi": "Toán tử fallback, trả về vế phải nếu vế trái null hoặc false",
+  "q": [
+   "gán giá trị mặc định khi null hoặc false",
+   "toán tử fallback thay thế null",
+   "lấy default value khi trường không tồn tại"
+  ]
+ },
+ "7d957cdf22a193ee362da2fdd7ef38e99cbed607d4685735ec2ac3a762ab638a": {
+  "src": "jq · if <b> then <t> else <e> end",
+  "vi": "Biểu thức rẽ nhánh điều kiện if-then-else",
+  "q": [
+   "rẽ nhánh điều kiện if else",
+   "câu điều kiện if then else end",
+   "kiểm tra điều kiện rẽ nhánh"
+  ]
+ },
+ "8c12efafe38393d3ab3578a3a0c4877d9049202ee3b595e51dbab9900b35175c": {
+  "src": "jq · if <b> then <t> elif <b> then <t> else <e> end",
+  "vi": "Rẽ nhánh nhiều điều kiện, khớp điều kiện đúng (truthy) đầu tiên.",
+  "q": [
+   "điều kiện if elif else nhiều nhánh",
+   "rẽ nhánh rẽ luồng theo điều kiện",
+   "kiểm tra nhiều điều kiện truthy"
+  ]
+ },
+ "9a52d4ac966d3d19f8c16c4c2561dbe75eaddf7942ac571551aa8096f71a106e": {
+  "src": "jq · try <f> catch <h>",
+  "vi": "Bắt lỗi runtime từ filter f và xử lý bằng handler h.",
+  "q": [
+   "bắt lỗi và xử lý bằng handler",
+   "try catch xử lý lỗi runtime",
+   "bẫy lỗi và trả về giá trị thay thế"
+  ]
+ },
+ "c35bfebc36df1e6d692014f4029ba26f96f112ee9e759b150dca532b949290f6": {
+  "src": "jq · try <f>",
+  "vi": "Bắt và bỏ qua (chặn) lỗi runtime từ filter f trong im lặng.",
+  "q": [
+   "bỏ qua lỗi runtime",
+   "bắt lỗi im lặng không dừng chương trình",
+   "try bỏ qua lỗi không cần catch"
+  ]
+ },
+ "5fb824f247c46a6aec851a5be0668bb5eb1e4457c172c947112353a7c20d4d3a": {
+  "src": "jq · error(<msg>)",
+  "vi": "Chủ động báo lỗi runtime kèm thông điệp cụ thể.",
+  "q": [
+   "ném lỗi kèm thông báo",
+   "chủ động báo lỗi runtime",
+   "quăng ngoại lệ kèm message"
+  ]
+ },
+ "8bb80f8409b94024ed37184b63d34db3fc1bdc9823fb8a57851701731835eaa1": {
+  "src": "jq · empty",
+  "vi": "Không trả về output nào, ngắt nhánh stream hiện tại để loại bỏ item.",
+  "q": [
+   "loại bỏ phần tử không trả về output",
+   "ngắt nhánh stream loại bỏ item",
+   "xuất ra giá trị rỗng huỷ phần tử"
+  ]
+ },
+ "b90f68ad39c684b158d15f265e83aa5e76244f148254192aba7a082f97cb08f2": {
+  "src": "jq · first(<gen>)",
+  "vi": "Trả về giá trị đầu tiên sinh ra từ biểu thức generator.",
+  "q": [
+   "lấy phần tử đầu tiên từ generator",
+   "giá trị đầu tiên sinh ra",
+   "lọc lấy kết quả đầu tiên"
+  ]
+ },
+ "822c4fd9a84f67583dfa5265ceceb0986ee1981d9a569eb6d516d3e5bc8e3a7a": {
+  "src": "jq · last(<gen>)",
+  "vi": "Trả về giá trị cuối cùng sinh ra từ biểu thức generator.",
+  "q": [
+   "lấy phần tử cuối cùng từ generator",
+   "giá trị cuối cùng sinh ra",
+   "lọc lấy kết quả cuối cùng"
+  ]
+ },
+ "9af313b5f75a2899f60d3e124700d2a716fc1d4790ade424e989380760104dee": {
+  "src": "jq · isempty(<gen>)",
+  "vi": "Trả về true nếu biểu thức generator không sinh ra output nào.",
+  "q": [
+   "kiểm tra generator có rỗng không",
+   "kiểm tra stream không có kết quả",
+   "xác định generator không sinh output"
+  ]
+ },
+ "d8bb1dfd13eab6b125ffcdcaa3cc1e21f9b7f67b2092566c6afa4d4370c5cc31": {
+  "src": "jq · nth(<n>; <gen>)",
+  "vi": "Lấy giá trị thứ n (chỉ số từ 0) từ generator.",
+  "q": [
+   "lấy phần tử thứ n từ generator",
+   "giá trị tại vị trí index n",
+   "trích xuất phần tử theo số thứ tự generator"
+  ]
+ },
+ "a62f2558f31e942d5f115afb2ef1e0be8f77152b66b6c40e4f16689a404f962b": {
+  "src": "jq · limit(<n>; <gen>)",
+  "vi": "Giới hạn lấy tối đa n giá trị từ generator.",
+  "q": [
+   "giới hạn số lượng phần tử trả về",
+   "lấy tối đa n phần tử từ stream",
+   "limit số lượng output từ generator"
+  ]
+ },
+ "11b184376879e54e43fcff68f3cfc1385e2c449e6dd98e90e52a64b06307ccf7": {
+  "src": "jq · skip(<n>; <gen>)",
+  "vi": "Bỏ qua n giá trị đầu tiên của generator và lấy các giá trị còn lại.",
+  "q": [
+   "bỏ qua n phần tử đầu tiên",
+   "skip n giá trị đầu của generator",
+   "lấy các phần tử sau n phần tử đầu"
+  ]
+ },
+ "5bb6981f229830e9ae3ab89c9bf2f53de997fd6700d54df48b628107cedbfed0": {
+  "src": "jq · range(<n>)",
+  "vi": "Sinh chuỗi số nguyên liên tiếp từ 0 đến n-1.",
+  "q": [
+   "sinh dãy số từ 0 đến n-1",
+   "tạo chuỗi số nguyên tự động",
+   "lặp dãy số từ 0"
+  ]
+ },
+ "4ca081c177ff17664a7ec59c6c5f1f1d18bdb9b3d8eb23de4784c1d001e60806": {
+  "src": "jq · range(<start>; <end>)",
+  "vi": "Sinh chuỗi số nguyên từ start đến end-1.",
+  "q": [
+   "sinh dãy số từ start đến end",
+   "tạo chuỗi số nguyên có điểm đầu và cuối",
+   "lặp số từ khoảng bắt đầu đến kết thúc"
+  ]
+ },
+ "40e7b10d531719e5c9a143cc5d9c8d9c074edf9bada46fc6d73fe1bf68f0c696": {
+  "src": "jq · range(<start>; <end>; <step>)",
+  "vi": "Sinh chuỗi số từ start đến end với bước nhảy step tùy chọn.",
+  "q": [
+   "sinh dãy số có bước nhảy step",
+   "tạo chuỗi số tăng tiến theo bước",
+   "lặp số từ start đến end theo khoảng cách"
+  ]
+ },
+ "cbc2c5d4cbc64a085d65360e7386530d04b2a47a64a4a44a33a87412adb48ed8": {
+  "src": "jq · while(<cond>; <update>)",
+  "vi": "Lặp và cập nhật trạng thái khi điều kiện đúng, xuất mọi trạng thái trung gian.",
+  "q": [
+   "lặp khi điều kiện đúng xuất từng trạng thái",
+   "vòng lặp while cập nhật giá trị liên tục",
+   "lặp emit kết quả theo điều kiện"
+  ]
+ },
+ "3d34d392f65131d36eefd4d80452b19d97264b9245280e38fa419bfdaab85799": {
+  "src": "jq · until(<cond>; <update>)",
+  "vi": "Lặp và cập nhật đến khi điều kiện đúng, chỉ xuất trạng thái cuối cùng.",
+  "q": [
+   "lặp cho đến khi điều kiện thoả mãn",
+   "vòng lặp until lấy kết quả cuối",
+   "cập nhật giá trị đến khi đúng điều kiện dừng"
+  ]
+ },
+ "77c875130b2b67a953ff9619a739a3fb927c07712fa4e5f25ef9944529a2ed20": {
+  "src": "jq · repeat(<f>)",
+  "vi": "Lặp lại filter f vô tận để tạo một stream vô hạn.",
+  "q": [
+   "lặp lại vô tận filter",
+   "tạo stream vô hạn giá trị lặp",
+   "chạy lặp vô hạn một biểu thức"
+  ]
+ },
+ "75bbd396b8fbc2359bc545e3439d7c01b4356c4d803759d327a28808318f4680": {
+  "src": "jq · label $<id> | ... break $<id>",
+  "vi": "Đặt nhãn (label) và thoát sớm (break) khỏi các generator lồng nhau.",
+  "q": [
+   "thoát sớm khỏi vòng lặp lồng nhau",
+   "đặt nhãn break ngắt generator",
+   "ngắt luồng bằng label và break"
+  ]
+ },
+ "5a4faf4343bb037d36096b39a532638501c64958cdac422d5082bdc35e6ee666": {
+  "src": "jq · map(<f>)",
+  "vi": "Áp dụng filter f lên từng phần tử mảng và gom thành mảng mới.",
+  "q": [
+   "biến đổi từng phần tử mảng thành mảng mới",
+   "map từng giá trị trong mảng",
+   "áp dụng hàm lên mọi phần tử mảng"
+  ]
+ },
+ "69166a6fb50dab921d380b56d98868130ed03c5251074e73b881b944cf0d28b3": {
+  "src": "jq · map_values(<f>)",
+  "vi": "Áp dụng filter f lên các giá trị trong mảng hoặc object, giữ nguyên key.",
+  "q": [
+   "biến đổi các value trong object giữ nguyên key",
+   "map giá trị giữ nguyên thuộc tính object",
+   "cập nhật value của mảng hoặc object"
+  ]
+ },
+ "6e59093bc7ff92e0308fe2a865dbd7166c6015e2f0e5823faeda53116269f9f4": {
+  "src": "jq · select(<f>)",
+  "vi": "Giữ lại giá trị nếu điều kiện f đúng (truthy), ngược lại loại bỏ.",
+  "q": [
+   "lọc phần tử theo điều kiện",
+   "giữ lại giá trị thoả điều kiện",
+   "filter phần tử thoả mãn biểu thức"
+  ]
+ },
+ "3f5caac759ba00eb7162b54070d9a06e2deaf4041bd99132a9c14b2dd54bbf23": {
+  "src": "jq · length",
+  "vi": "Đếm số phần tử mảng, số key của object hoặc độ dài chuỗi.",
+  "q": [
+   "đếm độ dài chuỗi hoặc số phần tử mảng",
+   "lấy số lượng key của object",
+   "đo độ dài mảng string object"
+  ]
+ },
+ "664a0127af51a348ee3631f365c57a78aaca15f2ba2ac811a6a9a5a01e6fe4ef": {
+  "src": "jq · add",
+  "vi": "Tính tổng số, nối chuỗi/mảng hoặc gộp danh sách object lại với nhau.",
+  "q": [
+   "tính tổng mảng số",
+   "nối mảng hoặc gộp danh sách object",
+   "cộng dồn các phần tử trong mảng"
+  ]
+ },
+ "643f132edd65b3f1de49bbfb545325558df1839374e15f618f96ce1879eb1d33": {
+  "src": "jq · add(<gen>)",
+  "vi": "Tính tổng hoặc nối tất cả các giá trị sinh ra từ generator.",
+  "q": [
+   "tính tổng các giá trị sinh từ generator",
+   "cộng dồn kết quả từ stream generator",
+   "nối giá trị từ biểu thức generator"
+  ]
+ },
+ "9daea96a2e40a88da241cd14c17e19541093c9857bfe4b47a36c0d6086959e09": {
+  "src": "jq · flatten",
+  "vi": "Làm phẳng đệ quy toàn bộ các mảng lồng nhau thành một mảng duy nhất.",
+  "q": [
+   "làm phẳng mảng lồng nhau",
+   "duỗi phẳng mảng nhiều cấp thành một mảng",
+   "flatten toàn bộ mảng con đệ quy"
+  ]
+ },
+ "cbdff8d9e0cb5060ecad122ebc458555b125f2f7c12d9f2e728e2f5da505151d": {
+  "src": "jq · flatten(<depth>)",
+  "vi": "Làm phẳng mảng lồng nhau theo độ sâu (depth) tối đa chỉ định.",
+  "q": [
+   "làm phẳng mảng theo độ sâu chỉ định",
+   "duỗi phẳng mảng giới hạn cấp độ",
+   "flatten mảng lồng nhau theo depth"
+  ]
+ },
+ "1359266d95c7f0459cba543ebe1c2b34079686d99f1d51dce75994c85756c40d": {
+  "src": "jq · any",
+  "vi": "Trả về true nếu có ít nhất một phần tử trong mảng là đúng (truthy).",
+  "q": [
+   "kiểm tra có ít nhất một phần tử đúng",
+   "kiểm tra mảng tồn tại giá trị truthy",
+   "xác định mảng có phần tử nào thoả mãn"
+  ]
+ },
+ "43705548c68067d773616fd7325f3f59fa9e3285468bd9f224b9b986d64d76c6": {
+  "src": "jq · all",
+  "vi": "Trả về true nếu tất cả phần tử trong mảng đều đúng (truthy).",
+  "q": [
+   "kiểm tra tất cả phần tử đều đúng",
+   "xác định mọi phần tử mảng đều truthy",
+   "kiểm tra mảng không có phần tử sai"
+  ]
+ },
+ "076a9c3bb24f71fdf216e497fb5ead9b15e96ed47022c7e13ab021961d5b8b5b": {
+  "src": "jq · min",
+  "vi": "Trả về giá trị nhỏ nhất trong mảng.",
+  "q": [
+   "tìm giá trị nhỏ nhất trong mảng",
+   "lấy phần tử bé nhất",
+   "tìm số nhỏ nhất mảng"
+  ]
+ },
+ "3dafaae98df5e1c963c4580264390c7c88100fe4a29a1ebf88b7f9be7a2588ce": {
+  "src": "jq · max",
+  "vi": "Trả về giá trị lớn nhất trong mảng.",
+  "q": [
+   "tìm giá trị lớn nhất trong mảng",
+   "lấy phần tử lớn nhất",
+   "tìm số lớn nhất mảng"
+  ]
+ },
+ "51a2d5055fad0aa54bc08ac275fc4fbcbc1022842e8d5640de87aa75875e4af8": {
+  "src": "jq · min_by(<f>)",
+  "vi": "Lấy phần tử mảng cho kết quả biểu thức f nhỏ nhất.",
+  "q": [
+   "tìm phần tử có thuộc tính nhỏ nhất",
+   "lấy object có giá trị bé nhất theo điều kiện",
+   "tìm giá trị nhỏ nhất dựa trên biểu thức f"
+  ]
+ },
+ "be91a96cd82e654664ca737b5e38569aab796faa5bd300f3543b0a2f9fad69ee": {
+  "src": "jq · max_by(<f>)",
+  "vi": "Lấy phần tử mảng cho kết quả biểu thức f lớn nhất.",
+  "q": [
+   "tìm phần tử có thuộc tính lớn nhất",
+   "lấy object có giá trị lớn nhất theo điều kiện",
+   "tìm giá trị lớn nhất dựa trên biểu thức f"
+  ]
+ },
+ "ce23bddd587e08251a430e18c4b601ac31a59ef84a84b061fa9ca2e90c62618c": {
+  "src": "jq · reverse",
+  "vi": "Đảo ngược thứ tự các phần tử trong mảng.",
+  "q": [
+   "đảo ngược thứ tự mảng",
+   "sắp xếp mảng ngược lại",
+   "xoay ngược vị trí phần tử mảng"
+  ]
+ },
+ "d79c2b2a6a1691df8680da4db10c300c186a4c81976fb9942c19c62c19b08d1e": {
+  "src": "jq · sort",
+  "vi": "Sắp xếp các phần tử trong mảng theo thứ tự tăng dần.",
+  "q": [
+   "sắp xếp mảng tăng dần",
+   "sort mảng theo thứ tự từ bé đến lớn",
+   "xếp thứ tự phần tử mảng tăng tiến"
+  ]
+ },
+ "b653c4c2fe7527caf42d320f0e1881dfc4981a409a454906fd1c7e89e04a6bd3": {
+  "src": "jq · sort_by(<f>)",
+  "vi": "Sắp xếp các phần tử mảng dựa trên biểu thức khóa f.",
+  "q": [
+   "sắp xếp mảng theo trường thuộc tính",
+   "sort object theo key f",
+   "sắp xếp phần tử dựa vào biểu thức tính toán"
+  ]
+ },
+ "6ee13dde260abcf0d1f99ba443963d2781d86970858472435bd04921cb97cec7": {
+  "src": "jq · group_by(<f>)",
+  "vi": "Nhóm các phần tử mảng thành các mảng con có cùng biểu thức khóa f.",
+  "q": [
+   "nhóm các phần tử theo trường chung",
+   "group by object theo thuộc tính f",
+   "gom nhóm mảng con có cùng giá trị khóa"
+  ]
+ },
+ "986dc962aca78049ef21461e53a150f3ab01821a8b17c97ad72c8ba05104bb87": {
+  "src": "jq · unique",
+  "vi": "Loại bỏ phần tử trùng lặp trong mảng và sắp xếp tăng dần.",
+  "q": [
+   "lọc bỏ phần tử trùng lặp trong mảng",
+   "xoá giá trị trùng và sắp xếp tăng dần",
+   "loại bỏ trùng lặp mảng unique"
+  ]
+ },
+ "5e2e03dc177fb93d4f1bd6564434efdf2e70e94718cda4b20076b2cbdb294860": {
+  "src": "jq · unique_by(<f>)",
+  "vi": "Lọc trùng lặp mảng, giữ lại phần tử xuất hiện đầu tiên của mỗi khóa f.",
+  "q": [
+   "lọc trùng object theo trường khoá f",
+   "deduplicate mảng giữ phần tử đầu tiên",
+   "loại bỏ bản ghi trùng lặp theo thuộc tính"
+  ]
+ },
+ "3c18dfc34ab520a22cf20bcf44d6f7222fc982cdc9513b451b023e3d320fec6e": {
+  "src": "jq · index(<val>)",
+  "vi": "Trả về vị trí (index) đầu tiên giá trị xuất hiện trong mảng/chuỗi, hoặc null.",
+  "q": [
+   "tìm vị trí index đầu tiên của phần tử",
+   "lấy chỉ số xuất hiện đầu tiên trong mảng chuỗi",
+   "vị trí đầu tiên của giá trị mục tiêu"
+  ]
+ },
+ "84ffd07b001628213cf543acaf3c6b7da94b30c2434e107760559279ce93126d": {
+  "src": "jq · rindex(<val>)",
+  "vi": "Trả về vị trí (index) cuối cùng giá trị xuất hiện trong mảng/chuỗi, hoặc null.",
+  "q": [
+   "tìm vị trí index cuối cùng của phần tử",
+   "lấy chỉ số xuất hiện cuối trong mảng chuỗi",
+   "vị trí cuối cùng của giá trị mục tiêu"
+  ]
+ },
+ "e001b1286a2b59eb45e9db0153ecee80be7e36eb52e02ddb1e53c3633c95db1d": {
+  "src": "jq · jq '.[] | select(.<field> == <val>)' <file>",
+  "vi": "Lọc các object trong mảng theo giá trị của trường cụ thể",
+  "q": [
+   "lọc object theo điều kiện trường",
+   "tìm phần tử mảng có field bằng giá trị",
+   "select object trong array theo thuộc tính"
+  ]
+ },
+ "671a232b8b2748e5781217a202db3a0c3f94db042cbfa125e1712e45740c74f4": {
+  "src": "jq · jq -r '.[] | [.<f1>, .<f2>] | @csv' <file>",
+  "vi": "Xuất các trường được chọn từ mảng object ra định dạng CSV",
+  "q": [
+   "chuyển mảng json sang csv",
+   "export các trường ra file csv",
+   "trích xuất thuộc tính object thành csv"
+  ]
+ },
+ "a175a31a2935b7a4400ffaf7c89a5fdd3ea06dbebeb34b06a5db20ff268eb87f": {
+  "src": "jq · jq -r '.[] | [.<f1>, .<f2>] | @tsv' <file>",
+  "vi": "Xuất các trường được chọn từ mảng object ra định dạng TSV",
+  "q": [
+   "chuyển mảng json sang tsv",
+   "export các trường ra file tsv",
+   "trích xuất thuộc tính object thành tsv"
+  ]
+ },
+ "9faa2bd58dd329e061bfab90e22ba4bc0f281e05546ec7a606f2c5bcc0e12f68": {
+  "src": "jq · jq 'length' <file>",
+  "vi": "Đếm tổng số lượng phần tử trong mảng JSON gốc",
+  "q": [
+   "đếm số phần tử trong mảng json",
+   "xem độ dài mảng json",
+   "tính tổng số item trong array"
+  ]
+ },
+ "327dab2c16c9bd1edd758e5213c00426ad0a1e9ff5a50061745093493429e822": {
+  "src": "jq · jq -s '.[0] * .[1]' <file1> <file2>",
+  "vi": "Hợp nhất (merge) đệ quy hai file JSON, ghi đè từ file sau",
+  "q": [
+   "gộp hai file json ghi đè",
+   "merge đệ quy 2 file json",
+   "kết hợp file json override cấu hình"
+  ]
+ },
+ "aeafe20c646044aa915f78bf7b74ef0ab664b50d68b35840e24be9b8a3171e3d": {
+  "src": "jq · jq '.<field> = <val>' <file> | sponge <file>",
+  "vi": "Cập nhật trực tiếp file JSON an toàn tại chỗ dùng sponge",
+  "q": [
+   "sửa trực tiếp file json in place",
+   "cập nhật giá trị trường ghi đè file json",
+   "thay đổi nội dung file json an toàn với sponge"
+  ]
+ },
+ "6f160dff14b7f24a6d66bea6f94380ba2b79808c64ae92d53130e6538cb51432": {
+  "src": "jq · jq --arg <var> \"$<SHELL_VAR>\" '.<field> = $<var>' <file>",
+  "vi": "Truyền biến môi trường shell vào cấu trúc JSON an toàn",
+  "q": [
+   "truyền biến shell vào json",
+   "gán biến môi trường vào field json",
+   "dùng biến bash cập nhật json"
+  ]
+ },
+ "209a9291c02757b9b47c79781ea71b0b03e5fcb66e2f01d15c39b160bf5d3d52": {
+  "src": "jq · jq -c 'select(.<field> == \"<val>\")' <file>",
+  "vi": "Lọc luồng log định dạng NDJSON theo giá trị trường cụ thể",
+  "q": [
+   "lọc log ndjson theo trường",
+   "tìm kiếm json theo dòng newline delimited",
+   "filter stream json log theo giá trị"
+  ]
+ },
+ "dee31925703d4b791f13c72f669250a7c29e1f317c4d30db58c87b7f4519f3c7": {
+  "src": "jq · jq '[paths(scalars) as $p | {path: ($p | join(\".\")), val: ge",
+  "vi": "Làm phẳng (flatten) JSON lồng nhau thành đường dẫn phân cách dấu chấm",
+  "q": [
+   "làm phẳng json lồng nhau",
+   "flatten nested json thành dot notation",
+   "chuyển key json phân cấp thành đường dẫn chấm"
+  ]
+ },
+ "de108e37a818c34456daf6a68ecbc4e0bae72c100fa472d98f6e8dbfdf6b3d7d": {
+  "src": "jq · jq 'del(.. | nulls)' <file>",
+  "vi": "Xoá đệ quy tất cả giá trị null trong tài liệu JSON",
+  "q": [
+   "xoá tất cả giá trị null trong json",
+   "loại bỏ field có giá trị null đệ quy",
+   "lọc bỏ null value json"
+  ]
+ },
+ "9dd0de31a4514370075e0f7fc59cd1b5b68d57ca33caae4e6c179abe5ea47ab6": {
+  "src": "jq · jq '.<new_key> = .<old_key> | del(.<old_key>)' <file>",
+  "vi": "Đổi tên key của object nhưng giữ nguyên giá trị",
+  "q": [
+   "đổi tên key trong json",
+   "rename thuộc tính object json",
+   "thay tên trường giữ nguyên giá trị"
+  ]
+ },
+ "f826cecd582a329880918c46e88e94dbfca965567a9f7bfe436f00e2ef749987": {
+  "src": "jq · jq '[.[].<field>] | add' <file>",
+  "vi": "Tính tổng giá trị số của một trường qua các object trong mảng",
+  "q": [
+   "tính tổng giá trị trường trong mảng",
+   "cộng tổng số của field trong json array",
+   "sum một cột số của các object"
+  ]
+ },
+ "ed454b4054a0c35649adb158bbae035b00f9ac4499e81c2abe45a53f89fd0871": {
+  "src": "jq · jq '[.[].<field>] | unique' <file>",
+  "vi": "Trích xuất và sắp xếp các giá trị duy nhất của trường từ mảng",
+  "q": [
+   "lấy giá trị duy nhất của trường trong mảng",
+   "lọc danh sách unique field json array",
+   "trích xuất giá trị không trùng lặp đã sắp xếp"
+  ]
+ },
+ "c38f092163df7824d9c5cb015dd64f9ace86e6ff3c414c88c0c521fd71b39c04": {
+  "src": "jq · jq 'group_by(.<field>) | map({key: .[0].<field>, count: leng",
+  "vi": "Gom nhóm mảng theo trường và đếm số lượng phần tử mỗi nhóm",
+  "q": [
+   "gom nhóm theo trường và đếm số lượng",
+   "group by field đếm phần tử trong json",
+   "thống kê số lượng theo nhóm thuộc tính"
+  ]
+ },
+ "2a6d1c234f214198b9693c1545b974111e05bcdbbf2dc1886715c60d5da1c735": {
+  "src": "jq · rtrim",
+  "vi": "Xoá khoảng trắng thừa ở cuối chuỗi",
+  "q": [
+   "xoá khoảng trắng cuối chuỗi",
+   "cắt khoảng trắng bên phải",
+   "bỏ ký tự trắng ở đuôi chuỗi"
+  ]
+ },
+ "29951c81befc1cefed1dd8f05546c316a78f5db66602be3581406c5ac2dc40f5": {
+  "src": "jq · trimstr(<subseq>)",
+  "vi": "Xoá chuỗi con <subseq> ở đầu và cuối chuỗi",
+  "q": [
+   "xoá chuỗi con ở đầu và cuối",
+   "cắt tiền tố và hậu tố trùng lặp",
+   "loại bỏ chuỗi tiền tố hậu tố"
+  ]
+ },
+ "66c255f3da9d2f7cf70dd7bc974bf7716d216ff36a3bd487294eb63509f3b5fe": {
+  "src": "jq · explode",
+  "vi": "Chuyển chuỗi thành mảng số nguyên Unicode codepoint",
+  "q": [
+   "chuyển chuỗi thành mảng codepoint unicode",
+   "tách chuỗi thành mã ký tự unicode",
+   "đổi chuỗi sang mảng số mã ký tự"
+  ]
+ },
+ "bc90f1710b233c23136822eaeba6552662e09af154583ceb497995552c3b501e": {
+  "src": "jq · implode",
+  "vi": "Ghép mảng số nguyên Unicode codepoint thành chuỗi",
+  "q": [
+   "ghép mảng codepoint thành chuỗi",
+   "chuyển mảng mã unicode sang chuỗi",
+   "tạo chuỗi từ danh sách mã ký tự"
+  ]
+ },
+ "117c55f363cdc2a66c0703bd95cbb0703df59c952f94353576b6763c1fd9f959": {
+  "src": "jq · utf8bytelength",
+  "vi": "Đếm số byte cần để mã hoá chuỗi UTF-8",
+  "q": [
+   "đếm số byte chuỗi utf-8",
+   "độ dài byte của chuỗi",
+   "tính dung lượng byte chuỗi utf8"
+  ]
+ },
+ "432f54e9bab363d606c7f5d8fee250b28f9ca385ce0b821c072c8ae6ed4eb96e": {
+  "src": "jq · test(<regex>)",
+  "vi": "Kiểm tra chuỗi có khớp regex không, trả về boolean",
+  "q": [
+   "kiểm tra chuỗi khớp regex",
+   "so khớp chuỗi với biểu thức chính quy",
+   "check regex trả về true false"
+  ]
+ },
+ "060371d19024f570dbdd532bf364747bf7c1f28cf8df54bd1d8567fd1c4e661a": {
+  "src": "jq · test(<regex>; <flags>)",
+  "vi": "Kiểm tra khớp regex kèm cờ như \"i\" không phân biệt hoa thường",
+  "q": [
+   "kiểm tra regex không phân biệt hoa thường",
+   "so khớp regex với flag i",
+   "check chuỗi khớp regex có cờ flag"
+  ]
+ },
+ "33e0ef216c79a8532b286895ed9158777ce99b55fe5c9281d888c5e052c16404": {
+  "src": "jq · match(<regex>)",
+  "vi": "Tìm vị trí khớp regex đầu tiên, trả về offset và capture",
+  "q": [
+   "tìm khớp regex đầu tiên kèm vị trí",
+   "lấy thông tin khớp regex offset length",
+   "so khớp regex trả về capture đầu tiên"
+  ]
+ },
+ "54f02d2bf94a317726b7735fce3155ae76f7be325b87d5fdf8b18aec757a26b4": {
+  "src": "jq · match(<regex>; <flags>)",
+  "vi": "Tìm các khớp regex kèm cờ tuỳ chọn như cờ \"g\" toàn cục",
+  "q": [
+   "tìm tất cả khớp regex với cờ g",
+   "so khớp regex toàn cục flag g",
+   "lấy danh sách khớp regex có cờ flag"
+  ]
+ },
+ "8bd006b0c3dee5394ca229f64c617ef6bfd6ecf6efaea53da6e0475de753e285": {
+  "src": "jq · capture(<regex>)",
+  "vi": "Trích xuất các capture group có đặt tên trong regex thành object",
+  "q": [
+   "trích xuất named capture group regex thành object",
+   "lấy nhóm bắt có tên trong regex",
+   "parse regex capture group thành đối tượng key value"
+  ]
+ },
+ "bbfb607f8826d79d62e754e6671294f1df3b8da9101edc905f5cc036e9fe2223": {
+  "src": "jq · scan(<regex>)",
+  "vi": "Xuất luồng tất cả chuỗi con hoặc nhóm khớp với regex",
+  "q": [
+   "quét tất cả chuỗi con khớp regex",
+   "tìm mọi kết quả khớp regex dạng luồng stream",
+   "lấy tất cả đoạn văn bản khớp biểu thức chính quy"
+  ]
+ },
+ "cf33747bef8ae835740ff2c276a5fc3dd45e81ef4d89f95353eaa974f9cc4e69": {
+  "src": "jq · sub(<regex>; <repl>)",
+  "vi": "Thay thế đoạn khớp regex đầu tiên bằng chuỗi thay thế",
+  "q": [
+   "thay thế chuỗi khớp regex đầu tiên",
+   "đổi đoạn khớp biểu thức chính quy đầu tiên",
+   "replace lần xuất hiện đầu tiên của regex"
+  ]
+ },
+ "054933f04ff509d23a5eddaecf6a449530c96940995f8569894bc8ce79451091": {
+  "src": "jq · gsub(<regex>; <repl>)",
+  "vi": "Thay thế tất cả đoạn khớp regex bằng chuỗi thay thế",
+  "q": [
+   "thay thế toàn bộ chuỗi khớp regex",
+   "đổi tất cả vị trí khớp biểu thức chính quy",
+   "replace all chuỗi khớp regex"
+  ]
+ },
+ "69e7bbd06db85e4ccacea2ea5ef989fbf4e26361794437bf4758fe775067f5b4": {
+  "src": "jq · type",
+  "vi": "Trả về tên kiểu dữ liệu JSON của đầu vào dạng chuỗi",
+  "q": [
+   "kiểm tra kiểu dữ liệu json",
+   "lấy tên kiểu của giá trị",
+   "xem datatype của trường json"
+  ]
+ },
+ "27d0bedbb6f7ebd1060e6e2d0e2e3e3db4a104165391a4e9d8c2d612b29a8bdb": {
+  "src": "jq · arrays",
+  "vi": "Chỉ giữ lại giá trị nếu là mảng (array), ngược lại bỏ qua",
+  "q": [
+   "lọc chỉ lấy kiểu mảng array",
+   "giữ lại dữ liệu dạng mảng",
+   "bỏ qua các giá trị không phải array"
+  ]
+ },
+ "2850956f2030935e3aba93997fd44d16f1697e0803236e8fa50ca5249ef36652": {
+  "src": "jq · objects",
+  "vi": "Chỉ giữ lại giá trị nếu là object, ngược lại bỏ qua",
+  "q": [
+   "lọc chỉ lấy kiểu object",
+   "giữ lại các đối tượng json",
+   "loại bỏ giá trị không phải object"
+  ]
+ },
+ "7d5ea4c8332fb3bb9b11f0a24a1a8b5db4ad1066c487b8a55987f2cbc9bf78b9": {
+  "src": "jq · strings",
+  "vi": "Chỉ giữ lại giá trị nếu là chuỗi (string), ngược lại bỏ qua",
+  "q": [
+   "lọc chỉ lấy kiểu chuỗi string",
+   "giữ lại giá trị dạng văn bản",
+   "loại bỏ dữ liệu không phải string"
+  ]
+ },
+ "00f66403c62511f7ce15a1d2b5bd86eb676cfc32d1c9c2558719b3243baf10ca": {
+  "src": "jq · numbers",
+  "vi": "Chỉ giữ lại giá trị nếu là số (number), ngược lại bỏ qua",
+  "q": [
+   "lọc chỉ lấy kiểu số number",
+   "giữ lại giá trị dạng số",
+   "bỏ qua dữ liệu không phải số"
+  ]
+ },
+ "7d7ee21afe9fc2b7c6d74b07245553a5bc1729cf5751fd98e5d4464e5782677a": {
+  "src": "jq · booleans",
+  "vi": "Chỉ giữ lại giá trị nếu là boolean, ngược lại bỏ qua",
+  "q": [
+   "lọc chỉ lấy kiểu boolean đúng sai",
+   "giữ lại giá trị true false",
+   "bỏ qua giá trị không phải boolean"
+  ]
+ },
+ "5e75413a980b46181bce09a0d6ab06efb1a0f01514832eaac843fa871c0de765": {
+  "src": "jq · nulls",
+  "vi": "Chỉ giữ lại giá trị nếu là null, ngược lại bỏ qua",
+  "q": [
+   "lọc chỉ lấy giá trị null",
+   "giữ lại phần tử null",
+   "bỏ qua dữ liệu khác null"
+  ]
+ },
+ "0b380124aff81b942e4324714f7318bfc135bec23f8a40d25ada46283cc9fbfb": {
+  "src": "jq · iterables",
+  "vi": "Chỉ giữ lại giá trị nếu là mảng hoặc object",
+  "q": [
+   "lọc phần tử có thể lặp mảng hoặc object",
+   "giữ lại kiểu iterable array object",
+   "bỏ qua giá trị đơn chỉ lấy mảng hoặc đối tượng"
+  ]
+ },
+ "18d2650e539fbbc5c07f7f40a17ca1658fbee1130fe7a7a8fcdf1614da50fa14": {
+  "src": "jq · scalars",
+  "vi": "Chỉ giữ lại giá trị vô hướng (không phải mảng hay object)",
+  "q": [
+   "lọc giá trị vô hướng scalar",
+   "giữ lại kiểu đơn không phải mảng hay object",
+   "bỏ qua mảng và đối tượng lấy giá trị vô hướng"
+  ]
+ },
+ "14c2f8e6e54b67f3df9ff3bf7bc8e39d385777db22ce7082d85de2b10053d720": {
+  "src": "jq · tostring",
+  "vi": "Chuyển đổi giá trị đầu vào thành dạng chuỗi văn bản",
+  "q": [
+   "chuyển giá trị thành chuỗi",
+   "ép kiểu sang string",
+   "đổi số hoặc đối tượng sang chuỗi"
+  ]
+ },
+ "08b18be23e886a8ea3d0797ee6f2bbbae8aae562e5b58bf66e6f352e20904050": {
+  "src": "jq · tonumber",
+  "vi": "Chuyển chuỗi thành số hoặc giữ nguyên nếu đã là số",
+  "q": [
+   "chuyển chuỗi sang số",
+   "ép kiểu string thành number",
+   "parse chuỗi thành số nguyên số thực"
+  ]
+ },
+ "25747587f77f417df513a41a189a0b6abe7d508bdeebf703a92002da90162eac": {
+  "src": "jq · tojson",
+  "vi": "Tuần tự hoá giá trị đầu vào thành chuỗi JSON hợp lệ",
+  "q": [
+   "tuần tự hoá giá trị thành chuỗi json",
+   "serialize đối tượng sang chuỗi json",
+   "chuyển dữ liệu thành json string"
+  ]
+ },
+ "85daaba0add9895b4af6461817c68fbef6bf79c9bc49a2b4e2bb81b37e00fb8a": {
+  "src": "jq · fromjson",
+  "vi": "Phân tích cú pháp chuỗi JSON thành cấu trúc dữ liệu",
+  "q": [
+   "parse chuỗi json thành cấu trúc dữ liệu",
+   "giải mã chuỗi json string sang object",
+   "chuyển chuỗi json thành mảng hoặc đối tượng"
+  ]
+ },
+ "e2864376c1d00e25738cd19e389fcbbc0e65187d499402cadc4a19c73c8de4ce": {
+  "src": "jq · toboolean",
+  "vi": "Chuyển chuỗi \"true\" hoặc \"false\" thành giá trị boolean",
+  "q": [
+   "chuyển chuỗi true false thành boolean",
+   "ép kiểu chuỗi sang boolean",
+   "parse string thành boolean literal"
+  ]
+ },
+ "234a88a738b47bea04a39e7815bf5329ccb253a2df97b51f521961fa81a92df7": {
+  "src": "jq · abs",
+  "vi": "Lấy giá trị tuyệt đối của một số",
+  "q": [
+   "giá trị tuyệt đối của số",
+   "lấy trị tuyệt đối số âm thành dương",
+   "tính abs của số"
+  ]
+ },
+ "9e6bf214ccbe4906f34c2c2c04d8e5cfcae60e417ddad2549a5627314b6717d9": {
+  "src": "jq · floor",
+  "vi": "Làm tròn số xuống số nguyên gần nhất",
+  "q": [
+   "làm tròn số xuống",
+   "lấy phần nguyên làm tròn xuống",
+   "làm tròn về phía vô cùng âm"
+  ]
+ },
+ "4b5eecd6a2666bf11850c6feadf0d6087327ebba840601d0a1dead44696bdcbb": {
+  "src": "jq · ceil",
+  "vi": "Làm tròn số lên số nguyên gần nhất",
+  "q": [
+   "làm tròn số lên",
+   "làm tròn trần ceil số thực",
+   "làm tròn về phía vô cùng dương"
+  ]
+ },
+ "03d4fe76ba8636678374ef7a4cb120ebd18b766ff79929cbeb040cf54ba167dd": {
+  "src": "jq · round",
+  "vi": "Làm tròn số đến số nguyên gần nhất",
+  "q": [
+   "làm tròn số đến số nguyên gần nhất",
+   "làm tròn số thập phân bình thường",
+   "làm tròn số theo quy tắc gần nhất"
+  ]
+ },
+ "8d9705f7b9d8ebca2a8228999610d8fbb1f4a17879818e6820499c8afd891de1": {
+  "src": "jq · sqrt",
+  "vi": "Tính căn bậc hai của một số không âm",
+  "q": [
+   "tính căn bậc hai",
+   "lấy căn bậc 2 của số",
+   "khai căn bậc hai"
+  ]
+ },
+ "f1764554354f14c4a0975f604f4a253211258ec729a46c9621d9e2c57685bd37": {
+  "src": "jq · pow(<base>; <exp>)",
+  "vi": "Tính luỹ thừa cơ số <base> với số mũ <exp>",
+  "q": [
+   "tính luỹ thừa số mũ",
+   "nâng cơ số lên số mũ",
+   "tính hàm mũ pow"
+  ]
+ },
+ "8bc550830b71a1ada27d245fd7b54cd28e891712b3be77ef013f5a5b15615abd": {
+  "src": "jq · log",
+  "vi": "Tính logarit tự nhiên (cơ số e) của một số",
+  "q": [
+   "tính logarit tự nhiên ln",
+   "lấy logarit cơ số e",
+   "tính hàm log tự nhiên của số"
+  ]
+ },
+ "1d3ff5a04b63b8726957c9f8c3f01f33ef5ef95f645be44f015aa556f0276d4b": {
+  "src": "jq · infinite",
+  "vi": "Tạo hằng số dương vô cực dấu phẩy động IEEE",
+  "q": [
+   "tạo hằng số dương vô cực",
+   "giá trị positive infinity",
+   "khởi tạo số vô hạn dương"
+  ]
+ },
+ "59a3258860abd7cab8e11a7fef2782e3e8d03c2d72f642afeef2a5174868068d": {
+  "src": "jq · nan",
+  "vi": "Tạo hằng số Not-a-Number (NaN) chuẩn IEEE",
+  "q": [
+   "tạo hằng số nan không phải số",
+   "giá trị not a number nan",
+   "khởi tạo hằng số nan"
+  ]
+ },
+ "5dadc665bc063c5001cf4260a65a5199b04a12b28777e4d7b6bf77ce87560d5d": {
+  "src": "jq · isinfinite",
+  "vi": "Kiểm tra xem số có phải là vô cực (dương hoặc âm) không",
+  "q": [
+   "kiểm tra số vô cực âm hay dương",
+   "check giá trị có phải infinity không",
+   "xác định số có phải vô hạn không"
+  ]
+ },
+ "578e4a57779e58b93143af028803a814ce5a71b0b87864f04e6c386a4a57c7d7": {
+  "src": "jq · isnan",
+  "vi": "Kiểm tra xem số có phải là NaN (Not-a-Number) không",
+  "q": [
+   "kiểm tra giá trị có phải nan không",
+   "check số có phải not a number không",
+   "xác định giá trị nan"
+  ]
+ },
+ "f727af3b2e0961486062fb866dd132353d19f08cab579bc420d449d4247906c7": {
+  "src": "jq · isfinite",
+  "vi": "Kiểm tra xem số có hữu hạn (không phải vô cực hay NaN) không",
+  "q": [
+   "kiểm tra số hữu hạn",
+   "check số không phải vô cực hay nan",
+   "xác định giá trị hữu hạn finite"
+  ]
+ },
+ "d5fe3dffd3c0912a5f01068cac05066bd9b147dbb6e653eb780118556786e350": {
+  "src": "jq · have_literal_numbers",
+  "vi": "Kiểm tra chương trình có hỗ trợ độ chính xác số học tuỳ ý không",
+  "q": [
+   "kiểm tra hỗ trợ số độ chính xác tuỳ ý",
+   "check tính năng arbitrary precision numbers",
+   "xem phiên bản có hỗ trợ số chính xác cao không"
+  ]
+ },
+ "5eb80cdbf5ea85b5f0f20e02eea9dcd273b013a75af61d009c8f0b7b2b40fa2a": {
+  "src": "jq · now",
+  "vi": "Lấy timestamp Unix hiện tại dưới dạng số thực giây",
+  "q": [
+   "lấy timestamp hiện tại",
+   "thời gian unix hiện tại",
+   "đọc epoch time bây giờ"
+  ]
+ },
+ "aa7d602b2fce24a240cbfd0070a455c4dc04dab3f3b5aaac34fd72a41a09d6f4": {
+  "src": "jq · todate",
+  "vi": "Chuyển timestamp Unix sang chuỗi ngày giờ ISO 8601 UTC",
+  "q": [
+   "chuyển timestamp sang chuỗi iso 8601",
+   "đổi epoch thành ngày giờ utc",
+   "format timestamp sang iso date"
+  ]
+ },
+ "f876a4b2212d51b2ea6e76b1da4058a8ce72041fbd96714747546dab8c87dd26": {
+  "src": "jq · todateiso8601",
+  "vi": "Định dạng timestamp Unix thành chuỗi ISO 8601 UTC (alias của todate)",
+  "q": [
+   "đổi unix timestamp sang iso8601 utc",
+   "format epoch sang chuỗi todateiso8601",
+   "chuyển số giây unix thành định dạng iso 8601"
+  ]
+ },
+ "8b6210cdbc1ade1e19bb14054259104434908ba1a6c303008a45901f2ffe6065": {
+  "src": "jq · fromdate",
+  "vi": "Phân tích chuỗi ngày ISO 8601 UTC thành số giây timestamp",
+  "q": [
+   "chuyển chuỗi iso 8601 sang timestamp",
+   "parse ngày utc thành unix epoch",
+   "đổi chuỗi thời gian iso thành số giây"
+  ]
+ },
+ "e8cc414bd4c919a1e3c9b280e0deb2da386a6f307ffcbb65bc36efa1526c1a38": {
+  "src": "jq · gmtime",
+  "vi": "Chuyển timestamp Unix thành mảng chi tiết thời gian UTC",
+  "q": [
+   "chuyển timestamp thành mảng thời gian utc",
+   "tách timestamp unix thành mảng ngày giờ utc",
+   "đổi epoch sang broken-down time utc"
+  ]
+ },
+ "594d803b9fce7c0292b384b3d27b780f010f65cd2aff17dca399094b91432ba7": {
+  "src": "jq · localtime",
+  "vi": "Chuyển timestamp Unix thành mảng chi tiết thời gian theo múi giờ cục bộ",
+  "q": [
+   "đổi timestamp thành mảng ngày giờ local",
+   "chuyển unix time sang mảng giờ địa phương",
+   "tách timestamp thành broken-down time múi giờ máy"
+  ]
+ },
+ "98c55d30e5e769dc1900a76e5489fe4084c831ffd44034c0d351665cce542e4a": {
+  "src": "jq · mktime",
+  "vi": "Chuyển mảng chi tiết thời gian ngược lại thành timestamp Unix",
+  "q": [
+   "chuyển mảng thời gian thành timestamp unix",
+   "đổi broken-down time array sang epoch seconds",
+   "tạo timestamp từ mảng ngày tháng năm giờ phút"
+  ]
+ },
+ "ef075ed7a4e983e0de847fe0a24d5bac48221ae2ab5f5d65533d5f3e0abcf315": {
+  "src": "jq · strftime(<fmt>)",
+  "vi": "Định dạng mảng chi tiết thời gian theo chuỗi định dạng <fmt>",
+  "q": [
+   "format mảng thời gian theo mẫu strftime",
+   "định dạng broken-down time bằng specifier",
+   "chuyển mảng ngày giờ thành chuỗi theo format"
+  ]
+ },
+ "40c6b8846ec04e392635a4e3814083b7fafc198928e499bf8af79f99569d7c22": {
+  "src": "jq · strptime(<fmt>)",
+  "vi": "Phân tích chuỗi ngày thành mảng chi tiết thời gian theo định dạng <fmt>",
+  "q": [
+   "parse chuỗi ngày tháng thành mảng thời gian",
+   "tách chuỗi ngày vào broken-down time theo format",
+   "đọc chuỗi datetime thành mảng thời gian bằng strptime"
+  ]
+ },
+ "f3c6b0d239963fe14c350ade91bd4484d30bba8e148a15e4748fc0005622dbb2": {
+  "src": "jq · strflocaltime(<fmt>)",
+  "vi": "Định dạng mảng chi tiết thời gian theo múi giờ địa phương với <fmt>",
+  "q": [
+   "format mảng thời gian theo múi giờ địa phương",
+   "định dạng datetime local bằng strflocaltime",
+   "in chuỗi ngày giờ múi giờ cục bộ theo format"
+  ]
+ },
+ "0ac3293b568edd6fd51d17c369db3b9ad16bb82ffb3dee654e35d0ab1f73511c": {
+  "src": "jq · . as $<var> | ...",
+  "vi": "Gán giá trị đầu vào hiện tại vào biến $<var> cho các bộ lọc sau",
+  "q": [
+   "gán dữ liệu vào biến",
+   "lưu input hiện tại thành biến đặt tên",
+   "khai báo biến từ luồng filter"
+  ]
+ },
+ "629b2079c5d17721022f48d587ea254f58c14793add65abcbc8a0b1588959486": {
+  "src": "jq · . as [$a, $b]",
+  "vi": "Phân rã (destructure) các phần tử mảng vào nhiều biến đặt tên",
+  "q": [
+   "destructure mảng thành nhiều biến",
+   "phân rã phần tử array vào các biến",
+   "gán từng phần tử của mảng vào biến riêng"
+  ]
+ },
+ "cda19b519e81fa0f26fc9a4a0aaa91bb2bf93ce26a9f161b09a021a738ac095d": {
+  "src": "jq · as <pat1> ?// <pat2>",
+  "vi": "Thử phân rã theo <pat1>, nếu lỗi chuyển sang dùng mẫu <pat2>",
+  "q": [
+   "destructure có fallback dự phòng",
+   "thử khớp pattern nếu lỗi dùng pattern thay thế",
+   "bắt lỗi phân rã biến dùng mẫu thay thế"
+  ]
+ },
+ "6cc0297d0f0b71c9c177c56fba1886ee385caa4e109732a517fb3493bed47999": {
+  "src": "jq · reduce <expr> as $<var> (<init>; <update>)",
+  "vi": "Gom tụ (reduce) luồng kết quả tích lũy trạng thái qua từng phần tử",
+  "q": [
+   "gom tụ luồng dữ liệu thành một giá trị",
+   "tích lũy luồng giá trị reduce accumulator",
+   "fold stream tính tổng hoặc gộp trạng thái"
+  ]
+ },
+ "3d68e50d479c9693d951407513abe9cc156e116de0b35d543b28a9d2f6f8993e": {
+  "src": "jq · foreach <expr> as $<var> (<init>; <update>; <extract>)",
+  "vi": "Lặp qua luồng, cập nhật trạng thái tích lũy và xuất giá trị mỗi bước",
+  "q": [
+   "lặp qua luồng và xuất kết quả từng bước",
+   "tích lũy trạng thái phát sinh giá trị mỗi vòng lặp",
+   "duyệt stream vừa tính vừa emit từng giá trị"
+  ]
+ },
+ "483b39b6ba495be96676702a2584a7e405ebc53fcb77ea83cb066bef61b3f3db": {
+  "src": "jq · input",
+  "vi": "Đọc giá trị JSON kế tiếp từ luồng đầu vào",
+  "q": [
+   "đọc phần tử json tiếp theo từ stream",
+   "lấy một giá trị kế tiếp trong input",
+   "đọc lần lượt từng record đầu vào"
+  ]
+ },
+ "e753093f5128225072f2af3e8911c9254ec66b6f2f1ebefb48d92760ac7bbbb9": {
+  "src": "jq · inputs",
+  "vi": "Xuất tất cả các giá trị JSON còn lại từ luồng đầu vào",
+  "q": [
+   "đọc toàn bộ các giá trị còn lại trong stream",
+   "lấy tất cả input còn lại vào stream",
+   "xuất hết dữ liệu json còn lại của đầu vào"
+  ]
+ },
+ "fa79534a74f564927062c6592914b15f44f9aa9a490e2dc5a8aee6fec7ed4e9c": {
+  "src": "jq · input_filename",
+  "vi": "Trả về tên file hiện đang được xử lý",
+  "q": [
+   "lấy tên file đang xử lý",
+   "xem tên tập tin đầu vào hiện tại",
+   "kiểm tra tên file nguồn đang đọc"
+  ]
+ },
+ "38b892590b4b9083c9b0f9fb1e5a5bc9693e25159a5810928290bc91653ad9d2": {
+  "src": "jq · input_line_number",
+  "vi": "Trả về số dòng của mục đầu vào hiện đang xử lý",
+  "q": [
+   "lấy số thứ tự dòng đang xử lý",
+   "xem số dòng hiện tại của input",
+   "đếm vị trí dòng của record đang đọc"
+  ]
+ },
+ "b760e831e9bab7431d7b4c140418b5484aca53031ec1a1abef32f8b036d2300b": {
+  "src": "jq · debug",
+  "vi": "In `[\\\"DEBUG:\\\", <input>]` ra stderr và giữ nguyên giá trị đầu vào",
+  "q": [
+   "in log debug ra stderr giữ nguyên dữ liệu",
+   "debug giá trị input ra luồng lỗi tiêu chuẩn",
+   "ghi vết debug ra stderr không làm đổi stream"
+  ]
+ },
+ "401f1f0740c138e85820f98574ef03681f5493ab36b7049433c8b9aad19225cb": {
+  "src": "jq · debug(<msg>)",
+  "vi": "In thông điệp `[\\\"DEBUG:\\\", <msg>]` ra stderr và giữ nguyên dữ liệu",
+  "q": [
+   "in thông báo debug tuỳ chỉnh ra stderr",
+   "ghi message debug ra luồng lỗi không đổi input",
+   "xuất chuỗi debug kèm thông điệp ra stderr"
+  ]
+ },
+ "c992dfbf6da9d8662b6d0b2fce92b473e547b168b66119ce8ab501339ca58a3a": {
+  "src": "jq · stderr",
+  "vi": "In dữ liệu thô ra stderr không kèm dòng mới và chuyển tiếp dữ liệu",
+  "q": [
+   "in dữ liệu raw ra stderr không ngắt dòng",
+   "xuất giá trị thô sang stderr giữ nguyên stream",
+   "ghi log compact ra tiêu chuẩn lỗi không xuống dòng"
+  ]
+ },
+ "65ba73530d9ee278a7ae5ad3e16d2d20aef337e2c6f966d6b0838b0dcbe30d20": {
+  "src": "jq · halt",
+  "vi": "Dừng ngay tiến trình với mã thoát (exit code) 0",
+  "q": [
+   "dừng tiến trình thành công với mã 0",
+   "thoát xử lý ngay lập tức exit 0",
+   "ngắt thực thi bình thường không báo lỗi"
+  ]
+ },
+ "bc39c967481fc4115c75983e1fad37c6e93267b9ca57d5c8b30584e975a4528d": {
+  "src": "jq · halt_error",
+  "vi": "Dừng ngay tiến trình với mã lỗi 5 và in nội dung ra stderr",
+  "q": [
+   "dừng tiến trình kèm mã lỗi 5",
+   "thoát ngay lập tức và in lỗi ra stderr",
+   "ngắt thực thi báo lỗi ra stderr exit code 5"
+  ]
+ },
+ "be6ed8afc35f361e9255db603ac5c6812bd92befca17e68261707660cb07edd2": {
+  "src": "jq · INDEX(<stream>; <expr>)",
+  "vi": "Đánh chỉ mục (index) mảng hoặc luồng thành object theo khoá biểu thức",
+  "q": [
+   "chuyển mảng thành object theo khoá key",
+   "index luồng dữ liệu thành dictionary theo thuộc tính",
+   "đánh chỉ mục stream thành object theo trường"
+  ]
+ },
+ "fe6668c1232afe848ec6da99d429638214281fff61cc6d8d15e4d0618d348dc6": {
+  "src": "jq · IN(<source>)",
+  "vi": "Trả về true nếu giá trị đầu vào khớp phần tử nào trong nguồn",
+  "q": [
+   "kiểm tra giá trị có nằm trong danh sách",
+   "so khớp giá trị tồn tại trong stream",
+   "kiểm tra phần tử thuộc tập hợp nguồn"
+  ]
+ },
+ "041ac775088d2768c6a0336a98216e750ac2c174970457d824af7f260b12de61": {
+  "src": "jq · JOIN($idx; <expr>)",
+  "vi": "Nối (join) các phần tử với bảng đối tượng đã đánh chỉ mục bằng khoá",
+  "q": [
+   "kết nối hai bảng dữ liệu theo khoá phụ foreign key",
+   "join mảng với bảng index theo key",
+   "nối phần tử với object index bằng khoá liên kết"
+  ]
+ },
+ "89d77d01878527472ca43fa0bab313684e01341a7016a47de0b046641fd1df0f": {
+  "src": "jq · tostream",
+  "vi": "Chuyển giá trị JSON thành luồng các cặp đường dẫn và giá trị",
+  "q": [
+   "chuyển json thành luồng path value stream",
+   "tách cấu trúc json thành luồng tuple đường dẫn",
+   "phẳng hoá dữ liệu json thành luồng path và value"
+  ]
+ },
+ "e4a95acd52635c627adebee9b74cabff518c0c3883d20bd93c148324e4fc49ad": {
+  "src": "jq · fromstream(<stream>)",
+  "vi": "Tái tạo lại giá trị JSON hoàn chỉnh từ luồng cặp đường dẫn-giá trị",
+  "q": [
+   "tái tạo json từ stream path value",
+   "khôi phục cấu trúc json từ luồng tuple đường dẫn",
+   "ghép luồng path value ngược lại thành json đầy đủ"
+  ]
+ },
+ "573ac89c792575690958b4a85dcf20f87957debe8309277b85624301ef274781": {
+  "src": "jq · truncate_stream(<stream>)",
+  "vi": "Cắt bỏ thành phần đường dẫn đầu tiên khỏi các tuple trong luồng JSON",
+  "q": [
+   "xoá phần tử đầu tiên của path trong stream",
+   "cắt bớt cấp đường dẫn đầu trong json stream",
+   "giảm một cấp thư mục đường dẫn trong tuple stream"
+  ]
+ },
+ "3a41a248f6fac80dbf3422763fcd45a79e3964d97b1a54574d925030e2d4be16": {
+  "src": "jq · def <name>: <body>;",
+  "vi": "Định nghĩa hàm bộ lọc tuỳ chỉnh không có đối số để tái sử dụng",
+  "q": [
+   "định nghĩa hàm không tham số",
+   "khai báo filter tuỳ biến không có argument",
+   "tạo hàm xử lý tự định nghĩa không tham số"
+  ]
+ },
+ "bd19747a3b832a109889f32181702566fdb18d319335725df7b9e7760a185045": {
+  "src": "jq · def <name>(<arg>): <body>;",
+  "vi": "Định nghĩa hàm bộ lọc tuỳ chỉnh có nhận đối số để tái sử dụng",
+  "q": [
+   "định nghĩa hàm có tham số",
+   "khai báo custom function nhận đối số",
+   "tạo hàm bộ lọc nhận tham số đầu vào"
+  ]
+ },
+ "0fd34ff23fdd4478faa59c33cfd70063e0e46d63ceb7baaf629c10ebf44706fd": {
+  "src": "jq · $__loc__",
+  "vi": "Đối tượng chứa tên file và số dòng của biểu thức hiện tại",
+  "q": [
+   "lấy vị trí file và số dòng biểu thức hiện tại",
+   "xem thông tin vị trí mã nguồn file line",
+   "truy xuất metadata toạ độ dòng đang thực thi"
+  ]
+ },
+ "5547989321598493df439f24584c3258ee973c7d3267aeec588baf363163ccc2": {
+  "src": "jq · builtins",
+  "vi": "Trả về mảng danh sách tên các hàm tích hợp sẵn kèm số đối số",
+  "q": [
+   "liệt kê tất cả hàm tích hợp sẵn builtin",
+   "xem danh sách function có sẵn và số lượng tham số",
+   "tra cứu các hàm hệ thống mặc định arity"
+  ]
+ },
+ "5dfe0d68da2828f482a8c1a9e0522fbf0ae62e4540e16a0a3109b518ccf6be7f": {
+  "src": "jq · import \"<mod>\" as <name>;",
+  "vi": "Nạp (import) các hàm từ module vào một không gian tên (namespace) riêng",
+  "q": [
+   "import module vào namespace riêng",
+   "nạp thư viện vào không gian tên đặt trước",
+   "nhập module ngoài với alias định danh"
+  ]
+ },
+ "2c5bbdd96a484da98ee4698cc76de9e937d63261b92d470c829566d3217d654f": {
+  "src": "jq · include \"<mod>\";",
+  "vi": "Nhúng (include) toàn bộ định nghĩa hàm từ module trực tiếp vào scope hiện tại",
+  "q": [
+   "nhúng trực tiếp module vào phạm vi hiện tại",
+   "include file thư viện không dùng namespace",
+   "nạp toàn bộ hàm từ module vào scope hiện hành"
+  ]
+ },
+ "6297d81f9237ae3ab270266f4353e78d7b631980ad58e64cfdbb722bacb9dd8a": {
+  "src": "jq · -L, --library-path <dir>",
+  "vi": "Thêm thư mục vào đường dẫn tìm kiếm khi nạp (import) module",
+  "q": [
+   "thêm đường dẫn tìm kiếm thư viện module",
+   "chỉ định thư mục chứa module import library path",
+   "cấu hình thư mục nạp module bổ sung"
+  ]
+ },
+ "298de2788c0aab48d8529eba888e827233b0456a90d1c3a74a6e80881799a80d": {
+  "src": "jq · modulemeta",
+  "vi": "Trả về đối tượng siêu dữ liệu (metadata) của module được chỉ định",
+  "q": [
+   "xem metadata thông tin của module",
+   "lấy siêu dữ liệu module thư viện",
+   "kiểm tra thông tin chi tiết gói module"
+  ]
+ },
+ "33ca29477a5401abce02eb6e8a162816837dec51c1a6fe251b3c6ebaffc93d34": {
+  "src": "jq · jq '.' <file>",
+  "vi": "Định dạng và in đẹp (pretty-print) nội dung file JSON ra terminal",
+  "q": [
+   "in đẹp định dạng file json ra màn hình",
+   "pretty print nội dung tệp json trong terminal",
+   "xem file json có thụt lề định dạng màu"
+  ]
+ },
+ "104552e600d94618cc35e49d8fe3ec32dc04b2fd3ed310b137fb4c6a1a4a4e9e": {
+  "src": "jq · curl -s <url> | jq '.<field>'",
+  "vi": "Gọi API lấy JSON và trích xuất giá trị trường <field> cụ thể",
+  "q": [
+   "lấy dữ liệu api và trích xuất một trường",
+   "gọi api bóc tách giá trị field từ response json",
+   "lọc một trường cụ thể từ kết quả curl api"
+  ]
  }
 }

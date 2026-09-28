@@ -1,0 +1,1866 @@
+{
+  "title": "jq Cheatsheet",
+  "subtitle": "Command-line JSON processor",
+  "description": "Fast and flexible command-line JSON processor for querying, filtering, slicing, mapping, and transforming structured data.",
+  "source_url": "https://jqlang.org/manual/",
+  "links": [
+    {
+      "label": "jqlang.org/manual",
+      "url": "https://jqlang.org/manual/"
+    }
+  ],
+  "aliases": [
+    "jqlang"
+  ],
+  "cards": [
+    {
+      "icon": "💻",
+      "title": "Invocation & Output Formatting",
+      "tip": "Options controlling indentation, colorization, compacting, and raw text output from jq.",
+      "sections": [
+        {
+          "label": "Output Formatting Options",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-c, --compact-output",
+              "key_style": "code",
+              "description": "Print compact JSON with each result on a single line",
+              "example": "echo '{\"a\": 1, \"b\": 2}' | jq -c .",
+              "tip": "Ideal for producing newline-delimited JSON (NDJSON) output."
+            },
+            {
+              "key": "-r, --raw-output",
+              "key_style": "code",
+              "description": "Output raw string values without surrounding quotes and escapes",
+              "example": "echo '{\"msg\": \"hello\"}' | jq -r .msg",
+              "tip": "Non-string values are still output formatted as valid JSON."
+            },
+            {
+              "key": "--raw-output0",
+              "key_style": "code",
+              "description": "Output raw strings followed by a NUL byte character",
+              "example": "echo '[\"file a\", \"file b\"]' | jq --raw-output0 '.[]'",
+              "tip": "Pair with xargs -0 to safely handle filenames with spaces."
+            },
+            {
+              "key": "-j, --join-output",
+              "key_style": "code",
+              "description": "Output raw strings without printing a trailing newline",
+              "example": "echo '[\"a\", \"b\", \"c\"]' | jq -j '.[]'"
+            },
+            {
+              "key": "-a, --ascii-output",
+              "key_style": "code",
+              "description": "Force ASCII output by escaping non-ASCII characters with \\uXXXX",
+              "example": "echo '{\"greeting\": \"xin chào\"}' | jq -a ."
+            },
+            {
+              "key": "-S, --sort-keys",
+              "key_style": "code",
+              "description": "Sort object keys alphabetically in the formatted output",
+              "example": "echo '{\"z\": 1, \"a\": 2}' | jq -S .",
+              "tip": "Essential when diffing JSON files to ensure consistent key ordering."
+            },
+            {
+              "key": "-C, --color-output",
+              "key_style": "code",
+              "description": "Force colored output even when piping to files or pagers",
+              "example": "echo '{\"status\": \"ok\"}' | jq -C . | less -R"
+            },
+            {
+              "key": "-M, --monochrome-output",
+              "key_style": "code",
+              "description": "Disable all syntax color highlighting in terminal output",
+              "example": "echo '{\"status\": \"ok\"}' | jq -M ."
+            },
+            {
+              "key": "--tab",
+              "key_style": "code",
+              "description": "Indent formatted output using tabs instead of spaces",
+              "example": "echo '{\"id\": 1, \"name\": \"bob\"}' | jq --tab ."
+            },
+            {
+              "key": "--indent <n>",
+              "key_style": "code",
+              "description": "Indent formatted output with n spaces (between 0 and 7 spaces)",
+              "example": "echo '{\"id\": 1, \"name\": \"bob\"}' | jq --indent 4 ."
+            },
+            {
+              "key": "--unbuffered",
+              "key_style": "code",
+              "description": "Flush standard output immediately after each JSON item is emitted",
+              "example": "tail -f app.log | jq --unbuffered -c .message",
+              "tip": "Prevents buffering delays when tailing live event streams."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "📥",
+      "title": "Input Modes & Execution",
+      "tip": "Options controlling how input data is ingested, parsed, and how exit codes are handled.",
+      "sections": [
+        {
+          "label": "Input Processing Options",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-n, --null-input",
+              "key_style": "code",
+              "description": "Run filter once with null as input without reading standard input",
+              "example": "jq -n '{\"date\": now, \"version\": 1}'",
+              "tip": "Ideal for generating JSON from scratch or testing builtin expressions."
+            },
+            {
+              "key": "-R, --raw-input",
+              "key_style": "code",
+              "description": "Read each line of input as a raw string instead of JSON",
+              "example": "printf 'line1\\nline2' | jq -R ."
+            },
+            {
+              "key": "-s, --slurp",
+              "key_style": "code",
+              "description": "Read all inputs into a single array before running filter",
+              "example": "printf '1\\n2\\n3' | jq -s 'add'",
+              "tip": "Loads entire input into memory; avoid on multi-gigabyte datasets."
+            },
+            {
+              "key": "--seq",
+              "key_style": "code",
+              "description": "Parse and emit JSON using application/json-seq RS/LF framing",
+              "example": "printf '\\x1e{\"a\":1}\\n' | jq --seq ."
+            },
+            {
+              "key": "--stream",
+              "key_style": "code",
+              "description": "Parse input in a streaming fashion yielding path-value pairs",
+              "example": "echo '{\"a\": 1}' | jq --stream .",
+              "tip": "Processes huge files with minimal memory footprint."
+            },
+            {
+              "key": "--stream-errors",
+              "key_style": "code",
+              "description": "Parse input with --stream and emit parse errors as arrays",
+              "example": "echo '{invalid}' | jq --stream-errors ."
+            }
+          ]
+        },
+        {
+          "label": "CLI Flags & Exit Behavior",
+          "kind": "table",
+          "items": [
+            {
+              "key": "-e, --exit-status",
+              "key_style": "code",
+              "description": "Exit with code 1 if last output is false/null, or 4 if empty",
+              "example": "echo '{\"ok\": false}' | jq -e .ok",
+              "tip": "Allows clean integration into shell if conditions and CI checks."
+            },
+            {
+              "key": "-f, --from-file <file>",
+              "key_style": "code",
+              "description": "Load filter expression from a script file instead of CLI argument",
+              "example": "jq -f filter.jq data.json"
+            },
+            {
+              "key": "-V, --version",
+              "key_style": "code",
+              "description": "Output jq version string and exit immediately",
+              "example": "jq -V"
+            },
+            {
+              "key": "--build-configuration",
+              "key_style": "code",
+              "description": "Print jq compile-time features and configuration details",
+              "example": "jq --build-configuration"
+            },
+            {
+              "key": "-h, --help",
+              "key_style": "code",
+              "description": "Display CLI usage instructions and options summary",
+              "example": "jq -h"
+            },
+            {
+              "key": "--",
+              "key_style": "code",
+              "description": "Terminate option parsing so remaining arguments are treated as files",
+              "example": "jq . -- -file-with-dash.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🏷️",
+      "title": "Variables & CLI Arguments",
+      "tip": "Pass dynamic parameters from shell environments or files into jq expressions.",
+      "sections": [
+        {
+          "label": "Passing Arguments from CLI",
+          "kind": "table",
+          "items": [
+            {
+              "key": "--arg <name> <value>",
+              "key_style": "code",
+              "description": "Pass a string value bound to predefined variable $name",
+              "example": "jq -n --arg env \"prod\" '{\"target\": $env}'",
+              "tip": "The value is always treated as a string; escaping is handled automatically."
+            },
+            {
+              "key": "--argjson <name> <value>",
+              "key_style": "code",
+              "description": "Pass a JSON literal bound to predefined variable $name",
+              "example": "jq -n --argjson port 8080 '{\"port\": $port}'"
+            },
+            {
+              "key": "--slurpfile <name> <file>",
+              "key_style": "code",
+              "description": "Read all JSON values from file into an array bound to $name",
+              "example": "jq --slurpfile cfg config.json '. + $cfg[0]' app.json"
+            },
+            {
+              "key": "--rawfile <name> <file>",
+              "key_style": "code",
+              "description": "Read entire file contents as raw string bound to variable $name",
+              "example": "jq -n --rawfile text note.txt '{\"body\": $text}'"
+            },
+            {
+              "key": "--args",
+              "key_style": "code",
+              "description": "Pass remaining CLI arguments as positional string array in $ARGS.positional",
+              "example": "jq -n --args '$ARGS.positional' -- foo bar"
+            },
+            {
+              "key": "--jsonargs",
+              "key_style": "code",
+              "description": "Pass remaining CLI arguments as positional JSON values in $ARGS.positional",
+              "example": "jq -n --jsonargs '$ARGS.positional' -- '{\"a\":1}' '2'"
+            }
+          ]
+        },
+        {
+          "label": "Special Variable Bindings",
+          "kind": "table",
+          "items": [
+            {
+              "key": "$ARGS.named",
+              "key_style": "code",
+              "description": "Object containing all named variables passed via --arg and --argjson",
+              "example": "jq -n --arg u admin '$ARGS.named'"
+            },
+            {
+              "key": "$ARGS.positional",
+              "key_style": "code",
+              "description": "Array of all positional arguments passed via --args or --jsonargs",
+              "example": "jq -n --args '$ARGS.positional[0]' -- first second"
+            },
+            {
+              "key": "$ENV",
+              "key_style": "code",
+              "description": "Object containing all environment variables exported to the jq process",
+              "example": "jq -n '$ENV.USER'"
+            },
+            {
+              "key": "env",
+              "key_style": "code",
+              "description": "Emit current environment variables as a single JSON object",
+              "example": "jq -n 'env.HOME'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔍",
+      "title": "Basic Filters & Slicing",
+      "tip": "Access fields, index arrays, slice sequences, and traverse hierarchies.",
+      "sections": [
+        {
+          "label": "Identity & Field Access",
+          "kind": "table",
+          "items": [
+            {
+              "key": ".",
+              "key_style": "code",
+              "description": "Return input value unchanged (identity filter)",
+              "example": "echo '{\"a\": 1}' | jq ."
+            },
+            {
+              "key": ".<key>",
+              "key_style": "code",
+              "description": "Extract value of specified object property",
+              "example": "echo '{\"user\": \"dan\"}' | jq '.user'"
+            },
+            {
+              "key": ".<key>?",
+              "key_style": "code",
+              "description": "Extract property value or suppress error if input is not an object",
+              "example": "echo 'null' | jq '.user?'"
+            },
+            {
+              "key": ".[\"<key>\"]",
+              "key_style": "code",
+              "description": "Access property using string literal or dynamic key expression",
+              "example": "echo '{\"app-name\": \"api\"}' | jq '.[\"app-name\"]'",
+              "tip": "Required when keys contain hyphens, dots, spaces, or start with digits."
+            },
+            {
+              "key": ".[<n>]",
+              "key_style": "code",
+              "description": "Extract array element at zero-based integer index n",
+              "example": "echo '[\"a\", \"b\", \"c\"]' | jq '.[1]'"
+            },
+            {
+              "key": ".[-1]",
+              "key_style": "code",
+              "description": "Extract the last element of an array using negative index",
+              "example": "echo '[10, 20, 30]' | jq '.[-1]'"
+            }
+          ]
+        },
+        {
+          "label": "Array Slicing & Iteration",
+          "kind": "table",
+          "items": [
+            {
+              "key": ".[<start>:<end>]",
+              "key_style": "code",
+              "description": "Slice array or substring from start index up to end index",
+              "example": "echo '[0, 1, 2, 3, 4]' | jq '.[1:3]'"
+            },
+            {
+              "key": ".[<start>:]",
+              "key_style": "code",
+              "description": "Slice array or substring from start index to the end",
+              "example": "echo '\"abcdef\"' | jq '.[2:]'"
+            },
+            {
+              "key": ".[:<end>]",
+              "key_style": "code",
+              "description": "Slice array or substring from the beginning up to end index",
+              "example": "echo '[10, 20, 30, 40]' | jq '.[:2]'"
+            },
+            {
+              "key": ".[]",
+              "key_style": "code",
+              "description": "Iterate over all elements of an array or all values of an object",
+              "example": "echo '[1, 2, 3]' | jq '.[]'"
+            },
+            {
+              "key": ".[]?",
+              "key_style": "code",
+              "description": "Iterate over elements if array/object, suppress error if null or scalar",
+              "example": "echo 'null' | jq '.[]?'"
+            },
+            {
+              "key": ",",
+              "key_style": "code",
+              "description": "Evaluate expressions in parallel, emitting results sequentially",
+              "example": "echo '{\"a\": 1, \"b\": 2}' | jq '.a, .b'"
+            },
+            {
+              "key": "|",
+              "key_style": "code",
+              "description": "Pipe output results of left filter as input to right filter",
+              "example": "echo '[{\"val\": 5}]' | jq '.[] | .val'"
+            },
+            {
+              "key": "..",
+              "key_style": "code",
+              "description": "Recursively traverse all sub-values and descendants in input tree",
+              "example": "echo '{\"a\": [1, {\"b\": 2}]}' | jq '.. | numbers?'"
+            },
+            {
+              "key": "recurse(<f>)",
+              "key_style": "code",
+              "description": "Recursively apply f and emit every value reached (`..` = `recurse`)",
+              "example": "echo '{\"name\": \"a\", \"children\": [{\"name\": \"b\", \"children\": []}]}' | jq -r 'recurse(.children[]) | .name'"
+            },
+            {
+              "key": "recurse(<f>; <cond>)",
+              "key_style": "code",
+              "description": "Recursively apply f while condition cond holds",
+              "example": "jq -nc '2 | [recurse(. * .; . < 1000)]'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🏗️",
+      "title": "Types, Construction & Formats",
+      "tip": "Construct objects and arrays, interpolate strings, and encode or decode formats.",
+      "sections": [
+        {
+          "label": "Value Construction & Interpolation",
+          "kind": "table",
+          "items": [
+            {
+              "key": "[<f>]",
+              "key_style": "code",
+              "description": "Collect all outputs generated by filter f into a new JSON array",
+              "example": "echo '{\"a\": 1, \"b\": 2}' | jq '[.[]]'"
+            },
+            {
+              "key": "{<k>: <v>}",
+              "key_style": "code",
+              "description": "Construct a new JSON object with specified keys and values",
+              "example": "echo '{\"n\": \"bob\", \"a\": 30}' | jq '{name: .n, age: .a}'"
+            },
+            {
+              "key": "{(.<k>): .<v>}",
+              "key_style": "code",
+              "description": "Construct object with dynamic key evaluated from an expression",
+              "example": "echo '{\"k\": \"id\", \"v\": 123}' | jq '{ (.k): .v }'"
+            },
+            {
+              "key": "{<key>}",
+              "key_style": "code",
+              "description": "Construct object field using existing field name as shorthand",
+              "example": "echo '{\"name\": \"alice\", \"age\": 25}' | jq '{name}'"
+            },
+            {
+              "key": "\"\\(<f>)\"",
+              "key_style": "code",
+              "description": "Interpolate result of expression f inside a double-quoted string",
+              "example": "echo '{\"user\": \"dan\", \"id\": 7}' | jq '\"User \\(.user) has ID \\(.id)\"'"
+            }
+          ]
+        },
+        {
+          "label": "Format Strings & Decoders",
+          "kind": "table",
+          "items": [
+            {
+              "key": "@base64",
+              "key_style": "code",
+              "description": "Encode input string into standard Base64 representation",
+              "example": "echo '\"hello\"' | jq -r '@base64'"
+            },
+            {
+              "key": "@base64d",
+              "key_style": "code",
+              "description": "Decode Base64 encoded string back to plaintext",
+              "example": "echo '\"aGVsbG8=\"' | jq -r '@base64d'"
+            },
+            {
+              "key": "@csv",
+              "key_style": "code",
+              "description": "Format input array of scalars into a valid CSV line",
+              "example": "echo '[\"alice\", 28, \"NY\"]' | jq -r '@csv'"
+            },
+            {
+              "key": "@tsv",
+              "key_style": "code",
+              "description": "Format input array of scalars into a tab-separated values line",
+              "example": "echo '[\"bob\", 35, \"LA\"]' | jq -r '@tsv'"
+            },
+            {
+              "key": "@json",
+              "key_style": "code",
+              "description": "Serialize any input JSON value into an escaped JSON string",
+              "example": "echo '{\"a\": 1}' | jq -r '@json'"
+            },
+            {
+              "key": "@text",
+              "key_style": "code",
+              "description": "Format input into string representation without enclosing quotes",
+              "example": "echo '\"hello world\"' | jq -r '@text'"
+            },
+            {
+              "key": "@html",
+              "key_style": "code",
+              "description": "Escape HTML special entities (&, <, >, \", ') for safe web output",
+              "example": "echo '\"<script>\"' | jq -r '@html'"
+            },
+            {
+              "key": "@uri",
+              "key_style": "code",
+              "description": "Percent-encode string for safe inclusion in URL queries",
+              "example": "echo '\"a b&c\"' | jq -r '@uri'"
+            },
+            {
+              "key": "@urid",
+              "key_style": "code",
+              "description": "Decode percent-encoded URI string back to regular text",
+              "example": "echo '\"a%20b%26c\"' | jq -r '@urid'",
+              "note": "1.8"
+            },
+            {
+              "key": "@sh",
+              "key_style": "code",
+              "description": "Quote and escape string or array for safe POSIX shell execution",
+              "example": "echo '\"file with spaces.txt\"' | jq -r '@sh'",
+              "tip": "Useful for generating shell commands dynamically without injection risks."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🧮",
+      "title": "Operators & Logic",
+      "tip": "Arithmetic, string repetition, deep merging, comparisons, and alternative operators.",
+      "sections": [
+        {
+          "label": "Arithmetic & Concatenation",
+          "kind": "table",
+          "items": [
+            {
+              "key": "+",
+              "key_style": "code",
+              "description": "Add numbers, concatenate strings or arrays, or shallow merge objects",
+              "example": "echo '{\"a\": 1}' | jq '. + {\"b\": 2}'"
+            },
+            {
+              "key": "-",
+              "key_style": "code",
+              "description": "Subtract numbers or remove matching elements from array",
+              "example": "echo '[1, 2, 3, 2]' | jq '. - [2]'"
+            },
+            {
+              "key": "*",
+              "key_style": "code",
+              "description": "Multiply numbers, repeat strings, or recursively deep merge objects",
+              "example": "echo '{\"a\": {\"x\": 1}}' | jq '. * {\"a\": {\"y\": 2}}'",
+              "tip": "Deeply merges nested objects, overriding matching scalar keys with right side."
+            },
+            {
+              "key": "/",
+              "key_style": "code",
+              "description": "Divide numbers or split string by a delimiter substring",
+              "example": "echo '\"a,b,c\"' | jq '. / \",\"'"
+            },
+            {
+              "key": "%",
+              "key_style": "code",
+              "description": "Compute remainder of integer division (modulo)",
+              "example": "echo '17' | jq '. % 5'"
+            }
+          ]
+        },
+        {
+          "label": "Comparisons & Boolean Logic",
+          "kind": "table",
+          "items": [
+            {
+              "key": "==",
+              "key_style": "code",
+              "description": "Test two values for deep structural equality",
+              "example": "echo '{\"a\": 1}' | jq '. == {\"a\": 1}'"
+            },
+            {
+              "key": "!=",
+              "key_style": "code",
+              "description": "Test two values for inequality",
+              "example": "echo '5' | jq '. != 6'"
+            },
+            {
+              "key": "<",
+              "key_style": "code",
+              "description": "Test if left value is strictly less than right value",
+              "example": "echo '4' | jq '. < 10'"
+            },
+            {
+              "key": "<=",
+              "key_style": "code",
+              "description": "Test if left value is less than or equal to right value",
+              "example": "echo '10' | jq '. <= 10'"
+            },
+            {
+              "key": ">",
+              "key_style": "code",
+              "description": "Test if left value is strictly greater than right value",
+              "example": "echo '15' | jq '. > 10'"
+            },
+            {
+              "key": ">=",
+              "key_style": "code",
+              "description": "Test if left value is greater than or equal to right value",
+              "example": "echo '10' | jq '. >= 10'"
+            },
+            {
+              "key": "and",
+              "key_style": "code",
+              "description": "Logical AND returning true if both operands are truthy",
+              "example": "echo '5' | jq '. > 0 and . < 10'"
+            },
+            {
+              "key": "or",
+              "key_style": "code",
+              "description": "Logical OR returning true if either operand is truthy",
+              "example": "echo '5' | jq '. == 0 or . == 5'"
+            },
+            {
+              "key": "not",
+              "key_style": "code",
+              "description": "Invert boolean truth value: returns true for false/null, false otherwise",
+              "example": "echo 'false' | jq 'not'"
+            },
+            {
+              "key": "//",
+              "key_style": "code",
+              "description": "Alternative operator returning right side if left is null or false",
+              "example": "echo '{\"user\": null}' | jq '.user // \"guest\"'",
+              "tip": "Treats false the same as null; use explicit equality if false is a valid value."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔀",
+      "title": "Conditionals & Control Flow",
+      "tip": "Control branching, error handling, generator limits, and loop iterations.",
+      "sections": [
+        {
+          "label": "Branching & Error Handling",
+          "kind": "table",
+          "items": [
+            {
+              "key": "if <b> then <t> else <e> end",
+              "key_style": "code",
+              "description": "Conditional expression evaluating then branch if condition is truthy",
+              "example": "echo '15' | jq 'if . > 10 then \"high\" else \"low\" end'"
+            },
+            {
+              "key": "if <b> then <t> elif <b> then <t> else <e> end",
+              "key_style": "code",
+              "description": "Multi-branch conditional matching first truthy condition",
+              "example": "echo '0' | jq 'if . > 0 then \"+\" elif . < 0 then \"-\" else \"0\" end'"
+            },
+            {
+              "key": "try <f> catch <h>",
+              "key_style": "code",
+              "description": "Catch runtime error from filter f and evaluate handler h",
+              "example": "echo '\"bad\"' | jq 'try (. | tonumber) catch 0'"
+            },
+            {
+              "key": "try <f>",
+              "key_style": "code",
+              "description": "Catch and silently discard any runtime errors produced by filter f",
+              "example": "echo '[\"1\", \"bad\", \"3\"]' | jq '.[] | try tonumber'"
+            },
+            {
+              "key": "error(<msg>)",
+              "key_style": "code",
+              "description": "Raise an explicit runtime error with specified message",
+              "example": "echo 'null' | jq 'try error(\"missing data\") catch .'"
+            },
+            {
+              "key": "empty",
+              "key_style": "code",
+              "description": "Produce zero outputs, terminating the current stream branch",
+              "example": "echo '[1, 2, 3]' | jq '.[] | if . == 2 then empty else . end'",
+              "tip": "Commonly used in conditionals to filter out unwanted items completely."
+            }
+          ]
+        },
+        {
+          "label": "Generators, Limits & Loops",
+          "kind": "table",
+          "items": [
+            {
+              "key": "first(<gen>)",
+              "key_style": "code",
+              "description": "Output only the first value generated by generator expression",
+              "example": "echo '[10, 20, 30]' | jq 'first(.[] | select(. > 15))'"
+            },
+            {
+              "key": "last(<gen>)",
+              "key_style": "code",
+              "description": "Output only the last value generated by generator expression",
+              "example": "echo '[10, 20, 30]' | jq 'last(.[] | select(. > 15))'"
+            },
+            {
+              "key": "isempty(<gen>)",
+              "key_style": "code",
+              "description": "Return true if the generator produces no output",
+              "example": "echo '[1, 2, 3]' | jq 'isempty(.[] | select(. > 5))'"
+            },
+            {
+              "key": "nth(<n>; <gen>)",
+              "key_style": "code",
+              "description": "Output the nth value (zero-based index) from generator expression",
+              "example": "echo '[10, 20, 30, 40]' | jq 'nth(2; .[])'"
+            },
+            {
+              "key": "limit(<n>; <gen>)",
+              "key_style": "code",
+              "description": "Yield at most n values from generator expression",
+              "example": "echo '[1, 2, 3, 4, 5]' | jq '[limit(3; .[])]'",
+              "tip": "Stops the generator after n items; a negative n is an error since 1.8."
+            },
+            {
+              "key": "skip(<n>; <gen>)",
+              "key_style": "code",
+              "note": "1.8",
+              "description": "Drop the first n values of a generator and emit the rest",
+              "example": "echo '[1, 2, 3, 4, 5]' | jq -c '[skip(2; .[])]'"
+            },
+            {
+              "key": "range(<n>)",
+              "key_style": "code",
+              "description": "Generate stream of integers starting at 0 up to n-1",
+              "example": "jq -n '[range(4)]'"
+            },
+            {
+              "key": "range(<start>; <end>)",
+              "key_style": "code",
+              "description": "Generate stream of integers from start up to end-1",
+              "example": "jq -n '[range(2; 5)]'"
+            },
+            {
+              "key": "range(<start>; <end>; <step>)",
+              "key_style": "code",
+              "description": "Generate stream of numbers from start to end with custom step increment",
+              "example": "jq -n '[range(0; 10; 2)]'"
+            },
+            {
+              "key": "while(<cond>; <update>)",
+              "key_style": "code",
+              "description": "Repeatedly apply update while condition is true, emitting each state",
+              "example": "jq -n '1 | [while(. < 16; . * 2)]'"
+            },
+            {
+              "key": "until(<cond>; <update>)",
+              "key_style": "code",
+              "description": "Repeatedly apply update until condition is true, emitting final state",
+              "example": "jq -n '1 | until(. >= 10; . + 3)'"
+            },
+            {
+              "key": "repeat(<f>)",
+              "key_style": "code",
+              "description": "Repeatedly execute filter f endlessly to form an infinite stream",
+              "example": "jq -n '[limit(4; repeat(42))]'"
+            },
+            {
+              "key": "label $<id> | ... break $<id>",
+              "key_style": "code",
+              "description": "Label an expression and break early out of nested generators",
+              "example": "jq -n 'label $out | 1, 2, break $out, 3'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "📊",
+      "title": "Arrays & Collections",
+      "tip": "Iterate, filter, sort, aggregate, search, and reshape arrays.",
+      "sections": [
+        {
+          "label": "Transformations & Aggregation",
+          "kind": "table",
+          "items": [
+            {
+              "key": "map(<f>)",
+              "key_style": "code",
+              "description": "Apply filter f to each array element and collect results into new array",
+              "example": "echo '[1, 2, 3]' | jq 'map(. * 10)'"
+            },
+            {
+              "key": "map_values(<f>)",
+              "key_style": "code",
+              "description": "Apply filter f to each value in array or object, preserving keys",
+              "example": "echo '{\"a\": 1, \"b\": 2}' | jq 'map_values(. * 10)'"
+            },
+            {
+              "key": "select(<f>)",
+              "key_style": "code",
+              "description": "Output current value unchanged if condition f is truthy, else discard",
+              "example": "echo '[1, 2, 3, 4]' | jq '.[] | select(. > 2)'"
+            },
+            {
+              "key": "length",
+              "key_style": "code",
+              "description": "Return number of array elements, object key count, or string length",
+              "example": "echo '[1, 2, 3]' | jq 'length'"
+            },
+            {
+              "key": "add",
+              "key_style": "code",
+              "description": "Sum numbers, concatenate arrays/strings, or merge array of objects",
+              "example": "echo '[10, 20, 30]' | jq 'add'"
+            },
+            {
+              "key": "add(<gen>)",
+              "key_style": "code",
+              "note": "1.8",
+              "description": "Sum or concatenate all values produced by a generator expression",
+              "example": "echo '{\"xs\": [1, 2, 3]}' | jq -c '.sum = add(.xs[])'"
+            },
+            {
+              "key": "flatten",
+              "key_style": "code",
+              "description": "Recursively flatten all nested arrays into a single flat array",
+              "example": "echo '[[1, 2], [3, [4]]]' | jq 'flatten'"
+            },
+            {
+              "key": "flatten(<depth>)",
+              "key_style": "code",
+              "description": "Flatten nested arrays up to specified maximum recursion depth",
+              "example": "echo '[[1, 2], [3, [4]]]' | jq 'flatten(1)'"
+            },
+            {
+              "key": "any",
+              "key_style": "code",
+              "description": "Return true if any element in array is truthy, false otherwise",
+              "example": "echo '[false, true, false]' | jq 'any'"
+            },
+            {
+              "key": "all",
+              "key_style": "code",
+              "description": "Return true if every element in array is truthy, false otherwise",
+              "example": "echo '[true, true, true]' | jq 'all'"
+            },
+            {
+              "key": "min",
+              "key_style": "code",
+              "description": "Return minimum value found in array",
+              "example": "echo '[5, 2, 8, 1]' | jq 'min'"
+            },
+            {
+              "key": "max",
+              "key_style": "code",
+              "description": "Return maximum value found in array",
+              "example": "echo '[5, 2, 8, 1]' | jq 'max'"
+            },
+            {
+              "key": "min_by(<f>)",
+              "key_style": "code",
+              "description": "Return array element that produces smallest result for expression f",
+              "example": "echo '[{\"v\": 5}, {\"v\": 2}]' | jq 'min_by(.v)'"
+            },
+            {
+              "key": "max_by(<f>)",
+              "key_style": "code",
+              "description": "Return array element that produces largest result for expression f",
+              "example": "echo '[{\"v\": 5}, {\"v\": 2}]' | jq 'max_by(.v)'"
+            },
+            {
+              "key": "reverse",
+              "key_style": "code",
+              "description": "Reverse the order of elements in an array",
+              "example": "echo '[1, 2, 3]' | jq 'reverse'"
+            }
+          ]
+        },
+        {
+          "label": "Sorting, Grouping & Searching",
+          "kind": "table",
+          "items": [
+            {
+              "key": "sort",
+              "key_style": "code",
+              "description": "Sort array elements in ascending order",
+              "example": "echo '[3, 1, 2]' | jq 'sort'"
+            },
+            {
+              "key": "sort_by(<f>)",
+              "key_style": "code",
+              "description": "Sort array elements based on computed key expression f",
+              "example": "echo '[{\"age\": 30}, {\"age\": 20}]' | jq 'sort_by(.age)'"
+            },
+            {
+              "key": "group_by(<f>)",
+              "key_style": "code",
+              "description": "Group array elements into sub-arrays having identical key expression f",
+              "example": "echo '[{\"t\": 1}, {\"t\": 2}, {\"t\": 1}]' | jq 'group_by(.t)'"
+            },
+            {
+              "key": "unique",
+              "key_style": "code",
+              "description": "Return array with duplicates removed, sorted in ascending order",
+              "example": "echo '[2, 1, 2, 3, 1]' | jq 'unique'"
+            },
+            {
+              "key": "unique_by(<f>)",
+              "key_style": "code",
+              "description": "Deduplicate array elements keeping first occurrence of each key f",
+              "example": "echo '[{\"id\": 1, \"v\": \"a\"}, {\"id\": 1, \"v\": \"b\"}]' | jq 'unique_by(.id)'"
+            },
+            {
+              "key": "index(<val>)",
+              "key_style": "code",
+              "description": "Return first index where target value appears in array or substring, or null",
+              "example": "echo '[\"a\", \"b\", \"c\"]' | jq 'index(\"b\")'"
+            },
+            {
+              "key": "rindex(<val>)",
+              "key_style": "code",
+              "description": "Return last index where target value appears in array or substring, or null",
+              "example": "echo '[\"a\", \"b\", \"a\"]' | jq 'rindex(\"a\")'"
+            },
+            {
+              "key": "indices(<val>)",
+              "key_style": "code",
+              "description": "Return array of all indices where target value occurs",
+              "example": "echo '[\"a\", \"b\", \"a\"]' | jq 'indices(\"a\")'"
+            },
+            {
+              "key": "contains(<subval>)",
+              "key_style": "code",
+              "description": "Check if array, string, or object contains specified sub-element",
+              "example": "echo '[\"a\", \"b\", \"c\"]' | jq 'contains([\"b\"])'"
+            },
+            {
+              "key": "inside(<container>)",
+              "key_style": "code",
+              "description": "Check if current value is contained inside target container",
+              "example": "echo '[\"b\"]' | jq 'inside([\"a\", \"b\", \"c\"])'"
+            },
+            {
+              "key": "combinations",
+              "key_style": "code",
+              "description": "Generate Cartesian product of all sub-arrays in input array",
+              "example": "echo '[[1, 2], [\"a\", \"b\"]]' | jq -c 'combinations'"
+            },
+            {
+              "key": "transpose",
+              "key_style": "code",
+              "description": "Transpose a matrix (array of arrays), swapping rows with columns",
+              "example": "echo '[[1, 2], [3, 4]]' | jq -c 'transpose'"
+            },
+            {
+              "key": "bsearch(<val>)",
+              "key_style": "code",
+              "description": "Perform binary search in sorted array returning index or insertion point",
+              "example": "echo '[10, 20, 30, 40]' | jq 'bsearch(25)'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🗂️",
+      "title": "Objects & Key Inspection",
+      "tip": "Inspect object keys, check membership, convert key-value entries, and pick fields.",
+      "sections": [
+        {
+          "label": "Object Inspection & Membership",
+          "kind": "table",
+          "items": [
+            {
+              "key": "keys",
+              "key_style": "code",
+              "description": "Return array of object keys sorted alphabetically or array indices",
+              "example": "echo '{\"b\": 1, \"a\": 2}' | jq 'keys'",
+              "tip": "Always sorts keys; use keys_unsorted to retain original document ordering."
+            },
+            {
+              "key": "keys_unsorted",
+              "key_style": "code",
+              "description": "Return array of object keys in their original document order",
+              "example": "echo '{\"b\": 1, \"a\": 2}' | jq 'keys_unsorted'"
+            },
+            {
+              "key": "has(<key>)",
+              "key_style": "code",
+              "description": "Check whether object contains given key or array contains index",
+              "example": "echo '{\"role\": \"admin\"}' | jq 'has(\"role\")'",
+              "tip": "Returns true even if the value associated with the key is null."
+            },
+            {
+              "key": "in(<obj>)",
+              "key_style": "code",
+              "description": "Check whether current string key or integer index exists in target obj",
+              "example": "echo '\"role\"' | jq 'in({\"role\": \"admin\"})'"
+            },
+            {
+              "key": "values",
+              "key_style": "code",
+              "description": "Pass input through unless it is null (same as `select(. != null)`)",
+              "example": "echo '[1, null, 2]' | jq -c 'map(values)'"
+            }
+          ]
+        },
+        {
+          "label": "Entries & Field Selection",
+          "kind": "table",
+          "items": [
+            {
+              "key": "to_entries",
+              "key_style": "code",
+              "description": "Convert object into array of {key, value} key-value entry objects",
+              "example": "echo '{\"a\": 1, \"b\": 2}' | jq 'to_entries'"
+            },
+            {
+              "key": "from_entries",
+              "key_style": "code",
+              "description": "Convert array of {key, value} objects back into a standard JSON object",
+              "example": "echo '[{\"key\": \"x\", \"value\": 10}]' | jq 'from_entries'"
+            },
+            {
+              "key": "with_entries(<f>)",
+              "key_style": "code",
+              "description": "Map filter f over {key, value} pairs of an object and convert back",
+              "example": "echo '{\"a\": 1, \"b\": 2}' | jq 'with_entries(.value *= 10)'"
+            },
+            {
+              "key": "pick(<paths>)",
+              "key_style": "code",
+              "description": "Extract subset of object or array matching specified field paths",
+              "example": "echo '{\"a\": 1, \"b\": 2, \"c\": 3}' | jq 'pick(.a, .c)'",
+              "note": "1.7+"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "📍",
+      "title": "Paths, Tree Traversal & Updates",
+      "tip": "Locate deep nodes with path arrays, prune keys, and perform surgical in-place updates.",
+      "sections": [
+        {
+          "label": "Path Inspection & Modification",
+          "kind": "table",
+          "items": [
+            {
+              "key": "path(<expr>)",
+              "key_style": "code",
+              "description": "Return array representing the path taken to reach matched element",
+              "example": "echo '{\"user\": {\"name\": \"bob\"}}' | jq 'path(.user.name)'"
+            },
+            {
+              "key": "paths",
+              "key_style": "code",
+              "description": "Stream paths to every element in the input, excluding the root itself",
+              "example": "echo '{\"a\": [1, {\"b\": 2}]}' | jq -c 'paths'",
+              "tip": "Use `paths(scalars)` to get only leaf paths."
+            },
+            {
+              "key": "paths(<f>)",
+              "key_style": "code",
+              "description": "Return stream of paths to all elements satisfying condition f",
+              "example": "echo '{\"a\": 1, \"b\": \"text\"}' | jq -c 'paths(numbers)'"
+            },
+            {
+              "key": "getpath(<path>)",
+              "key_style": "code",
+              "description": "Retrieve nested value located at specified array path",
+              "example": "echo '{\"a\": {\"b\": 42}}' | jq 'getpath([\"a\", \"b\"])'"
+            },
+            {
+              "key": "setpath(<path>; <val>)",
+              "key_style": "code",
+              "description": "Set value at specified path array, creating intermediate objects as needed",
+              "example": "echo '{}' | jq 'setpath([\"user\", \"id\"]; 10)'"
+            },
+            {
+              "key": "delpaths(<paths>)",
+              "key_style": "code",
+              "description": "Delete elements at an array of path arrays from input structure",
+              "example": "echo '{\"a\": 1, \"b\": 2}' | jq 'delpaths([[\"a\"]])'"
+            },
+            {
+              "key": "del(<path>)",
+              "key_style": "code",
+              "description": "Remove matching field, array element, or slice from JSON structure",
+              "example": "echo '{\"a\": 1, \"b\": 2}' | jq 'del(.b)'"
+            },
+            {
+              "key": "walk(<f>)",
+              "key_style": "code",
+              "description": "Recursively apply filter f bottom-up to every node in JSON tree",
+              "example": "echo '{\"a\": null, \"b\": 1}' | jq 'walk(if type == \"object\" then del(.[]? | select(. == null)) else . end)'"
+            }
+          ]
+        },
+        {
+          "label": "In-place Updates & Assignments",
+          "kind": "table",
+          "items": [
+            {
+              "key": "|=",
+              "key_style": "code",
+              "description": "Update target field in-place by piping current value through filter",
+              "example": "echo '{\"count\": 1}' | jq '.count |= . + 1'",
+              "tip": "Only updates matching locations without duplicating unchanged keys."
+            },
+            {
+              "key": "=",
+              "key_style": "code",
+              "description": "Assign expression result directly to target field path",
+              "example": "echo '{\"count\": 1}' | jq '.count = 42'"
+            },
+            {
+              "key": "+=",
+              "key_style": "code",
+              "description": "In-place addition: increment numbers, append arrays, or update objects",
+              "example": "echo '{\"tags\": [\"a\"]}' | jq '.tags += [\"b\"]'"
+            },
+            {
+              "key": "-=",
+              "key_style": "code",
+              "description": "In-place subtraction: decrement numbers or remove elements from array",
+              "example": "echo '{\"score\": 10}' | jq '.score -= 2'"
+            },
+            {
+              "key": "*=",
+              "key_style": "code",
+              "description": "In-place multiplication for numbers or deep merge for objects",
+              "example": "echo '{\"cfg\": {\"a\": 1}}' | jq '.cfg *= {\"b\": 2}'"
+            },
+            {
+              "key": "//=",
+              "key_style": "code",
+              "description": "Assign alternative value in-place only if target is null or false",
+              "example": "echo '{\"name\": null}' | jq '.name //= \"default\"'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🔤",
+      "title": "Strings & Regular Expressions",
+      "tip": "String splitting, joining, case conversion, trimming, and regex matching.",
+      "sections": [
+        {
+          "label": "String Utilities & Trimming",
+          "kind": "table",
+          "items": [
+            {
+              "key": "split(<sep>)",
+              "key_style": "code",
+              "description": "Split string into an array of substrings using specified delimiter",
+              "example": "echo '\"a,b,c\"' | jq 'split(\",\")'"
+            },
+            {
+              "key": "splits(<sep>)",
+              "key_style": "code",
+              "description": "Split string by delimiter and emit resulting substrings as a stream",
+              "example": "echo '\"a,b,c\"' | jq 'splits(\",\")'"
+            },
+            {
+              "key": "join(<sep>)",
+              "key_style": "code",
+              "description": "Join elements of string array into a single string using separator",
+              "example": "echo '[\"a\", \"b\", \"c\"]' | jq 'join(\", \")'"
+            },
+            {
+              "key": "startswith(<prefix>)",
+              "key_style": "code",
+              "description": "Return true if input string begins with specified prefix string",
+              "example": "echo '\"v1.2.3\"' | jq 'startswith(\"v1\")'"
+            },
+            {
+              "key": "endswith(<suffix>)",
+              "key_style": "code",
+              "description": "Return true if input string ends with specified suffix string",
+              "example": "echo '\"data.csv\"' | jq 'endswith(\".csv\")'"
+            },
+            {
+              "key": "ascii_downcase",
+              "key_style": "code",
+              "description": "Convert uppercase ASCII characters in string to lowercase",
+              "example": "echo '\"HELLO\"' | jq 'ascii_downcase'"
+            },
+            {
+              "key": "ascii_upcase",
+              "key_style": "code",
+              "description": "Convert lowercase ASCII characters in string to uppercase",
+              "example": "echo '\"world\"' | jq 'ascii_upcase'"
+            },
+            {
+              "key": "ltrimstr(<prefix>)",
+              "key_style": "code",
+              "description": "Remove specified prefix from string if present, else return unchanged",
+              "example": "echo '\"v1.8.0\"' | jq 'ltrimstr(\"v\")'"
+            },
+            {
+              "key": "rtrimstr(<suffix>)",
+              "key_style": "code",
+              "description": "Remove specified suffix from string if present, else return unchanged",
+              "example": "echo '\"report.json\"' | jq 'rtrimstr(\".json\")'"
+            },
+            {
+              "key": "trim",
+              "key_style": "code",
+              "description": "Remove all leading and trailing whitespace characters from string",
+              "example": "echo '\"  hello  \"' | jq 'trim'",
+              "note": "1.8"
+            },
+            {
+              "key": "ltrim",
+              "key_style": "code",
+              "description": "Remove leading whitespace characters from start of string",
+              "example": "echo '\"  hello\"' | jq 'ltrim'",
+              "note": "1.8"
+            },
+            {
+              "key": "rtrim",
+              "key_style": "code",
+              "description": "Remove trailing whitespace characters from end of string",
+              "example": "echo '\"hello  \"' | jq 'rtrim'",
+              "note": "1.8"
+            },
+            {
+              "key": "trimstr(<subseq>)",
+              "key_style": "code",
+              "description": "Remove matching substring from both start and end of string",
+              "example": "echo '\"--hello--\"' | jq 'trimstr(\"--\")'",
+              "note": "1.8"
+            },
+            {
+              "key": "explode",
+              "key_style": "code",
+              "description": "Convert string into array of integer Unicode codepoints",
+              "example": "echo '\"ABC\"' | jq 'explode'"
+            },
+            {
+              "key": "implode",
+              "key_style": "code",
+              "description": "Convert array of integer Unicode codepoints into a string",
+              "example": "echo '[65, 66, 67]' | jq 'implode'"
+            },
+            {
+              "key": "utf8bytelength",
+              "key_style": "code",
+              "description": "Return number of bytes required to encode string in UTF-8",
+              "example": "echo '\"xin chào\"' | jq 'utf8bytelength'"
+            }
+          ]
+        },
+        {
+          "label": "Regex Matching & Replacement",
+          "kind": "table",
+          "items": [
+            {
+              "key": "test(<regex>)",
+              "key_style": "code",
+              "description": "Test if string matches regular expression, returning boolean",
+              "example": "echo '\"test123\"' | jq 'test(\"[0-9]+\")'"
+            },
+            {
+              "key": "test(<regex>; <flags>)",
+              "key_style": "code",
+              "description": "Test regex match using regex flags like \"i\" (case-insensitive)",
+              "example": "echo '\"HTTP\"' | jq 'test(\"http\"; \"i\")'"
+            },
+            {
+              "key": "match(<regex>)",
+              "key_style": "code",
+              "description": "Find first regex match returning object with offset, length, captures",
+              "example": "echo '\"cat-42\"' | jq 'match(\"([a-z]+)-([0-9]+)\")'"
+            },
+            {
+              "key": "match(<regex>; <flags>)",
+              "key_style": "code",
+              "description": "Find regex matches using flags such as \"g\" for global matching",
+              "example": "echo '\"10 20 30\"' | jq '[match(\"[0-9]+\"; \"g\")]'"
+            },
+            {
+              "key": "capture(<regex>)",
+              "key_style": "code",
+              "description": "Extract named regex capture groups (?<name>...) into an object",
+              "example": "echo '\"v2.4\"' | jq 'capture(\"v(?<major>\\\\d+)\\\\.(?<minor>\\\\d+)\")'"
+            },
+            {
+              "key": "scan(<regex>)",
+              "key_style": "code",
+              "description": "Emit stream of all substring matches or capture groups matching regex",
+              "example": "echo '\"1 apple, 2 pears\"' | jq '[scan(\"\\\\d+\")]'"
+            },
+            {
+              "key": "sub(<regex>; <repl>)",
+              "key_style": "code",
+              "description": "Replace first substring matching regex with replacement string",
+              "example": "echo '\"apple banana apple\"' | jq 'sub(\"apple\"; \"orange\")'"
+            },
+            {
+              "key": "gsub(<regex>; <repl>)",
+              "key_style": "code",
+              "description": "Replace all substrings matching regex with replacement string",
+              "example": "echo '\"apple banana apple\"' | jq 'gsub(\"apple\"; \"orange\")'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "📐",
+      "title": "Math, Numbers & Type Checks",
+      "tip": "JSON type introspection, numeric casting, rounding, and math constants.",
+      "sections": [
+        {
+          "label": "Type Checks & Conversions",
+          "kind": "table",
+          "items": [
+            {
+              "key": "type",
+              "key_style": "code",
+              "description": "Return JSON type name of input as string (\"null\", \"boolean\", etc.)",
+              "example": "echo '{\"a\": 1}' | jq 'type'"
+            },
+            {
+              "key": "arrays",
+              "key_style": "code",
+              "description": "Pass input through unchanged if it is an array, else discard",
+              "example": "echo '[1, 2]' | jq 'arrays'"
+            },
+            {
+              "key": "objects",
+              "key_style": "code",
+              "description": "Pass input through unchanged if it is an object, else discard",
+              "example": "echo '{\"a\": 1}' | jq 'objects'"
+            },
+            {
+              "key": "strings",
+              "key_style": "code",
+              "description": "Pass input through unchanged if it is a string, else discard",
+              "example": "echo '\"text\"' | jq 'strings'"
+            },
+            {
+              "key": "numbers",
+              "key_style": "code",
+              "description": "Pass input through unchanged if it is a number, else discard",
+              "example": "echo '42' | jq 'numbers'"
+            },
+            {
+              "key": "booleans",
+              "key_style": "code",
+              "description": "Pass input through unchanged if it is a boolean, else discard",
+              "example": "echo 'true' | jq 'booleans'"
+            },
+            {
+              "key": "nulls",
+              "key_style": "code",
+              "description": "Pass input through unchanged if it is null, else discard",
+              "example": "echo 'null' | jq 'nulls'"
+            },
+            {
+              "key": "iterables",
+              "key_style": "code",
+              "description": "Pass input through unchanged if array or object, else discard",
+              "example": "echo '[1, 2]' | jq 'iterables'"
+            },
+            {
+              "key": "scalars",
+              "key_style": "code",
+              "description": "Pass input through unchanged if scalar (non-array, non-object)",
+              "example": "echo '42' | jq 'scalars'"
+            },
+            {
+              "key": "tostring",
+              "key_style": "code",
+              "description": "Convert input value into its formatted string representation",
+              "example": "echo '42' | jq 'tostring'"
+            },
+            {
+              "key": "tonumber",
+              "key_style": "code",
+              "description": "Parse string as number or return number unchanged",
+              "example": "echo '\"3.14\"' | jq 'tonumber'"
+            },
+            {
+              "key": "tojson",
+              "key_style": "code",
+              "description": "Serialize input value into valid JSON string literal",
+              "example": "echo '{\"a\": 1}' | jq 'tojson'"
+            },
+            {
+              "key": "fromjson",
+              "key_style": "code",
+              "description": "Parse JSON-formatted string into parsed data structure",
+              "example": "echo '\"{\\\"a\\\": 1}\"' | jq 'fromjson'"
+            },
+            {
+              "key": "toboolean",
+              "key_style": "code",
+              "description": "Convert string \"true\" or \"false\" to boolean literal",
+              "example": "echo '\"true\"' | jq 'toboolean'",
+              "note": "1.8"
+            }
+          ]
+        },
+        {
+          "label": "Math Functions & Constants",
+          "kind": "table",
+          "items": [
+            {
+              "key": "abs",
+              "key_style": "code",
+              "description": "Return absolute value of a number",
+              "example": "echo '-42' | jq 'abs'",
+              "note": "1.7+"
+            },
+            {
+              "key": "floor",
+              "key_style": "code",
+              "description": "Round number down towards negative infinity",
+              "example": "echo '3.8' | jq 'floor'"
+            },
+            {
+              "key": "ceil",
+              "key_style": "code",
+              "description": "Round number up towards positive infinity",
+              "example": "echo '3.2' | jq 'ceil'"
+            },
+            {
+              "key": "round",
+              "key_style": "code",
+              "description": "Round number to the nearest integer",
+              "example": "echo '3.5' | jq 'round'"
+            },
+            {
+              "key": "sqrt",
+              "key_style": "code",
+              "description": "Compute square root of a non-negative number",
+              "example": "echo '16' | jq 'sqrt'"
+            },
+            {
+              "key": "pow(<base>; <exp>)",
+              "key_style": "code",
+              "description": "Raise base number to the specified power exponent",
+              "example": "jq -n 'pow(2; 8)'"
+            },
+            {
+              "key": "log",
+              "key_style": "code",
+              "description": "Compute natural logarithm (base e) of number",
+              "example": "echo '10' | jq 'log'"
+            },
+            {
+              "key": "infinite",
+              "key_style": "code",
+              "description": "Produce IEEE positive infinity floating-point constant",
+              "example": "jq -n 'infinite'"
+            },
+            {
+              "key": "nan",
+              "key_style": "code",
+              "description": "Produce IEEE Not-a-Number (NaN) constant",
+              "example": "jq -n 'nan'"
+            },
+            {
+              "key": "isinfinite",
+              "key_style": "code",
+              "description": "Check if number is positive or negative infinity",
+              "example": "jq -n 'infinite | isinfinite'"
+            },
+            {
+              "key": "isnan",
+              "key_style": "code",
+              "description": "Check if number is IEEE Not-a-Number (NaN)",
+              "example": "jq -n 'nan | isnan'"
+            },
+            {
+              "key": "isfinite",
+              "key_style": "code",
+              "description": "Check if number is finite (neither infinity nor NaN)",
+              "example": "echo '42' | jq 'isfinite'"
+            },
+            {
+              "key": "have_literal_numbers",
+              "key_style": "code",
+              "description": "Return true if jq binary was built with arbitrary precision support",
+              "example": "jq -n 'have_literal_numbers'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⏱️",
+      "title": "Dates & Timestamps",
+      "tip": "Unix timestamps, ISO 8601 formatting, broken-down time arrays, and strftime.",
+      "sections": [
+        {
+          "label": "Date Formatting & Parsing",
+          "kind": "table",
+          "items": [
+            {
+              "key": "now",
+              "key_style": "code",
+              "description": "Return current Unix timestamp as floating-point seconds",
+              "example": "jq -n 'now'"
+            },
+            {
+              "key": "todate",
+              "key_style": "code",
+              "description": "Convert Unix timestamp seconds into ISO 8601 UTC string",
+              "example": "echo '1700000000' | jq 'todate'"
+            },
+            {
+              "key": "todateiso8601",
+              "key_style": "code",
+              "description": "Alias of `todate`: format Unix timestamp as ISO 8601 UTC string",
+              "example": "jq -n '1700000000 | todateiso8601'"
+            },
+            {
+              "key": "fromdate",
+              "key_style": "code",
+              "description": "Parse ISO 8601 UTC date string into Unix timestamp seconds",
+              "example": "echo '\"2023-11-14T22:13:20Z\"' | jq 'fromdate'"
+            },
+            {
+              "key": "gmtime",
+              "key_style": "code",
+              "description": "Convert Unix timestamp into UTC broken-down time array [Y,M,D,h,m,s,w,y]",
+              "example": "echo '1700000000' | jq 'gmtime'"
+            },
+            {
+              "key": "localtime",
+              "key_style": "code",
+              "description": "Convert Unix timestamp into local broken-down time array",
+              "example": "echo '1700000000' | jq 'localtime'"
+            },
+            {
+              "key": "mktime",
+              "key_style": "code",
+              "description": "Convert broken-down time array back into Unix timestamp seconds",
+              "example": "jq -n '[2023, 10, 14, 22, 13, 20, 2, 317] | mktime'"
+            },
+            {
+              "key": "strftime(<fmt>)",
+              "key_style": "code",
+              "description": "Format broken-down time array using strftime format specifiers",
+              "example": "jq -n 'now | gmtime | strftime(\"%Y-%m-%d\")'"
+            },
+            {
+              "key": "strptime(<fmt>)",
+              "key_style": "code",
+              "description": "Parse date string into broken-down time array using format specifiers",
+              "example": "echo '\"2023-11-14\"' | jq 'strptime(\"%Y-%m-%d\")'"
+            },
+            {
+              "key": "strflocaltime(<fmt>)",
+              "key_style": "code",
+              "description": "Format broken-down time array in local timezone",
+              "example": "jq -n 'now | localtime | strflocaltime(\"%H:%M:%S\")'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "⚙️",
+      "title": "Advanced Streams & SQL-style Queries",
+      "tip": "Variable scopes, reduce/foreach accumulators, SQL-like indexing and joining, stream tuples.",
+      "sections": [
+        {
+          "label": "Scoping, Reduction & Functions",
+          "kind": "table",
+          "items": [
+            {
+              "key": ". as $<var> | ...",
+              "key_style": "code",
+              "description": "Bind current input to variable $var for use in downstream filters",
+              "example": "echo '{\"x\": 10, \"y\": 20}' | jq '.x as $x | .y + $x'"
+            },
+            {
+              "key": ". as [$a, $b]",
+              "key_style": "code",
+              "description": "Destructure array elements into multiple named variables",
+              "example": "echo '[10, 20]' | jq '. as [$a, $b] | $a * $b'"
+            },
+            {
+              "key": "as <pat1> ?// <pat2>",
+              "key_style": "code",
+              "description": "Try first destructuring pattern, falling back to alternative pattern",
+              "example": "echo '{\"b\": 2}' | jq '. as [$a] ?// {b: $x} | $x'"
+            },
+            {
+              "key": "reduce <expr> as $<var> (<init>; <update>)",
+              "key_style": "code",
+              "description": "Fold over stream produced by expr, accumulating state into variable",
+              "example": "jq -n 'reduce range(1; 6) as $i (0; . + $i)'"
+            },
+            {
+              "key": "foreach <expr> as $<var> (<init>; <update>; <extract>)",
+              "key_style": "code",
+              "description": "Iterate stream accumulating state and emitting extract result at each step",
+              "example": "jq -n '[foreach range(1; 5) as $i (0; . + $i; .)]'"
+            }
+          ]
+        },
+        {
+          "label": "Advanced I/O, Debugging & SQL-style",
+          "kind": "table",
+          "items": [
+            {
+              "key": "input",
+              "key_style": "code",
+              "description": "Read next available JSON value from input stream",
+              "example": "printf '1\\n2\\n3' | jq -n '[input, input]'"
+            },
+            {
+              "key": "inputs",
+              "key_style": "code",
+              "description": "Emit all remaining JSON values from input stream",
+              "example": "printf '1\\n2\\n3' | jq -n '[inputs]'"
+            },
+            {
+              "key": "input_filename",
+              "key_style": "code",
+              "description": "Return filename of file currently being processed",
+              "example": "jq -n 'input_filename'"
+            },
+            {
+              "key": "input_line_number",
+              "key_style": "code",
+              "description": "Return line number of current input item being processed",
+              "example": "echo '{\"a\": 1}' | jq 'input_line_number'"
+            },
+            {
+              "key": "debug",
+              "key_style": "code",
+              "description": "Print `[\"DEBUG:\", <input>]` to stderr and pass input through unchanged",
+              "example": "echo '[1, 2]' | jq 'map(debug | . * 2)'"
+            },
+            {
+              "key": "debug(<msg>)",
+              "key_style": "code",
+              "note": "1.7+",
+              "description": "Print `[\"DEBUG:\", <msg>]` to stderr, then pass input through unchanged",
+              "example": "echo '{\"id\": 7}' | jq 'debug(\"processing \\(.id)\") | .id'"
+            },
+            {
+              "key": "stderr",
+              "key_style": "code",
+              "description": "Print input raw and compact to stderr with no newline, pass input through",
+              "example": "echo '\"warn\"' | jq '(\"Notice: \" + . + \"\\n\") | stderr | empty'"
+            },
+            {
+              "key": "halt",
+              "key_style": "code",
+              "description": "Immediately terminate jq process with exit code 0",
+              "example": "echo '[1, 2, 3]' | jq '.[] | if . == 2 then halt else . end'"
+            },
+            {
+              "key": "halt_error",
+              "key_style": "code",
+              "description": "Terminate jq process immediately with exit code 5 and print input to stderr",
+              "example": "echo '\"fatal error\"' | jq 'halt_error'"
+            },
+            {
+              "key": "INDEX(<stream>; <expr>)",
+              "key_style": "code",
+              "description": "Index an array or stream into an object keyed by computed expression",
+              "example": "echo '[{\"id\": \"a\", \"v\": 1}]' | jq 'INDEX(.id)'"
+            },
+            {
+              "key": "IN(<source>)",
+              "key_style": "code",
+              "description": "Return true if input value matches any element produced by source stream",
+              "example": "echo '\"apple\"' | jq 'IN(\"apple\", \"banana\")'"
+            },
+            {
+              "key": "JOIN($idx; <expr>)",
+              "key_style": "code",
+              "description": "Join array items against an indexed object table using foreign key",
+              "example": "jq -n '[{\"id\":\"1\"}] | INDEX(.id) as $i | [{\"id\":\"1\"}] | JOIN($i; .id)'"
+            },
+            {
+              "key": "tostream",
+              "key_style": "code",
+              "description": "Convert JSON value into a stream of path-value tuples",
+              "example": "echo '{\"a\": 1}' | jq -c 'tostream'"
+            },
+            {
+              "key": "fromstream(<stream>)",
+              "key_style": "code",
+              "description": "Reconstruct full JSON value from a stream of path-value tuples",
+              "example": "printf '[[\"a\"], 1]\\n[[\"a\"]]\\n' | jq -n 'fromstream(inputs)'"
+            },
+            {
+              "key": "truncate_stream(<stream>)",
+              "key_style": "code",
+              "description": "Remove first path component from tuples in a JSON stream",
+              "example": "jq -c -n '1 | truncate_stream([[1, \"a\"], 2], [[1, \"a\"]])'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "📦",
+      "title": "Modules & Function Definitions",
+      "tip": "Define modular functions, organize libraries, and inspect runtime reflection metadata.",
+      "sections": [
+        {
+          "label": "Custom Functions & Scopes",
+          "kind": "table",
+          "items": [
+            {
+              "key": "def <name>: <body>;",
+              "key_style": "code",
+              "description": "Define a reusable custom filter function without arguments",
+              "example": "jq -n 'def double: . * 2; 5 | double'"
+            },
+            {
+              "key": "def <name>(<arg>): <body>;",
+              "key_style": "code",
+              "description": "Define a reusable custom filter function taking arguments",
+              "example": "jq -n 'def addn(n): . + n; 10 | addn(5)'"
+            },
+            {
+              "key": "$__loc__",
+              "key_style": "code",
+              "description": "Object containing file and line number of current expression",
+              "example": "jq -n '$__loc__'"
+            },
+            {
+              "key": "builtins",
+              "key_style": "code",
+              "description": "Return array of all builtin function names and their arities",
+              "example": "jq -n 'builtins | length'"
+            }
+          ]
+        },
+        {
+          "label": "Module Imports & Libraries",
+          "kind": "table",
+          "items": [
+            {
+              "key": "import \"<mod>\" as <name>;",
+              "key_style": "code",
+              "description": "Import functions from a module into a scoped namespace",
+              "example": "jq -n -L ./lib 'import \"utils\" as u; u::add(5; 10)'"
+            },
+            {
+              "key": "include \"<mod>\";",
+              "key_style": "code",
+              "description": "Include all function definitions from module directly into current scope",
+              "example": "jq -n -L ./lib 'include \"helpers\"; process'"
+            },
+            {
+              "key": "-L, --library-path <dir>",
+              "key_style": "code",
+              "description": "Add directory to search path for resolving imported modules",
+              "example": "jq -L ~/.jq/lib -f script.jq data.json"
+            },
+            {
+              "key": "modulemeta",
+              "key_style": "code",
+              "description": "Return metadata object for a specified module name",
+              "example": "jq -n -L ./lib '\"helpers\" | modulemeta'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "icon": "🍳",
+      "title": "Practical Recipes",
+      "layout": "wide",
+      "tip": "Production-ready CLI one-liners for common day-to-day data manipulation tasks.",
+      "sections": [
+        {
+          "label": "CLI One-Liners & Piping",
+          "kind": "table",
+          "items": [
+            {
+              "key": "jq '.' <file>",
+              "key_style": "cmd",
+              "description": "Pretty-print formatted JSON file to terminal",
+              "example": "jq '.' package.json"
+            },
+            {
+              "key": "curl -s <url> | jq '.<field>'",
+              "key_style": "cmd",
+              "description": "Fetch JSON from API and extract specific field value",
+              "example": "curl -s https://api.github.com/users/octocat | jq '.name'"
+            },
+            {
+              "key": "jq '.[] | select(.<field> == <val>)' <file>",
+              "key_style": "cmd",
+              "description": "Filter array of objects by matching a specific field value",
+              "example": "jq '.[] | select(.role == \"admin\")' users.json"
+            },
+            {
+              "key": "jq -r '.[] | [.<f1>, .<f2>] | @csv' <file>",
+              "key_style": "cmd",
+              "description": "Export selected object fields from array to CSV format",
+              "example": "jq -r '.[] | [.name, .email] | @csv' users.json"
+            },
+            {
+              "key": "jq -r '.[] | [.<f1>, .<f2>] | @tsv' <file>",
+              "key_style": "cmd",
+              "description": "Export selected object fields from array to TSV format",
+              "example": "jq -r '.[] | [.name, .id] | @tsv' users.json"
+            },
+            {
+              "key": "jq 'length' <file>",
+              "key_style": "cmd",
+              "description": "Count total number of elements in top-level JSON array",
+              "example": "jq 'length' users.json"
+            },
+            {
+              "key": "jq -s '.[0] * .[1]' <file1> <file2>",
+              "key_style": "cmd",
+              "description": "Recursively merge two JSON files overriding left with right",
+              "example": "jq -s '.[0] * .[1]' base.json override.json"
+            },
+            {
+              "key": "jq '.<field> = <val>' <file> | sponge <file>",
+              "key_style": "cmd",
+              "description": "Update JSON file in-place safely using sponge from moreutils",
+              "example": "jq '.version = \"2.0.0\"' package.json | sponge package.json",
+              "danger": "Do not redirect with > directly to the input file as it empties it before reading."
+            },
+            {
+              "key": "jq --arg <var> \"$<SHELL_VAR>\" '.<field> = $<var>' <file>",
+              "key_style": "cmd",
+              "description": "Inject shell environment variable into JSON structure safely",
+              "example": "jq --arg u \"$USER\" '.author = $u' package.json"
+            }
+          ]
+        },
+        {
+          "label": "Data Transformation Recipes",
+          "kind": "table",
+          "items": [
+            {
+              "key": "jq -c 'select(.<field> == \"<val>\")' <file>",
+              "key_style": "cmd",
+              "description": "Filter stream of newline-delimited JSON (NDJSON) log objects",
+              "example": "jq -c 'select(.level == \"error\")' app.log.json"
+            },
+            {
+              "key": "jq '[paths(scalars) as $p | {path: ($p | join(\".\")), val: getpath($p)}]' <file>",
+              "key_style": "cmd",
+              "description": "Flatten nested JSON object keys into dot-separated paths",
+              "example": "jq '[paths(scalars) as $p | {path: ($p | join(\".\")), val: getpath($p)}]' config.json"
+            },
+            {
+              "key": "jq 'del(.. | nulls)' <file>",
+              "key_style": "cmd",
+              "description": "Recursively remove every null value from a JSON document",
+              "example": "jq 'del(.. | nulls)' payload.json"
+            },
+            {
+              "key": "jq '.<new_key> = .<old_key> | del(.<old_key>)' <file>",
+              "key_style": "cmd",
+              "description": "Rename an object property key while preserving its value",
+              "example": "jq '.new_name = .old_name | del(.old_name)' data.json"
+            },
+            {
+              "key": "jq '[.[].<field>] | add' <file>",
+              "key_style": "cmd",
+              "description": "Calculate sum of a numeric field across all array objects",
+              "example": "jq '[.[].price] | add' orders.json"
+            },
+            {
+              "key": "jq '[.[].<field>] | unique' <file>",
+              "key_style": "cmd",
+              "description": "Extract sorted unique values of a specific field from array",
+              "example": "jq '[.[].category] | unique' products.json"
+            },
+            {
+              "key": "jq 'group_by(.<field>) | map({key: .[0].<field>, count: length})' <file>",
+              "key_style": "cmd",
+              "description": "Group array by field and count number of items in each group",
+              "example": "jq 'group_by(.status) | map({status: .[0].status, count: length})' jobs.json"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

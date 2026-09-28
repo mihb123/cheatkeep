@@ -51,7 +51,7 @@ uv run -q -m cheatsheet.extract
 # translate tự chạy lại extract khi có bản dịch mới; thiếu agy/lỗi thì vẫn tiếp tục với bản dịch đang có
 uv run -q -m cheatsheet.translate || echo "⚠ còn entry chưa có bản dịch tiếng Việt (search vẫn chạy, kém chính xác hơn)" >&2
 psql_db() { docker compose exec -T db sh -c 'psql -v ON_ERROR_STOP=1 -q -U "$POSTGRES_USER" -d "$POSTGRES_DB"'; }
-cat db/schema.sql db/seed.sql | psql_db
+cat db/schema.sql db/seed/*.sql | psql_db
 uv run -q -m cheatsheet.embed --prune
 
 docker compose exec -T db sh -c 'psql -U "$POSTGRES_USER" -d "$POSTGRES_DB" -c "TABLE sheet_list" \

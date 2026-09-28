@@ -79,7 +79,7 @@ Kịch bản sẽ tự động:
 2. Khởi chạy PostgreSQL container với pgvector.
 3. Kiểm tra kết nối Ollama và model `bge-m3`.
 4. Trích xuất dữ liệu từ các file HTML cheatsheet sang dữ liệu cấu trúc.
-5. Nạp `db/schema.sql` và `db/seed.sql`.
+5. Nạp `db/schema.sql` và `db/seed/*.sql`.
 6. Tính toán embeddings lưu vào pgvector (`bge-m3`).
 
 ---
@@ -178,7 +178,7 @@ Lệnh sẽ tính toán các chỉ số:
 │   └── translations.vi.json # Bộ từ điển dịch & 3 cụm từ tìm kiếm tương ứng
 ├── db/
 │   ├── schema.sql           # Cấu trúc bảng, index HNSW, tsvector, store procedures
-│   └── seed.sql             # Dữ liệu seed trích xuất từ các cheatsheet
+│   └── seed/<slug>.sql      # Dữ liệu seed trích xuất, 1 file / sheet (sinh bởi extract)
 ├── docs/                    # Tài liệu kiến trúc phân chia theo Feature
 │   ├── README.md            # File Index điều hướng tài liệu
 │   └── features/            # Tài liệu chi tiết cho 8 module tính năng
@@ -211,7 +211,7 @@ Lệnh sẽ tính toán các chỉ số:
    ```
 4. Cập nhật cơ sở dữ liệu và đánh vector mới:
    ```bash
-   make load     # nạp db/schema.sql + db/seed.sql rồi embed phần mới (--prune)
+   make load     # nạp db/schema.sql + db/seed/*.sql rồi embed phần mới (--prune)
    ```
    Hoặc gộp bước 2–4: `make reload` (`ENGINE=ollama make reload` để dịch bằng model local). Xem mọi lệnh: `make help`.
 

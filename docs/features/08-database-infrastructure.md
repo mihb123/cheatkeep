@@ -9,7 +9,7 @@
 | File | Vai trò trong Feature |
 |---|---|
 | [`db/schema.sql`](file:///home/chuminh/cheatsheet/db/schema.sql) | DDL khởi tạo toàn bộ schema: bảng `sheets`, `entries`, `embeddings`, chỉ mục HNSW/GIN, view `sheet_list` và hàm `search_entries()`, `sheet_json()`. |
-| [`db/seed.sql`](file:///home/chuminh/cheatsheet/db/seed.sql) | Dữ liệu khởi tạo được sinh tự động từ các file HTML cheatsheet. |
+| [`db/seed/<slug>.sql`](file:///home/chuminh/cheatsheet/db/seed/) | Dữ liệu khởi tạo sinh tự động từ `sheets/*.json` / HTML, 1 file / sheet. |
 | [`docker-compose.yml`](file:///home/chuminh/cheatsheet/docker-compose.yml) | Cấu hình dịch vụ PostgreSQL 18 kèm pgvector, quản lý volume dữ liệu `pgdata`. |
 | [`scripts/setup.sh`](file:///home/chuminh/cheatsheet/scripts/setup.sh) | Script bash tự động hóa: quét cổng trống, tạo `.env`, khởi chạy container, kiểm tra Ollama, migrate schema, seed và embed. |
 | [`.env.example`](file:///home/chuminh/cheatsheet/.env.example) / `.env` | File khai báo biến môi trường kết nối database, cổng web và URL Ollama. |
@@ -28,9 +28,9 @@ flowchart TD
     CreateEnv & KeepEnv --> Docker["docker compose up -d --wait (Khởi động Postgres 18 + pgvector)"]
     Docker --> CheckOllama["Kiểm tra Ollama native & pull model bge-m3"]
     
-    CheckOllama --> Extract["cheatsheet.extract -> Sinh seed.sql"]
+    CheckOllama --> Extract["cheatsheet.extract -> Sinh db/seed/*.sql"]
     Extract --> Translate["cheatsheet.translate -> Dịch tiếng Việt (nếu có agy)"]
-    Translate --> ApplySQL["Nạp db/schema.sql & db/seed.sql vào Postgres"]
+    Translate --> ApplySQL["Nạp db/schema.sql & db/seed/*.sql vào Postgres"]
     ApplySQL --> Embed["cheatsheet.embed --prune -> Tính toán vector vào pgvector"]
     Embed --> Ready["Hệ thống sẵn sàng phục vụ!"]
 ```
@@ -58,7 +58,7 @@ embeddings (Bộ nhớ đệm vector - Độc lập với entries)
  └── embedding        ──> vector(1024) có chỉ mục HNSW (cosine)
 ```
 
-- **Tách biệt `entries` và `embeddings`**: Khi chạy lại `db/seed.sql`, bảng `entries` được nạp lại nhưng bảng `embeddings` được bảo toàn. Các dòng dữ liệu không thay đổi nội dung sẽ tự động khớp lại vector cũ qua `content_hash` mà không phải tốn tài nguyên embed lại.
+- **Tách biệt `entries` và `embeddings`**: Khi chạy lại `db/seed/*.sql`, bảng `entries` được nạp lại nhưng bảng `embeddings` được bảo toàn. Các dòng dữ liệu không thay đổi nội dung sẽ tự động khớp lại vector cũ qua `content_hash` mà không phải tốn tài nguyên embed lại.
 
 ---
 

@@ -12,7 +12,7 @@ Tài liệu được phân chia theo từng tính năng độc lập. Sử dụn
 | # | Tính năng (Feature) | Mục đích chính | Tài liệu chi tiết | File liên quan cốt lõi |
 |---|---|---|---|---|
 | **01** | **Hybrid Search Engine** | Tìm kiếm lai giữa Semantic Vector (`pgvector`) và Keyword (`tsvector` + `unaccent`); tiền tố `tool:` lọc cứng theo sheet, tên tool trong câu chỉ được ưu tiên (boost). | [01-hybrid-search.md](file:///home/chuminh/cheatsheet/docs/features/01-hybrid-search.md) | [`search.py`](file:///home/chuminh/cheatsheet/cheatsheet/search.py), [`schema.sql`](file:///home/chuminh/cheatsheet/db/schema.sql), [`embedder.py`](file:///home/chuminh/cheatsheet/cheatsheet/embedder.py) |
-| **02** | **Data Ingestion & Extraction** | Parser đọc HTML cheatsheet hoặc nguồn viết tay `sheets/*.json` (kèm `aliases`), chuẩn hóa cây card/section, chặn alias trùng giữa các sheet, xuất seed SQL + JSON. | [02-data-extraction.md](file:///home/chuminh/cheatsheet/docs/features/02-data-extraction.md) | [`extract.py`](file:///home/chuminh/cheatsheet/cheatsheet/extract.py), [`seed.sql`](file:///home/chuminh/cheatsheet/db/seed.sql), `data/*.json` |
+| **02** | **Data Ingestion & Extraction** | Parser đọc HTML cheatsheet hoặc nguồn viết tay `sheets/*.json` (kèm `aliases`), chuẩn hóa cây card/section, chặn alias trùng giữa các sheet, xuất seed SQL + JSON. | [02-data-extraction.md](file:///home/chuminh/cheatsheet/docs/features/02-data-extraction.md) | [`extract.py`](file:///home/chuminh/cheatsheet/cheatsheet/extract.py), [`db/seed/*.sql`](file:///home/chuminh/cheatsheet/db/seed/), `data/*.json` |
 | **03** | **Bilingual Translation & Augmentation** | Dịch tự động sang tiếng Việt và sinh 3 cụm từ tìm kiếm thực tế qua LLM (`agy` / Gemini), lưu cache chống trùng lặp. | [03-translation-augmentation.md](file:///home/chuminh/cheatsheet/docs/features/03-translation-augmentation.md) | [`translate.py`](file:///home/chuminh/cheatsheet/cheatsheet/translate.py), [`translations.vi.json`](file:///home/chuminh/cheatsheet/data/translations.vi.json) |
 | **04** | **Vector Embedding Pipeline** | Đánh vector embedding gia tăng (incremental) qua Ollama `bge-m3`, theo dõi `model_digest`, dọn rác vector mồ côi. | [04-embedding-pipeline.md](file:///home/chuminh/cheatsheet/docs/features/04-embedding-pipeline.md) | [`embed.py`](file:///home/chuminh/cheatsheet/cheatsheet/embed.py), [`embedder.py`](file:///home/chuminh/cheatsheet/cheatsheet/embedder.py), [`config.py`](file:///home/chuminh/cheatsheet/cheatsheet/config.py) |
 | **05** | **Terminal CLI (`chs`)** | Tra cứu lệnh từ terminal, tự nạp env, tiền tố `tool:` (`chs "nvim: xoá dòng"`), bảng viết tắt `--list`, gợi ý khi kết quả lẫn sheet, copy (`-c`), pipe/eval (`-p`). | [05-terminal-cli.md](file:///home/chuminh/cheatsheet/docs/features/05-terminal-cli.md) | [`chs`](file:///home/chuminh/cheatsheet/chs), [`cli.py`](file:///home/chuminh/cheatsheet/cheatsheet/cli.py) |
@@ -33,7 +33,7 @@ flowchart TD
         JSON --> Trans["cheatsheet/translate.py (LLM / agy)"]
         Trans --> ViJSON["data/translations.vi.json"]
         ViJSON --> Ext
-        Ext --> Seed["db/seed.sql"]
+        Ext --> Seed["db/seed/*.sql"]
         Seed --> Postgres[("PostgreSQL 18 + pgvector")]
     end
 
@@ -95,7 +95,7 @@ uv run server.py --reload
 uv run -m cheatsheet.evaluate
 
 # Pipeline dữ liệu thủ công
-uv run -m cheatsheet.extract             # Parse HTML + sheets/*.json -> seed.sql
+uv run -m cheatsheet.extract             # Parse HTML + sheets/*.json -> db/seed/<slug>.sql
 uv run -m cheatsheet.translate           # Dịch tiếng Việt các entry mới
 uv run -m cheatsheet.embed --prune       # Đánh embedding & dọn vector cũ
 ```
