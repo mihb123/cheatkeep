@@ -21,3 +21,9 @@ services:
 
 volumes:
   pgdata:
+
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 10.203.19.0/24
